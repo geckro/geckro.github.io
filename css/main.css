@@ -38,5 +38,13 @@ a:visited:hover {
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    transition: 500ms ease;
+    transition: 5000ms ease;
+}
+#homelink {
+    float:right;
+    font-size:14px;
+}
+main h2 {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
