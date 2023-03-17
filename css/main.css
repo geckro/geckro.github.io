@@ -1,4 +1,33 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
 body {
-    background-color:gray;
-    font-family: sans-serif;
+    background-color:#1f1f1f;
+    color: #cccccc;
+    font-family: "Cascadia Mono", monospace;
+    height: 100%;
+}
+header {
+    padding: 1em;
+    background-color: #161616;
+    border-bottom:1px solid gray;
+}
+main {
+    margin:1em;
+    padding-bottom: 180px;
+    overflow: auto;
+}
+footer {
+    padding: 1em;
+    border-top:1px solid white;
+}
+body:before {
+    content: "";
+    height: 100%;
+    float: left;
+    width: 0;
+    margin-top: -32767px;
+    /* thank you Erik J - negate effect of float*/
 }
