@@ -6,7 +6,7 @@
 body {
     background-color:#1f1f1f;
     color: #cccccc;
-    font-family: "Cascadia Mono", monospace;
+    font-family: "Aldrich", sans-serif;
     height: 100%;
 }
 header {
@@ -23,11 +23,20 @@ footer {
     padding: 1em;
     border-top:1px solid white;
 }
-body:before {
-    content: "";
-    height: 100%;
-    float: left;
-    width: 0;
-    margin-top: -32767px;
-    /* thank you Erik J - negate effect of float*/
+footer a {
+    font-family: "Cascadia Mono", monospace;
+}
+a:hover {
+    color: rgb(35, 138, 202);
+}
+a:visited:hover {
+    color: rgb(155, 20, 222);
+}
+#title:hover {
+    color: #cccccc;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, purple);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: 500ms ease;
 }
