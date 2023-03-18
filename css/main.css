@@ -1,8 +1,8 @@
 @import url("https://fonts.bunny.net/css?family=ibm-plex-mono");
 :root {
-    --primary-color: #dadada;
+    --primary-color: #f2f2f2;
     --secondary-color: #b8ceef;
-    --bold-color: #debaba;
+    --bold-color: #f8cfcf;
     --bg-color: #1f1f1f;
     --heading-bg-color: #161616;
 }
@@ -78,4 +78,8 @@ details > summary:hover {
 }
 details > p {
     font-style:italic;
+}
+#date {
+    font-style:italic;
+    color: #c0bcff;
 }
