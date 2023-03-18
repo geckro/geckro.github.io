@@ -1,23 +1,35 @@
-
+@import url("https://fonts.bunny.net/css?family=ibm-plex-mono");
+:root {
+    --primary-color: #dadada;
+    --secondary-color: #b8ceef;
+    --bold-color: #debaba;
+    --bg-color: #1f1f1f;
+    --heading-bg-color: #161616;
+}
 * {
     margin: 0;
     padding: 0;
 }
 body {
-    background-color:#1f1f1f;
-    color: #cccccc;
+    color: var(--primary-color);
+    background-color: var(--bg-color);
     font-family: "Aldrich", sans-serif;
     height: 100%;
 }
 header {
+    background-color: var(--heading-bg-color);
     padding: 1em;
-    background-color: #161616;
     border-bottom:1px solid gray;
 }
 main {
     margin:1em;
     padding-bottom: 180px;
     overflow: auto;
+    width:75%;
+}
+code {
+    font-family: "IBM Plex Mono";
+    background-color: #39433a;
 }
 footer {
     padding: 1em;
@@ -26,6 +38,9 @@ footer {
 footer a {
     font-family: "Cascadia Mono", monospace;
 }
+strong {
+    color: var(--bold-color);
+}
 a:hover {
     color: rgb(35, 138, 202);
 }
@@ -33,7 +48,7 @@ a:visited:hover {
     color: rgb(155, 20, 222);
 }
 #title:hover {
-    color: #cccccc;
+    color: var(--primary-color);
     background: linear-gradient(90deg, red, orange, yellow, green, blue, purple);
     background-clip: text;
     -webkit-background-clip: text;
@@ -47,4 +62,20 @@ a:visited:hover {
 main h2 {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+}
+#posts th, #posts td {
+    padding: 0.3em;
+    text-align: left;
+}
+.secondary {
+    color: var(--secondary-color)
+}
+details > summary {
+    cursor: pointer;
+}
+details > summary:hover {
+    color: rgb(226, 167, 255);
+}
+details > p {
+    font-style:italic;
 }
