@@ -1,10 +1,15 @@
-@import url("https://fonts.bunny.net/css?family=ibm-plex-mono");
+@import url("https://fonts.bunny.net/css?family=ibm-plex-sans");
 :root {
-    --primary-color: #f2f2f2;
-    --secondary-color: #b8ceef;
-    --bold-color: #f8cfcf;
-    --bg-color: #1f1f1f;
-    --heading-bg-color: #161616;
+    --primary-color: #f8f8f2;
+    --secondary-color: #abb8ca;
+    --bold-color: #ffb86c;
+    --bg-color: #282a36;
+    --heading-bg-color: #1b1d28;
+    --site-color: #8be9fd;
+    --site-color-hover: #5dbbd1;
+    --site-color-visited: #bd93f9;
+    --site-color-visited-hover: #825aba;
+    --code-color: #6272a4;
 }
 * {
     margin: 0;
@@ -13,13 +18,17 @@
 body {
     color: var(--primary-color);
     background-color: var(--bg-color);
-    font-family: "Aldrich", sans-serif;
-    height: 100%;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 18px;
 }
 header {
     background-color: var(--heading-bg-color);
-    padding: 1em;
-    border-bottom:1px solid gray;
+    padding: 2.5em;
+    border-bottom:1px solid var(--secondary-color);
+}
+header h1,ul {
+    display: inline;
+    float: left;
 }
 main {
     margin:1em;
@@ -41,11 +50,17 @@ footer a {
 strong {
     color: var(--bold-color);
 }
+a {
+    color: var(--site-color);
+}
 a:hover {
-    color: rgb(35, 138, 202);
+    color: var(--site-color-hover);
+}
+a:visited {
+    color: var(--site-color-visited);
 }
 a:visited:hover {
-    color: rgb(155, 20, 222);
+    color: var(--site-color-visited-hover);
 }
 #title:hover {
     color: var(--primary-color);
@@ -82,4 +97,16 @@ details > p {
 #date {
     font-style:italic;
     color: #c0bcff;
+}
+#navbar {
+    list-style-type: none;
+    float: right;
+}
+#navbar > li {
+    display: inline;
+    float: left;
+}
+#navbar > li > a {
+    display: block;
+    padding: 0.5em;
 }
