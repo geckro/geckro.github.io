@@ -9,7 +9,25 @@
         <meta name="description" content="useful websites" />
         <link rel="icon" href="/img/favicon.ico" />
         <link rel="stylesheet" href="/css/main.css" />
-        <link rel="stylesheet" href="https://fonts.bunny.net/css?family=aldrich" />
+        <style>
+            td,th,tr,table {
+                padding: 10px;
+                border: 1px solid var(--secondary-color);
+                border-collapse: collapse;
+            }
+            #g {
+                color: rgb(220, 182, 111);
+            }
+            #transrights:hover {
+                background: rgb(0,151,255);
+                background: linear-gradient(90deg, rgba(0,151,255,1) 0%, rgba(214,140,206,1) 19%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 59%, rgba(214,140,206,1) 82%, rgba(0,151,255,1) 100%); 
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            #k {
+                color: rgb(66, 120, 191);
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -24,7 +42,7 @@
                 <h1>🔗 Links</h1>
             </div>
             <div id="date">
-                <p>Last updated: 2023-03-31</p>
+                <p>Last updated: 2023-04-01</p>
             </div>
         </header>
         <!--TODO ADD MORE-->
@@ -41,7 +59,104 @@
                 <li><a href="https://nohello.net/en/">no hello</a> - Don't say hello, just ask the question.</li>
                 <li><a href="https://tineye.com/">TinEye</a> - Good reverse image search to check if images might've been altered.</li>
                 <li><a href="https://thenounproject.com/">TheNounProject</a> - Free icons for projects.</li>
+                <li><a href="https://alternativeto.net/">AlternativeTo</a> - Find alternatives to all the programs you use.</li>
+                <li><a href="https://www.privacyguides.org/en/">PrivacyGuides</a> - Sane guide to privacy (and security) on the internet.</li>
             </ul>
+
+            <h2>List of cool software</h2>
+            
+            <p>I figured I'd put a list of software I like or enjoy here and not make a blogpost as it's neater.</p>
+            <p>Note that I mainly use <a href="https://flatpak.org/">Flatpak</a> with <a href="https://flathub.org/home">Flathub</a> nowadays. Apps that are orange are integrated into GNOME and apps that are blue are integrated well into Plasma.</p>
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>Cool software</th>
+                </tr>
+                <tr>
+                    <td>Operating Systems</td>
+                    <td>Fedora / Fedora Silverblue / EndeavourOS</td>
+                </tr>
+                <tr>
+                    <td>Desktop Environments</td>
+                    <td><span id="g">GNOME</span> / <span id="k">KDE Plasma</span></td>
+                </tr>
+                <tr>
+                    <td>Display servers</td>
+                    <td>Wayland</td>
+                </tr>
+                <tr>
+                    <td>File Managers</td>
+                    <td><span id="k">Dolphin</span></td>
+                </tr>
+                <tr>
+                    <td>Web Browsers</td>
+                    <td>Firefox / Vivaldi / TOR Browser</td>
+                </tr>
+                <tr>
+                    <td>Audio/Music Players</td>
+                    <td><span id="g">Amberol</span> / <span id="k">Elisa</span></td>
+                </tr>
+                <tr>
+                    <td>Video Players</td>
+                    <td><span id="g">Celluloid</span> / mpv</td>
+                </tr>
+                <tr>
+                    <td>TUI Editors</td>
+                    <td>nano</td>
+                </tr>
+                <tr>
+                    <td>Text Editors</td>
+                    <td><span id="k">Kate</span> / Visual Studio Code</td>
+                </tr>
+                <tr>
+                    <td>Markdown Editors</td>
+                    <td><span id="g">Apostrophe</span></td>
+                </tr>
+                <tr>
+                    <td>Password Managers</td>
+                    <td><span id="g">Secrets</span> / <span id="k">KeePassXC</span></td>
+                </tr>
+                <tr>
+                    <td>Torrentors</td>
+                    <td><span id="g">Fragments</span> / <span id="k">qBitTorrent</span>  / <span id="transrights">Transmission</span></td>
+                </tr>
+                <tr>
+                    <td>Download managers</td>
+                    <td><span id="k">kGet</span> / JDownloader</td>
+                </tr>
+                <tr>
+                    <td>Video Editors</td>
+                    <td><span id="k">Kdenlive</span> / DaVinci Resolve</td>
+                </tr>
+                <tr>
+                    <td>Image Editors</td>
+                    <td>GIMP</td>
+                </tr>
+                <tr>
+                    <td>Email clients</td>
+                    <td><span id="g">Geary</span></td>
+                </tr>
+                <tr>
+                    <td>Office Suites</td>
+                    <td>LibreOffice / OnlyOffice</td>
+                </tr>
+                <tr>
+                    <td>Terminals</td>
+                    <td><span id="k">Konsole</span> / Alacritty</td>
+                </tr>
+                <tr>
+                    <td>Virtualization</td>
+                    <td><span id="g">GNOME Boxes</span> / VirtualBox</td>
+                </tr>
+                <tr>
+                    <td>PDF / Document Viewers</td>
+                    <td><span id="g">Evince</span> / <span id="k">Okular</span></td>
+                </tr>
+                <tr>
+                    <td>Other</td>
+                    <td><span id="g">Blanket</span> / <span id="g">Flatseal</span> / <span id="g">Kooha</span></td>
+                </tr>
+            </table>
         </main>
         <footer>
             <p>Source Code: <a href="https://github.com/geckro/geckro.github.io">geckro/geckro.github.io</a></p>
