@@ -27,6 +27,54 @@
             #k {
                 color: rgb(66, 120, 191);
             }
+            .tooltip {
+                position: relative;
+                display: inline-block;
+            }
+
+            .tooltip .tooltiptext {
+                visibility: hidden;
+                width: 400px;
+                background-color: var(--background-header-color);
+                text-align: center;
+                border-radius: 12px;
+                padding: 5px 5px;
+
+                /* Position the tooltip text */
+                position: absolute;
+                z-index: 1;
+                bottom: 100%;
+                left: 50%;
+                margin-left: -60px;
+
+                /* Fade in the tooltip */
+                opacity: 0;
+                transition: opacity 1s;
+
+                box-shadow: 0 0 8px var(--secondary-color);
+            }
+            .tooltiptext p {
+                background-color: var(--background-color);
+                border-radius: 5px;
+                padding: 5px;
+            }
+
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+                opacity: 1;
+            }
+            img {
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                background-color: var(--background-color);
+                border-radius: 5px;
+                padding: 3px;
+            }
+            .tooltiptext a {
+                display: inline-block;
+                padding: 2px;
+            }
         </style>
     </head>
     <body>
@@ -66,7 +114,7 @@
             <h2>List of cool software</h2>
             
             <p>I figured I'd put a list of software I like or enjoy here and not make a blogpost as it's neater.</p>
-            <p>Note that I mainly use <a href="https://flatpak.org/">Flatpak</a> with <a href="https://flathub.org/home">Flathub</a> nowadays. Apps that are orange are integrated into GNOME and apps that are blue are integrated well into Plasma.</p>
+            <p>Note that I mainly use <a href="https://flatpak.org/">Flatpak</a> with <a href="https://flathub.org/home">Flathub</a> nowadays, unless I'm on an OS that is based on Arch. Apps that are <span id="g">orange</span> are integrated into <a href="https://www.gnome.org/">GNOME</a> and apps that are <span id="k">blue</span> are integrated into <a href="https://kde.org/plasma-desktop/">KDE Plasma</a>.</p>
             <table>
                 <tr>
                     <th>Category</th>
@@ -86,7 +134,14 @@
                 </tr>
                 <tr>
                     <td>File Managers</td>
-                    <td><span id="k">Dolphin</span></td>
+                    <td>
+                        <span id="k" class='tooltip'>Dolphin
+                            <span class="tooltiptext">
+                                <a href='https://flathub.org/apps/details/org.kde.dolphin'><img src='/img/flathub-logo-small.png'/></a><a href='https://binary-factory.kde.org/job/Dolphin_Release_win64/'><img src='/img/win-logo-small.png'/></a>
+                                <p><i>Dolphin is simply the most powerful file manager out there in my experience. Tabbed folders, split view, fast searching, and more; and it's all as customizable as you want. Everything else just lacks in comparison.</i></p>
+                            </span>
+                        </span><br/>
+                    </td>
                 </tr>
                 <tr>
                     <td>Web Browsers</td>
@@ -122,7 +177,20 @@
                 </tr>
                 <tr>
                     <td>Download managers</td>
-                    <td><span id="k">kGet</span> / JDownloader</td>
+                    <td>
+                        <span id="k" class='tooltip'>KGet
+                            <span class="tooltiptext">
+                                <a href='https://flathub.org/apps/details/org.kde.kget'><img src='/img/flathub-logo-small.png'/></a>
+                                <p><i>KGet is the only download manager that competes with JDownloader. Has a great UI, tons of options. Linux only.</i></p>
+                            </span>
+                        </span><br/>
+                        <span class='tooltip'>JDownloader
+                            <span class="tooltiptext">
+                                <a href='https://flathub.org/apps/details/org.jdownloader.JDownloader'><img src='/img/flathub-logo-small.png'/></a><a href='https://jdownloader.org/jdownloader2'><img src='/img/win-logo-small.png'/></a><a href='https://jdownloader.org/jdownloader2'><img src='/img/app-logo-small.png'/></a>
+                                <p><i>I really only recommend this because it's sort of a "it's the best one" situation. This program kinda sucks ass and I really hope there's something different that has all or most of its capabilities.</i></p>
+                            </span>
+                        </span><br/>
+                    </td>
                 </tr>
                 <tr>
                     <td>Video Editors</td>
@@ -145,16 +213,61 @@
                     <td><span id="k">Konsole</span> / Alacritty</td>
                 </tr>
                 <tr>
-                    <td>Virtualization</td>
-                    <td><span id="g">GNOME Boxes</span> / VirtualBox</td>
+                    <td>Virtualisation</td>
+                    <td>
+                        <span id="g" class='tooltip'>GNOME Boxes
+                            <span class="tooltiptext">
+                                <a href='https://flathub.org/apps/details/org.gnome.Boxes'><img src='/img/flathub-logo-small.png'/></a>
+                                <p><i>GNOME Boxes is the best virtualization tool for testing out linux distros inside Linux. You can automatically install Fedora, Debian, Windows, Ubuntu and more with one click.</i></p>
+                            </span>
+                        </span><br/>
+                        <span class='tooltip'>VirtualBox
+                            <span class="tooltiptext">
+                                <a href='https://www.virtualbox.org/wiki/Downloads'><img src='/img/win-logo-small.png'/></a><a href='https://www.virtualbox.org/wiki/Downloads'><img src='/img/app-logo-small.png' /></a><a href='https://www.virtualbox.org/wiki/Linux_Downloads'><img src='/img/lin-logo-small.png' /></a>
+                                <p><i>VirtualBox is my recommended "general use" virtualisation software as its available on everything is understandable, is packed with features and does not come with a fee (vmware). No Flatpak, you have to install this via normal distro repos.</i></p>
+                            </span>
+                        </span><br/>
+                    </td>
                 </tr>
                 <tr>
                     <td>PDF / Document Viewers</td>
-                    <td><span id="g">Evince</span> / <span id="k">Okular</span></td>
+                    <td>
+                        <span id="k" class='tooltip'>Okular
+                            <span class="tooltiptext">
+                                <a href='https://flathub.org/apps/details/org.kde.okular'><img src='/img/flathub-logo-small.png'/></a><a href='https://www.microsoft.com/store/apps/9n41msq1wnm8'><img src='/img/win-logo-small.png' /></a>
+                                <p><i>Okular is part of KDE and is the most powerful document viewer that I know of. Allows PDF files, comics, books, images, markdown and can edit PDF files.</i></p>
+                            </span>
+                        </span><br/>
+                    </td>
                 </tr>
                 <tr>
                     <td>Other</td>
-                    <td><span id="g">Blanket</span> / <span id="g">Flatseal</span> / <span id="g">Kooha</span></td>
+                    <td>
+                        <span id="g" class='tooltip'>Blanket
+                            <span class="tooltiptext">
+                                <a href='https://flathub.org/apps/details/com.rafaelmardojai.Blanket'><img src='/img/flathub-logo-small.png'/></a>
+                                <p><i>Blanket is an application that lets you listen to various types of white noise, and even at the same time. Stuff like wind, rain, coffee shops, storms etc.</i></p>
+                            </span>
+                        </span><br/>
+                        <span id="g" class='tooltip'>Flatseal
+                            <span class="tooltiptext">
+                                <a href='https://flathub.org/apps/details/com.github.tchx84.Flatseal'><img src='/img/flathub-logo-small.png'/></a>
+                                <p><i>Flatseal allows you to manage the permissions of a Flatpak application.</i></p>
+                            </span>
+                        </span><br/>
+                        <span id="g" class='tooltip'>Kooha
+                            <span class="tooltiptext">
+                                <a href='https://flathub.org/apps/details/io.github.seadve.Kooha'><img src='/img/flathub-logo-small.png'/></a>
+                                <p><i>Kooha is a small utility with no fluff that allows you to record your screen/audio. I have had no issues at all with it. Exports in webm, gif, mp4.</i></p>
+                            </span>
+                        </span><br/>
+                        <span id="k" class='tooltip'>KTeaTimer
+                            <span class="tooltiptext">
+                                <a href='https://flathub.org/apps/details/org.kde.kteatime'><img src='/img/flathub-logo-small.png'/></a><a href='https://snapcraft.io/kteatime'><img src='/img/snap-logo-small.png'/></a>
+                                <p><i>KTeaTimer is literally a timer for you to use when brewing tea. its kinda funny</i></p>
+                            </span>
+                        </span><br/>
+                    </td>
                 </tr>
             </table>
         </main>
