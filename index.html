@@ -6,6 +6,12 @@
         <meta name="description" content="cool little corner of the internet" />
         <link rel="icon" href="/img/favicon.ico" />
         <link rel="stylesheet" href="/css/main.css" />
+        <script>
+            window.onload = function() {
+                var userAgent = navigator.userAgent;
+                document.getElementById("user-agent").innerHTML = userAgent;
+            }
+        </script>
     </head>
     <body>
         <header>
@@ -23,6 +29,7 @@
         <main>
             <p>Welcome to my little site. You can look at my posts and other stuff by navigating the top menu. :)</p>
             <img src="/img/geckrocat.png" width="100%" height="200px;" />
+            <p>Your user agent is: <span id="user-agent"></span></p>
         </main>
         <footer>
             <p>Source Code: <a href="https://github.com/geckro/geckro.github.io">geckro/geckro.github.io</a></p>

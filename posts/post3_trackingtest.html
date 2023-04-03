@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>tracking test - geckronome</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="tracking test" />
+        <link rel="icon" href="/img/favicon.ico" />
+        <link rel="stylesheet" href="/css/main.css" />
+        <script>
+            window.onload = function() {
+                var userAgent = navigator.userAgent;
+                document.getElementById("user-agent").innerHTML = userAgent;
+
+                var dnt = navigator.doNotTrack == "1" ? 'Enabled' : 'Disabled';
+                document.getElementById("do-not-track").innerHTML = dnt;
+
+                var cookies = navigator.cookieEnabled ? 'Enabled' : 'Disabled';
+                document.getElementById("cookies").innerHTML = cookies;
+                
+                // Geolocation
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition, showError);
+                } else {
+                    document.getElementById("geolocation").innerHTML = "Geolocation is not supported by this browser.";
+                }
+                function showPosition(position) {
+                document.getElementById("geolocation").innerHTML =
+                    "Latitude: " + position.coords.latitude +
+                    "<br>Longitude: " + position.coords.longitude;
+                }
+                function showError(error) {
+                var message = "";
+                switch (error.code) {
+                    case error.PERMISSION_DENIED:
+                    message = "Denied";
+                    break;
+                    case error.POSITION_UNAVAILABLE:
+                    message = "Unavailable?";
+                    break;
+                    case error.TIMEOUT:
+                    message = "ERROR: Timeout";
+                    break;
+                    case error.UNKNOWN_ERROR:
+                    message = "ERROR: what";
+                    break;
+                }
+                document.getElementById("geolocation").innerHTML = message;
+                }
+                
+                var isCacheEnabled = false;
+
+                if ('caches' in window) {
+                isCacheEnabled = true;
+                }
+
+                var cacheEnabledElement = document.getElementById('cacheEnabled');
+                cacheEnabledElement.innerHTML = (isCacheEnabled ? 'Enabled' : 'Disabled');
+
+                var navLang = navigator.language;
+                document.getElementById("language").innerHTML = navLang;
+                var navPlatform = navigator.platform;
+                document.getElementById("platform").innerHTML = navPlatform;
+                var navJava = navigator.javaEnabled() ? 'Enabled' : 'Disabled';
+                document.getElementById("java").innerHTML = navJava;
+                var navAppVer = navigator.appVersion;
+                document.getElementById("appver").innerHTML = navAppVer;
+
+                var locationHostname = location.hostname;
+                document.getElementById("hostname").innerHTML = locationHostname;
+                var locationHost = location.host;
+                document.getElementById("host").innerHTML = locationHost;
+                var locationHref = location.href;
+                document.getElementById("href").innerHTML = locationHref;
+
+                var screenWidth = screen.width;
+                document.getElementById("width").innerHTML = screenWidth;
+                var screenHeight = screen.height;
+                document.getElementById("height").innerHTML = screenHeight;
+                var screenColorDepth = screen.colorDepth;
+                document.getElementById("coldep").innerHTML = screenColorDepth;
+                var screenPixelDepth = screen.pixelDepth;
+                document.getElementById("pixdep").innerHTML = screenPixelDepth;
+            
+                var screenWidth = window.innerWidth;
+                document.getElementById("browserwidth").innerHTML = screenWidth;
+                var screenHeight = window.innerHeight;
+                document.getElementById("browserheight").innerHTML = screenHeight;
+                var isWebGLEnabled = false;
+
+                try {
+                var canvas = document.createElement('canvas');
+                isWebGLEnabled = !!window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'));
+                } catch (e) {
+                // WebGL is not enabled
+                }
+
+                var resultElement = document.getElementById('webgl-result');
+
+                if (isWebGLEnabled) {
+                    resultElement.innerHTML = 'WebGL is enabled';
+                } else {
+                    resultElement.innerHTML = 'WebGL is not enabled';
+                }
+
+                var isMathMLEnabled = false;
+
+                try {
+                var div = document.createElement('div');
+                div.innerHTML = '<math><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow></math>';
+                isMathMLEnabled = div.firstChild && div.firstChild.namespaceURI === 'http://www.w3.org/1998/Math/MathML';
+                } catch (e) {
+                // MathML is not enabled
+                }
+
+                var resultElement = document.getElementById('mathml-result');
+
+                if (isMathMLEnabled) {
+                resultElement.innerHTML = 'MathML is enabled';
+                } else {
+                resultElement.innerHTML = 'MathML is not enabled';
+                }
+
+            }
+            
+        </script>
+        <style>
+            #tracking span {
+                font-style: italic;
+                color: var(--color-2);
+                font-family: monospace;
+            }
+            table,tr,td,th {
+                border: 2px solid var(--background-header-color);
+                border-collapse: collapse;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div id="links">
+                <p><a href="/">Home</a></p>
+                <p id="active"><a href="/html/posts.html">Posts</a></p>
+                <p><a href="/html/projects.html">Projects</a></p>
+                <p><a href="/html/about.html">About</a></p>
+                <p><a href="/html/links.html">Links</a></p>
+            </div>
+            <div id="title">
+                <h1>003 | Tracking Test</h1>
+            </div>
+            <div id="date">
+                <p>Last updated: 2023-04-03</p>
+            </div>
+        </header>
+        <main>
+            <p>Everything here is contained in your browser. This page does not connect to any external domains or logs anything.</p>
+            <p style='font-size: 40px;'>W.I.P.</p>
+            <noscript>
+                <strong>ERROR</strong>: You don't have JavaScript enabled.
+                <style>
+                    #tracking {
+                        display: none;
+                    }
+                </style>
+            </noscript>
+            <div id='tracking'>
+                <table>
+                    <tr><th>Title</th><th>Details</th></tr>
+                    <tr><td>User Agent</td><td><span id='user-agent'></span></td></tr>
+                    <tr><td>Do Not Track</td><td><span id='do-not-track'></span></td></tr>
+                    <tr><td>Platform</td><td><span id='platform'></span></td></tr>
+                    <tr><td>App Version</td><td><span id='appver'></span></td></tr>
+                    <tr><th colspan='2'>Language</th></tr>
+                    <tr><td>Geolocation</td><td><span id='geolocation'></span></td></tr>
+                    <tr><td>Language</td><td><span id='language'></span></td></tr>
+                    <tr><th colspan='2'>Screen</th></tr>
+                    <tr><td>Screen Width (px)</td><td><span id='width'></span></td></tr>
+                    <tr><td>Screen Height (px)</td><td><span id='height'></span></td></tr>
+                    <tr><td>Color Depth (bpp)</td><td><span id='coldep'></span></td></tr>
+                    <tr><td>Pixel Depth (bpp)</td><td><span id='pixdep'></span></td></tr>
+                    <tr><td>Browser Width</td><td><span id='browserwidth'></span></td></tr>
+                    <tr><td>Browser Height</td><td><span id='browserheight'></span></td></tr>
+                    <tr><th colspan='2'>URL Information</th></tr>
+                    <tr><td>Hostname</td><td><span id='hostname'></span></td></tr>
+                    <tr><td>Host</td><td><span id='host'></span></td></tr>
+                    <tr><td>Href</td><td><span id='href'></span></td></tr>
+                    <tr><th colspan='2'>Storage</th></tr>
+                    <tr><td>Cache</td><td><span id='cacheEnabled'></span></td></tr>
+                    <tr><td>Cookies (Any)</td><td><span id='cookies'></span></td></tr>
+                    <tr><td>Cookies (Third-Party)</td><td>Not sure how to implement</td></tr>
+                    <tr><th colspan='2'>APIs</th></tr>
+                    <tr><td>Java Availability</td><td><span id='java'></span></td></tr>
+                    <tr><td>WebGL Availability</td><td><span id='webgl-result'></span></td></tr>
+                    <tr><td>MathML Availability</td><td><span id='mathml-result'></span></td></tr>
+                </table>
+            </div>
+        </main>
+        <footer>
+            <p>Source Code: <a href="https://github.com/geckro/geckro.github.io">geckro/geckro.github.io</a></p>
+        </footer>
+    </body>
+</html>
