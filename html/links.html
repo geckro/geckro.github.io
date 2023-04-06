@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
     <head>
         <title>links - geckronome</title>
-        <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="keywords" content="geckronome, technology" />
-        <meta name="author" content="geckro" />
         <meta name="description" content="useful websites" />
         <link rel="icon" href="/img/favicon.ico" />
         <link rel="stylesheet" href="/css/main.css" />
+        <link rel="stylesheet" href="/css/garf.css" />
         <style>
             td,th,tr,table {
                 padding: 10px;
-                border: 1px solid var(--secondary-color);
+                border-bottom: 1px dotted var(--secondary-color);
                 border-collapse: collapse;
+            }
+            th {
+                background-color: var(--background-header-color);
+                border: 2px dotted var(--secondary-color);
+            }
+            td:nth-child(1) {
+                border-right: 1px dotted var(--secondary-color);
+                text-align: center;
             }
             #g {
                 color: rgb(220, 182, 111);
@@ -31,53 +37,96 @@
                 position: relative;
                 display: inline-block;
             }
-
-            .tooltip .tooltiptext {
+            .tooltip > a > img {
+                filter: drop-shadow(0 0 8px var(--secondary-color));
+                max-width: 64px;
+                max-height: auto;
+            }
+            .tooltip .tooltip-text {
                 visibility: hidden;
                 width: 400px;
                 background-color: var(--background-header-color);
                 text-align: center;
-                border-radius: 12px;
-                padding: 5px 5px;
+                border-radius: 8px;
+                padding: 8px;
 
                 /* Position the tooltip text */
                 position: absolute;
                 z-index: 1;
                 bottom: 100%;
                 left: 50%;
-                margin-left: -60px;
+                margin-left: -120px;
 
                 /* Fade in the tooltip */
                 opacity: 0;
-                transition: opacity 1s;
+                transition: opacity 1.40s;
 
                 box-shadow: 0 0 8px var(--secondary-color);
             }
-            .tooltiptext p {
+            .tooltip-text {
+                font-size: 16px;
+                line-height: 1.6;
+            }
+            .tooltip-text p {
                 background-color: var(--background-color);
-                border-radius: 5px;
-                padding: 5px;
+                padding: 6px;
+                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
             }
 
-            .tooltip:hover .tooltiptext {
+            .tooltip:hover .tooltip-text {
                 visibility: visible;
                 opacity: 1;
             }
-            img {
-                margin-left: auto;
-                margin-right: auto;
-                display: block;
-                background-color: var(--background-color);
+            .tooltip-text > .software-name > p {
+                width: 45%;
+                display: inline;
                 border-radius: 5px;
-                padding: 3px;
+                float: left;
+                font-weight: bold;
+                margin-bottom: -5px;
             }
-            .tooltiptext a {
+            .tooltip-text > .software-license > p {
+                width: 45%;
+                display: inline;
+                border-radius: 5px;
+                float: right;
+                margin-bottom: -5px;
+            }
+            .tooltip-text > .software-avail > p {
                 display: inline-block;
-                padding: 2px;
+                border-radius: 5px;
+                margin-bottom: -5px;
+                width: 95%;
+                
+            }
+            .tooltip-text > .software-avail > p > img {
+                float: left;
+                width: 32px;  /* set the width to 50 pixels */
+                height: auto; /* maintain the aspect ratio */
+            }
+            .tooltip-text > .software-desc > p {
+                clear: both;
+                border-radius: 10px;
+                font-style: italic;
+            }
+            .foss::after {
+                content: "FOSS";
+            }
+            .foss:hover::after {
+                content: "Free and Open Source";
+                font-style: italic;
+            }
+            .free::after {
+                content: "Free/Proprietary";
+            }
+            .free:hover::after {
+                content: "Not Open Source";
+                font-style: italic;
             }
         </style>
     </head>
     <body>
+
         <header>
             <div id="links">
                 <p><a href="/">Home</a></p>
@@ -90,10 +139,10 @@
                 <h1>🔗 Links</h1>
             </div>
             <div id="date">
-                <p>Last updated: 2023-04-01</p>
+                <p>Last updated: 2023-04-06</p>
             </div>
         </header>
-        <!--TODO ADD MORE-->
+
         <main>
             <p>This is a list of different website I find cool or useful.</p>
 
@@ -111,12 +160,19 @@
                 <li><a href="https://www.privacyguides.org/en/">PrivacyGuides</a> - Sane guide to privacy (and security) on the internet.</li>
             </ul>
 
+            <!-- <div id='GarfRing'>
+                <script type="text/javascript" src="/js/onionring_variables.js"></script>
+                <script type="text/javascript" src="/js/onionring-widget.js"></script>
+            </div> -->
+            <div id='GarfRing'>
+                <script type="text/javascript" src="https://garfring.neocities.org/onionring-variables.js"></script>
+                <script type="text/javascript" src="https://garfring.neocities.org/onionring-widget.js"></script>
+            </div>
+
             <h2>List of cool software</h2>
             
-            <p>I figured I'd put a list of software I like or enjoy here and not make a blogpost as it's neater.</p>
-            <p>Note that I mainly use <a href="https://flatpak.org/">Flatpak</a> with <a href="https://flathub.org/home">Flathub</a> nowadays, unless I'm on an OS that is based on Arch. Apps that are <span id="g">orange</span> are integrated into <a href="https://www.gnome.org/">GNOME</a> and apps that are <span id="k">blue</span> are integrated into <a href="https://kde.org/plasma-desktop/">KDE Plasma</a>.</p>
-            <p>Also see the software I tend to use in <a href="/html/about.html">About</a>.</p>
-            <p>W.I.P.</p>
+            <p>I figured I'd put a list of software I like or enjoy here and not make a blogpost as it's neater. NOTE that I mainly use <a href="https://flatpak.org/">Flatpak</a> with <a href="https://flathub.org/home">Flathub</a> nowadays, unless I'm on an OS that is based on Arch. Also see the software I tend to use in <a href="/html/about.html">About</a>.</p>
+
             <table>
                 <tr>
                     <th>Category</th>
@@ -124,154 +180,263 @@
                 </tr>
                 <tr>
                     <td>Operating Systems</td>
-                    <td>Fedora / Fedora Silverblue / EndeavourOS</td>
+                    <td>
+                        <span class='tooltip'><a href='https://getfedora.org'><img src='/img/fedora.svg' /></a>
+                            <span class="tooltip-text">
+                                <span class="software-name">
+                                    <p>Fedora Linux</p>
+                                </span>
+                                <span class="software-license">
+                                    <p><span class='foss'></span></p>
+                                </span>
+                                <span class="software-avail">
+                                    <p><img src="/img/computer.svg" /><img src="/img/laptop.svg" /></p>
+                                </span>
+                                <span class="software-desc">
+                                    <p><b>Fedora</b> is a Linux distribution and prides itself on adopting the latest features and accomplishments of Linux, like <a href="https://en.wikipedia.org/wiki/Flatpak">Flatpak</a>, <a href="https://en.wikipedia.org/wiki/Btrfs">Btrfs</a> and <a href="https://en.wikipedia.org/wiki/Wayland_(protocol)">Wayland</a>. +2 for Fedora Silverblue/Kiniote</p>
+                                </span>           
+                            </span>
+                        </span>
+                        <span class='tooltip'><a href='https://endeavouros.com/'><img src='/img/eos.svg' /></a>
+                            <span class="tooltip-text">
+                                <span class="software-name">
+                                    <p>EndeavourOS</p>
+                                </span>
+                                <span class="software-license">
+                                    <p><span class='foss'></span></p>
+                                </span>
+                                <span class="software-avail">
+                                    <p><img src="/img/computer.svg" /><img src="/img/laptop.svg" /></p>
+                                </span>
+                                <span class="software-desc">
+                                    <p><b>EndeavourOS</b> is an <a href="https://en.wikipedia.org/wiki/List_of_Linux_distributions#Arch_Linux-based">Arch-based</a> Linux distribution that allows you to setup a preconfigured Arch installation with whatever desktop environment you want. Basically, Arch with a GUI installer.</p>
+                                </span>           
+                            </span>
+                        </span>
+                    </td>
                 </tr>
                 <tr>
                     <td>Desktop Environments</td>
-                    <td><span id="g">GNOME</span> / <span id="k">KDE Plasma</span></td>
-                </tr>
-                <tr>
-                    <td>Display servers</td>
-                    <td>Wayland</td>
+                    <td>
+                        <span class='tooltip'><a href='https://www.gnome.org/'><img src='/img/gnome.svg' /></a>
+                            <span class="tooltip-text">
+                                <span class="software-name">
+                                    <p>GNOME</p>
+                                </span>
+                                <span class="software-license">
+                                    <p><span class='foss'></span></p>
+                                </span>
+                                <span class="software-avail">
+                                    <p><img src="/img/computer.svg" /><img src="/img/laptop.svg" /></p>
+                                </span>
+                                <span class="software-desc">
+                                    <p><b>GNOME</b> is a Linux desktop environment focused on keeping things simple so you can just get work done. Made in GTK.</p>
+                                </span>           
+                            </span>
+                        </span>
+                        <span class='tooltip'><a href='https://kde.org/plasma-desktop/'><img src='/img/kde.svg' /></a>
+                            <span class="tooltip-text">
+                                <span class="software-name">
+                                    <p>KDE Plasma</p>
+                                </span>
+                                <span class="software-license">
+                                    <p><span class='foss'></span></p>
+                                </span>
+                                <span class="software-avail">
+                                    <p><img src="/img/computer.svg" /><img src="/img/laptop.svg" /></p>
+                                </span>
+                                <span class="software-desc">
+                                    <p><b>KDE Plasma</b> is a Linux desktop environment and software ecosystem where the cool is everything is customizable. Made in Qt.</p>
+                                </span>           
+                            </span>
+                        </span>
+                    </td>
                 </tr>
                 <tr>
                     <td>File Managers</td>
                     <td>
-                        <span id="k" class='tooltip'>Dolphin
-                            <span class="tooltiptext">
-                                <a href='https://flathub.org/apps/details/org.kde.dolphin'><img src='/img/flathub-logo-small.png'/></a><a href='https://binary-factory.kde.org/job/Dolphin_Release_win64/'><img src='/img/win-logo-small.png'/></a>
-                                <p><i>Dolphin is simply the most powerful file manager out there in my experience. Tabbed folders, split view, fast searching, and more; and it's all as customizable as you want. Everything else just lacks in comparison.</i></p>
+                        <span class='tooltip'><a href='https://apps.kde.org/dolphin/'><img src='/img/dolphin.svg' /></a>
+                            <span class="tooltip-text">
+                                <span class="software-name">
+                                    <p>Dolphin</p>
+                                </span>
+                                <span class="software-license">
+                                    <p><span class='foss'></span></p>
+                                </span>
+                                <span class="software-avail">
+                                    <p><img src="/img/flatpak.svg" /><img src="/img/snap.png" /><img src="/img/win.svg" /><img src="/img/mac.svg" /></p>
+                                </span>
+                                <span class="software-desc">
+                                    <p><b>Dolphin</b> is part of KDE and is the most powerful file manager I've used. Tab support, split view and limitless customisability. Everything else on linux just lacks.</p>
+                                </span>           
                             </span>
-                        </span><br/>
+                        </span>
                     </td>
                 </tr>
                 <tr>
                     <td>Web Browsers</td>
-                    <td>Firefox / Vivaldi / TOR Browser</td>
+                    <td>
+                        <span class='tooltip'><a href='https://www.mozilla.org/en-US/firefox/new/'><img src='/img/firefox.svg' /></a>
+                            <span class="tooltip-text">
+                                <span class="software-name">
+                                    <p>Firefox</p>
+                                </span>
+                                <span class="software-license">
+                                    <p><span class='foss'></span></p>
+                                </span>
+                                <span class="software-avail">
+                                    <p><img src="/img/flatpak.svg" /><img src="/img/snap.png" /><img src="/img/win.svg" /><img src="/img/mac.svg" /><img src="/img/android.svg" /></p>
+                                </span>
+                                <span class="software-desc">
+                                    <p><b>Firefox</b> is the best browser out there, use it. By default, it is reasonably secure and private. Read more with my <a href="/posts/post1_firefox.html">Firefox Guide</a></p>
+                                </span>           
+                            </span>
+                        </span>
+                        <span class='tooltip'><a href='https://librewolf.net/'><img src='/img/librewolf.svg' /></a>
+                            <span class="tooltip-text">
+                                <span class="software-name">
+                                    <p>LibreWolf</p>
+                                </span>
+                                <span class="software-license">
+                                    <p><span class='foss'></span></p>
+                                </span>
+                                <span class="software-avail">
+                                    <p><img src="/img/flatpak.svg" /><img src="/img/win.svg" /><img src="/img/mac.svg" /></p>
+                                </span>
+                                <span class="software-desc">
+                                    <p><b>LibreWolf</b> is a fork of Firefox aimed at stripping out all telemetry and tracking, and hardening the browser against tracking, fingerprinting and malware as much as possible. Useful if you want a hardened browser but don't want to deal with TOR.</p>
+                                </span>           
+                            </span>
+                        </span>
+                        <span class='tooltip'><a href='https://www.torproject.org/download/'><img src='/img/tor.svg' /></a>
+                            <span class="tooltip-text">
+                                <span class="software-name">
+                                    <p>TOR Browser</p>
+                                </span>
+                                <span class="software-license">
+                                    <p><span class='foss'></span></p>
+                                </span>
+                                <span class="software-avail">
+                                    <p><img src="/img/flatpak.svg" /><img src="/img/win.svg" /><img src="/img/mac.svg" /><img src="/img/android.svg" /></p>
+                                </span>
+                                <span class="software-desc">
+                                    <p><b>TOR Browser</b> is a modified version of Firefox with TOR included and a lot of specific tweaks on top and is generally the recommended way to stay completely anonymous when browsing stuff. Can be slow, since you're using Tor.</p>
+                                </span>           
+                            </span>
+                        </span>
+                        <span class='tooltip'><a href='https://thorium.rocks/'><img src='/img/thorium.svg' /></a>
+                            <span class="tooltip-text">
+                                <span class="software-name">
+                                    <p>Thorium</p>
+                                </span>
+                                <span class="software-license">
+                                    <p><span class='foss'></span></p>
+                                </span>
+                                <span class="software-avail">
+                                    <p><img src="/img/win.svg" /><img src="/img/mac.svg" /></p>
+                                </span>
+                                <span class="software-desc">
+                                    <p><b>Thorium</b> is a fork of Chromium with a bunch of tweaks applied to make it faster and is more private than vanilla Chromium. If you need to use a secondary Chromium browser, use this or <a href="https://github.com/ungoogled-software/ungoogled-chromium">Ungoogled Chromium</a>. This is on Linux but no Flatpak.</p>
+                                </span>           
+                            </span>
+                        </span>
+                    </td>
                 </tr>
                 <tr>
                     <td>Audio/Music Players</td>
-                    <td><span id="g">Amberol</span> / <span id="k">Elisa</span></td>
+                    <td>
+                        <span class='tooltip'><a href='https://elisa.kde.org/'><img src='/img/elisa.svg' /></a>
+                            <span class="tooltip-text">
+                                <span class="software-name">
+                                    <p>Elisa</p>
+                                </span>
+                                <span class="software-license">
+                                    <p><span class='foss'></span></p>
+                                </span>
+                                <span class="software-avail">
+                                    <p><img src="/img/flatpak.svg" /><img src="/img/win.svg" /></p>
+                                </span>
+                                <span class="software-desc">
+                                    <p><b>Elisa</b> is a KDE app that plays music. I think this is the best music player I've seen on Linux so far. Very fast and easy to understand.</p>
+                                </span>           
+                            </span>
+                        </span>
+                        <span class='tooltip'><a href='https://gitlab.gnome.org/World/amberol'><img src='/img/amberol.svg' /></a>
+                            <span class="tooltip-text">
+                                <span class="software-name">
+                                    <p>Amberol</p>
+                                </span>
+                                <span class="software-license">
+                                    <p><span class='foss'></span></p>
+                                </span>
+                                <span class="software-avail">
+                                    <p><img src="/img/flatpak.svg" /><img src="/img/snap.png" /></p>
+                                </span>
+                                <span class="software-desc">
+                                    <p><b>Amberol</b> is what I use when I need to use GNOME. Very simple app but works perfectly if all you need to is just listen to music.</p>
+                                </span>           
+                            </span>
+                        </span>
+                        <span class='tooltip'><a href='https://www.foobar2000.org/'><img src='/img/fb2k.png' /></a>
+                            <span class="tooltip-text">
+                                <span class="software-name">
+                                    <p>foobar2000</p>
+                                </span>
+                                <span class="software-license">
+                                    <p><span class='free'></span></p>
+                                </span>
+                                <span class="software-avail">
+                                    <p><img src="/img/win.svg" /></p>
+                                </span>
+                                <span class="software-desc">
+                                    <p><b>foobar2000</b> is the best music player that I've used, although it does look ugly. Windows only.</p>
+                                </span>           
+                            </span>
+                        </span>
+                    </td>
                 </tr>
                 <tr>
                     <td>Video Players</td>
-                    <td><span id="g">Celluloid</span> / mpv</td>
-                </tr>
-                <tr>
-                    <td>TUI Editors</td>
-                    <td>nano</td>
-                </tr>
-                <tr>
-                    <td>Text Editors</td>
-                    <td><span id="k">Kate</span> / Visual Studio Code</td>
-                </tr>
-                <tr>
-                    <td>Markdown Editors</td>
-                    <td><span id="g">Apostrophe</span></td>
-                </tr>
-                <tr>
-                    <td>Password Managers</td>
-                    <td><span id="g">Secrets</span> / <span id="k">KeePassXC</span></td>
-                </tr>
-                <tr>
-                    <td>Torrentors</td>
-                    <td><span id="g">Fragments</span> / <span id="k">qBitTorrent</span>  / <span id="transrights">Transmission</span></td>
-                </tr>
-                <tr>
-                    <td>Download managers</td>
                     <td>
-                        <span id="k" class='tooltip'>KGet
-                            <span class="tooltiptext">
-                                <a href='https://flathub.org/apps/details/org.kde.kget'><img src='/img/flathub-logo-small.png'/></a>
-                                <p><i>KGet is the only download manager that competes with JDownloader. Has a great UI, tons of options. Linux only.</i></p>
+                        <span class='tooltip'><a href='https://mpv.io/'><img src='/img/mpv.svg' /></a>
+                            <span class="tooltip-text">
+                                <span class="software-name">
+                                    <p>mpv</p>
+                                </span>
+                                <span class="software-license">
+                                    <p><span class='foss'></span></p>
+                                </span>
+                                <span class="software-avail">
+                                    <p><img src="/img/flatpak.svg" /><img src="/img/win.svg" /><img src="/img/mac.svg" /></p>
+                                </span>
+                                <span class="software-desc">
+                                    <p><b>mpv</b> is the best video editor out there, miles better than VLC. Lean and fast and the configuration is practically endless.</p>
+                                </span>      
                             </span>
-                        </span><br/>
-                        <span class='tooltip'>JDownloader
-                            <span class="tooltiptext">
-                                <a href='https://flathub.org/apps/details/org.jdownloader.JDownloader'><img src='/img/flathub-logo-small.png'/></a><a href='https://jdownloader.org/jdownloader2'><img src='/img/win-logo-small.png'/></a><a href='https://jdownloader.org/jdownloader2'><img src='/img/app-logo-small.png'/></a>
-                                <p><i>I really only recommend this because it's sort of a "it's the best one" situation. This program kinda sucks ass and I really hope there's something different that has all or most of its capabilities.</i></p>
+                        </span>
+                        <span class='tooltip'><a href='https://celluloid-player.github.io/'><img src='/img/celluloid.svg' /></a>
+                            <span class="tooltip-text">
+                                <span class="software-name">
+                                    <p>Celluloid</p>
+                                </span>
+                                <span class="software-license">
+                                    <p><span class='foss'></span></p>
+                                </span>
+                                <span class="software-avail">
+                                    <p><img src="/img/flatpak.svg" /></p>
+                                </span>
+                                <span class="software-desc">
+                                    <p><b>Celluloid</b> is a GTK frontend for mpv.</p>
+                                </span>      
                             </span>
-                        </span><br/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Video Editors</td>
-                    <td><span id="k">Kdenlive</span> / DaVinci Resolve</td>
-                </tr>
-                <tr>
-                    <td>Image Editors</td>
-                    <td>GIMP</td>
-                </tr>
-                <tr>
-                    <td>Email clients</td>
-                    <td><span id="g">Geary</span></td>
-                </tr>
-                <tr>
-                    <td>Office Suites</td>
-                    <td>LibreOffice / OnlyOffice</td>
-                </tr>
-                <tr>
-                    <td>Terminals</td>
-                    <td><span id="k">Konsole</span> / Alacritty</td>
-                </tr>
-                <tr>
-                    <td>Virtualisation</td>
-                    <td>
-                        <span id="g" class='tooltip'>GNOME Boxes
-                            <span class="tooltiptext">
-                                <a href='https://flathub.org/apps/details/org.gnome.Boxes'><img src='/img/flathub-logo-small.png'/></a>
-                                <p><i>GNOME Boxes is the best virtualization tool for testing out linux distros inside Linux. You can automatically install Fedora, Debian, Windows, Ubuntu and more with one click.</i></p>
-                            </span>
-                        </span><br/>
-                        <span class='tooltip'>VirtualBox
-                            <span class="tooltiptext">
-                                <a href='https://www.virtualbox.org/wiki/Downloads'><img src='/img/win-logo-small.png'/></a><a href='https://www.virtualbox.org/wiki/Downloads'><img src='/img/app-logo-small.png' /></a><a href='https://www.virtualbox.org/wiki/Linux_Downloads'><img src='/img/lin-logo-small.png' /></a>
-                                <p><i>VirtualBox is my recommended "general use" virtualisation software as its available on everything is understandable, is packed with features and does not come with a fee (vmware). No Flatpak, you have to install this via normal distro repos.</i></p>
-                            </span>
-                        </span><br/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>PDF / Document Viewers</td>
-                    <td>
-                        <span id="k" class='tooltip'>Okular
-                            <span class="tooltiptext">
-                                <a href='https://flathub.org/apps/details/org.kde.okular'><img src='/img/flathub-logo-small.png'/></a><a href='https://www.microsoft.com/store/apps/9n41msq1wnm8'><img src='/img/win-logo-small.png' /></a>
-                                <p><i>Okular is part of KDE and is the most powerful document viewer that I know of. Allows PDF files, comics, books, images, markdown and can edit PDF files.</i></p>
-                            </span>
-                        </span><br/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Other</td>
-                    <td>
-                        <span id="g" class='tooltip'>Blanket
-                            <span class="tooltiptext">
-                                <a href='https://flathub.org/apps/details/com.rafaelmardojai.Blanket'><img src='/img/flathub-logo-small.png'/></a>
-                                <p><i>Blanket is an application that lets you listen to various types of white noise, and even at the same time. Stuff like wind, rain, coffee shops, storms etc.</i></p>
-                            </span>
-                        </span><br/>
-                        <span id="g" class='tooltip'>Flatseal
-                            <span class="tooltiptext">
-                                <a href='https://flathub.org/apps/details/com.github.tchx84.Flatseal'><img src='/img/flathub-logo-small.png'/></a>
-                                <p><i>Flatseal allows you to manage the permissions of a Flatpak application.</i></p>
-                            </span>
-                        </span><br/>
-                        <span id="g" class='tooltip'>Kooha
-                            <span class="tooltiptext">
-                                <a href='https://flathub.org/apps/details/io.github.seadve.Kooha'><img src='/img/flathub-logo-small.png'/></a>
-                                <p><i>Kooha is a small utility with no fluff that allows you to record your screen/audio. I have had no issues at all with it. Exports in webm, gif, mp4.</i></p>
-                            </span>
-                        </span><br/>
-                        <span id="k" class='tooltip'>KTeaTimer
-                            <span class="tooltiptext">
-                                <a href='https://flathub.org/apps/details/org.kde.kteatime'><img src='/img/flathub-logo-small.png'/></a><a href='https://snapcraft.io/kteatime'><img src='/img/snap-logo-small.png'/></a>
-                                <p><i>KTeaTimer is literally a timer for you to use when brewing tea. its kinda funny</i></p>
-                            </span>
-                        </span><br/>
+                        </span>
                     </td>
                 </tr>
             </table>
+
+            <h2>Licensing</h2>
+
+            <p>Icons by the <a href="https://github.com/PapirusDevelopmentTeam">Papirus Development Team</a> at <a href="https://github.com/PapirusDevelopmentTeam/papirus-icon-theme">Papirus Icon Theme</a>. Licensed under <a href="https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/blob/master/LICENSE">GPLv3</a>.</p>
         </main>
     </body>
 </html>
