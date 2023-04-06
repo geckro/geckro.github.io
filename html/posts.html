@@ -9,6 +9,19 @@
         <meta name="description" content="geckroposts" />
         <link rel="icon" href="/img/favicon.ico" />
         <link rel="stylesheet" href="/css/main.css" />
+        <style>
+            #postbox:hover {
+                visibility: hidden;
+                position: relative;
+            }
+            #postbox:hover::after {
+                visibility: visible;
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: "📭";
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -20,10 +33,7 @@
                 <p><a href="/html/links.html">Links</a></p>
             </div>
             <div id="title">
-                <h1>✉️ Posts</h1>
-            </div>
-            <div id="date">
-                <p>Last updated: 2023-04-02</p>
+                <h1><span id="postbox">📪</span> Posts</h1>
             </div>
         </header>
         <main>
@@ -35,8 +45,5 @@
                 <tr><td>003</td><td><a href="/posts/post3_trackingtest.html">Tracking Test with JS</a></tr>
             </table>
         </main>
-        <footer>
-            <p>Source Code: <a href="https://github.com/&#103&#101&#99&#107&#114&#111/&#103&#101&#99&#107&#114&#111.github.io">&#103&#101&#99&#107&#114&#111/&#103&#101&#99&#107&#114&#111.github.io</a></p>
-        </footer>
     </body>
 </html>

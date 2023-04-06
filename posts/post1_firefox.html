@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
     <head>
         <title>firefox configuration - geckronome</title>
-        <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="keywords" content="geckronome, technology" />
-        <meta name="author" content="geckro" />
         <meta name="description" content="firefox configuration guide" />
         <link rel="icon" href="/img/favicon.ico" />
         <link rel="stylesheet" href="/css/main.css" />
+        <style>
+            summary h3:hover {
+                color: #e2a7ff;
+            }
+            details > summary {
+                cursor: pointer;
+            }
+            details > p {
+                font-style:italic;
+            }
+            .ok summary {
+                color: var(--color-2);
+                font-size: 16px;
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -23,7 +35,7 @@
                 <h1>001 | Firefox Configuration Guide</h1>
             </div>
             <div id="date">
-                <p>Last updated: 2023-04-01</p>
+                <p>Last updated: 2023-04-06</p>
             </div>
         </header>
         <main>
@@ -33,7 +45,7 @@
             <p>This guide assumes you have a tiny bit of knowledge of general computing stuff. I am not responsible for breaking any software on your PC.</p>
 
             <h2>Why use Firefox? 🌐</h2>
-            <p>While you may be content using your current browser, whether that be Chrome, Edge or Opera, why not settle for a better browser? With Firefox, if you want to have a browser that supports unparalleled customizibility, near top-of-the-line privacy and security with no strings attached and without unnecessary features, Firefox gives that to you and is a great option. Also, the source code is publically viewable <a href="https://searchfox.org/mozilla-central/source">here</a> so you know that your data is kept private, secure and away from other eyes.</p>
+            <p>While you may be content using your current browser, whether that be Chrome, Edge or Opera, why not settle for a better browser? With Firefox, if you want to have a browser that supports unparalleled customisability, near top-of-the-line privacy and security with no strings attached and without unnecessary features, Firefox gives that to you and is a great option. Also, the source code is publicly viewable <a href="https://searchfox.org/mozilla-central/source">here</a> so you know that your data is kept private, secure and away from other eyes.</p>
             <p>But that's not all Firefox offers. With features like a password manager, device syncing, an in-built screenshot tool, and an in-built blocker by default with no extension needed AND more, Firefox may be a good browser to switch to and keep for the near future.</p>
 
             <h2>Why should you not use Firefox? ❌</h2>
@@ -45,24 +57,24 @@
 
             <h2>Configuration Guide ⚙️</h2>
             <p>Click the ≡ button (top right) and click Settings. At the left are the setting categories. You're currently in the General category.</p>
-            <p>✅ - Turn on</p>
-            <p>🔘 - Personal Preference</p>
-            <p>❌ - Turn off</p>
-            <p>To see settings click on a category.</p>
+            <li>✅ - Turn on</li>
+            <li>🔘 - Personal Preference</li>
+            <li>❌ - Turn off</li>
+            <p><strong>To see configuration, click on a category.</strong></p>
 
             <details>
                 <summary style="display:inline;"><h3>🔨 General</h3></summary>
                 <p>
                     <h4>Startup</h4>
-                    <details><summary>🔘 Open previous windows and tabs</summary><p>Up to personal preference. When you close Firefox with tabs open and launch Firefox, those tabs are automatically loaded.</p></details>
+                    <details class='ok'><summary>🔘 Open previous windows and tabs</summary><p>Up to personal preference. When you close Firefox with tabs open and launch Firefox, those tabs are automatically loaded.</p></details>
                     <details><summary>✅ Always check if Firefox is your default browser</summary><p>Windows 10/11 tends to replace your default browser with Microsoft Edge after updates, so checking this is a good idea. Also, make Firefox your default browser if you want.</p></details>
                     
                     <h4>Tabs</h4>
-                    <details><summary>🔘 Ctrl+Tab cycles through tabs in recently used order</summary><p>Up to personal preference. Instead of cycling through it left to right by default, ctrl+tab cycles through tabs by last used.</p></details>
-                    <details><summary>🔘 Open links in tabs instead of new windows</summary><p>Up to personal preference. When you click a link like <a href="https://google.com">this</a>, it opens in a new browser window.</p></details>
-                    <details><summary>🔘 When you open a link, image or media in a new tab, switch to it immediately</summary><p>When you open any link or image, it opens in a new tab and you switch to that tab automatically.</p></details>
-                    <details><summary>🔘 Confirm before closing multiple tabs</summary><p>When you have multiple tabs open and click X, Firefox asks if you want to close all the tabs. Good if you're a tab hoarder.</p></details>
-                    <details><summary>🔘 Show tab previews in the Windows taskbar</summary><p>When you hover over the Firefox icon, you can see tabs like different windows.</p></details>
+                    <details class='ok'><summary>🔘 Ctrl+Tab cycles through tabs in recently used order</summary><p>Up to personal preference. Instead of cycling through it left to right by default, ctrl+tab cycles through tabs by last used.</p></details>
+                    <details class='ok'><summary>🔘 Open links in tabs instead of new windows</summary><p>Up to personal preference. When you click a link like <a href="https://google.com">this</a>, it opens in a new browser window.</p></details>
+                    <details class='ok'><summary>🔘 When you open a link, image or media in a new tab, switch to it immediately</summary><p>When you open any link or image, it opens in a new tab and you switch to that tab automatically.</p></details>
+                    <details class='ok'><summary>🔘 Confirm before closing multiple tabs</summary><p>When you have multiple tabs open and click X, Firefox asks if you want to close all the tabs. Good if you're a tab hoarder.</p></details>
+                    <details class='ok'><summary>🔘 Show tab previews in the Windows taskbar</summary><p>When you hover over the Firefox icon, you can see tabs like different windows.</p></details>
                     
                     <h4>Website appearance</h4>
                     <details><summary>✅ Automatic</summary><p>This makes it so if you're using light mode on your system, websites will adapt to light mode. If you're dark mode on your system, websites will adapt to dark mode.</p></details>
@@ -75,37 +87,37 @@
                     
                     <h4>Zoom</h4>
                     <details><summary>✅ Default zoom 100%</summary><p>You can change the zoom of websites by ctrl+scroll wheel</p></details>
-                    <details><summary>🔘 Zoom text only</summary><p>This one is hard to explain. Turn it on and then ctrl+scroll wheel in the settings menu to see if you like it or not.</p> </details>
+                    <details class='ok'><summary>🔘 Zoom text only</summary><p>This one is hard to explain. Turn it on and then ctrl+scroll wheel in the settings menu to see if you like it or not.</p> </details>
                     
                     <h4>Language</h4>
-                    <details><summary>🔘 English (US)</summary><p>If you speak a different language, put it here otherwise if you're English then just leave it. If you speak British English you can set it here if it isn't set already.</p></details>
-                    <details><summary>🔘 Use your operating system settings for "LANGUAGE" to format dates, times, numbers, and measurements.</summary><p>This formats your dates, times etc. by your country defaults. i.e. Australia uses dd/mm/yyyy, metric system and the 12 hour clock.</p></details>
-                    <details><summary>✅ Check your spelling as you type</summary><p>This turns on a dictionary that does not connect to the internet or trasmit data to a server. No reason to not have this on unless you have a slow PC or don't like spellcheck.</p></details>
+                    <details class='ok'><summary>🔘 English (US)</summary><p>If you speak a different language, put it here otherwise if you're English then just leave it. If you speak British English you can set it here if it isn't set already.</p></details>
+                    <details class='ok'><summary>🔘 Use your operating system settings for "LANGUAGE" to format dates, times, numbers, and measurements.</summary><p>This formats your dates, times etc. by your country defaults. i.e. Australia uses dd/mm/yyyy, metric system and the 12 hour clock.</p></details>
+                    <details><summary>✅ Check your spelling as you type</summary><p>This turns on a dictionary that does not connect to the internet or transmit data to a server. No reason to not have this on unless you have a slow PC or don't like spellcheck.</p></details>
                     
                     <h4>Downloads</h4>
-                    <details><summary>🔘 Save files to <code>📥 Downloads</code></summary><p>If you like to save all your files to a different drive, like <code>D:\Downloads</code>, you can save it here.</p></details>
-                    <details><summary>🔘 Always ask you where to save files</summary><p>Every time you download something, it prompts you to where you want to save it.</p></details>
+                    <details class='ok'><summary>🔘 Save files to <code>📥 Downloads</code></summary><p>If you like to save all your files to a different drive, like <code>D:\Downloads</code>, you can save it here.</p></details>
+                    <details class='ok'><summary>🔘 Always ask you where to save files</summary><p>Every time you download something, it prompts you to where you want to save it.</p></details>
                     
                     <h4>Applications</h4>
-                    <details><summary>🔘 Handle Files</summary><p>It's best to leave this as default. If you want WebP and AVIF images to save to your downloads instead of opening it, you can change it here.</p></details>
-                    <details><summary>🔘 What should Firefox do with other files?</summary><p>Save files just saves files with no fuss. The other option asks whether to open that file type or save that file type.</p></details>
+                    <details class='ok'><summary>🔘 Handle Files</summary><p>It's best to leave this as default. If you want WebP and AVIF images to save to your downloads instead of opening it, you can change it here.</p></details>
+                    <details class='ok'><summary>🔘 What should Firefox do with other files?</summary><p>Save files just saves files with no fuss. The other option asks whether to open that file type or save that file type.</p></details>
                     
                     <h4>Digital Rights Management (DRM) Content</h4>
-                    <details><summary>🔘 Play DRM-controlled content</summary><p>If you want to watch Netflix or any paid streaming platform, leave this ✅ enabled. If you are against the idea of DRM, turn this off. You can learn more about DRM <a href="https://support.mozilla.org/en-US/kb/enable-drm?as=u&utm_source=inproduct">here</a>.</p></details>
+                    <details class='ok'><summary>🔘 Play DRM-controlled content</summary><p>If you want to watch Netflix or any paid streaming platform, leave this ✅ enabled. If you are against the idea of DRM, turn this off. You can learn more about DRM <a href="https://support.mozilla.org/en-US/kb/enable-drm?as=u&utm_source=inproduct">here</a>.</p></details>
                     
                     <h4>Updates</h4>
-                    <details> <summary>✅ Automatically install updates</summary> <p>This automatically installs updates for you with no fuss. If you really dont want your browser to update to new versions unless you tell it to, you can change it, but not updating your web browser exposes you to many security threats.</p> </details>
+                    <details> <summary>✅ Automatically install updates</summary> <p>This automatically installs updates for you with no fuss. If you really don't want your browser to update to new versions unless you tell it to, you can change it, but not updating your web browser exposes you to many security threats.</p> </details>
                     
                     <h4>Performance</h4>
                     <details><summary>✅ Use recommended performance settings</summary><p>This checks your hardware and tailors performance settings for you. If you need to disable GPU acceleration, uncheck this and uncheck hardware acceleration.</p></details>
                     
                     <h4>Browsing</h4>
                     <details> <summary>✅ Use autoscrolling</summary> <p>When you middle click your mouse, this allows autoscrolling. Turn off if you hate this for whatever reason.</p> </details>
-                    <details> <summary>🔘 Use smooth scrolling</summary> <p>If on, it uses a smooth animation to scroll. If not on, it doesn't. Try it out for yourself.</p> </details>
+                    <details class='ok'> <summary>🔘 Use smooth scrolling</summary> <p>If on, it uses a smooth animation to scroll. If not on, it doesn't. Try it out for yourself.</p> </details>
                     <details> <summary>✅ Show a touch keyboard when necessary</summary> <p>This may help if you need to search something but don't have a keyboard plugged in.</p> </details>
                     <details> <summary>❌ Always use the cursor keys to navigate within pages</summary> <p>This will break a lot of websites, especially games that use the arrow keys.</p> </details>
                     <details> <summary>❌ Search for text when you start typing</summary> <p>Instead of using Ctrl+F, this automatically searches for text in a webpage once you press any key. This will break way too many websites.</p> </details>
-                    <details> <summary>🔘 Enable picture-in-picture video controls</summary> <p>If you use and like PiP, keep it. if you don't, disable this. PiP pops videos out webpages so you can watch a YouTube video while playing a game or something.</p> </details>
+                    <details class='ok'> <summary>🔘 Enable picture-in-picture video controls</summary> <p>If you use and like PiP, keep it. if you don't, disable this. PiP pops videos out webpages so you can watch a YouTube video while playing a game or something.</p> </details>
                     <details> <summary>✅ Control media via keyboard/headset/virtual interface</summary> <p>If you have media keys on your keyboard, enable this. If you don't, keep this on anyway. it wont hurt you.</p> </details>
                     <details> <summary>❌ Recommend extensions as you browse</summary> <p>When you browse websites Firefox recommends extensions for those sites when you browse. Firefox does not receive this data or share or sell this data with third-parties, but it is annoying.</p> </details>
                     <details> <summary>❌ Recommend features as you browse</summary> <p>Read above.</p> </details>
@@ -122,7 +134,7 @@
                 <p>
                     
                     <h4>New Windows and Tabs</h4>
-                    <details> <summary>🔘 Homepage and new windows & New tabs</summary> <p>Up to personal preference. if you click Blank Page it will literally give you a blank page. you will need to search from the address bar.</p> </details>
+                    <details class='ok'> <summary>🔘 Homepage and new windows & New tabs</summary> <p>Up to personal preference. if you click Blank Page it will literally give you a blank page. you will need to search from the address bar.</p> </details>
                     
                     <h4>Firefox Home Content</h4>
                     <details> <summary>❌ Sponsored Shortcuts</summary> <p>Turn this off, no reason to have random websites you don't visit in your Home page.</p> </details>
@@ -136,13 +148,13 @@
                 <p>
                     
                     <h4>Search Bar</h4>
-                    <details> <summary>🔘 Address bar or Address Bar + Search Bar</summary> <p>Up to personal preference. If you like having a seperate search bar you can enable it here. There is an advanced setting called <code>keyword.enabled</code> in <code>about:config</code> that makes the address bar unsearchable.</p> </details>
+                    <details class='ok'> <summary>🔘 Address bar or Address Bar + Search Bar</summary> <p>Up to personal preference. If you like having a separate search bar you can enable it here. There is an advanced setting called <code>keyword.enabled</code> in <code>about:config</code> that makes the address bar unsearchable.</p> </details>
                     
                     <h4>Default Search Engine</h4>
-                    <details> <summary>🔘 I recommend DuckDuckGo</summary> <p>If you don't want to use Google, DDG is the best choice. You can also use Bing here. If you want to add other search engines, go to the website (i.e. startpage.com), click the address bar and you should see an option in the very bottom to add that website.</p> </details>
+                    <details class='ok'> <summary>🔘 I recommend DuckDuckGo</summary> <p>If you don't want to use Google, DDG is the best choice. You can also use Bing here. If you want to add other search engines, go to the website (i.e. startpage.com), click the address bar and you should see an option in the very bottom to add that website.</p> </details>
                     
                     <h4>Provide Search Suggestions</h4>
-                    <details> <summary>🔘 If you care about privacy, turn these off.</summary> <p>This turns off the feature on when you type into the search bar/address bar, it shows you what to type. In order for Firefox to get you these results it contacts your search engine.</p> </details>
+                    <details class='ok'> <summary>🔘 If you care about privacy, turn these off.</summary> <p>This turns off the feature on when you type into the search bar/address bar, it shows you what to type. In order for Firefox to get you these results it contacts your search engine.</p> </details>
                     <details> <summary>❌ Show search suggestions in Private Windows</summary> <p>Private mode should really be a private mode.</p> </details>
                 </p>
             </details>
@@ -158,22 +170,22 @@
                     <details> <summary>❌ Do Not Track</summary> <p>Do Not Track is not what it says. It basically sends a request to every website you visit and the website can choose to honour that request or not. And most of the time, they don't. It's just additional tracking information.</p> </details>
                     
                     <h4>Cookies and Site Data</h4>
-                    <details> <summary>🔘 Delete cookies and site data when Firefox is closed</summary> <p>Cookies are still used to track you, but if you clear cookies then you will need to log-in to every website unless you make exceptions to those websites. It's not really worth it.</p> </details>
+                    <details class='ok'> <summary>🔘 Delete cookies and site data when Firefox is closed</summary> <p>Cookies are still used to track you, but if you clear cookies then you will need to log-in to every website unless you make exceptions to those websites. It's not really worth it.</p> </details>
                     
                     <h4>Cookie Banner Reduction</h4>
                     <details> <summary>✅ Reduce Cookie Banners</summary> <p>Firefox automatically rejects cookie requests on sites that show you that "Can i use your cookies". This only helps to improve your privacy.</p> </details>
                     
                     <h4>Logins and Passwords</h4>
-                    <details> <summary>🔘 Ask to save logins and passwords for websites</summary> <p>Firefox's inbuilt password manager is secure and encrypted. Mozilla cannot see your passwords. You can learn more about this <a href="https://support.mozilla.org/en-US/kb/how-firefox-securely-saves-passwords">here</a>. If you use another password manager, t urn this off</p> </details>
+                    <details class='ok'> <summary>🔘 Ask to save logins and passwords for websites</summary> <p>Firefox's inbuilt password manager is secure and encrypted. Mozilla cannot see your passwords. You can learn more about this <a href="https://support.mozilla.org/en-US/kb/how-firefox-securely-saves-passwords">here</a>. If you use another password manager, t urn this off</p> </details>
                     <details> <summary>✅ Show alerts about passwords for breached websites</summary> <p>If you use Firefox's password manager, be sure to turn on this setting. Basically, it checks known website breaches and if the date that you saved a password for your website is before the breach happened, Firefox will tell you to change your password. The breach data is provided by <a href="https://haveibeenpwned.com/">haveibeenpwned</a>, a trustworthy site.</p> </details>
                     <details> <summary>✅ Use a Primary Password</summary> <p>If you use Firefox's password manager, be sure to turn on this setting. This makes it so you need a password to enter your logins so someone on your PC cant access it, like a family member.</p> </details>
-                    <details> <summary>🔘 Allow Windows single sign-on for Microsoft, work, and school accounts </summary> <p>If your school or work makes you turn this on, then do it. But if you need to use a school or work, it's best to use another firefox profile or a different browser entirely to keep them seperated.</p> </details>
+                    <details class='ok'> <summary>🔘 Allow Windows single sign-on for Microsoft, work, and school accounts </summary> <p>If your school or work makes you turn this on, then do it. But if you need to use a school or work, it's best to use another firefox profile or a different browser entirely to keep them separated.</p> </details>
                     
                     <h4>History</h4>
                     <details> <summary>Read</summary> <p>History cannot be accessed by websites. It is simply something that is stored on your pc. Only clear history if you have to hide it from someone.</p> </details>
                     
                     <h4>Address Bar</h4>
-                    <details> <summary>🔘 All</summary> <p>This enables different ways for your address bar to be more personalized. No data will ever be sent. Either leave alone or customize if you don't like.</p> </details>
+                    <details class='ok'> <summary>🔘 All</summary> <p>This enables different ways for your address bar to be more personalized. No data will ever be sent. Either leave alone or customize if you don't like.</p> </details>
                     
                     <h4>Permissions</h4>
                     <details> <summary>Location, Camera, Microphone, Notifications, Autoplay, Virtual Reality</summary> <p>All of these are set to "Always Ask" by default. If you Set these to "Block", you are opening yourself up to device fingerprinting. Keep all of these settings by default.</p> </details>
@@ -208,11 +220,12 @@
             <details>
                 <summary style="display:inline;"><h3>⚠️ Advanced (about:config)</h3></summary>
                 <p>
-                    <p>This can help you tweak Firefox a bit more but heed the warning Firefox gives you. You can access this by entering <code>about:config</code> in the address bar.</p>
-                    <p>The amount of customizations you can do to Firefox with about:config tweaks alone is gigantic and I'll only show a few different user.js files or about:config tweaks.</p>
+                    <p>This can help you tweak everything in Firefox but heed the warning Firefox gives you, you can screw up your profile. You can access this by entering <code>about:config</code> in the address bar. The amount of customizations you can do to Firefox with about:config tweaks alone is gigantic and I'll only show a few different user.js files for you to look through.</p>
                     
-                    <p><a href="https://github.com/arkenfox/user.js">arkenfox user.js</a> - This is a template file that hardens Firefox for security, privacy and anti-tracking features. I will reiterate that this is a template and it is advised to read the wiki and look through user.js file itself.</p>
-                    <p><a href="https://libreddit.spike.codes/r/firefox/wiki/aboutconfig">r/Firefox about:config tweaks</a> - A bunch of general use customizations</p>
+                    <li><a href="https://github.com/arkenfox/user.js">arkenfox user.js</a> - This is a template file that hardens Firefox for security, privacy and anti-tracking features. I will reiterate that this is a template and it is advised to read the wiki and look through user.js file itself.</li>
+                    <li><a href="https://github.com/pyllyukko/user.js">pyllyukko user.js</a> - Similar to arkenfox's user.js script except it seems that it goes a lot further with browser hardening. Seems overkill but it exists if you want it.</li>
+                    <li><a href="https://github.com/yokoffing/Betterfox">yokoffing Betterfox</a> - Has tweaks to make Firefox faster, make Firefox minimal and also some privacy/security tweaks.</li>
+                    <li><a href="https://libreddit.spike.codes/r/firefox/wiki/aboutconfig">r/Firefox about:config tweaks</a> - A bunch of general use customizations from r/Firefox.</li>
                 </p>
             </details>
 
@@ -226,14 +239,12 @@
                         <details style="font-style:normal;">
                             <summary>uBlock Origin Configuration</summary>
                             <p>
-                                <br/>
                                 <p>Open the uBlock Dashboard. You can do this by clicking on the icon on the toolbar and clicking the gears.</p>
 
-                                <p>If you use Firefox Sync, Enable cloud storage support.
-                                Next, go to the Filter Lists category and check the following:</p>
+                                <p>If you use Firefox Sync, Enable <code>cloud storage support</code>. Next, go to the Filter Lists category and check the following:</p>
                                 <ul>
                                     <li>- AdGuard URL Tracking Protection</li>
-                                    <li>- Block Outsider Intrustion into LAN</li>
+                                    <li>- Block Outsider Intrusion into LAN</li>
                                     <li>- Phishing URL Blocklist</li>
                                     <li>- PUP Domains Blocklist</li>
                                     <li>- uBlock filters - Annoyances</li>
@@ -245,7 +256,7 @@
                         </details>
                         <li><a href="https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/">SponsorBlock</a> - This automatically skips Sponsorships on YouTube. You can also make it skip self promotion, interaction reminders, intros, non music sections and recaps.</li>
                         <li><a href="https://addons.mozilla.org/en-US/firefox/addon/return-youtube-dislikes/">Return YouTube Dislike</a> - Returns the YouTube dislike.</li>
-                        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/fastforwardteam/">FastForward</a> - You know those adf.ly and ouo.io links that make you wait 5 seconds before contuining? This extension skips those.</li>
+                        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/fastforwardteam/">FastForward</a> - You know those adf.ly and ouo.io links that make you wait 5 seconds before you can continue? This extension skips those.</li>
                         <li><a href="https://addons.mozilla.org/en-US/firefox/addon/darkreader/">Dark Reader</a> - If you like dark mode but some sides are pure white (like Wikipedia), this extension turns them dark.</li>
                         <li><a href="https://gitlab.com/magnolia1234/bypass-paywalls-firefox-clean">Bypass Paywalls Clean</a> - This has been removed from the Firefox addons store for "copyright" reasons but this bypasses paywalls from websites that require you to pay to see an article.</li>
                         <li><a href="https://addons.mozilla.org/en-US/firefox/addon/skip-redirect/">Skip Redirect</a> - Some sites like to add a tracking referrer before directing you to a website. This disables that.</li>
@@ -253,20 +264,17 @@
                     
                     <h3>Extensions to avoid</h3>
                     <ul>
-                        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/i-dont-care-about-cookies">I Don't Care about Cookies</a> - This was recently acquired by Avast which is known to be scummy. Use <a href="https://addons.mozilla.org/en-US/firefox/addon/istilldontcareaboutcookies/">I still don't care about cookies</a>, an open source contuination of the former.</li>
+                        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/i-dont-care-about-cookies">I Don't Care about Cookies</a> - This was recently acquired by Avast which is known to be scummy. Use <a href="https://addons.mozilla.org/en-US/firefox/addon/istilldontcareaboutcookies/">I still don't care about cookies</a>, an open source continuation of the former.</li>
                         <li><a href="https://addons.mozilla.org/en-US/firefox/addon/privacy-badger17/">Privacy Badger</a> - This extension is practically useless as it "learns" to block trackers. So it doesn't block them all until its "learnt" it. uBlock Origin blocks these by default.</li>
-                        <li>HTTPS Everywhere - Redudant with HTTPS Only Mode</li>
-                        <li>Decentraleyes/LocalCDN - if you use Strict tracking protection, third party sites are already partitioned and isolated.If you care about not connecting to certain CDN domains, use a VPN or TOR instead.</li>
-                        <li>Any other adblockers (AdBlock, AdBlock Plus) - uBlock Origin is already the best adblocker and a lot of these don't have the features uBlock Origin enables.</li>
-                        <li>ClearURLs - if you set-up URL tracking protection in uBlock Origin, this extension is redudant.</li>
+                        <li>HTTPS Everywhere - Redundant with HTTPS Only Mode. This extension was removed from the store but do not bother with any other HTTPS addons.</li>
+                        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/decentraleyes/">Decentraleyes</a>/<a href="https://addons.mozilla.org/en-US/firefox/addon/localcdn-fork-of-decentraleyes/">LocalCDN</a> - if you use Strict tracking protection, third party sites are already partitioned and isolated.If you care about not connecting to certain CDN domains, use a VPN or TOR instead.</li>
+                        <li>Any other adblockers (<a href="https://addons.mozilla.org/en-US/firefox/addon/adblock-for-firefox/">AdBlock</a>/<a href="https://addons.mozilla.org/en-US/firefox/addon/adblock-plus/">AdBlock Plus</a>) - uBlock Origin is already the best adblocker and a lot of these don't have the features uBlock Origin enables. Some of these extensions can also be malware.</li>
+                        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/clearurls/">ClearURLs</a> - if you set-up URL tracking protection in uBlock Origin, this extension is redundant.</li>
                     </ul>
                 </p>
             </details>
-            
+            <h2>Other</h2>
             <p>Other things to look into are <a href="https://github.com/black7375/Firefox-UI-Fix">Firefox UI Fix</a> if you want a new firefox GUI or want to revert back to the old square GUI  (read the Wiki for further customization), or look into the Firefox Gnome Theme if you use GNOME or like Adwaita. You can also look at <a href="https://addons.mozilla.org/en-US/firefox/themes/">installing new themes</a>.</p>
         </main>
-        <footer>
-            <p>Source Code: <a href="https://github.com/geckro/geckro.github.io">geckro/geckro.github.io</a></p>
-        </footer>
     </body>
 </html>

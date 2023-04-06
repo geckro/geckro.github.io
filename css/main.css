@@ -29,7 +29,7 @@
 
 * {
     color: var(--color);
-    font-family: sans-serif;
+    font-family: "Cantarell", sans-serif;
 }
 
 /* Body */
@@ -91,9 +91,8 @@ body {
         }
 
 code {
-    font-family: "IBM Plex Mono";
-    background-color: #1d1f2b;
     color: var(--code-color);
+    font-family: "Cascadia Mono", "JetBrains Mono", "Comic Mono", monospace;
 }
 
 strong {
@@ -134,12 +133,4 @@ main h2 {
 .secondary {
     color: var(--secondary-color)
 }
-details > summary {
-    cursor: pointer;
-}
-details > summary:hover {
-    color: rgb(226, 167, 255);
-}
-details > p {
-    font-style:italic;
-}
+
