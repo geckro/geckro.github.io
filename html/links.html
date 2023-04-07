@@ -6,124 +6,8 @@
         <meta name="description" content="useful websites" />
         <link rel="icon" href="/img/favicon.ico" />
         <link rel="stylesheet" href="/css/main.css" />
+        <link rel="stylesheet" href="/css/links.css" />
         <link rel="stylesheet" href="/css/garf.css" />
-        <style>
-            td,th,tr,table {
-                padding: 10px;
-                border-bottom: 1px dotted var(--secondary-color);
-                border-collapse: collapse;
-            }
-            th {
-                background-color: var(--background-header-color);
-                border: 2px dotted var(--secondary-color);
-            }
-            td:nth-child(1) {
-                border-right: 1px dotted var(--secondary-color);
-                text-align: center;
-            }
-            #g {
-                color: rgb(220, 182, 111);
-            }
-            #transrights:hover {
-                background: rgb(0,151,255);
-                background: linear-gradient(90deg, rgba(0,151,255,1) 0%, rgba(214,140,206,1) 19%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 59%, rgba(214,140,206,1) 82%, rgba(0,151,255,1) 100%); 
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-            #k {
-                color: rgb(66, 120, 191);
-            }
-            .tooltip {
-                position: relative;
-                display: inline-block;
-            }
-            .tooltip > a > img {
-                filter: drop-shadow(0 0 8px var(--secondary-color));
-                max-width: 64px;
-                max-height: auto;
-            }
-            .tooltip .tooltip-text {
-                visibility: hidden;
-                width: 400px;
-                background-color: var(--background-header-color);
-                text-align: center;
-                border-radius: 8px;
-                padding: 8px;
-
-                /* Position the tooltip text */
-                position: absolute;
-                z-index: 1;
-                bottom: 100%;
-                left: 50%;
-                margin-left: -120px;
-
-                /* Fade in the tooltip */
-                opacity: 0;
-                transition: opacity 1.40s;
-
-                box-shadow: 0 0 8px var(--secondary-color);
-            }
-            .tooltip-text {
-                font-size: 16px;
-                line-height: 1.6;
-            }
-            .tooltip-text p {
-                background-color: var(--background-color);
-                padding: 6px;
-                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-            }
-
-            .tooltip:hover .tooltip-text {
-                visibility: visible;
-                opacity: 1;
-            }
-            .tooltip-text > .software-name > p {
-                width: 45%;
-                display: inline;
-                border-radius: 5px;
-                float: left;
-                font-weight: bold;
-                margin-bottom: -5px;
-            }
-            .tooltip-text > .software-license > p {
-                width: 45%;
-                display: inline;
-                border-radius: 5px;
-                float: right;
-                margin-bottom: -5px;
-            }
-            .tooltip-text > .software-avail > p {
-                display: inline-block;
-                border-radius: 5px;
-                margin-bottom: -5px;
-                width: 95%;
-                
-            }
-            .tooltip-text > .software-avail > p > img {
-                float: left;
-                width: 32px;  /* set the width to 50 pixels */
-                height: auto; /* maintain the aspect ratio */
-            }
-            .tooltip-text > .software-desc > p {
-                clear: both;
-                border-radius: 10px;
-                font-style: italic;
-            }
-            .foss::after {
-                content: "FOSS";
-            }
-            .foss:hover::after {
-                content: "Free and Open Source";
-                font-style: italic;
-            }
-            .free::after {
-                content: "Free/Proprietary";
-            }
-            .free:hover::after {
-                content: "Not Open Source";
-                font-style: italic;
-            }
-        </style>
     </head>
     <body>
 
@@ -224,7 +108,7 @@
                                     <p>GNOME</p>
                                 </span>
                                 <span class="software-license">
-                                    <p><span class='foss'></span></p>
+                                    <p><span class='foss gpl2'></span></p>
                                 </span>
                                 <span class="software-avail">
                                     <p><img src="/img/computer.svg" /><img src="/img/laptop.svg" /></p>
@@ -240,7 +124,7 @@
                                     <p>KDE Plasma</p>
                                 </span>
                                 <span class="software-license">
-                                    <p><span class='foss'></span></p>
+                                    <p><span class='foss gpl2'></span></p>
                                 </span>
                                 <span class="software-avail">
                                     <p><img src="/img/computer.svg" /><img src="/img/laptop.svg" /></p>
@@ -261,7 +145,7 @@
                                     <p>Dolphin</p>
                                 </span>
                                 <span class="software-license">
-                                    <p><span class='foss'></span></p>
+                                    <p><span class='foss gpl2'></span></p>
                                 </span>
                                 <span class="software-avail">
                                     <p><img src="/img/flatpak.svg" /><img src="/img/snap.png" /><img src="/img/win.svg" /><img src="/img/mac.svg" /></p>
@@ -282,7 +166,7 @@
                                     <p>Firefox</p>
                                 </span>
                                 <span class="software-license">
-                                    <p><span class='foss'></span></p>
+                                    <p><span class='foss mpl2'></span></p>
                                 </span>
                                 <span class="software-avail">
                                     <p><img src="/img/flatpak.svg" /><img src="/img/snap.png" /><img src="/img/win.svg" /><img src="/img/mac.svg" /><img src="/img/android.svg" /></p>
@@ -298,7 +182,7 @@
                                     <p>LibreWolf</p>
                                 </span>
                                 <span class="software-license">
-                                    <p><span class='foss'></span></p>
+                                    <p><span class='foss mpl2'></span></p>
                                 </span>
                                 <span class="software-avail">
                                     <p><img src="/img/flatpak.svg" /><img src="/img/win.svg" /><img src="/img/mac.svg" /></p>
@@ -314,7 +198,7 @@
                                     <p>TOR Browser</p>
                                 </span>
                                 <span class="software-license">
-                                    <p><span class='foss'></span></p>
+                                    <p><span class='foss bsd3'></span></p>
                                 </span>
                                 <span class="software-avail">
                                     <p><img src="/img/flatpak.svg" /><img src="/img/win.svg" /><img src="/img/mac.svg" /><img src="/img/android.svg" /></p>
@@ -330,7 +214,7 @@
                                     <p>Thorium</p>
                                 </span>
                                 <span class="software-license">
-                                    <p><span class='foss'></span></p>
+                                    <p><span class='foss bsd3'></span></p>
                                 </span>
                                 <span class="software-avail">
                                     <p><img src="/img/win.svg" /><img src="/img/mac.svg" /></p>
@@ -343,7 +227,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Audio/Music Players</td>
+                    <td>Music Players</td>
                     <td>
                         <span class='tooltip'><a href='https://elisa.kde.org/'><img src='/img/elisa.svg' /></a>
                             <span class="tooltip-text">
@@ -351,7 +235,7 @@
                                     <p>Elisa</p>
                                 </span>
                                 <span class="software-license">
-                                    <p><span class='foss'></span></p>
+                                    <p><span class='foss glpl3'></span></p>
                                 </span>
                                 <span class="software-avail">
                                     <p><img src="/img/flatpak.svg" /><img src="/img/win.svg" /></p>
@@ -367,7 +251,7 @@
                                     <p>Amberol</p>
                                 </span>
                                 <span class="software-license">
-                                    <p><span class='foss'></span></p>
+                                    <p><span class='foss gpl3'></span></p>
                                 </span>
                                 <span class="software-avail">
                                     <p><img src="/img/flatpak.svg" /><img src="/img/snap.png" /></p>
@@ -383,7 +267,7 @@
                                     <p>foobar2000</p>
                                 </span>
                                 <span class="software-license">
-                                    <p><span class='free'></span></p>
+                                    <p><span class='free hprop'></span></p>
                                 </span>
                                 <span class="software-avail">
                                     <p><img src="/img/win.svg" /></p>
@@ -404,7 +288,7 @@
                                     <p>mpv</p>
                                 </span>
                                 <span class="software-license">
-                                    <p><span class='foss'></span></p>
+                                    <p><span class='foss gpl2'></span></p>
                                 </span>
                                 <span class="software-avail">
                                     <p><img src="/img/flatpak.svg" /><img src="/img/win.svg" /><img src="/img/mac.svg" /></p>
@@ -420,7 +304,7 @@
                                     <p>Celluloid</p>
                                 </span>
                                 <span class="software-license">
-                                    <p><span class='foss'></span></p>
+                                    <p><span class='foss gpl3'></span></p>
                                 </span>
                                 <span class="software-avail">
                                     <p><img src="/img/flatpak.svg" /></p>
@@ -434,7 +318,7 @@
                 </tr>
             </table>
 
-            <h2>Licensing</h2>
+            <h2>Licensing (Entire Website)</h2>
 
             <p>Icons by the <a href="https://github.com/PapirusDevelopmentTeam">Papirus Development Team</a> at <a href="https://github.com/PapirusDevelopmentTeam/papirus-icon-theme">Papirus Icon Theme</a>. Licensed under <a href="https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/blob/master/LICENSE">GPLv3</a>.</p>
         </main>

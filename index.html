@@ -7,20 +7,29 @@
         <link rel="icon" href="/img/favicon.ico" />
         <link rel="stylesheet" href="/css/main.css" />
         <style>
+            #title-name:hover {
+                background: linear-gradient(90deg, red, orange, yellow, green, blue, purple);
+                background-clip: text; /* sets the background of the text to the gradient */
+                -webkit-background-clip: text; /* compatibility for older webkit browsers */
+                color: transparent; /* hides the original text color */
+                text-shadow: 0px 10px 10px rgba(0, 0, 0, 0.50);
+                transition: 5000ms ease; /* 5 second transition effect */
+            }
             #god {
-                border-radius: 1em;
-                width: 100%;
+                border-radius: 0.5em;
+                width: 95%;
             }
             #god:hover {
-                opacity: 0.25;
+                opacity: 0.80;
                 width: 40%;
-                background-color: red;
-                box-shadow: 50px 50px 10px green;
+                background-color: rgb(238, 188, 147);
+                box-shadow: 50px 50px 10px rgb(119, 165, 119);
                 transition: opacity 1.0s ease-in-out,width 10s ease-in-out,background-color 2s ease-in-out,box-shadow 5s linear;
             }
         </style>
     </head>
     <body>
+
         <header>
             <div id="links">
                 <p id="active"><a href="/">Home</a></p>
@@ -30,15 +39,17 @@
                 <p><a href="/html/links.html">Links</a></p>
             </div>
             <div id="title">
-                <h1>🐈 <span id='title'>geckronome</span>'s website</h1>
+                <h1>🐈 <span id='title-name'>geckronome</span>'s website</h1>
             </div>
-        </header>   
+        </header>
+
         <main>
+
             <p>Welcome to my little site. You can look at my posts and other stuff by navigating the top menu. :)</p>
+
             <img id="god" alt="Overlord" src="/img/geckrocat_transparent.png"/>
+
         </main>
-        <footer>
-            <p>Source Code: <a href="https://github.com/geckro/geckro.github.io">geckro/geckro.github.io</a></p>
-        </footer>
+        <p>Source Code: <a href="https://github.com/geckro/geckro.github.io">geckro/geckro.github.io</a></p>
     </body>
 </html>

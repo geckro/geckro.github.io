@@ -1,11 +1,13 @@
 :root {
         /* Light theme only colors */
-        --color: #586e75;
+        --color: #43555a;
         --color-2: #697a80;
         --secondary-color: #3D3846;
         --background-color: #fbf1c7;
         --background-2-color: #ebdbb2;
+        --background-3-color: #e2d1a7;
         --background-header-color: #d5c4a1;
+        --background-color-background: #fdf6da;
 
         /* Global colors */
         --site-color: #268bd2;
@@ -19,7 +21,7 @@
     :root {
         /* Dark theme only colors */
         --color: #93a1a1;
-        -color-2: #89a8a8;
+        --color-2: #89a8a8;
         --secondary-color: #3e4f55;
         --background-2-color: #08313a;
         --background-color: #10434f;
@@ -31,19 +33,36 @@
     color: var(--color);
     font-family: "Cantarell", sans-serif;
 }
-
+html {
+    background-color: var(--background-color);
+}
 /* Body */
 body {
-    
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 2%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    border-top-left-radius: 0.25em;
+    border-top-right-radius: 0.25em;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
     background-color: var(--background-color);
     line-height: 1.6;
     margin: auto;
     font-size: 18px;
-    /* Half of 1920px (1080p) is 960px */
-    max-width: 960px;
+    max-width: 960px; /* Half of 1920px (1080p) is 960px */
+}
+@media only screen and (max-width: 600px) {
+    body {
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+        border-top-left-radius: 0em;
+        border-top-right-radius: 0em;
+        border-bottom-left-radius: 0em;
+        border-bottom-right-radius: 0em;
+    }
 }
     header {
-        
+        text-align: center;
     }
 
         header > #links {
@@ -67,9 +86,10 @@ body {
         }
         header > #links p:hover {
             background-color: var(--background-2-color);
+            transition: background-color 0.4s linear;
         }
         header > #links #active {
-            background-color: var(--background-2-color);
+            background-color: var(--background-3-color);
         }
         header > #date p {
             font-style:oblique;
@@ -79,7 +99,6 @@ body {
     /* Main */
     main {
         margin:1em;
-        padding-bottom: 180px;
         overflow: auto;
     }
         main > h2 {
@@ -91,16 +110,6 @@ body {
                 top: 6px;
                 position: relative;
             }
-
-    /* Footer */
-    footer {
-        padding: 1em;
-        border-top:1px solid white;
-    }
-
-        footer a {
-            font-family: "Cascadia Mono", monospace;
-        }
 
 code {
     color: var(--code-color);
@@ -121,14 +130,6 @@ a:visited {
 }
 a:visited:hover {
     color: var(--site-color-visited-hover);
-}
-#title:hover {
-    color: var(--primary-color);
-    background: linear-gradient(90deg, red, orange, yellow, green, blue, purple);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    transition: 5000ms ease;
 }
 #homelink {
     float:right;
