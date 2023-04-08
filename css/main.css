@@ -27,8 +27,13 @@
         --background-color: #10434f;
         --background-header-color: #002b36;
     }
+    main #warning {
+        visibility: visible;
+    }
 }
-
+#warning {
+    visibility: hidden;
+}
 * {
     color: var(--color);
     font-family: "Cantarell", sans-serif;
