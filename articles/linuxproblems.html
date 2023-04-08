@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Linux Problems - geckronome</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="firefox configuration guide" />
+        <link rel="icon" href="/img/favicon.ico" />
+        <link rel="stylesheet" href="/css/main.css" />
+    </head>
+    <body>
+        <header>
+            <div id="links">
+                <p><a href="/">Home</a></p>
+                <p id="active"><a href="/html/articles.html">Articles</a></p>
+                <p><a href="/html/projects.html">Projects</a></p>
+                <p><a href="/html/about.html">About</a></p>
+                <p><a href="/html/links.html">Links</a></p>
+            </div>
+            <div id="title">
+                <h1>Linux Problems & How To Fix</h1>
+            </div>
+            <div id="date">
+                <p>Date created: 2023-04-08 | Last updated: 2023-04-08 | ID: 004</p>
+            </div>
+        </header>
+        <main>
+            <p>When you use Linux you tend to run into multiple problems with stuff. Overtime, I'll document the issues I've had and what the solutions to fixing them were.</p>
+            
+            <ul id='table-of-contents'>
+                <li><a href="#bluetooth">Bluetooth</a></li>
+                <ul>
+                    <li><a href="#bluetooth-not-working">Bluetooth doesn't work</a></li>
+                </ul>
+                <li><a href="#discord">Discord</a></li>
+                <ul>
+                    <li><a href="#discord-blurry-icon">Discord tray icon is blurry</a></li>
+                    <li><a href="#discord-no-emojis">Emojis aren't being rendered</a></li>
+                </ul>
+                <li><a href="#pacman">pacman</a></li>
+                <ul>
+                    <li><a href="#pacman-error404">The requested URL returned error: 404</a></li>
+                </ul>
+            </ul>
+
+            <h2 id='bluetooth'>Bluetooth</h2>
+
+                <h3 id='bluetooth-not-working'>Bluetooth doesn't work</h3>
+                    <p>Firstly, check if you have the packages <code>bluez</code> and <code>bluez-utils</code>.</p>
+                    <p>Secondly, check if bluetooth is enabled and running with the command <code>systemctl status bluetooth.service</code>. If the service is not enabled, enable it with <code>sudo systemctl enable --now bluetooth.service</code>. If it is enabled and not running, use <code>sudo systemctl start bluetooth.service</code>.</p>
+                    <p>Thirdly, make sure that you have installed a GUI for bluetooth. <code>bluedevil</code> for Plasma, <code>gnome-bluetooth-3.0</code> for GNOME, and <code>blueman</code> for an independant one.</p>
+                    <p>I find that sometimes in order to get bluetooth running I need to shut down the PC, turn off the switch on the PSU and then discharge the PC by holding the power button, then turning on the PC.</p>
+
+            <h2 id='discord'>Discord</h2>
+                <h3 id='discord-blurry-icon'>Discord tray icon is blurry</h3>
+                <p>Install <code>libappindicator-gtk3</code>.</p>
+                <h3 id='discord-no-emojis'>Emojis aren't being rendered</h3>
+                <p>You need to have emojis installed on your system. <code>ttf-twemoji</code> is the emojiset that discord uses. Alternatively, use <code>noto-fonts-emoji</code>.</p>
+            
+            <h2 id='pacman'>pacman</h2>
+
+                <h3 id='pacman-error404'>The requested URL returned error: 404</h3>
+                    <p>The error means that the mirror that you are downloading from usually has a new version of the repository. Run <code>sudo pacman -Sy</code> to refresh your repos.</p>
+        </main>
+    </body>
+</html>
