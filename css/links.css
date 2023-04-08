@@ -123,6 +123,12 @@ td:nth-child(2) {
     .gpl3:hover::after {
         content: "GNU GPL v3";
     }
+    .agpl3:hover::after {
+        content: "GNU Affero GPL v3";
+    }
+    .mit:hover::after {
+        content: "MIT License";
+    }
 
 .free::after {
     content: "Freeware";
