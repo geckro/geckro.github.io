@@ -1,0 +1,33 @@
+header {
+    text-align: center;
+}
+
+header > #links {
+    background-color: var(--background-header-color);
+    border-bottom-right-radius: 3em;
+    border-bottom-left-radius: 3em;
+    text-align: center;
+    box-shadow: 0 0 15px 3px var(--secondary-color);
+}
+header > #links a {
+    text-decoration: none;
+}
+header > #links p {
+    font-size: 22px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    display: inline-block;
+    padding: 12px;
+    box-shadow: 0 3px 5px var(--secondary-color);
+}
+header > #links p:hover {
+    background-color: var(--background-2-color);
+    transition: background-color 0.4s linear;
+}
+header > #links #active {
+    background-color: var(--background-3-color);
+}
+header > #date p {
+    font-style:oblique;
+    font-size: 14px;
+}
