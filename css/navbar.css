@@ -1,31 +1,37 @@
+:root {
+    --navbar-color: #e2edf2;
+    --navbar-button-color: #edf4f7;
+    --navbar-button-hover-color: #dee9ec;
+    --navbar-button-active-color: #d9ebf3;
+}
 header {
     text-align: center;
 }
 
 header > #links {
-    background-color: var(--background-header-color);
+    background-color: var(--navbar-color);
     border-bottom-right-radius: 3em;
     border-bottom-left-radius: 3em;
     text-align: center;
-    box-shadow: 0 0 15px 3px var(--secondary-color);
+    box-shadow: 0 0 15px 3px rgba(0,0,0,0.5);
 }
 header > #links a {
     text-decoration: none;
 }
 header > #links p {
     font-size: 22px;
-    background-color: var(--background-color);
+    background-color: var(--navbar-button-color);
     border-radius: 10px;
     display: inline-block;
     padding: 12px;
-    box-shadow: 0 3px 5px var(--secondary-color);
+    box-shadow: 0 3px 5px rgba(0,0,0,0.5);
 }
 header > #links p:hover {
-    background-color: var(--background-2-color);
+    background-color: var(--navbar-button-hover-color);
     transition: background-color 0.4s linear;
 }
 header > #links #active {
-    background-color: var(--background-3-color);
+    background-color: var(--navbar-button-active-color);
 }
 header > #date p {
     font-style:oblique;

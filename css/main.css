@@ -28,8 +28,8 @@ body {
     border-top-right-radius: 0.25em;
     border-bottom-left-radius: 1em;
     border-bottom-right-radius: 1em;
-    background-color: var(--background-color);
-    line-height: 1.6;
+    background-color: var(--content-background-color);
+    line-height: 1.4;
     margin: auto;
     font-size: 18px;
     max-width: 960px; /* Half of 1920px (1080p) is 960px */
@@ -49,7 +49,17 @@ body {
         overflow: auto;
     }
         main > h2 {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+            padding-bottom: 0.2em;
         }
+            h2 > a, h2 > a:visited, h2 > a:hover, h2 > a:visited:hover {
+                text-decoration:none;
+                color: var(--color);
+            }
+            h3 > a, h3 > a:visited, h3 > a:hover, h3 > a:visited:hover {
+                text-decoration:none;
+                color: var(--color);
+            }
             main > h2 > img {
                 width: 1.3em;
                 height: 1.3em;

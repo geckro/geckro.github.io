@@ -5,10 +5,15 @@
     --site-color-visited: #6c71c4;
     --site-color-visited-hover: #d33682;
     --code-color: #6272a4;
+    --color: #43555a;
+    --color-2: #697a80;
+    --secondary-color: #3D3846;
+    --content-background-color: #fafafa;
+    --background-color: #e2e2e2;
 }
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
     :root {
-        /* Light theme or no preference colors */
+        
         --color: #43555a;
         --color-2: #697a80;
         --secondary-color: #3D3846;
@@ -21,7 +26,7 @@
 }
 @media (prefers-color-scheme: dark) {
     :root {
-        /* Dark theme only colors */
+        
         --color: #93a1a1;
         --color-2: #89a8a8;
         --secondary-color: #3e4f55;
@@ -29,4 +34,4 @@
         --background-color: #10434f;
         --background-header-color: #002b36;
     }
-}
+} */
