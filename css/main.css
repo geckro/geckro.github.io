@@ -1,12 +1,6 @@
-/* Seperate Navigation Bar CSS */
+/* Seperate Navigation Bar & Colors CSS */
 @import url(/css/navbar.css);
 @import url(/css/colors.css);
-
-@media (prefers-color-scheme: dark) {
-    main #warning {
-        visibility: visible;
-    }
-}
 
 #warning {
     visibility: hidden;

@@ -26,6 +26,11 @@
                 box-shadow: 50px 50px 10px rgb(119, 165, 119);
                 transition: opacity 1.0s ease-in-out,width 10s ease-in-out,background-color 2s ease-in-out,box-shadow 5s linear;
             }
+            @media (prefers-color-scheme: dark) {
+                main #warning {
+                    visibility: visible;
+                }
+            }
             
         </style>
     </head>
@@ -45,7 +50,7 @@
         </header>
 
         <main>
-            <p id='warning'><b>It seems like you're viewing this in dark mode. Please note that light mode gets prioritized and dark mode will be worked on in the future.</b></p>
+            <p id='warning'><b>It seems like you're viewing this site in dark mode. Please note that light mode gets prioritized. Install Dark Reader if you want a dark mode.</b></p>
             
             <p>Welcome to my little site. You can look at my articles and other stuff by navigating the top menu. :)</p>
 

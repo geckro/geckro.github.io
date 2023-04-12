@@ -13,16 +13,6 @@ td:nth-child(1) {
 td:nth-child(2) {
     width: 100%;
   }
-#transrights:hover {
-    background: rgb(0,151,255);
-    background: linear-gradient(90deg, rgba(0,151,255,1) 0%, rgba(214,140,206,1) 19%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 59%, rgba(214,140,206,1) 82%, rgba(0,151,255,1) 100%); 
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-#k {
-    color: rgb(66, 120, 191);
-}
 .tooltip {
     position: relative;
     display: inline-block;
