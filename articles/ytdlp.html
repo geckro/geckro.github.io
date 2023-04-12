@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ytdlp - geckronome</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="guide to yt-dlp" />
+        <link rel="icon" href="/img/favicon.ico" />
+        <link rel="stylesheet" href="/css/main.css" />
+        <style>
+            
+            
+        </style>
+    </head>
+    <body>
+        <header>
+            <div id="links">
+                <p><a href="/">Home</a></p>
+                <p id="active"><a href="/html/articles.html">Articles</a></p>
+                <p><a href="/html/projects.html">Projects</a></p>
+                <p><a href="/html/about.html">About</a></p>
+                <p><a href="/html/links.html">Links</a></p>
+            </div>
+            <div id="title">
+                <h1>Guide to [yt-dlp]</h1>
+            </div>
+            <div id="date">
+                <p>Date created: 2023-04-12 | Last updated: 2023-04-12 | ID: 005</p>
+            </div>
+        </header>
+        <main>
+            <h2 id='ytdlp-installation'><a href="#ytdlp-installation">Installation</a></h2>
+
+                <h3 id='ytdlp-installation-windows'><a href="#ytdlp-installation-windows">Windows</a></h3>
+                    <p>Download from <a href="https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe">here</a>. Place the executable in it's own folder somewhere like <code>USER/Documents/yt-dlp/yt-dlp.exe</code>. When you want to run yt-dlp, open a terminal and navigate to that folder, and then use <code>./yt-dlp.exe (args) (url)</code></p>
+
+                <h3 id='ytdlp-installation-mac'><a href="#ytdlp-installation-mac">MacOS</a></h3>
+                    <p>Use <code>brew install yt-dlp</code>. Run yt-dlp by opening a terminal and running <code>yt-dlp (args) (url)</code></p>   
+                    
+                <h3 id='ytdlp-installation-linux'><a href="#ytdlp-installation-linux">Linux</a></h3>
+                    <p>Check your package manager. More information <a href="https://github.com/yt-dlp/yt-dlp/wiki/Installation#linuxmacos">here</a>.</p>
+            
+            <h2 id='ytdlp-usage'><a href="#ytdlp-usage">Basic Usage</a></h2>
+            <p>To download a video, use <code>yt-dlp [url]</code> (without the brackets)</p>
+            <p>By default, yt-dlp downloads the best available quality it can.</p>
+                <h3 id='ytdlp-usage-format'><a href="#ytdlp-usage-format">Formats</a></h3>
+                        <p>Using <code>-f</code>, you can specify the format you want. You can use <code>3gp, aac, flv, m4a, mp3, mp4, ogg, wav, webm</code>. By default yt-dlp picks the best quality for you.</p>
+                <h3 id='ytdlp-usage-audio'><a href="#ytdlp-usage-audio">Extracting audio</a></h3>
+                    <p>Using <code>-x</code>, you can make yt-dlp extract the audio from a video file. By default it extracts the best audio format but you can change it with <code>--remux-video FORMAT</code>. </p>
+                    <p>
+                        <details>
+                            <summary>
+                            Available audio FORMATs:
+                            </summary>
+                            avi, flv, gif, mkv, mov, mp4, webm, aac, aiff, alac, flac, m4a, mka, mp3, ogg, opus, vorbis, wav
+                        </details>    
+                    </p>
+        </main>
+    </body>
+</html>
