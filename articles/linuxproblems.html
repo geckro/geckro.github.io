@@ -40,6 +40,10 @@
                 <ul>
                     <li><a href="#pacman-error404">The requested URL returned error: 404</a></li>
                 </ul>
+                <li><a href="#games">Games</a></li>
+                <ul>
+                    <li><a href="#tf2-decoder">TF2: Failed to create decoder for MP3</a></li>
+                </ul>
             </ul>
 
             <h2 id='bluetooth'>Bluetooth</h2>
@@ -61,6 +65,27 @@
 
                 <h3 id='pacman-error404'>The requested URL returned error: 404</h3>
                     <p>The error means that the mirror that you are downloading from usually has a new version of the repository. Run <code>sudo pacman -Sy</code> to refresh your repos.</p>
+
+            <h2 id='games'>Games</h2>
+
+            <h3 id='tf2-decoder'>TF2: Failed to create decoder for MP3</h3>
+
+            <p>
+                This is a bug that occurs on Linux distros running Security Enhanced Linux, notably Fedora. According to <a href="https://github.com/ValveSoftware/Source-1-Games/issues/2734#issuecomment-1363552623">this comment on the issue,</a>
+                this is caused by a vulnerability in the sound system that TF2 (and other source games) use, which causes SELinux to block the whole thing. 
+            </p>
+            <p>
+                The fix is to add a whitelist for Source games. This can be done with two commands:
+            </p>
+            <p>
+                <code>ausearch -c 'hl2_linux' --raw | audit2allow -M my-hl2linux</code>
+            </p>
+            <p>
+                <code>semodule -i my-hl2linux.pp</code>
+            </p>
+            <p>
+                The first command generates an SELinux policy to allow TF2 to use the sound system and the second loads it into SELinux. The policy can be removed with <code>semodule -r my-hl2linux</code>.
+            </p>
         </main>
     </body>
 </html>
