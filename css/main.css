@@ -1,70 +1,50 @@
 /* Seperate Navigation Bar & Colors CSS */
-@import url(/css/navbar.css);
 @import url(/css/colors.css);
 
-#warning {
-    visibility: hidden;
-}
 * {
     color: var(--color);
-    font-family: "Cantarell", sans-serif;
+    font-family: sans-serif;
+    margin: 0;
 }
 html {
     background-color: var(--background-color);
 }
 /* Body */
 body {
-    padding-left: 3%;
-    padding-right: 3%;
-    padding-bottom: 2%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
-    border-top-left-radius: 0.25em;
-    border-top-right-radius: 0.25em;
-    border-bottom-left-radius: 1em;
-    border-bottom-right-radius: 1em;
-    background-color: var(--content-background-color);
     line-height: 1.4;
-    margin: auto;
     font-size: 18px;
-    max-width: 960px; /* Half of 1920px (1080p) is 960px */
 }
-@media only screen and (max-width: 600px) {
-    body {
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
-        border-top-left-radius: 0em;
-        border-top-right-radius: 0em;
-        border-bottom-left-radius: 0em;
-        border-bottom-right-radius: 0em;
-    }
+
+/* Main */
+main > h2 {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    padding-bottom: 0.2em;
 }
-    /* Main */
-    main {
-        margin:1em;
-        overflow: auto;
-    }
-        main > h2 {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-            padding-bottom: 0.2em;
-        }
-            h2 > a, h2 > a:visited, h2 > a:hover, h2 > a:visited:hover {
-                text-decoration:none;
-                color: var(--color);
-            }
-            h3 > a, h3 > a:visited, h3 > a:hover, h3 > a:visited:hover {
-                text-decoration:none;
-                color: var(--color);
-            }
-            main > h2 > img {
-                width: 1.3em;
-                height: 1.3em;
-                margin-right: 4px;
-                top: 6px;
-                position: relative;
-            }
+h2 > a,
+h2 > a:visited,
+h2 > a:hover,
+h2 > a:visited:hover {
+    text-decoration: none;
+    color: var(--color);
+}
+h3 > a,
+h3 > a:visited,
+h3 > a:hover,
+h3 > a:visited:hover {
+    text-decoration: none;
+    color: var(--color);
+}
+main > h2 > img {
+    width: 1.3em;
+    height: 1.3em;
+    margin-right: 4px;
+    top: 6px;
+    position: relative;
+}
 
 code {
     color: var(--code-color);
-    font-family: "Cascadia Mono", "JetBrains Mono", "Comic Mono", monospace;
+    font-family: monospace;
 }
 
 strong {
@@ -83,14 +63,14 @@ a:visited:hover {
     color: var(--site-color-visited-hover);
 }
 #homelink {
-    float:right;
-    font-size:14px;
+    float: right;
+    font-size: 14px;
 }
-#posts th, #posts td {
+#posts th,
+#posts td {
     padding: 0.3em;
     text-align: left;
 }
 .secondary {
-    color: var(--secondary-color)
+    color: var(--secondary-color);
 }
-
