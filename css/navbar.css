@@ -1,39 +1,46 @@
 :root {
-    --navbar-color: #e2edf2;
-    --navbar-button-color: #edf4f7;
-    --navbar-button-hover-color: #dee9ec;
-    --navbar-button-active-color: #d9ebf3;
+    --navbar-button-color: #272a32;
+    --navbar-button-hover-color: #442c5c;
 }
-header {
-    text-align: center;
+#links {
+    background: linear-gradient(
+        90deg,
+        rgb(164, 0, 0) 0%,
+        rgb(164, 98, 0) 10%,
+        rgb(164, 175, 2) 20%,
+        rgb(21, 156, 16) 30%,
+        rgb(25, 168, 166) 40%,
+        rgb(16, 121, 137) 50%,
+        rgb(13, 78, 152) 60%,
+        rgb(49, 11, 125) 70%,
+        rgb(93, 6, 124) 80%,
+        rgb(152, 16, 134) 90%,
+        rgb(132, 15, 15) 100%
+    );
+    padding-top: 5px;
+    border-bottom: 3px solid #202227;
 }
-
-header > #links {
-    background-color: var(--navbar-color);
-    border-bottom-right-radius: 3em;
-    border-bottom-left-radius: 3em;
-    text-align: center;
-    box-shadow: 0 0 15px 3px rgba(0,0,0,0.5);
+#links a {
+    font-family: monospace;
 }
-header > #links a {
-    text-decoration: none;
-}
-header > #links p {
-    font-size: 22px;
+#links li {
     background-color: var(--navbar-button-color);
-    border-radius: 10px;
     display: inline-block;
-    padding: 12px;
-    box-shadow: 0 3px 5px rgba(0,0,0,0.5);
+    padding: 0.3em;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
 }
-header > #links p:hover {
+#links li:hover {
     background-color: var(--navbar-button-hover-color);
     transition: background-color 0.4s linear;
 }
-header > #links #active {
+#links #active {
     background-color: var(--navbar-button-active-color);
 }
-header > #date p {
-    font-style:oblique;
+#date li {
+    font-style: oblique;
     font-size: 14px;
+}
+#title > h1 {
+    font-family: monospace;
 }

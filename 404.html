@@ -9,22 +9,20 @@
     </head>
     <body>
         <header>
-            <div id="links">
-                <p id="active"><a href="/">Home</a></p>
-                <p><a href="/html/articles.html">Articles</a></p>
-                <p><a href="/html/projects.html">Projects</a></p>
-                <p><a href="/html/about.html">About</a></p>
-                <p><a href="/html/links.html">Links</a></p>
-            </div>
+            <div w3-include-html="/html/navbar.html"></div>
             <div id="title">
                 <h1>🐈 404 Error</h1>
             </div>
-        </header>   
+        </header>
         <main>
-            <p>Uh oh, this is a 404 error. The page you were trying to access Died. Burnt to the ground. Got sucked into hell. cope</p>
+            <p>
+                Uh oh, this is a 404 error. The page you were trying to access
+                Died. Burnt to the ground. Got sucked into hell. cope
+            </p>
         </main>
-        <footer>
-            <p>Source Code: <a href="https://github.com/geckro/geckro.github.io">geckro/geckro.github.io</a></p>
-        </footer>
     </body>
+    <script src="/js/navbar.js"></script>
+    <script>
+        includeHTML();
+    </script>
 </html>

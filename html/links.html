@@ -9,100 +9,269 @@
         <link rel="stylesheet" href="/css/garf.css" />
     </head>
     <body>
-
         <header>
-            <div id="links">
-                <p><a href="/">Home</a></p>
-                <p><a href="/html/articles.html">Articles</a></p>
-                <p><a href="/html/projects.html">Projects</a></p>
-                <p><a href="/html/about.html">About</a></p>
-                <p id="active"><a href="/html/links.html">Links</a></p>
-            </div>
+            <div w3-include-html="/html/navbar.html"></div>
             <div id="title">
-                <h1>🔗 Links</h1>
+                <h1>🔗 links</h1>
             </div>
             <div id="date">
-                <p>Last updated: 2023-04-12</p>
+                <p>last updated: 2023-04-12</p>
             </div>
         </header>
 
         <main>
-            
-            <p>This is a list of different website I find cool or useful.</p>
-            
-            <h2 id='Computers'><a href="#Computers">Computers</a></h2>
+            <p>this is a list of different website i find cool or useful.</p>
 
-                <h3 id='Games'><a href="#Games">Games</a></h3>
-                    <ul>
-                        <li><a href="https://emulation.gametechwiki.com/index.php/Main_Page">Emulation General Wiki</a> - Wiki for all information involving emulators and what emulators to use for different systems.</li>
-                        <li><a href="https://r-roms.github.io">r/Roms Megathread</a> - Best place to look for ROMs.</li>
-                        <li><a href="https://www.pcgamingwiki.com/wiki/Main_Page">PCGamingWiki</a> - Wiki that documents details about PC games and common errors to troubleshoot.</li>
-                        <li><a href="https://myrient.erista.me/">Myrient</a> - Website that focuses on archiving video game collections to keep them from becoming lost to time.</li>
-                        <li><a href="https://gog-games.to/">GOG Games</a> - No DRM games. Remember to support indie developers.</li>
-                        <li><a href="https://github.com/pointfeev/CreamInstaller">CreamInstaller</a> - CreamAPI frontend to crack DLC for legitimate games. Great for paradox games.</li>
-                        <li><a href="https://howlongtobeat.com/">HowLongToBeat</a> - How long does it take to beat a game? What about complete it?</li>
-                        <li><a href="https://beforeiplay.com/index.php?title=Main_Page">Before I Play</a> - Before you play a game or when you're early in a game, you can check to see some stuff here. Minor spoilers but useful if you dont like wandering aimlessly through a game and hating it.</li>
-                        <li><a href="https://hshop.erista.me/">hShop</a> - Repository of 3DS content. Only place to get 3ds content now that the eShop died.</li>
-                        <li><a href="https://cfw.guide/">CFW Guide</a> - List of guides to hack consoles and devices.</li>
-                        <li><a href="https://nopaystation.com/">NoPayStation</a> - Download PS3/PSP/PSV from Sony's servers.</li>
-                        <li><a href="https://cemu.cfw.guide/">Cemu CFW Guide</a> - Guide to Cemu and optimizing performance.</li>
-                        <li><a href="https://github.com/Abd-007/Switch-Emulators-Guide">Switch Emulators Guide</a> - Guide to set up Yuzu/Ryujinx optimally.</li>
-                        <li><a href="https://downloads.khinsider.com">KHInsider</a> - Rips of video game music in mp3 and flac quality.</li>
-                    </ul>
+            <h2 id="games"><a href="#games">games</a></h2>
 
-                <h3 id='Linux'><a href="#Linux">Linux</a></h3>
-                    <ul>
-                        <li><a href="https://wiki.archlinux.org/">Arch Wiki</a> - mainly documentation for Arch Linux, but is extremely useful for any distro and even Windows, and is one of the best wikis out there.</li>
-                        <li><a href="https://pkgs.org/">pkgs.org</a> - Want to see if a piece of software is available in a distro's repos? use this tool.</li>
-                    </ul>
+            <h3 id="emulation"><a href="#emulation">emulation</a></h3>
+            <ul>
+                <li>
+                    <a
+                        href="https://emulation.gametechwiki.com/index.php/main_page"
+                        >emulation general wiki</a
+                    >
+                    - wiki for all information involving emulators and what
+                    emulators to use for different systems.
+                </li>
+                <li>
+                    <a href="https://r-roms.github.io">r/roms megathread</a> -
+                    best place to look for roms.
+                </li>
+                <li>
+                    <a href="https://myrient.erista.me/">myrient</a> - website
+                    that focuses on archiving video game collections to keep
+                    them from becoming lost to time.
+                </li>
+                <li>
+                    <a href="https://hshop.erista.me/">hshop</a> - repository of
+                    3ds content. only place to get 3ds content now that the
+                    eshop died.
+                </li>
+                <li>
+                    <a href="https://cfw.guide/">cfw guide</a> - list of guides
+                    to hack consoles and devices.
+                </li>
+                <li>
+                    <a href="https://nopaystation.com/">nopaystation</a> -
+                    download ps3/psp/psv from sony's servers.
+                </li>
+                <li>
+                    <a href="https://cemu.cfw.guide/">cemu cfw guide</a> - guide
+                    to cemu and optimizing performance.
+                </li>
+                <li>
+                    <a href="https://github.com/abd-007/switch-emulators-guide"
+                        >switch emulators guide</a
+                    >
+                    - guide to set up yuzu/ryujinx optimally.
+                </li>
+            </ul>
+            <h3 id="games-other"><a href="#games-other">games (other)</a></h3>
+            <ul>
+                <li>
+                    <a href="https://downloads.khinsider.com">khinsider</a> -
+                    rips of video game music in mp3 and flac quality.
+                </li>
+                <li>
+                    <a href="https://github.com/pointfeev/creaminstaller"
+                        >creaminstaller</a
+                    >
+                    - creamapi frontend to crack dlc for legitimate games. great
+                    for paradox games.
+                </li>
+                <li>
+                    <a href="https://howlongtobeat.com/">howlongtobeat</a> - how
+                    long does it take to beat a game? what about complete it?
+                </li>
+                <li>
+                    <a href="https://beforeiplay.com/index.php?title=main_page"
+                        >before i play</a
+                    >
+                    - before you play a game or when you're early in a game, you
+                    can check to see some stuff here. minor spoilers but useful
+                    if you dont like wandering aimlessly through a game and
+                    hating it.
+                </li>
+                <li>
+                    <a href="https://www.pcgamingwiki.com/wiki/main_page"
+                        >pcgamingwiki</a
+                    >
+                    - wiki that documents details about pc games and common
+                    errors to troubleshoot.
+                </li>
+            </ul>
 
-                <h3 id='Computers'><a href="#Computers">Computers</a></h3>
-                    <ul>
-                        <li><a href="https://alternativeto.net/">AlternativeTo</a> - Find alternatives to all the programs you use.</li>
-                        <li><a href="https://neocities.org">Neocities</a> - Spiritual successor to geocities, people can make their own little personal websites there.</li>
-                        <li><a href="https://fmhy.pages.dev">FMHY</a> - Guide to getting free things on the internet. Very legal.</li>                  
-                    </ul>
+            <h2 id="computers"><a href="#computers">computers</a></h2>
 
-                <h3 id='Security'><a href="#Security">Security</a></h3>
-                    <ul>
-                        <li><a href="https://tosdr.org/">Terms of Service; Didn't Read</a> - Search a website and see the privacy and security grade of it.</li>
-                        <li><a href="https://www.privacyguides.org/en/">PrivacyGuides</a> - Sane guide to privacy (and security) on the internet.</li>
-                        <li><a href="https://haveibeenpwned.com/">have i been pwned?</a> - Has your email address been in a data breach? check here.</li>
-                        <li><a href="https://www.virustotal.com/gui/home/upload">VirusTotal</a> - Are you unsure of a file you downloaded? This tool lets you upload it and checks like 50 different antiviruses on it.</li>
-                        <li><a href="https://canyoublockit.com">CanYouBlockIt?</a> - Test your adblocker to see if it works properly.</li>
-                        <li><a href="https://amiunique.org/fp">AmIUnique</a> - Test your browser to see if your browser is unique or not.</li>
-                        <li><a href="https://2fa.directory">2FA Directory</a> - Does a certain site support two factor authentication? What type of 2FA does it support? Is it secure? Find out here.</li>
-                    </ul>  
+            <h3 id="linux"><a href="#linux">linux</a></h3>
+            <ul>
+                <li>
+                    <a href="https://wiki.archlinux.org/">arch wiki</a> - mainly
+                    documentation for arch linux, but is extremely useful for
+                    any distro and even windows, and is one of the best wikis
+                    out there.
+                </li>
+                <li>
+                    <a href="https://pkgs.org/">pkgs.org</a> - want to see if a
+                    piece of software is available in a distro's repos? use this
+                    tool.
+                </li>
+            </ul>
 
-            <h2 id='Other'><a href="#Other">Other</a></h2>
+            <h3 id="computers"><a href="#computers">computers</a></h3>
+            <ul>
+                <li>
+                    <a href="https://alternativeto.net/">alternativeto</a> -
+                    find alternatives to all the programs you use.
+                </li>
+                <li>
+                    <a href="https://neocities.org">neocities</a> - spiritual
+                    successor to geocities, people can make their own little
+                    personal websites there.
+                </li>
+                <li>
+                    <a href="https://fmhy.pages.dev">fmhy</a> - guide to getting
+                    free things on the internet. very legal.
+                </li>
+            </ul>
 
-                <ul>
-                    <li><a href="https://nohello.net/en/">no hello</a> - Don't say hello, just ask the question.</li>
-                    <li><a href="https://tineye.com/">TinEye</a> - Good reverse image search to check if images might've been altered.</li>
-                    <li><a href="https://thenounproject.com/">TheNounProject</a> - Free icons for projects.</li>
-                    <li><a href="https://www.supercook.com">SuperCook</a> - Allows you to select ingredients and then it'll spit out recipes based on the ingredients you have.</li>
-                    <li><a href="https://doesthedogdie.com/">DoesTheDogDie</a> - Website to check if there's things you won't like in a movie or show like abuse, if spiders/snakes/bugs are in it, triggers like drugs/alchohol, gore, jumpscares and more.</li>
-                    <li><a href="https://libgen.rs">Library Genesis</a> - Do you want free knowledge?</li>
-                    <li><a href="https://ptable.com">Ptable</a> - Interactive periodic table.</li>
-                    <li><a href="https://zoro.to">Zoro</a> - Free anime streaming. Use an adblocker.</li>
-                    <li><a href="https://theuselessweb.com/">The Useless Web</a> - If you want to websurf really weird and funny websites, here you go.</li>
-                </ul>
+            <h3 id="security"><a href="#security">security</a></h3>
+            <ul>
+                <li>
+                    <a href="https://tosdr.org/"
+                        >terms of service; didn't read</a
+                    >
+                    - search a website and see the privacy and security grade of
+                    it.
+                </li>
+                <li>
+                    <a href="https://www.privacyguides.org/en/"
+                        >privacyguides</a
+                    >
+                    - sane guide to privacy (and security) on the internet.
+                </li>
+                <li>
+                    <a href="https://haveibeenpwned.com/">have i been pwned?</a>
+                    - has your email address been in a data breach? check here.
+                </li>
+                <li>
+                    <a href="https://www.virustotal.com/gui/home/upload"
+                        >virustotal</a
+                    >
+                    - are you unsure of a file you downloaded? this tool lets
+                    you upload it and checks like 50 different antiviruses on
+                    it.
+                </li>
+                <li>
+                    <a href="https://canyoublockit.com">canyoublockit?</a> -
+                    test your adblocker to see if it works properly.
+                </li>
+                <li>
+                    <a href="https://amiunique.org/fp">amiunique</a> - test your
+                    browser to see if your browser is unique or not.
+                </li>
+                <li>
+                    <a href="https://2fa.directory">2fa directory</a> - does a
+                    certain site support two factor authentication? what type of
+                    2fa does it support? is it secure? find out here.
+                </li>
+            </ul>
 
-            <div id='GarfRing'>
-                <script type="text/javascript" src="https://garfring.neocities.org/onionring-variables.js"></script>
-                <script type="text/javascript" src="https://garfring.neocities.org/onionring-widget.js"></script>
+            <h2 id="other"><a href="#other">other</a></h2>
+
+            <ul>
+                <li>
+                    <a href="https://nohello.net/en/">no hello</a> - don't say
+                    hello, just ask the question.
+                </li>
+                <li>
+                    <a href="https://tineye.com/">tineye</a> - good reverse
+                    image search to check if images might've been altered.
+                </li>
+                <li>
+                    <a href="https://thenounproject.com/">thenounproject</a> -
+                    free icons for projects.
+                </li>
+                <li>
+                    <a href="https://www.supercook.com">supercook</a> - allows
+                    you to select ingredients and then it'll spit out recipes
+                    based on the ingredients you have.
+                </li>
+                <li>
+                    <a href="https://doesthedogdie.com/">doesthedogdie</a> -
+                    website to check if there's things you won't like in a movie
+                    or show like abuse, if spiders/snakes/bugs are in it,
+                    triggers like drugs/alchohol, gore, jumpscares and more.
+                </li>
+                <li>
+                    <a href="https://libgen.rs">library genesis</a> - do you
+                    want free knowledge?
+                </li>
+                <li>
+                    <a href="https://ptable.com">ptable</a> - interactive
+                    periodic table.
+                </li>
+                <li>
+                    <a href="https://zoro.to">zoro</a> - free anime streaming.
+                    use an adblocker.
+                </li>
+                <li>
+                    <a href="https://theuselessweb.com/">the useless web</a> -
+                    if you want to websurf really weird and funny websites, here
+                    you go.
+                </li>
+            </ul>
+
+            <div id="garfring">
+                <script
+                    type="text/javascript"
+                    src="https://garfring.neocities.org/onionring-variables.js"
+                ></script>
+                <script
+                    type="text/javascript"
+                    src="https://garfring.neocities.org/onionring-widget.js"
+                ></script>
             </div>
 
-            <h2 id='Other Lists'><a href="#Other Lists">Other Lists</a></h2>
+            <h2 id="other lists"><a href="#other lists">other lists</a></h2>
 
-                <ul>
-                    <li><a href="/html/software.html">Software List</a> - List of software that I use and/or recommend.</li>
-                </ul>
+            <ul>
+                <li>
+                    <a href="/html/software.html">software list</a> - list of
+                    software that i use and/or recommend.
+                </li>
+            </ul>
 
-            <h2 id='Licensing'><a href="#Licensing">Licensing</a></h2>
+            <h2 id="licensing"><a href="#licensing">licensing</a></h2>
 
-                <p>Icons by the <a href="https://github.com/PapirusDevelopmentTeam">Papirus Development Team</a> at <a href="https://github.com/PapirusDevelopmentTeam/papirus-icon-theme">Papirus Icon Theme</a>. Licensed under <a href="https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/blob/master/LICENSE">GPLv3</a>.</p>
-                <p>This website is licensed under the <a href="https://raw.githubusercontent.com/geckro/geckro.github.io/main/LICENSE">GPLv3</a> license.</p>
+            <p>
+                icons by the
+                <a href="https://github.com/papirusdevelopmentteam"
+                    >papirus development team</a
+                >
+                at
+                <a
+                    href="https://github.com/papirusdevelopmentteam/papirus-icon-theme"
+                    >papirus icon theme</a
+                >. licensed under
+                <a
+                    href="https://github.com/papirusdevelopmentteam/papirus-icon-theme/blob/master/license"
+                    >gplv3</a
+                >.
+            </p>
+            <p>
+                this website is licensed under the
+                <a
+                    href="https://raw.githubusercontent.com/geckro/geckro.github.io/main/license"
+                    >gplv3</a
+                >
+                license.
+            </p>
         </main>
     </body>
+    <script src="/js/navbar.js"></script>
+    <script>
+        includeHTML();
+    </script>
 </html>

@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
     <head>
-        <title>posts - geckronome</title>
-        <meta charset="UTF-8" />
+        <title>articles</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="keywords" content="geckronome, technology" />
-        <meta name="author" content="geckro" />
-        <meta name="description" content="geckroposts" />
+        <meta name="description" content="geckro - articles" />
         <link rel="icon" href="/img/favicon.ico" />
         <link rel="stylesheet" href="/css/main.css" />
         <style>
@@ -19,48 +16,56 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                content: "📭";
-            }
-            li {
-                list-style-type: ">>> "
+                content: '📭';
             }
         </style>
     </head>
     <body>
         <header>
-            <div id="links">
-                <p><a href="/">Home</a></p>
-                <p id="active"><a href="/html/articles.html">Articles</a></p>
-                <p><a href="/html/projects.html">Projects</a></p>
-                <p><a href="/html/about.html">About</a></p>
-                <p><a href="/html/links.html">Links</a></p>
-            </div>
+            <div w3-include-html="/html/navbar.html"></div>
             <div id="title">
-                <h1><span id="postbox">📪</span> Articles</h1>
+                <h1><span id="postbox">📪</span> articles</h1>
             </div>
         </header>
         <main>
-            
-            <p>This is dedicated to my articles, posts, blogposts or whatever you want to call it. I update articles overtime.</p>
-            
-            <h2 id='Computers'><a href="#Computers">Computers</a></h2>
-            
-            <h3 id='Applications'><a href="#Applications">Applications</a></h3>
+            <p>This is dedicated to my articles. I update articles overtime.</p>
+
+            <h2 id="Computers"><a href="#Computers">Computers</a></h2>
+
+            <h3 id="Applications"><a href="#Applications">Applications</a></h3>
             <ul id="article-list">
-                <li><a href="/articles/firefox.html">Firefox Configuration Guide</a></li>
+                <li>
+                    <a href="/articles/firefox.html"
+                        >Firefox Configuration Guide</a
+                    >
+                </li>
                 <li><a href="/articles/ytdlp.html">yt-dlp Guide</a></li>
             </ul>
-                
-            <h3 id='Operating Systems'><a href="#Operating Systems">Operating Systems</a></h3>
+
+            <h3 id="Operating Systems">
+                <a href="#Operating Systems">Operating Systems</a>
+            </h3>
             <ul>
                 <li><a href="/articles/gnome.html">My Issues With GNOME</a></li>
-                <li><a href="/articles/linuxproblems.html">Linux Problems & How To Solve Them</a></li>
+                <li>
+                    <a href="/articles/linuxproblems.html"
+                        >Linux Problems & How To Solve Them</a
+                    >
+                </li>
             </ul>
 
-            <h3 id='Programming'><a href="#Programming">Programming</a></h3>
+            <h3 id="Programming"><a href="#Programming">Programming</a></h3>
             <ul>
-                <li><a href="/articles/trackingtest.html">Tracking Test With JS</a></li>
+                <li>
+                    <a href="/articles/trackingtest.html"
+                        >Tracking Test With JS</a
+                    >
+                </li>
             </ul>
         </main>
     </body>
+    <script src="/js/navbar.js"></script>
+    <script>
+        includeHTML();
+    </script>
 </html>
