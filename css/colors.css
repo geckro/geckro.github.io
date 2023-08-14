@@ -1,11 +1,8 @@
 :root {
     /* Global colors */
-    --site-color: #0befe7;
-    --site-color-hover: #28cdbf;
-    --site-color-visited: #e700f8;
-    --site-color-visited-hover: rgb(180, 23, 98);
     --code-color: #6272a4;
-    --color: #e6edf3;
+    --color: #000000;
     --secondary-color: #3d3846;
-    --background-color: #303237;
+    --background-color: #ecf2f3;
+    --page-color: #fff;
 }

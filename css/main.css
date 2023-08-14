@@ -1,10 +1,10 @@
 /* Seperate Navigation Bar & Colors CSS */
 @import url(/css/colors.css);
+@import url(/css/navbar.css);
 
 * {
     color: var(--color);
     font-family: sans-serif;
-    margin: 0;
 }
 html {
     background-color: var(--background-color);
@@ -15,6 +15,14 @@ body {
     font-size: 18px;
 }
 
+main {
+    border-radius: 1em;
+    background-color: var(--page-color);
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 0 0 1px 1px rgba(35, 35, 35, 0.15);
+}
 /* Main */
 main > h2 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);

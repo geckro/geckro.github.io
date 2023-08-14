@@ -1,46 +1,24 @@
 :root {
-    --navbar-button-color: #272a32;
+    --navbar-button-color: #f3f6fc;
     --navbar-button-hover-color: #442c5c;
 }
-#links {
-    background: linear-gradient(
-        90deg,
-        rgb(164, 0, 0) 0%,
-        rgb(164, 98, 0) 10%,
-        rgb(164, 175, 2) 20%,
-        rgb(21, 156, 16) 30%,
-        rgb(25, 168, 166) 40%,
-        rgb(16, 121, 137) 50%,
-        rgb(13, 78, 152) 60%,
-        rgb(49, 11, 125) 70%,
-        rgb(93, 6, 124) 80%,
-        rgb(152, 16, 134) 90%,
-        rgb(132, 15, 15) 100%
-    );
-    padding-top: 5px;
-    border-bottom: 3px solid #202227;
+#navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
 }
-#links a {
-    font-family: monospace;
-}
-#links li {
+#navbar li {
+    padding-left: 8%; padding-right: 8%;
+    padding-top: 0.5%; padding-bottom: 0.5%;
+    border-radius: 10px;
     background-color: var(--navbar-button-color);
-    display: inline-block;
-    padding: 0.3em;
-    border-top-left-radius: 0.5em;
-    border-top-right-radius: 0.5em;
+    margin-right: 10px;
+    box-shadow: 0 0 1px 1px rgba(35, 35, 35, 0.25);
 }
+
 #links li:hover {
     background-color: var(--navbar-button-hover-color);
     transition: background-color 0.4s linear;
-}
-#links #active {
-    background-color: var(--navbar-button-active-color);
-}
-#date li {
-    font-style: oblique;
-    font-size: 14px;
-}
-#title > h1 {
-    font-family: monospace;
 }
