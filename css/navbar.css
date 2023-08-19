@@ -1,24 +1,41 @@
+/*
+TODO: Center the navbar buttons
+*/
+
 :root {
     --navbar-button-color: #f3f6fc;
-    --navbar-button-hover-color: #442c5c;
-}
-#navbar ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    justify-content: space-between;
-}
-#navbar li {
-    padding-left: 8%; padding-right: 8%;
-    padding-top: 0.5%; padding-bottom: 0.5%;
-    border-radius: 10px;
-    background-color: var(--navbar-button-color);
-    margin-right: 10px;
-    box-shadow: 0 0 1px 1px rgba(35, 35, 35, 0.25);
+    --navbar-button-hover-color: #e5e7eb;
 }
 
-#links li:hover {
+header {
+    display: flex;
+    justify-content: center;
+}
+
+#navbar {
+    gap: 1%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#navbar a {
+    text-decoration: none;
+}
+
+#navbar button {
+    padding: 0.5% 8%;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--navbar-button-color);
+    box-shadow: 0 0 1px 1px rgba(35, 35, 35, 0.25);
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.4s linear, text-decoration 0.4s linear;
+}
+
+#navbar button:hover {
     background-color: var(--navbar-button-hover-color);
-    transition: background-color 0.4s linear;
+    text-decoration: underline;
 }
