@@ -2,11 +2,6 @@
 TODO: Center the navbar buttons
 */
 
-:root {
-    --navbar-button-color: #f3f6fc;
-    --navbar-button-hover-color: #e5e7eb;
-}
-
 header {
     display: flex;
     justify-content: center;
@@ -28,7 +23,7 @@ header {
     border: none;
     border-radius: 10px;
     background-color: var(--navbar-button-color);
-    box-shadow: 0 0 1px 1px rgba(35, 35, 35, 0.25);
+    box-shadow: 0 0 1px 1px var(--shadow-color);
     color: inherit;
     cursor: pointer;
     text-decoration: none;

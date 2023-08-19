@@ -1,14 +1,43 @@
-/* Seperate Navigation Bar & Colors CSS */
 @import url(/css/colors.css);
 @import url(/css/navbar.css);
+@import url(https://fonts.bunny.net/css?family=imprima:400);
+
+:root {
+    /* Global colors */
+    --code-color: #6272a4;
+    --color: #000000;
+    --secondary-color: #3d3846;
+    --background-color: #ecf2f3;
+    --page-color: #fff;
+    --shadow-color: rgba(35, 35, 35, 0.25);
+
+    --navbar-button-color: #f3f6fc;
+    --navbar-button-hover-color: #e5e7eb;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --code-color: #6272a4;
+        --color: #ffffff;
+        --secondary-color: #a39eab;
+        --background-color: #191a1b;
+        --page-color: #353737;
+        --shadow-color: rgba(117, 117, 117, 0.25);
+
+        --navbar-button-color: #3b3d41;
+        --navbar-button-hover-color: #505256;
+    }
+}
 
 * {
     color: var(--color);
-    font-family: sans-serif;
+    font-family: "Imprima", sans-serif;
 }
+
 html {
     background-color: var(--background-color);
 }
+
 /* Body */
 body {
     line-height: 1.4;
@@ -21,28 +50,32 @@ main {
     padding-bottom: 10px;
     padding-left: 10px;
     padding-right: 10px;
-    box-shadow: 0 0 1px 1px rgba(35, 35, 35, 0.15);
+    box-shadow: 0 0 1px 1px var(--shadow-color);
 }
+
 /* Main */
-main > h2 {
+main>h2 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
     padding-bottom: 0.2em;
 }
-h2 > a,
-h2 > a:visited,
-h2 > a:hover,
-h2 > a:visited:hover {
+
+h2>a,
+h2>a:visited,
+h2>a:hover,
+h2>a:visited:hover {
     text-decoration: none;
     color: var(--color);
 }
-h3 > a,
-h3 > a:visited,
-h3 > a:hover,
-h3 > a:visited:hover {
+
+h3>a,
+h3>a:visited,
+h3>a:hover,
+h3>a:visited:hover {
     text-decoration: none;
     color: var(--color);
 }
-main > h2 > img {
+
+main>h2>img {
     width: 1.3em;
     height: 1.3em;
     margin-right: 4px;
@@ -58,27 +91,34 @@ code {
 strong {
     color: var(--bold-color);
 }
+
 a {
     color: var(--site-color);
 }
+
 a:hover {
     color: var(--site-color-hover);
 }
+
 a:visited {
     color: var(--site-color-visited);
 }
+
 a:visited:hover {
     color: var(--site-color-visited-hover);
 }
+
 #homelink {
     float: right;
     font-size: 14px;
 }
+
 #posts th,
 #posts td {
     padding: 0.3em;
     text-align: left;
 }
+
 .secondary {
     color: var(--secondary-color);
 }
