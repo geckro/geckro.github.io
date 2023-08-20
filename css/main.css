@@ -13,6 +13,11 @@
 
     --navbar-button-color: #f3f6fc;
     --navbar-button-hover-color: #e5e7eb;
+
+    --site-color: #0f9fec;
+    --site-color-hover: #1939c5;
+    --site-color-visited: #dd3ce5;
+    --site-color-visited-hover: #5f0e78;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,6 +31,11 @@
 
         --navbar-button-color: #3b3d41;
         --navbar-button-hover-color: #505256;
+
+        --site-color: #9edafa;
+        --site-color-hover: #7287e5;
+        --site-color-visited: #f7a5fb;
+        --site-color-visited-hover: #8a499e;
     }
 }
 

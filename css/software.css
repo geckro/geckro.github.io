@@ -1,0 +1,33 @@
+td,
+th,
+tr,
+table {
+    padding: 10px;
+    border-bottom: 2px dashed rgba(35, 35, 35, 0.25);
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+}
+
+th:nth-child(1) {
+    border-right: 2px dashed rgba(35, 35, 35, 0.25);
+}
+
+th:nth-child(2) {
+    padding-left: 2.5em;
+}
+
+td:nth-child(1) {
+    text-align: center;
+    border-right: 2px dashed rgba(35, 35, 35, 0.25);
+}
+
+td:nth-child(2) {
+    width: 100%;
+}
+
+td>ul {
+    list-style: none;
+}
