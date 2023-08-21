@@ -35,3 +35,27 @@ header {
     background-color: var(--navbar-button-hover-color);
     text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+    #navbar {
+        flex-direction: column;
+        /* Stack buttons vertically */
+    }
+
+    #navbar button {
+        width: 100%;
+        /* Make buttons full width */
+        margin: 1% 0;
+        /* Add spacing between rows */
+    }
+}
+
+.contents {
+    visibility: hidden;
+}
+
+#navbar :nth-child(4):hover {
+    .contents {
+        visibility: visible;
+    }
+}

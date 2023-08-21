@@ -1,12 +1,11 @@
 @import url(/css/colors.css);
 @import url(/css/navbar.css);
-@import url(https://fonts.bunny.net/css?family=imprima:400);
+@import url(https://fonts.bunny.net/css?family=imprima:400|itim:400);
 
 :root {
     /* Global colors */
     --code-color: #6272a4;
-    --color: #000000;
-    --secondary-color: #3d3846;
+    --text-color: #000000;
     --background-color: #ecf2f3;
     --page-color: #fff;
     --shadow-color: rgba(35, 35, 35, 0.25);
@@ -23,8 +22,7 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --code-color: #6272a4;
-        --color: #ffffff;
-        --secondary-color: #a39eab;
+        --text-color: #ffffff;
         --background-color: #191a1b;
         --page-color: #353737;
         --shadow-color: rgba(117, 117, 117, 0.25);
@@ -40,12 +38,19 @@
 }
 
 * {
-    color: var(--color);
+    color: var(--text-color);
     font-family: "Imprima", sans-serif;
 }
 
 html {
     background-color: var(--background-color);
+}
+
+#title>h1 {
+    padding-top: 0.25em;
+    text-align: center;
+    font-size: 3em;
+    font-weight: normal;
 }
 
 /* Body */
@@ -63,6 +68,11 @@ main {
     box-shadow: 0 0 1px 1px var(--shadow-color);
 }
 
+h1,
+h2 {
+    font-family: 'Itim';
+}
+
 /* Main */
 main>h2 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
@@ -72,11 +82,7 @@ main>h2 {
 h2>a,
 h2>a:visited,
 h2>a:hover,
-h2>a:visited:hover {
-    text-decoration: none;
-    color: var(--color);
-}
-
+h2>a:visited:hover,
 h3>a,
 h3>a:visited,
 h3>a:hover,
@@ -85,21 +91,8 @@ h3>a:visited:hover {
     color: var(--color);
 }
 
-main>h2>img {
-    width: 1.3em;
-    height: 1.3em;
-    margin-right: 4px;
-    top: 6px;
-    position: relative;
-}
-
 code {
     color: var(--code-color);
-    font-family: monospace;
-}
-
-strong {
-    color: var(--bold-color);
 }
 
 a {
@@ -118,17 +111,8 @@ a:visited:hover {
     color: var(--site-color-visited-hover);
 }
 
-#homelink {
-    float: right;
-    font-size: 14px;
-}
-
 #posts th,
 #posts td {
     padding: 0.3em;
     text-align: left;
-}
-
-.secondary {
-    color: var(--secondary-color);
 }
