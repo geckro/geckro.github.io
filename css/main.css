@@ -116,3 +116,75 @@ a:visited:hover {
     padding: 0.3em;
     text-align: left;
 }
+
+.page {
+    font-size: 10px;
+    font-style: italic;
+}
+
+.track>img {
+    border-radius: 1em;
+    height: auto;
+    width: 256px;
+    height: auto;
+    box-shadow: 0 0 3px 3px var(--shadow-color);
+}
+
+.track {
+    background-color: var(--background-color);
+    border-radius: 1em;
+    display: flex;
+    margin-bottom: 2em;
+    align-items: flex-start;
+    box-shadow: 0 0 2px 2px var(--shadow-color);
+}
+
+.trackcontent {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2em;
+    flex: 1;
+}
+
+.trackinfo {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+}
+
+.author {
+    margin-left: auto;
+    margin-right: 1em;
+    font-style: italic;
+}
+
+.tracks ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: repeat(auto-fill, minmax(calc(50% - 10px), 1fr));
+    display: grid;
+}
+
+.tracks ul>li:nth-child(4n),
+.tracks ul>li:nth-child(4n + 1) {
+    opacity: 0.65;
+}
+
+.tracks ul>li:hover {
+    opacity: 0.5;
+}
+
+#ytdiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+#youtube {
+    background-color: var(--background-color);
+    border-radius: 1em;
+    box-shadow: 0 0 1px 1px var(--shadow-color);
+}
