@@ -126,7 +126,7 @@ a:visited:hover {
     border-radius: 1em;
     height: auto;
     width: 256px;
-    height: auto;
+    height: inherit;
     box-shadow: 0 0 3px 3px var(--shadow-color);
 }
 
@@ -155,8 +155,10 @@ a:visited:hover {
 
 .author {
     margin-left: auto;
+    text-align: right;
     margin-right: 1em;
     font-style: italic;
+    max-width: 60%;
 }
 
 .tracks ul {
