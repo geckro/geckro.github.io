@@ -44,7 +44,11 @@
             </ul>
             <li><a href="#games">Games</a></li>
             <ul>
-                <li><a href="#tf2-decoder">TF2: Failed to create decoder for MP3</a></li>
+                <li><a href="#source-games">Source games</a></li>
+                <ul>
+                    <li><a href="#tf2-decoder">TF2: Failed to create decoder for MP3</a></li>
+                    <li><a href="#tf2-tcmalloc">TF2 refuses to launch (libtcmalloc error)</a></li>
+                </ul>
             </ul>
             <li><a href="#pacman">pacman</a></li>
             <ul>
@@ -80,7 +84,9 @@
 
         <h2 id='games'>Games</h2>
 
-        <h3 id='tf2-decoder'>TF2: Failed to create decoder for MP3</h3>
+        <h3 id='source-games'>Source games</h3>
+
+        <h4 id='tf2-decoder'>TF2: Failed to create decoder for MP3</h4>
 
         <p>
             This is a bug that occurs on Linux distros running Security Enhanced Linux, notably Fedora. According to <a
@@ -101,6 +107,60 @@
         <p>
             The first command generates an SELinux policy to allow TF2 to use the sound system and the second loads it
             into SELinux. The policy can be removed with <code>semodule -r my-hl2linux</code>.
+        </p>
+
+        <h4 id="tf2-tcmalloc">TF2 refuses to launch (libtcmalloc error)</h4>
+
+        <p>
+            Starting around late July 2023, <a 
+            href="https://steamcommunity.com/app/440/discussions/0/3812910660679745513/" target="_blank" rel="noopener noreferrer"
+            >the Linux version of TF2 gained a bug resulting in an error</a> like this: 
+        </p>
+        <p>
+            <code>./hl2_linux: error while loading shared libraries: libtcmalloc_minimal.so.4: cannot open shared object file: No such file or directory</code>
+        </p>
+        <p>
+            This is due to a faulty <a href="https://github.com/google/tcmalloc" target="_blank" rel="noopener noreferrer">tcmalloc</a>
+            library. The solution is to download an updated <strong>32-bit</strong> version of this library and replace the faulty one in TF2's directory.
+        </p>
+        <p>
+            First, download the updated library:
+        </p>
+        <p>
+            <ul>
+                <li>DNF (Fedora): <code>dnf install gperftools-libs.i686</code></li>
+                <li>APT (Debian, but not Ubuntu): <code>apt-get install libtcmalloc-minimal4:i386</code></li>
+                <li>AUR package (Arch): <code>yay -S lib32-gperftools</code></li>
+            </ul>
+        </p>
+        <p>
+            For other distributions, you may have to <a 
+            href="https://github.com/google/tcmalloc#building-tcmalloc" target="_blank" rel="noopener noreferrer"
+            >compile tcmalloc manually</a> or extract it from another distribution's package.
+        </p>
+        <p>
+            To replace the library, first navigate to your TF2's bin directory.
+        </p>
+        <p>
+            Native Steam: <code>cd ~/.steam/steam/steamapps/common/"Team Fortress 2"/bin</code>
+        </p>
+        <p>
+            Flatpak Steam: <code>cd ~/.var/app/com.valvesoftware.Steam/.steam/steam/steamapps/common/"Team Fortress 2"/bin</code>
+        </p>
+        <p>
+            Next, make a backup of the current library: <code>mv libtcmalloc_minimal.so.4 libtcmalloc_minimal.so.4.bak</code>
+        </p>
+        <p>
+            Finally, copy the downloaded library to the TF2 folder:
+        </p>
+        <p>
+            <ul>
+                <li>Distros with a <code>/lib32</code> directory: <code>cp /lib32/libtcmalloc_minimal.so.4 ./</code></li>
+                <li>Distros with <code>/lib</code> and <code>/lib64</code> directories: <code>cp /lib/libtcmalloc_minimal.so.4 ./</code></li>
+            </ul>
+        </p>
+        <p>
+            TF2 should now launch normally.
         </p>
 
         <h2 id='pacman'>pacman</h2>
