@@ -133,3 +133,11 @@ body>main {
     max-width: 90%;
     margin: auto;
 }
+body>main>h2 {
+    font-size: 1.2em;
+}
+
+body>main>h3 {
+    font-size: 1.05em;
+    opacity: 80%;
+}
