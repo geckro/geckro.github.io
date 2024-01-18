@@ -1,3 +1,135 @@
-main {
-    background-color: aqua;
+:root {
+    /* Catppuccin Latte */
+    --background-back-color: #dce0e8;
+    --background-shadow-color: #bcc0cc;
+    --page-color: #eff1f5;
+    --secondary-color: #e6e9ef;
+    --text-color: #4c4f69;
+    --link-color: #7287fd;
+    --link-visited-color: #8839ef;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Catppuccin Frappe */
+        --background-back-color: #232634;
+        --background-shadow-color: #51576d;
+        --page-color: #303446;
+        --secondary-color: #292c3c;
+        --text-color: #c6d0f5;
+        --link-color: #babbf1;
+        --link-visited-color: #ca9ee6;
+    }
+}
+
+html {
+    background-color: var(--background-back-color);
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    max-width: 75%;
+    margin: auto;
+    background-color: var(--page-color);
+    color: var(--text-color);
+    padding-bottom: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    box-shadow: 0 2px 5px var(--background-shadow-color);
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding-bottom: 1%;
+}
+
+header>h1 {
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    padding: 12px;
+    font-weight: 300;
+    max-width: fit-content;
+    margin: auto;
+}
+
+/* Navbar */
+nav {
+    text-align: center;
+}
+
+nav>ul {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0;
+}
+
+nav>ul>li {
+    display: inline-block;
+}
+
+nav>ul>#current-page {
+    background-color: var(--secondary-color);
+    border-radius: 0.8em;
+}
+
+nav>ul>#current-page>a {
+    color: var(--text-color);
+}
+
+nav>ul>li>a {
+    display: inline-block;
+    text-align: center;
+    padding: 6px;
+    text-decoration: none;
+}
+
+nav>ul>li>a:hover {
+    transition: background-color 0.5s ease;
+    background-color: var(--secondary-color);
+    border-radius: 0.8em;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-top-color: var(--secondary-color);
+}
+
+footer>ul {
+    list-style-type: none;
+    overflow: hidden;
+    display: inline-block;
+    padding: 0;
+}
+
+footer>ul>li {
+    display: inline-block;
+    text-align: center;
+    padding: 4px;
+}
+
+footer>#footer-date {
+    font-weight: bold;
+}
+
+footer>ul>li>.footer-date {
+    font-weight: normal;
+}
+
+a {
+    color: var(--link-color);
+}
+
+a:visited {
+    color: var(--link-visited-color);
+}
+
+body>main {
+    max-width: 90%;
+    margin: auto;
 }
