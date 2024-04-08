@@ -1,0 +1,66 @@
+* {
+    font-family: sans-serif;
+}
+html {
+    background-color: #e6e9ef;
+}
+body {
+    max-width: 75%;
+    margin: auto;
+    background-color: #eff1f5;
+    color: #42455c;
+    padding: 1em;
+    border-bottom-left-radius: 1em;
+    box-shadow: 0 2px 18px #acb0be;
+    border-bottom-right-radius: 1em;
+}
+@media only screen and (max-width: 768px) {
+    body {
+        max-width: 95%;
+    }
+}
+h1 {
+    font-family: 'JetBrains Mono', 'Cascadia Mono', monospace, sans-serif;
+    font-size: 1.75em;
+    font-weight: 400;
+    color: #e64553;
+    background-color: #e6e9ef;
+    padding: 0.2em;
+    text-align: center;
+    border-radius: 0.4em;
+    max-width: 85%;
+    margin: auto;
+    box-shadow: 0 1px 3px #acb0be;
+}
+h2 {
+    color: #df8e1d;
+}
+h3 {
+    color: #40a02b;
+}
+a {
+    color: #1e66f5;
+}
+a:visited {
+    color: #8839ef;
+}
+a:hover {
+    color: #81a4e9;
+}
+a:visited:hover {
+    color: #c0a0eb;
+}
+#homepage-link {
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 1.25em;
+    text-shadow: 0px 3px 3px #8da4ac;
+    display: block;
+    text-align: center;
+}
+#homepage-link:visited {
+    color: #1e66f5;
+}
+#homepage-link:visited:hover {
+    color: #81a4e9;
+}

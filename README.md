@@ -1,2 +1,3 @@
 # Geckronomicon README
-Some shit here idk
+
+in real this time
