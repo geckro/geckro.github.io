@@ -1,10 +1,8 @@
-* {
-    font-family: sans-serif;
-}
 html {
     background-color: #e6e9ef;
 }
 body {
+    font-family: sans-serif;
     max-width: 75%;
     margin: auto;
     background-color: #eff1f5;
@@ -63,4 +61,20 @@ a:visited:hover {
 }
 #homepage-link:visited:hover {
     color: #81a4e9;
+}
+pre, code {
+    font-family: monospace !important;
+    background-color: #e7e8eb;
+    font-size: 1.1em;
+    padding: 0.15em;
+    border-radius: 0.2em;
+    overflow-x: scroll;
+}
+b {
+    font-weight: 600;
+}
+pre > code {
+    background-color: initial;
+    padding: initial;
+    border-radius: 0;
 }
