@@ -1,16 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
 html {
   background-color: #e6e9ef;
+  scrollbar-color: #de8f8f, #8db9cb;
 }
 body {
-  font-family: sans-serif;
-  max-width: 75%;
-  margin: auto;
   background-color: #eff1f5;
-  color: #42455c;
-  padding: 1em;
   border-bottom-left-radius: 1em;
-  box-shadow: 0 2px 18px #acb0be;
   border-bottom-right-radius: 1em;
+  box-shadow: 0 2px 18px #acb0be;
+  color: #2d3042;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.2px;
+  line-height: 1.2em;
+  margin: auto;
+  max-width: 75%;
+  padding-right: 1em;
+  padding-left: 1em;
+  padding-bottom: 1em;
+  padding-top: 0.5em;
 }
 @media only screen and (max-width: 768px) {
   body {
@@ -18,25 +27,25 @@ body {
   }
 }
 h1 {
-  font-family: 'JetBrains Mono', 'Cascadia Mono', monospace, sans-serif;
-  font-size: 1.75em;
-  font-weight: 400;
-  color: #e64553;
   background-color: #e6e9ef;
-  padding: 0.2em;
-  text-align: center;
   border-radius: 0.4em;
-  max-width: 85%;
-  margin: auto;
   box-shadow: 0 1px 3px #acb0be;
+  color: #f66571;
+  font-size: 1.75em;
+  font-weight: bold;
+  margin: auto;
+  max-width: 85%;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  text-align: center;
 }
 h2 {
-  color: #df8e1d;
+  color: #de8d1c;
   padding-bottom: 0.2em;
   border-bottom: 2px solid #acb0be;
 }
 h3 {
-  color: #40a02b;
+  color: #4eb337;
 }
 a {
   color: #1e66f5;
@@ -54,7 +63,7 @@ a:visited:hover {
   text-decoration: none;
   font-family: monospace;
   font-size: 1.25em;
-  text-shadow: 0px 3px 3px #8da4ac;
+  text-shadow: 0px 3px 6px #8da4ac;
   display: block;
   text-align: center;
 }
@@ -66,20 +75,21 @@ a:visited:hover {
 }
 pre,
 code {
-  font-family: monospace !important;
   background-color: #e7e8eb;
-  font-size: 1.1em;
-  padding: 0.15em;
-  border-radius: 0.2em;
+  padding-left: 6px;
+  border-radius: 1em;
   overflow-x: scroll;
 }
+pre {
+  box-shadow: 0 2px 6px #acb0be;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
 b {
-  font-weight: 600;
+  font-weight: bold;
 }
 pre > code {
-  background-color: initial;
   padding: initial;
-  border-radius: 0;
 }
 #date {
   font-family: monospace;
