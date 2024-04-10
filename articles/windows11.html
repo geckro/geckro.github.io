@@ -1,53 +1,65 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/syntax_highlighting.css">
-    <title>geck - w11 setup</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+  <head>
+    <link rel="author" content="geckronome" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/syntax_highlighting.css" />
+    <meta charset="utf-8" />
+    <meta name="description" content="this is a personal windows 11 setup guide" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:description" content="this is a personal windows 11 setup guide" />
+    <meta property="og:title" content="geck's site" />
+    <meta property="og:type" content="website" />
     <script src="/js/highlight.min.js"></script>
-</head>
+    <title>geck - w11 setup</title>
+  </head>
 
-<body>
+  <body>
     <h1>geck - windows 11 setup</h1>
 
-    <p><a id='homepage-link' href="/index.html">Back to homepage...</a></p>
+    <p><a id="homepage-link" href="/index.html">Back to homepage...</a></p>
 
-    <p>These are my personal notes for setting up a Windows 11 system.</p>
+    <p id="date"><span id="date-updated">2024-04-09</span><span id="date-created">2024-04-09</span></p>
+
+    <p id="start-text">These are my personal notes for setting up a Windows 11 system.</p>
 
     <h2>Pre-requisites</h2>
 
     <ul>
-        <li>Just have a computer capable of TPM and Secure Boot and all of that stuff</li>
-        <li>An en_US <a href="https://www.microsoft.com/software-download/windows11">Windows 11 ISO</a> (Latest as of writing is <code>23H2x64_v2</code>)</li>
-        <li>A working internet connection. No matter what, you will send information to Microsoft. You <i>shouldn't</i> need it for installing the OS, but it's best to have it anyway.</li>
+      <li>Just have a computer capable of TPM and Secure Boot and all of that stuff</li>
+      <li>An en_US <a href="https://www.microsoft.com/software-download/windows11">Windows 11 ISO</a> (Latest as of writing is <code>23H2x64_v2</code>)</li>
+      <li>A working internet connection. No matter what, you will send information to Microsoft. You <i>shouldn't</i> need it for installing the OS, but it's best to have it anyway.</li>
     </ul>
 
     <h2>Installation</h2>
 
     <ol>
-        <li>Set your Language and Time and currency settings.</li>
-        <li>Install the <b>Windows 11 Pro</b> version.</li>
-        <ul>
-            <li>If you for some reason have a mega CPU like a Xeon or Epyc, then use Pro for Workstations.</li>
-        </ul>
-        <li>Follow through all the prompts as you need.</li>
-        <li>When getting to the Microsoft sign-in prompt, enter <code>fake@fake.com</code> in the email section and type a random password to unlock local accounts.</li>
-        <ul>
-            <li>If you do not have internet, press <code>Shift+F10</code> to open cmd and paste <code>OOBE\BYPASSNRO</code>, then the <b>I don't have internet</b> should become visible.</li>
-        </ul>
-        <li>At this point you should see the Windows background. Go straight to Windows Update and <b>update your system</b>. This includes all optional updates in advanced settings>optional settings.</li>
+      <li>Set your <i>Language and Time</i> and <i>Currency</i> settings.</li>
+      <li>Install the <b>Windows 11 Pro</b> version.</li>
+      <ul>
+        <li>If you for some reason have a mega CPU like a Xeon or Epyc, then use <i>Pro for Workstations</i>.</li>
+      </ul>
+      <li>Follow through all the prompts as you need.</li>
+      <li>When getting to the Microsoft sign-in prompt, enter <code>fake@fake.com</code> in the email section and type a random password to unlock local accounts.</li>
+      <ul>
+        <li>If you do not have internet, press <code>Shift+F10</code> to open cmd and paste <code>OOBE\BYPASSNRO</code>, then the <b>I don't have internet</b> should become visible.</li>
+      </ul>
+      <li>
+        At this point you should see the Windows background. Go straight to Windows Update and
+        <b>update your system</b>. This includes all optional updates in advanced settings>optional settings.
+      </li>
     </ol>
 
     <h2>Registry entries</h2>
 
-    <p>Tweaks researched by myself, and some cherrypicked from <a href="https://github.com/ChrisTitusTech/winutil">winutil</a> and <a href="https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/tree/master">simeononsecurity</a>.</p>
-    
+    <p>
+      <i>Tweaks researched by myself, and some cherrypicked from <a href="https://github.com/ChrisTitusTech/winutil">winutil</a> and <a href="https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/tree/master">simeononsecurity</a>.</i>
+    </p>
+
     <h3>Disable telemetry and always-online features</h3>
 
     <p>Take the following code and dump it into a <code>.reg</code> file and then run it, and it should work! <b>I am not responsible for anything that goes wrong</b>, please look over what you copy and paste.</p>
-    <p><i>Note you will still need to manually turn off Activity history.</i></p>
+    <p><i>Note: you will still need to manually turn off Activity history.</i></p>
     <pre class="ini"><code>
 ; Let apps show me personalized ads by using my advertising ID
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo]
@@ -239,10 +251,10 @@
 ;"AutoDownload"=dword:00000002
 </code></pre>
 
-<h3>Disable un-needed features (performance)</h3>
+    <h3>Disable un-needed features (performance)</h3>
 
-<p>You will need to turn off all startup apps, but I will recommend to keep Windows Security enabled.</p>
-<pre><code class="ini">
+    <p>You will need to turn off all startup apps, but you should keep <i>Windows Security</i> enabled.</p>
+    <pre><code class="ini">
 ; Disable typing insights
 [HKEY_CURRENT_USER\Software\Microsoft\input\Settings]
 "InsightsEnabled"=dword:00000000
@@ -364,11 +376,11 @@
 ;"AllowTabPreloading"=dword:00000000
 </code></pre>
 
-<h3>Enable nice features</h3>
+    <h3>Enable nice features</h3>
 
-<p>You will need to manually turn on Night light, Enhanced search and the power mode.</p>
+    <p>You will need to manually turn on Night light, Enhanced search and the power mode.</p>
 
-<pre class="ini"><code>
+    <pre class="ini"><code>
 ; Turn on Developer mode
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock]
 "AllowDevelopmentWithoutDevLicense"=dword:00000001
@@ -409,12 +421,12 @@
 "VerboseStatus"=dword:00000001
 </code></pre>
 
-<h3>Uninstall default apps</h3>
+    <h3>Uninstall default apps</h3>
 
-<p>I keep Notepad, Paint, the MS Store, all video/image extensions, Photos, Camera, Calculator, Clock, Snipping Tool, Sticky Notes, Terminal and all the Xbox stuff.</p>
-<p>You will need to uninstall OneDrive seperately, or make it not auto-backup your folders.</p>
+    <p>I keep Notepad, Paint, the MS Store, all video/image extensions, Photos, Camera, Calculator, Clock, Snipping Tool, Sticky Notes, Terminal and all the Xbox stuff.</p>
+    <p>You will need to uninstall OneDrive seperately, or make it not auto-backup your folders.</p>
 
-<pre><code class="powershell">
+    <pre><code class="powershell">
 Get-AppxPackage "Clipchamp.Clipchamp" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.BingNews" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.BingWeather" | Remove-AppxPackage
@@ -454,9 +466,9 @@ Get-AppxPackage "*Microsoft.Advertising.Xaml*" | Remove-AppxPackage
 Get-AppxPackage "*Spotify*" | Remove-AppxPackage
 </code></pre>
 
-<h3>Powershell tweaks (Administrator)</h3>
+    <h3>Powershell tweaks (Administrator)</h3>
 
-<pre><code class="powershell">
+    <pre><code class="powershell">
 # Disable hibernation
 powercfg.exe /hibernate off
 
@@ -540,25 +552,26 @@ Remove-Item -Force -Confirm:$false "$env:WINDIR\Temp"
 Remove-Item -Force -Confirm:$false "$env:TEMP"
 </code></pre>
 
-<h2>App installation</h2>
+    <h2>App installation</h2>
 
-<h3>winget</h3>
-<pre><code class="powershell">
+    <h3>winget</h3>
+    <pre><code class="powershell">
 # Manually add winget repository source, as it is bugged. thanks MS
 Add-AppxPackage -Path https://cdn.winget.microsoft.com/cache/source.msix
 winget upgrade --accept-source-agreements --accept-package-agreements
 </code></pre>
-
-<h3>Chocolately</h3>
-<p>Run this as an administrator</p>
-<pre><code class="powershell">
+    <!-- The one package manager that you will never type correctly the first time -->
+    <h3>Chocolatey</h3>
+    <p><i><a href="https://community.chocolatey.org/">Chocolatey website link</a></i></p>
+    <pre><code class="powershell">
+# Run this command as an administrator
 Set-ExecutionPolicy Bypass -Scope Process -Force
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
 iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 </code></pre>
 
-<script>hljs.initHighlightingOnLoad();</script>
-
-</body>
-
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  </body>
 </html>
