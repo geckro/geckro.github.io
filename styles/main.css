@@ -135,3 +135,9 @@ pre > code {
 ol > li {
   padding-bottom: 0.4em;
 }
+img {
+  border-radius: 1em;
+  box-shadow: 0 2px 6px var(--shadow-color);
+  overflow: scroll;
+  max-width: 100%;
+}

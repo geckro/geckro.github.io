@@ -42,6 +42,7 @@
       <li>Follow through all the prompts as you need.</li>
       <li>When getting to the Microsoft sign-in prompt, enter <code>fake@fake.com</code> in the email section and type a random password to unlock local accounts.</li>
       <ul>
+        <li>Sometimes you will need to enter the email/password, and then restart the PC and enter it again for local accounts to show up.</li>
         <li>If you do not have internet, press <code>Shift+F10</code> to open cmd and paste <code>OOBE\BYPASSNRO</code>, then the <b>I don't have internet</b> should become visible.</li>
       </ul>
       <li>
@@ -147,16 +148,16 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\
 # Disable application access to...
 # app diagnostics
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appDiagnostics" /v "Value" /t REG_SZ /d "Deny" /f
-reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appDiagnostics" /v "Value" /t REG_SZ /d "Deny" /f]
+reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appDiagnostics" /v "Value" /t REG_SZ /d "Deny" /f
 # call history
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\phoneCallHistory" /v "Value" /t REG_SZ /d "Deny" /f
-reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\phoneCallHistory" /v "Value" /t REG_SZ /d "Deny" /f]
+reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\phoneCallHistory" /v "Value" /t REG_SZ /d "Deny" /f
 # contacts
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\contacts" /v "Value" /t REG_SZ /d "Deny" /f
-reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\contacts" /v "Value" /t REG_SZ /d "Deny" /f]
+reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\contacts" /v "Value" /t REG_SZ /d "Deny" /f
 # radios
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\radios" /v "Value" /t REG_SZ /d "Deny" /f
-reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\radios" /v "Value" /t REG_SZ /d "Deny" /f]
+reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\radios" /v "Value" /t REG_SZ /d "Deny" /f
 # messaging
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\chat" /v "Value" /t REG_SZ /d "Deny" /f
 reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\chat" /v "Value" /t REG_SZ /d "Deny" /f
@@ -427,7 +428,6 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\{88
 Get-AppxPackage "*Microsoft.Advertising.Xaml*" | Remove-AppxPackage
 Get-AppxPackage "*Spotify*" | Remove-AppxPackage
 Get-AppxPackage "*MicrosoftTeams*" | Remove-AppxPackage
-
 Get-AppxPackage "*Disney*" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.549981C3F5F10" | Remove-AppxPackage # Cortana
 Get-AppxPackage "Microsoft.BingFinance" | Remove-AppxPackage
@@ -604,6 +604,142 @@ Remove-Item -Force -Confirm:$false "$env:WINDIR\Temp"
 Remove-Item -Force -Confirm:$false "$env:TEMP"
 </code></pre>
 
+    <h3>Advanced system tweaking (very much not safe to run unless you know what you're doing)</h3>
+
+    <p>If you want minimal breakage, don't run anything here.</p>
+
+    <pre><code class="powershell"># Set even more services to manual or disabled that may not be needed
+Stop-Service -Name Spooler -Force
+Set-Service -Name Spooler -StartupType Disabled # Printing service
+Set-Service -Name PrintNotify -StartupType Disabled # Printing service
+
+Stop-Service -Name WSearch -Force
+Set-Service -Name WSearch -StartupType Disabled # Windows Search / indexer
+
+Stop-Service -Name LanmanWorkstation -Force
+Set-Service -Name LanmanWorkstation -StartupType Disabled # SMB protocol
+
+Stop-Service -Name iphlpsvc -Force
+Set-Service -Name iphlpsvc -StartupType Disabled # IPv6, 6to4, ISATAP, Port Proxy, Teredo and IP-HTTPS
+
+Stop-Service -Name BthAvctpSvc -Force
+Set-Service -Name BthAvctpSvc -StartupType Disabled # Bluetooth audio support
+Stop-Service -Name BTAGService -Force
+Set-Service -Name BTAGService -StartupType Disabled # Bluetooth audio support
+
+Stop-Service -Name bthserv -Force
+Set-Service -Name bthserv -StartupType Disabled # Bluetooth support
+
+Stop-Service -Name BDESVC -Force
+Set-Service -Name BDESVC -StartupType Disabled # Bitlocker drive
+
+Set-Service -Name MapsBroker -StartupType Disabled # Maps for Windows
+Set-Service -Name FrameServer -StartupType Disabled # Camera
+Set-Service -Name FrameServerMonitor -StartupType Disabled # Camera
+Set-Service -Name seclogon -StartupType Disabled # Secondary Logon
+Set-Service -Name RetailDemo -StartupType Disabled # I wonder
+Set-Service -Name ScDeviceEnum -StartupType Disabled # Smart cards
+Set-Service -Name SCardSvr -StartupType Disabled # Smart cards
+Set-Service -Name SCPolicySvc -StartupType Disabled # Smart cards
+Set-Service -Name WpcMonSvc -StartupType Disabled # Parental controls
+Set-Service -Name DispBrokerDesktopSvc -StartupType Disabled # Wireless displays and display configuration
+Set-Service -Name Netlogon -StartupType Disabled # Active Directory
+Set-Service -Name StiSvc -StartupType Disabled # Scanners
+Set-Service -Name lmhosts -StartupType Disabled # If you aren't part of a connected network of devices on WORKGROUP
+Set-Service -Name BITS -StartupType Disabled # Will break background updates, Background Intelligent Transfer Services
+Set-Service -Name autotimesvc -StartupType Disabled # Sets times based on mobile networks, safe if you arent on a mobile connection
+Set-Service -Name EapHost -StartupType Disabled # For VPNs and and network authentication.
+Set-Service -Name NaturalAuthentication -StartupType Disabled # Dynamic lock, any signals for time/network/location/bluetooth and stuff
+Set-Service -Name SEMgrSvc -StartupType Disabled # NFC
+Set-Service -Name LanmanServer -StartupType Disabled # File and printer sharing stuff
+Set-Service -Name XboxGipSvc -StartupType Disabled # Xbox accessories
+Set-Service -Name XblAuthManager -StartupType Disabled # Xbox live
+Set-Service -Name XblGameSave -StartupType Disabled # Xbox live
+Set-Service -Name XboxNetApiSvc -StartupType Disabled # Xbox live
+Set-Service -Name WbioSrvc -StartupType Disabled # Biometrics
+Set-Service -Name Wcncsvc -StartupType Disabled # WPS support
+Set-Service -Name icssvc -StartupType Disabled # Hotspots
+Set-Service -Name TapiSrv -StartupType Disabled # Telephony
+Set-Service -Name ALG -StartupType Disabled # Internet sharing
+Set-Service -Name wbengine -StartupType Disabled # Windows backup
+Set-Service -Name MicrosoftEdgeElevationService -StartupType Disabled # Edge updating
+Set-Service -Name ShellHWDetection -StartupType Disabled # AutoPlay support
+Set-Service -Name Themes -StartupType Disabled # Accessibility theming
+Set-Service -Name TabletInputService -StartupType Disabled # Touch keyboard and handwiring and tablet writing
+Set-Service -Name TextInputManagementService -StartupType Disabled # Above but they decided to rename the service in modenr versions
+Set-Service -Name Wcmsvc -StartupType Disabled # Automatically connects/disconnect on a network and shit
+Set-Service -Name SstpSvc -StartupType Disabled # SSTP VPNs
+Set-Service -Name RmSvc -StartupType Disabled # Airplane mode and radios
+Set-Service -Name RasMan -StartupType Disabled # VPNs and Dial-up
+Set-Service -Name PcaSvc -StartupType Disabled # Compability Assistant
+
+# Really strip out every Windows application
+Get-AppxPackage "Microsoft.WindowsAlarms" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.WindowsNotepad" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.ScreenSketch" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.MicrosoftEdge.Stable" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.Paint" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.WindowsCamera" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.WindowsCalculator" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.MicrosoftStickyNotes" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.Windows.Photos" | Remove-AppxPackage
+Get-AppxPackage "*Xbox*" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.GamingApp" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.WindowsStore" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.HEVCVideoExtension" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.HEIFImageExtension" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.RawImageExtension" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.VP9VideoExtensions" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.WebMediaExtensions" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.WebpImageExtension" | Remove-AppxPackage
+
+# Turn off every single unnecessary optional feature
+Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName Printing-PrintToPDFServices-Features
+Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName Printing-Foundation-InternetPrinting-Client
+Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName SmbDirect # Smbv3
+Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName Microsoft-RemoteDesktopConnection # RDC
+Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName MediaPlayback # Media Player
+
+# Uninstall OneDrive (You will need to update your system)
+winget uninstall --exact --purge --force Microsoft.OneDrive
+winget uninstall --exact --purge --force Microsoft.DevHome
+
+# Disable UAC
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "ConsentPromptBehaviorAdmin" /t REG_DWORD /d 0 /f
+
+# Disable Defender
+# You will need to turn off Tamper protection manually in the GUI first
+# This is a stupid idea and you really shouldn't
+&#0065;dd-&#0077;pPreference -ExclusionPath "&#0067;&#0058;&#0092;"
+&#0065;dd-&#0077;pPreference -ExclusionProcess "&#0067;&#0058;&#0092;*"
+&#0083;et-&#0077;pPreference -&#0068;isableArchiveScanning 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableBehaviorMonitoring 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableIntrusionPreventionSystem 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableIOAVProtection 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableRemovableDriveScanning 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableBlockAtFirstSeen 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableScanningMappedNetworkDrivesForFullScan 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableScanningNetworkFiles 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableScriptScanning 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableRealtimeMonitoring 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableSmtpParsing 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableSshParsing 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableTlsParsing 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableQuicParsing 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableRdpParsing 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableHttpParsing 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableCoreServiceTelemetry 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableDnsOverTcpParsing 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableInboundConnectionFiltering 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableDnsParsing 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableNetworkProtectionPerfTelemetry 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -&#0068;isableFtpParsing 1 -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -LowThreat&#0068;efaultAction Allow -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -ModerateThreat&#0068;efaultAction Allow -ErrorAction SilentlyContinue
+&#0083;et-&#0077;pPreference -HighThreat&#0068;efaultAction Allow -ErrorAction SilentlyContinue
+
+</code></pre>
+
     <h2>App installation</h2>
 
     <h3>winget</h3>
@@ -624,6 +760,23 @@ Set-ExecutionPolicy Bypass -Scope Process -Force
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
 iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 </code></pre>
+
+    <h2>Testing</h2>
+
+    <p>On a fresh installation of Windows 11 Pro 23H2x64_v2 with VMWare & VMWare Tools, with a local account set-up for personal use and the PC restarted:</p>
+
+    <img width="48%" src="/img/articles/windows11/windows11_cpu_initial.png" />
+    <img width="48%" src="/img/articles/windows11/windows11_ram_initial.png" />
+
+    <p>With most of the tweaks (WSL/winget/choco not included) and a restart without an internet connection:</p>
+
+    <img width="48%" src="/img/articles/windows11/windows11_cpu_tweaked.png" />
+    <img width="48%" src="/img/articles/windows11/windows11_ram_tweaked.png" />
+
+    <p>With EVERYTHING applied, Microsoft Edge disabled on startup and a Windows Update [2024-04 CU W11 23H2 x64(KB5036893)], it goes to:</p>
+
+    <img width="48%" src="/img/articles/windows11/windows11_cpu_everything.png" />
+    <img width="48%" src="/img/articles/windows11/windows11_ram_everything.png" />
 
     <script>
       hljs.initHighlightingOnLoad();
