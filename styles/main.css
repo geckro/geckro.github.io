@@ -1,16 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
+* {
+  --background-color: #d9dbe0;
+  --page-color: #edf1f3;
+  --header-color: #e0e3eb;
+  --shadow-color: #acb0be;
+  --title-color: #5094e1;
+  --section-text-color: #de8d1c;
+  --mini-header-color: #239c3e;
+  --text-color: #29303e;
+  --code-bg-color: #e5e7eb;
+  --link-color: #1e66f5;
+  --link-visited-color: #8839ef;
+  --link-hover-color: #81a4e9;
+  --link-visited-hover-color: #c0a0eb;
+}
 html {
-  background-color: #e6e9ef;
+  background-color: var(--background-color);
   scrollbar-color: #de8f8f, #8db9cb;
 }
 body {
-  background-color: #eff1f5;
+  background-color: var(--page-color);
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
-  box-shadow: 0 2px 18px #acb0be;
-  color: #2d3042;
-  font-family: "Comfortaa", sans-serif;
+  box-shadow: 0 2px 18px var(--shadow-color);
+  color: var(--text-color);
+  font-family: 'Comfortaa', sans-serif;
   font-size: 1.1rem;
   letter-spacing: 0.2px;
   line-height: 1.2em;
@@ -27,10 +42,10 @@ body {
   }
 }
 h1 {
-  background-color: #e6e9ef;
+  background-color: var(--header-color);
   border-radius: 0.4em;
-  box-shadow: 0 1px 3px #acb0be;
-  color: #f66571;
+  box-shadow: 0 1px 3px var(--shadow-color);
+  color: var(--title-color);
   font-size: 1.75em;
   font-weight: bold;
   margin: auto;
@@ -40,24 +55,26 @@ h1 {
   text-align: center;
 }
 h2 {
-  color: #de8d1c;
+  color: var(--section-text-color);
   padding-bottom: 0.2em;
-  border-bottom: 2px solid #acb0be;
+  border-bottom: 2px solid var(--shadow-color);
 }
 h3 {
-  color: #4eb337;
+  color: var(--mini-header-color);
 }
 a {
-  color: #1e66f5;
+  color: var(--link-color);
 }
 a:visited {
-  color: #8839ef;
+  color: var(--link-visited-color);
 }
 a:hover {
-  color: #81a4e9;
+  color: var(--link-hover-color);
+  transition: color 0.2s;
 }
 a:visited:hover {
-  color: #c0a0eb;
+  color: var(--link-visited-hover-color);
+  transition: color 0.2s;
 }
 #homepage-link {
   text-decoration: none;
@@ -68,20 +85,21 @@ a:visited:hover {
   text-align: center;
 }
 #homepage-link:visited {
-  color: #1e66f5;
+  color: var(--link-color);
 }
 #homepage-link:visited:hover {
-  color: #81a4e9;
+  color: var(--link-hover-color);
+  transition: color 0.5s;
 }
 pre,
 code {
-  background-color: #e7e8eb;
+  background-color: var(--code-bg-color);
   padding-left: 6px;
   border-radius: 1em;
   overflow-x: scroll;
 }
 pre {
-  box-shadow: 0 2px 6px #acb0be;
+  box-shadow: 0 2px 6px var(--shadow-color);
   padding-top: 1em;
   padding-bottom: 1em;
 }
@@ -113,4 +131,7 @@ pre > code {
   font-size: 0.9em;
   text-align: center;
   padding: 0.6em;
+}
+ol > li {
+  padding-bottom: 0.4em;
 }
