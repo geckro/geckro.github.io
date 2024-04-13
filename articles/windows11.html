@@ -15,57 +15,61 @@
   </head>
 
   <body>
-    <h1>geck - Windows 11 setup</h1>
+    <header>
+      <h1>Windows 11 Setup</h1>
+      <nav>
+        <ul>
+          <li id="homepage-link"><a href="/index.html">Back to homepage...</a></li>
+          <li id="date">Last updated: <time id="date-last-updated" datetime="2024-04-11"></time></li>
+        </ul>
+      </nav>
+      <p id="start-text">These are my personal notes for setting up a Windows 11 system.</p>
+    </header>
+    <main>
+      <section>
+        <h2>Pre-requisites</h2>
 
-    <p><a id="homepage-link" href="/index.html">Back to homepage...</a></p>
+        <ul>
+          <li>Just have a computer capable of TPM and Secure Boot and all of that stuff</li>
+          <li>An en_US <a href="https://www.microsoft.com/software-download/windows11">Windows 11 ISO</a> (Latest as of writing is <code>23H2x64_v2</code>)</li>
+          <li>A working internet connection. No matter what, you will send information to Microsoft. You <i>shouldn't</i> need it for installing the OS, but it's best to have it anyway.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Installation</h2>
 
-    <p id="date"><span id="date-updated">2024-04-11</span><span id="date-created">2024-04-09</span></p>
+        <ol>
+          <li>Set your <i>Language and Time</i> and <i>Currency</i> settings.</li>
+          <li>Install the <b>Windows 11 Pro</b> version.</li>
+          <ul>
+            <li>If you for some reason have a mega CPU like a Xeon or Epyc, then use <i>Pro for Workstations</i>.</li>
+          </ul>
+          <li>Follow through all the prompts as you need.</li>
+          <li>When getting to the Microsoft sign-in prompt, enter <code>fake@fake.com</code> in the email section and type a random password to unlock local accounts.</li>
+          <ul>
+            <li>Sometimes you will need to enter the email/password, and then restart the PC and enter it again for local accounts to show up.</li>
+            <li>If you do not have internet, press <code>Shift+F10</code> to open cmd and paste <code>OOBE\BYPASSNRO</code>, then the <b>I don't have internet</b> should become visible.</li>
+          </ul>
+          <li>
+            At this point you should see the Windows background. Go straight to Windows Update and
+            <b>update your system</b>. This includes all optional updates in advanced settings>optional settings.
+          </li>
+        </ol>
+      </section>
+      <section>
+        <h2>Disable telemetry and always-online features</h2>
 
-    <p id="start-text">These are my personal notes for setting up a Windows 11 system.</p>
+        <p>
+          <i
+            >Tweaks researched by myself, and some cherrypicked from <a href="https://github.com/ChrisTitusTech/winutil">winutil</a>, <a href="https://github.com/farag2/Sophia-Script-for-Windows">Sophia script</a> and
+            <a href="https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/tree/master">simeononsecurity</a>.</i
+          >
+        </p>
 
-    <h2>Pre-requisites</h2>
+        <p>Take the following code and dump it into a <code>.ps1</code> file and then run it as Administrator, and it should work! <b>I am not responsible for anything that goes wrong</b>, please look over what you copy and paste.</p>
+        <p><i>Note: you will still need to manually turn off Activity history.</i></p>
 
-    <ul>
-      <li>Just have a computer capable of TPM and Secure Boot and all of that stuff</li>
-      <li>An en_US <a href="https://www.microsoft.com/software-download/windows11">Windows 11 ISO</a> (Latest as of writing is <code>23H2x64_v2</code>)</li>
-      <li>A working internet connection. No matter what, you will send information to Microsoft. You <i>shouldn't</i> need it for installing the OS, but it's best to have it anyway.</li>
-    </ul>
-
-    <h2>Installation</h2>
-
-    <ol>
-      <li>Set your <i>Language and Time</i> and <i>Currency</i> settings.</li>
-      <li>Install the <b>Windows 11 Pro</b> version.</li>
-      <ul>
-        <li>If you for some reason have a mega CPU like a Xeon or Epyc, then use <i>Pro for Workstations</i>.</li>
-      </ul>
-      <li>Follow through all the prompts as you need.</li>
-      <li>When getting to the Microsoft sign-in prompt, enter <code>fake@fake.com</code> in the email section and type a random password to unlock local accounts.</li>
-      <ul>
-        <li>Sometimes you will need to enter the email/password, and then restart the PC and enter it again for local accounts to show up.</li>
-        <li>If you do not have internet, press <code>Shift+F10</code> to open cmd and paste <code>OOBE\BYPASSNRO</code>, then the <b>I don't have internet</b> should become visible.</li>
-      </ul>
-      <li>
-        At this point you should see the Windows background. Go straight to Windows Update and
-        <b>update your system</b>. This includes all optional updates in advanced settings>optional settings.
-      </li>
-    </ol>
-
-    <h2>Registry entries</h2>
-
-    <p>
-      <i
-        >Tweaks researched by myself, and some cherrypicked from <a href="https://github.com/ChrisTitusTech/winutil">winutil</a>, <a href="https://github.com/farag2/Sophia-Script-for-Windows">Sophia script</a> and
-        <a href="https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/tree/master">simeononsecurity</a>.</i
-      >
-    </p>
-
-    <h3>Disable telemetry and always-online features</h3>
-
-    <p>Take the following code and dump it into a <code>.ps1</code> file and then run it as Administrator, and it should work! <b>I am not responsible for anything that goes wrong</b>, please look over what you copy and paste.</p>
-    <p><i>Note: you will still need to manually turn off Activity history.</i></p>
-
-    <pre class="powershell"><code># Do not let apps show me personalized ads by using my advertising ID
+        <pre class="powershell"><code># Do not let apps show me personalized ads by using my advertising ID
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo" /v "Enabled" /t REG_DWORD /d 0 /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CPSS\Store\AdvertisingInfo" /v "Value" /t REG_DWORD /d 0 /f
 
@@ -212,11 +216,12 @@ reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\ClientTelemetry" /v "Verbose
 ## Turn off automatic app updating in the MS Store
 #reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsStore\WindowsUpdate" /v "AutoDownload" /t REG_DWORD /d 2 /f
 </code></pre>
+      </section>
+      <section>
+        <h2>Disable un-needed features (performance)</h2>
 
-    <h3>Disable un-needed features (performance)</h3>
-
-    <p>You will need to turn off all startup apps, but you should keep <i>Windows Security</i> enabled.</p>
-    <pre><code class="powershell"># Disable typing insights
+        <p>You will need to turn off all startup apps, but you should keep <i>Windows Security</i> enabled.</p>
+        <pre><code class="powershell"># Disable typing insights
 reg add "HKCU\Software\Microsoft\input\Settings" /v "InsightsEnabled" /t REG_DWORD /d 0 /f
 
 # Disable storage sense
@@ -333,12 +338,13 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\FileSystem" /v "LongPathsEnabled"
 ## Don't preload tabs
 #reg add "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\TabPreloader" /v "AllowTabPreloading" /t REG_DWORD /d 0 /f
 </code></pre>
+      </section>
+      <section>
+        <h2>Enable nice features</h2>
 
-    <h3>Enable nice features</h3>
+        <p>You will need to manually turn on Night light, Enhanced search and the power mode.</p>
 
-    <p>You will need to manually turn on Night light, Enhanced search and the power mode.</p>
-
-    <pre class="powershell"><code># Turn on Developer mode
+        <pre class="powershell"><code># Turn on Developer mode
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" /v "AllowDevelopmentWithoutDevLicense" /t REG_DWORD /d 1 /f
 
 # Turn on End task in taskbar
@@ -418,13 +424,14 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\{88
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\{885a186e-a440-4ada-812b-db871b942259}\TopViews\{00000000-0000-0000-0000-000000000000}" /v "PrimaryProperty" /t REG_SZ /d "System.ItemNameDisplay" /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\{885a186e-a440-4ada-812b-db871b942259}\TopViews\{00000000-0000-0000-0000-000000000000}" /v "SortByList" /t REG_SZ /d "System.ItemNameDisplay" /f
 </code></pre>
+      </section>
+      <section>
+        <h2>Uninstall default apps</h2>
 
-    <h3>Uninstall default apps</h3>
+        <p>I keep Notepad, Paint, the MS Store, all video/image extensions, Photos, Camera, Calculator, Clock, Snipping Tool, Sticky Notes, Terminal and all the Xbox stuff.</p>
+        <p>You will need to uninstall OneDrive seperately, or make it not auto-backup your folders.</p>
 
-    <p>I keep Notepad, Paint, the MS Store, all video/image extensions, Photos, Camera, Calculator, Clock, Snipping Tool, Sticky Notes, Terminal and all the Xbox stuff.</p>
-    <p>You will need to uninstall OneDrive seperately, or make it not auto-backup your folders.</p>
-
-    <pre><code class="powershell">Get-AppxPackage "Clipchamp.Clipchamp" | Remove-AppxPackage
+        <pre><code class="powershell">Get-AppxPackage "Clipchamp.Clipchamp" | Remove-AppxPackage
 Get-AppxPackage "*Microsoft.Advertising.Xaml*" | Remove-AppxPackage
 Get-AppxPackage "*Spotify*" | Remove-AppxPackage
 Get-AppxPackage "*MicrosoftTeams*" | Remove-AppxPackage
@@ -464,10 +471,11 @@ Get-AppxPackage "Microsoft.ZuneMusic" | Remove-AppxPackage # Groove Music
 Get-AppxPackage "Microsoft.ZuneVideo" | Remove-AppxPackage # Films & TV
 Get-AppxPackage "MicrosoftCorporationII.QuickAssist" | Remove-AppxPackage
 </code></pre>
+      </section>
+      <section>
+        <h2>Powershell tweaks (Administrator)</h2>
 
-    <h3>Powershell tweaks (Administrator)</h3>
-
-    <pre><code class="powershell"># Disable hibernation
+        <pre><code class="powershell"># Disable hibernation
 powercfg.exe /hibernate off
 
 # Disable homegroup (Shouldn't be here on Windows 11 but still good to check)
@@ -603,12 +611,13 @@ Remove-Item -Force -Confirm:$false $env:localappdata\Temp\*
 Remove-Item -Force -Confirm:$false "$env:WINDIR\Temp"
 Remove-Item -Force -Confirm:$false "$env:TEMP"
 </code></pre>
+      </section>
+      <section>
+        <h2>Advanced system tweaking (very much not safe to run unless you know what you're doing)</h2>
 
-    <h3>Advanced system tweaking (very much not safe to run unless you know what you're doing)</h3>
+        <p>If you want minimal breakage, don't run anything here.</p>
 
-    <p>If you want minimal breakage, don't run anything here.</p>
-
-    <pre><code class="powershell"># Set even more services to manual or disabled that may not be needed
+        <pre><code class="powershell"># Set even more services to manual or disabled that may not be needed
 Stop-Service -Name Spooler -Force
 Set-Service -Name Spooler -StartupType Disabled # Printing service
 Set-Service -Name PrintNotify -StartupType Disabled # Printing service
@@ -739,47 +748,50 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "Con
 &#0083;et-&#0077;pPreference -HighThreat&#0068;efaultAction Allow -ErrorAction SilentlyContinue
 
 </code></pre>
+      </section>
+      <section>
+        <h2>App installation</h2>
 
-    <h2>App installation</h2>
-
-    <h3>winget</h3>
-    <pre><code class="powershell"># Manually add winget repository source, as it is bugged. thanks MS
+        <h3>winget</h3>
+        <pre><code class="powershell"># Manually add winget repository source, as it is bugged. thanks MS
 Add-AppxPackage -Path https://cdn.winget.microsoft.com/cache/source.msix
 winget upgrade --exact --accept-source-agreements --accept-package-agreements
 
 # The apps i like to install, don't have to do all of them (and you really shouldn't)
 winget install --accept-source-agreements --accept-package-agreements Alex313031.Thorium.AVX2 Git.Git Microsoft.VisualStudioCode Discord.Discord Valve.Steam Vendicated.Vencord yt-dlp.yt-dlp Gyan.FFmpeg MusicBee.MusicBee voidtools.Everything GIMP.GIMP KDE.Krita Notion.Notion M2Team.NanaZip PrismLauncher.PrismLauncher BleachBit.BleachBit CPUID.CPU-Z CPUID.HWMonitor qBittorrent.qBittorrent Microsoft.DotNet.DesktopRuntime.8 EpicGames.EpicGamesLauncher GoLang.Go TechPowerUp.GPU-Z EclipseAdoptium.Temurin.21.JDK JetBrains.Toolbox rocksdanister.LivelyWallpaper mpv.net OBSProject.OBSStudio CalcProgrammer1.OpenRGB dotPDN.PaintDotNet Microsoft.PowerToys Python.Python.3.12 Rustlang.Rust.MSVC Microsoft.VCRedist.2015+.x64 Microsoft.VisualStudio.2022.Community AntibodySoftware.WizTree
 </code></pre>
-    <!-- The one package manager that you will never type correctly the first time -->
-    <h3>Chocolatey</h3>
-    <p>
-      <i><a href="https://community.chocolatey.org/">Chocolatey website link</a></i>
-    </p>
-    <pre><code class="powershell"># Run this command as an administrator
+        <!-- The one package manager that you will never type correctly the first time -->
+        <h3>Chocolatey</h3>
+        <p>
+          <i><a href="https://community.chocolatey.org/">Chocolatey website link</a></i>
+        </p>
+        <pre><code class="powershell"># Run this command as an administrator
 Set-ExecutionPolicy Bypass -Scope Process -Force
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
 iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 </code></pre>
+      </section>
+      <section>
+        <h2>Testing</h2>
 
-    <h2>Testing</h2>
+        <p>On a fresh installation of Windows 11 Pro 23H2x64_v2 with VMWare & VMWare Tools, with a local account set-up for personal use and the PC restarted:</p>
 
-    <p>On a fresh installation of Windows 11 Pro 23H2x64_v2 with VMWare & VMWare Tools, with a local account set-up for personal use and the PC restarted:</p>
+        <img width="48%" src="/img/articles/windows11/windows11_cpu_initial.png" />
+        <img width="48%" src="/img/articles/windows11/windows11_ram_initial.png" />
 
-    <img width="48%" src="/img/articles/windows11/windows11_cpu_initial.png" />
-    <img width="48%" src="/img/articles/windows11/windows11_ram_initial.png" />
+        <p>With most of the tweaks (WSL/winget/choco not included) and a restart without an internet connection:</p>
 
-    <p>With most of the tweaks (WSL/winget/choco not included) and a restart without an internet connection:</p>
+        <img width="48%" src="/img/articles/windows11/windows11_cpu_tweaked.png" />
+        <img width="48%" src="/img/articles/windows11/windows11_ram_tweaked.png" />
 
-    <img width="48%" src="/img/articles/windows11/windows11_cpu_tweaked.png" />
-    <img width="48%" src="/img/articles/windows11/windows11_ram_tweaked.png" />
+        <p>With EVERYTHING applied, Microsoft Edge disabled on startup and a Windows Update [2024-04 CU W11 23H2 x64(KB5036893)], it goes to:</p>
 
-    <p>With EVERYTHING applied, Microsoft Edge disabled on startup and a Windows Update [2024-04 CU W11 23H2 x64(KB5036893)], it goes to:</p>
-
-    <img width="48%" src="/img/articles/windows11/windows11_cpu_everything.png" />
-    <img width="48%" src="/img/articles/windows11/windows11_ram_everything.png" />
-
-    <script>
-      hljs.initHighlightingOnLoad();
-    </script>
+        <img width="48%" src="/img/articles/windows11/windows11_cpu_everything.png" />
+        <img width="48%" src="/img/articles/windows11/windows11_ram_everything.png" />
+      </section>
+      <script>
+        hljs.initHighlightingOnLoad();
+      </script>
+    </main>
   </body>
 </html>

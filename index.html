@@ -11,40 +11,66 @@
     <meta property="og:type" content="website" />
     <title>geck's site</title>
     <style>
-      ul {
+      #contact-info > ul {
         list-style: none;
         padding-left: 0;
+      }
+      header > h1::before {
+        content: unset;
+        font-size: unset;
+        opacity: unset;
+      }
+      nav {
+        display: unset;
+        font-family: unset;
+        padding-top: unest;
+      }
+      nav > ul {
+        display: unset;
+      }
+      nav ul,
+      nav li {
+        margin: unset;
+        padding: unset;
       }
     </style>
   </head>
   <body>
-    <h1>geck's site</h1>
+    <header>
+      <h1>geck's site</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Information</h2>
 
-    <h2>Information</h2>
+        <p>You can find me here:</p>
+        <div id="contact-info">
+          <ul>
+            <li><b>Twitter</b>: <a href="https://twitter.com/geckrou" rel="external" target="_blank">geckrou</a></li>
+            <li><b>GitHub</b>: <a href="https://github.com/geckro" rel="external" target="_blank">geckro</a></li>
+            <li><b>YouTube</b>: <a href="https://www.youtube.com/channel/UChy6_Id-PC64-Pg0fGZZUgQ" rel="external" target="_blank">geckronome</a></li>
+          </ul>
 
-    <p>You can find me here:</p>
-    <ul>
-      <li><b>Twitter</b>: <a href="https://twitter.com/geckrou" rel="external" target="_blank">geckrou</a></li>
-      <li><b>GitHub</b>: <a href="https://github.com/geckro" rel="external" target="_blank">geckro</a></li>
-      <li><b>YouTube</b>: <a href="https://www.youtube.com/channel/UChy6_Id-PC64-Pg0fGZZUgQ" rel="external" target="_blank">geckronome</a></li>
-    </ul>
+          <ul>
+            <li><a href="/articles/aboutme.html">About me</a></li>
+          </ul>
+        </div>
+      </section>
+      <section>
+        <h2>Articles</h2>
 
-    <ul>
-      <li><a href="/articles/aboutme.html">About me</a></li>
-    </ul>
-
-    <h2>Articles</h2>
-
-    <nav>
-      <ul>
-        <li>- <a href="/articles/software_list.html">Software list</a></li>
-        <li>- <a href="/articles/vgm.html">Video game music collection</a></li>
-        <li>- <a href="/articles/windows11.html">Windows 11 setup guide</a></li>
-        <li>- <a href="/articles/windows_maintenance.html">Windows 10/11 maintenance</a></li>
-      </ul>
-    </nav>
-
-    <br /><br /><br /><br /><br /><br /><br />
+        <nav>
+          <ul>
+            <li><a href="/articles/links.html">Recommended websites/links</a></li>
+            <li><a href="/articles/software_list.html">Software list</a></li>
+            <li><a href="/articles/vgm.html">Video game music collection</a></li>
+            <li><a href="/articles/windows11.html">Windows 11 setup guide</a></li>
+            <li><a href="/articles/windows_maintenance.html">Windows 10/11 maintenance</a></li>
+          </ul>
+        </nav>
+      </section>
+      <br /><br /><br /><br /><br /><br />
+    </main>
     <footer>
       <p>Website hosted under <a href="https://github.com/geckro/geckro.github.io">GitHub Pages</a>.</p>
       <p>Website code is under <i>GPLv3</i>. Website content is under <i>CC BY-NC-SA 4.0</i>.</p>

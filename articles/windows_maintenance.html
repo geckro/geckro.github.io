@@ -5,110 +5,122 @@
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/syntax_highlighting.css" />
     <meta charset="utf-8" />
-    <meta name="description" content="how to maintain a windows installation" />
+    <meta name="description" content="Some notes on how to maintain a Windows installation" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:description" content="how to maintain a windows installation" />
+    <meta property="og:description" content="Some notes on how to maintain a Windows installation" />
     <meta property="og:title" content="geck's site" />
     <meta property="og:type" content="website" />
-    <script src="/js/highlight.min.js"></script>
-    <title>geck - windows maintenance</title>
+    <title>geck - Windows Maintenance</title>
     <style>
-      li {
-        list-style: square;
-        padding-left: 2em;
-        font-size: 0.8em;
-        opacity: 0.9;
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist > li {
+        padding-bottom: 0.15em;
+        padding-top: 0.15em;
+      }
+      .checklist > ul {
+        font-size: 0.9rem;
       }
     </style>
   </head>
 
   <body>
-    <h1>geck - Windows 10/11 maintenance</h1>
+    <header>
+      <h1>Windows 10/11 Maintenance</h1>
+      <nav>
+        <ul>
+          <li id="homepage-link"><a href="/index.html">Back to homepage...</a></li>
+          <li id="date">Last updated: <time id="date-last-updated" datetime="2024-04-12"></time></li>
+        </ul>
+      </nav>
+      <p id="start-text">
+        Windows 10 and 11 gets gunked up really quickly so it should be cleaned and maintained every 2 months or so. <br /><br />
+        This article is not finished.
+      </p>
+    </header>
+    <main>
+      <section>
+        <h2>What not to do</h2>
 
-    <p><a id="homepage-link" href="/index.html">Back to homepage...</a></p>
+        <ul>
+          <li>Do not defragment your drive! Most drives nowadays are SSDs and "defragging" is a thing of the olden days when everyone used HDDs. SSDs will automatically retrim themselves.</li>
+          <li>
+            Do not run any "cleaning" application! There are a few that are actually good (BleachBit), but most of them are rubbish and lie to you, and delete things that should not be deleted. This includes applications like CCleaner or any cleaning/tune up programs. If it costs money, do NOT use
+            it.
+          </li>
+        </ul>
+      </section>
 
-    <p id="date"><span id="date-updated">2024-04-12</span><span id="date-created">2024-04-12</span></p>
+      <section>
+        <h2>Updating</h2>
 
-    <p id="start-text">
-      Windows 10 and 11 gets gunked up really quickly so it should be cleaned and maintained every 2 months or so. <br /><br />
-      This article is not finished.
-    </p>
+        <p>Before doing anything else, you should update everything on your system. This includes running Windows Update, updating your drivers.</p>
+        <ul class="checklist">
+          <li><input type="checkbox" id="windows_update" name="windows_update" /><label for="windows_update">Run Windows Update</label></li>
+          <li><input type="checkbox" id="windows_update_opt" name="windows_update_opt" /><label for="windows_update_opt">Run Optional Windows Update</label></li>
+          <li><input type="checkbox" id="gpu_drivers" name="gpu_drivers" /><label for="gpu_drivers">Update GPU drivers</label></li>
+          <li>
+            <input type="checkbox" id="applications" name="applications" /><label for="applications">Update applications (<code>winget upgrade</code>)</label>
+          </li>
+        </ul>
+      </section>
 
-    <h2>What not to do</h2>
-    <li>Do not defragment your drive! Most drives nowadays are SSDs and "defragging" is a thing of the olden days when everyone used HDDs. SSDs will automatically retrim themselves.</li>
-    <li>
-      Do not run any "cleaning" application! There are a few that are actually good (BleachBit), but most of them are rubbish and lie to you, and delete things that should not be deleted. This includes applications like CCleaner or any cleaning/tune up programs. If it costs money, do NOT use it.
-    </li>
+      <section>
+        <h2>Removing temporary files</h2>
 
-    <h2>Updating</h2>
-    <p>Before doing anything else, you should update everything on your system. This includes running Windows Update, updating your drivers.</p>
-    <div>
-      <input type="checkbox" name="windows_update" />
-      <label for="windows_update">Run Windows Update</label>
-    </div>
-    <div>
-      <input type="checkbox" name="windows_update_opt" />
-      <label for="windows_update_opt">Run Windows Update (Optional Drivers)</label>
-    </div>
-    <div>
-      <input type="checkbox" name="gpu_drivers" />
-      <label for="gpu_drivers">Get the latest GPU drivers</label>
-    </div>
-    <div>
-      <input type="checkbox" name="applications" />
-      <label for="applications">Update your applications (<code>winget upgrade</code>)</label>
-    </div>
+        <ul class="checklist">
+          <li><input type="checkbox" name="disk_cleanup" /><label for="disk_cleanup">Run Disk Cleanup (<code>cleanmgr.exe</code>) and click "Clean up system files". You should click all checkboxes and run it. </label></li>
+          <ul>
+            <li>Note: This will <b>remove your recycle bin contents.</b></li>
+            <li>Note 2: Run this on every drive you have.</li>
+          </ul>
+        </ul>
+      </section>
 
-    <h2>Removing temporary files</h2>
+      <section>
+        <h2>Disable startup apps</h2>
 
-    <div>
-      <input type="checkbox" name="disk_cleanup" />
-      <label for="disk_cleanup">Run Disk Cleanup (<code>cleanmgr.exe</code>) and click "Clean up system files". You should click all checkboxes and run it. </label>
-      <li>Note: This will <b>remove your recycle bin contents.</b></li>
-      <li>Note 2: Run this on every drive you have.</li>
-    </div>
+        <ul class="checklist">
+          <li><input type="checkbox" name="task_mgr_startup" /><label for="task_mgr_startup">Run Task Manager and disable startup apps as needed.</label></li>
+          <ul>
+            <li>If a process has a generic name like Update.exe, right click the column header and tick the "Command line" option. That will point at what application and folder it actually is.</li>
+          </ul>
+          <li>
+            <input type="checkbox" name="registry-startup" /> <label for="registry-startup">Run <code>regedit</code> and go to <code>HKCU\Software\Microsoft\Windows\CurrentVersion\Run</code> and delete any registry keys that you do not want.</label>
+          </li>
+          <li>
+            <input type="checkbox" name="registry-startup" /> <label for="registry-startup">Also go to <code>HKLM\Software\Microsoft\Windows\CurrentVersion\Run</code>.</label>
+          </li>
+          <li>
+            <input type="checkbox" name="shell-startup" />
+            <label for="shell-startup">Run <code>shell:startup</code> and delete any startup shortcut commands as needed.</label>
+          </li>
+          <li>
+            <input type="checkbox" name="shell-common" /> <label for="shell-common">Run <code>shell:common startup</code> and delete any startup shortcut commands as needed.</label>
+          </li>
+          <li>
+            <input type="checkbox" name="task-scheduler" />
+            <label for="task-scheduler">Open Task Scheduler and see if any apps start up from there. I would recommend <i>disabling</i>, not deleting the entries.</label>
+          </li>
+        </ul>
+      </section>
 
-    <h2>Disable startup apps</h2>
-    <div>
-      <input type="checkbox" name="task_mgr_startup" />
-      <label for="task_mgr_startup">Run Task Manager and disable startup apps as needed.</label>
-      <li>If a process has a generic name like Update.exe, right click the column header and tick the "Command line" option. That will point at what application and folder it actually is.</li>
-    </div>
-    <div>
-      <input type="checkbox" name="registry-startup" />
-      <label for="registry-startup">Run <code>regedit</code> and go to <code>HKCU\Software\Microsoft\Windows\CurrentVersion\Run</code> and delete any registry keys that you do not want.</label>
-    </div>
-    <div>
-      <input type="checkbox" name="registry-startup" />
-      <label for="registry-startup">Also go to <code>HKLM\Software\Microsoft\Windows\CurrentVersion\Run</code>.</label>
-    </div>
-    <div>
-      <input type="checkbox" name="shell-startup" />
-      <label for="shell-startup">Run <code>shell:startup</code> and delete any startup shortcut commands as needed.</label>
-    </div>
-    <div>
-      <input type="checkbox" name="shell-common" />
-      <label for="shell-common">Run <code>shell:common startup</code> and delete any startup shortcut commands as needed.</label>
-    </div>
-    <div>
-      <input type="checkbox" name="task-scheduler" />
-      <label for="task-scheduler">Open Task Scheduler and see if any apps start up from there. I would recommend <i>disabling</i>, not deleting the entries.</label>
-    </div>
+      <section>
+        <h2>Applications</h2>
 
-    <h2>Applications</h2>
-    <div>
-      <input type="checkbox" name="apps" />
-      <label for="apps">Look over your installed applications and uninstall the ones you do not use.</label>
-      <li>Go look in the Apps in System Settings and Uninstall a Program in the Control Panel.</li>
-      <li>Also look at Game launchers like Steam and remove games you haven't touched in years.</li>
-    </div>
-    <div>
-      <input type="checkbox" name="wiztree" />
-      <label for="wiztree">Run a tool like WizTree or WinDirStat and find any large files that you can delete to relieve some space.</label>
-    </div>
-
-    <script>
-      hljs.initHighlightingOnLoad();
-    </script>
+        <ul class="checklist">
+          <li><input type="checkbox" name="apps" /> <label for="apps">Look over your installed applications and uninstall the ones you do not use.</label></li>
+          <ul>
+            <li>Go look in the Apps in System Settings and Uninstall a Program in the Control Panel.</li>
+            <li>Also look at Game launchers like Steam and remove games you haven't touched in years.</li>
+          </ul>
+          <li>
+            <input type="checkbox" name="wiztree" /> <label for="wiztree">Run a tool like <a href="https://diskanalyzer.com/">WizTree</a> or <a href="https://windirstat.net/">WinDirStat</a> and find any large files that you can delete to relieve some space.</label>
+          </li>
+        </ul>
+      </section>
+    </main>
   </body>
 </html>
