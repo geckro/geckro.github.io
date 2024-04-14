@@ -1,0 +1,31 @@
+# I would rather not
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Perplexity-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claudebot
+Disallow: /
+
+User-agent: Meltwater
+Disallow: /
+
+User-agent: Cohere-ai
+Disallow: /
+
+User-agent: Seekr
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
