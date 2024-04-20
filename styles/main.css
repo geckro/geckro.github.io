@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
-* {
+:root {
   --background-color: #d9dbe0;
   --page-color: #edf1f3;
   --section-color: #ebebf0;
@@ -22,8 +22,8 @@ html {
 }
 body {
   background-color: var(--page-color);
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
   box-shadow: 0 2px 18px var(--shadow-color);
   color: var(--text-color);
   font-family: 'Comfortaa', sans-serif;
@@ -105,10 +105,7 @@ footer {
 }
 header > h1 {
   background-color: var(--header-color);
-  border-top-left-radius: 2em;
-  border-top-right-radius: 2em;
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
+  border-radius: 0.5rem;
   box-shadow: 0 1px 3px var(--shadow-color);
   color: var(--title-color);
   font-size: 1.8rem;
@@ -150,10 +147,7 @@ nav > ul {
   padding-right: 2rem;
 }
 #homepage-link > a {
-  border-top-left-radius: 0.9em;
-  border-top-right-radius: 0.3em;
-  border-bottom-left-radius: 0.3em;
-  border-bottom-right-radius: 0.9em;
+  border-radius: 0.3rem;
   text-decoration: none;
   text-shadow: 0px 3px 6px #8da4ac;
 }
@@ -165,10 +159,7 @@ nav > ul {
   transition: color 0.5s;
 }
 #date {
-  border-top-left-radius: 0.3em;
-  border-top-right-radius: 0.9em;
-  border-bottom-left-radius: 0.9em;
-  border-bottom-right-radius: 0.3em;
+  border-radius: 0.3rem;
   font-weight: bold;
   text-align: center;
 }
