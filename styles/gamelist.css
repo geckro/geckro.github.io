@@ -23,7 +23,7 @@ td:nth-of-type(2) {
 tr:nth-child(even) {
   opacity: 0.8;
 }
-.sys {
+.pf {
   float: right;
   padding-right: 1em;
   padding-left: 3em;
@@ -31,37 +31,37 @@ tr:nth-child(even) {
   font-size: 0.85em;
   opacity: 0.75;
 }
-.release-date {
+.ry {
   float: right;
   font-family: monospace;
   font-size: 0.85em;
   opacity: 0.8;
 }
-.red {
+.r {
   color: firebrick;
 }
-.orange {
+.o {
   color: orangered;
 }
-.yellow {
+.y {
   color: orange;
 }
-.green {
+.g {
   color: mediumseagreen;
 }
 .b {
   color: royalblue;
 }
-.purple {
+.p {
   color: darkviolet;
 }
-.pink {
+.pi {
   color: orchid;
 }
-.lightblue {
+.lb {
   color: deepskyblue;
 }
-.biege {
+.br {
   color: burlywood;
 }
 .rt {
@@ -75,10 +75,10 @@ tr:nth-child(even) {
   border-radius: 8px;
   background-color: var(--background-color);
 }
-.rttext {
+.rtt {
   opacity: 0;
 }
-.rt .rttext {
+.rt .rtt {
   visibility: hidden;
   transform: translateY(-20px);
   transition: visibility 0.2s, opacity 0.2s, transform 1s;
@@ -95,7 +95,7 @@ tr:nth-child(even) {
   top: 100%;
   left: 100%;
 }
-.rt:hover .rttext {
+.rt:hover .rtt {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
