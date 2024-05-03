@@ -20,9 +20,10 @@ th {
 td:nth-of-type(2) {
   font-family: monospace;
 }
-tr:nth-child(even) {
-  opacity: 0.8;
-}
+/* For some reason, this breaks the fancy review things */
+/* tr:nth-child(even) {
+  opacity: 0.8
+} */
 .pf {
   float: right;
   padding-right: 1em;
@@ -67,36 +68,33 @@ tr:nth-child(even) {
 .rt {
   position: relative;
   display: inline-block;
-  opacity: 1;
+
   cursor: default;
-  margin-top: 2px;
-  margin-bottom: 2px;
+  margin-top: 3px;
+  margin-bottom: 3px;
   border: 2px solid var(--shadow-color);
   border-radius: 8px;
   background-color: var(--background-color);
 }
-.rtt {
-  opacity: 0;
-}
-.rt .rtt {
+.rt > .rtt {
   visibility: hidden;
-  transform: translateY(-20px);
-  transition: visibility 0.2s, opacity 0.2s, transform 1s;
+  opacity: 0;
+  border-radius: 8px;
+  transform: translateY(-15px);
+  transition: opacity 0.2s, transform 1s;
   padding: 0.7em;
-  background-color: var(--background-color);
+  background-color: var(--section-color);
   border: 2px solid var(--shadow-color);
-  border-radius: 0.25em;
   text-align: left;
   margin-left: 2em;
-  margin-top: -1.5em;
-  white-space: nowrap;
+  margin-top: -1em;
   position: absolute;
-  z-index: 1;
-  top: 100%;
-  left: 100%;
+  color: black;
+  width: 25vw;
+  max-width:max-content;
 }
-.rt:hover .rtt {
-  visibility: visible;
+.rt:hover > .rtt {
+  visibility:visible;
   opacity: 1;
   transform: translateY(0);
 }

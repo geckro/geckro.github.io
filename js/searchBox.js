@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 function searchBox(tableId, search, columnDropdown) {
   let table = document.getElementById(tableId)
   let searchInput = document.getElementById(search);

@@ -1,18 +1,19 @@
-function sortTable(column, id) {
-  var table = document.getElementById(id);
-  var switching = true;
-  var dir = 'asc';
-  var switchcount = 0;
+/* eslint-disable no-unused-vars */
+function sortTable(column, tableId) {
+  const table = document.getElementById(tableId);
+  let switching = true;
+  let dir = 'asc';
+  let switchcount = 0;
   while (switching) {
+    let shouldSwitch = false;
     switching = false;
-    var rows = table.rows;
-    var rowCount = rows.length - 1;
+    let rows = table.rows;
+    let rowCount = rows.length - 1;
     for (var i = 1; i < rowCount; i++) {
-      var shouldSwitch = false;
-      var x = rows[i].getElementsByTagName('td')[column];
-      var y = rows[i + 1].getElementsByTagName('td')[column];
-      var xText = x.innerHTML.toLowerCase();
-      var yText = y.innerHTML.toLowerCase();
+      let x = rows[i].getElementsByTagName('td')[column];
+      let y = rows[i + 1].getElementsByTagName('td')[column];
+      let xText = x.innerHTML.toLowerCase();
+      let yText = y.innerHTML.toLowerCase();
       if (
         (dir === 'asc' && xText.localeCompare(yText) > 0) ||
         (dir === 'desc' && xText.localeCompare(yText) < 0)

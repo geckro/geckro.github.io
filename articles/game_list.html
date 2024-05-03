@@ -28,10 +28,11 @@
       <article>
         <section>
           <h2>Info</h2>
+          <noscript><b style="color: palevioletred;">This page has some nice features if JavaScript is enabled!</b></noscript>
           <p>(O) is original hardware and (E) is emulator.</p>
         </section>
         <section>
-          <h2>Finished games</h2>
+          <h2>Finished games <span id='gfc'></span></h2>
           <select id="columnDropdown"><option value="0">Title</option><option value="1">Date/Platform</option><option value="2">Rating</option><option value="3">Genre/Release Year</option></select>
           <input type="text" id="searchInput" onkeyup="searchBox('finishTable', 'searchInput', 'columnDropdown')" />
 
@@ -44,7 +45,7 @@
             </tr><tr>
               <td>AdVenture Capitalist</td>
               <td>2016 to 2023-04<span class="pf">PC</span></td>
-              <td class="rt"><span class="y">Ok</span><span class="rtt">ignorethis</span></td>
+              <td><span class="y">Ok</span></td>
               <td>Idle<span class="ry">2014</span></td>
             </tr><tr>
               <td>Animal Crossing: Happy Home Designer</td>
@@ -64,7 +65,7 @@
             </tr><tr>
               <td>Another Metroid 2 Remake (AM2R)</td>
               <td>2023-01<span class="pf">PC</span></td>
-              <td><span class="b">Great</span></td>
+              <td class="rt"><span class="b">Great</span><span class="rtt">I think this is the best 2D Metroid game to play if you haven't played any Metroid game before, and it's completely free.</span></td>
               <td>Metroidvania<span class="ry">2016</span></td>
             </tr><tr>
               <td>Bayonetta</td>
@@ -89,7 +90,7 @@
             </tr><tr>
               <td>Bloons TD Battles 2</td>
               <td>2021-12<span class="pf">PC</span></td>
-              <td><span class="r">Bad</span></td>
+              <td class="rt"><span class="r">Bad</span><span class="rtt">When the game came out it was designed to be won very quickly and every single player just used the same broken strategies, making the game just not fun to play. Don't know if it has gotten better but I don't really want to go back to it.</span></td>
               <td>Tower defense<span class="ry">2021</span></td>
             </tr><tr>
               <td>Blue Fire</td>
@@ -144,7 +145,7 @@
             </tr><tr>
               <td>Demon Turf</td>
               <td>2023-07<span class="pf">PC</span></td>
-              <td><span class="g">Good</span></td>
+              <td class="rt"><span class="g">Good</span><span class="rtt">A level-based linear 3D platformer that's overall good but some levels are way too long and by the end of the game I really felt tired of it.</span></td>
               <td>3D platformer<span class="ry">2021</span></td>
             </tr><tr>
               <td>Devil May Cry 5</td>
@@ -244,7 +245,7 @@
             </tr><tr>
               <td>Hearts of Iron IV</td>
               <td>2020-10 to 2024<span class="pf">PC</span></td>
-              <td><span class="g">Good</span></td>
+              <td class="rt"><span class="g">Good</span><span class="rtt">It's a pretty good grand strategy game (the only paradox grand strategy ive played) but only pick this up with the DLCs because the base game is abhorrent without them, also after a while it can get pretty repetitive.</span></td>
               <td>Grand strategy<span class="ry">2016</span></td>
             </tr><tr>
               <td>Hollow Knight</td>
@@ -294,7 +295,7 @@
             </tr><tr>
               <td>Luigi's Mansion</td>
               <td>2023<span class="pf">GameCube (E)</span></td>
-              <td><span class="y">Ok</span></td>
+              <td class="rt"><span class="y">Ok</span><span class="rtt">Incredibly basic gameplay with so little variety, but the game itself is short, but also just feels a little too long, especially with all the Boos. Not the worst thing out there, but the sequels are better imo.</span></td>
               <td>Action-adventure<span class="ry">2001</span></td>
             </tr><tr>
               <td>Luigi's Mansion 2: Dark Moon</td>
@@ -514,7 +515,7 @@
             </tr><tr>
               <td>Sonic the Hedgehog (1991)</td>
               <td>2022/3-??<span class="pf">Genesis (E)</span></td>
-              <td><span class="r">Bad</span></td>
+              <td class="rt"><span class="r">Bad</span><span class='rtt'>Green Hill zone and maybe Marble zone are good stages but after that it's incredibly boring. Not really a lot of going fast in the Sonic game, and some of the level design is awful. Only play if you're really curious.</span></td>
               <td>2D platformer<span class="ry">1991</span></td>
             </tr><tr>
               <td>Sonic the Hedgehog 2</td>
@@ -634,7 +635,7 @@
             </tr><tr>
               <td>Wizard101</td>
               <td>2016-2019?<span class="pf">PC</span></td>
-              <td><span class="g">Good</span></td>
+              <td class="rt"><span class="g">Good</span><span class="rtt">I have a bit of nostalgia for this and it's a half decent MMORPG, but the game developers are incredibly greedy and are killing the game by not making this game f2p or making the game a $30 buy-in or something.</span></td>
               <td>MMORPG, Card game<span class="ry">2008</span></td>
             </tr><tr>
               <td>Yakuza 0</td>
@@ -660,7 +661,7 @@
           </table>
         </section>
         <section>
-          <h2>Paused/Dropped games</h2>
+          <h2>Paused/Dropped games <span id='gdc'></span></h2>
 
           <select id="columnDropdownDropped"><option value="0">Title</option><option value="1">Date/Platform</option><option value="2">Try/Play Again</option><option value="3">Genre/Release Year</option></select>
           <input type="text" id="searchInputDropped" onkeyup="searchBox('droppedTable', 'searchInputDropped', 'columnDropdownDropped')" />
@@ -925,7 +926,7 @@
           </table>
         </section>
         <section>
-          <h2>Backlog</h2>
+          <h2>Backlog <span id='gbc'></span></h2>
 
           <select id="columnDropdownBacklog"><option value="0">Title</option><option value="1">Platform</option><option value="2">Genre/Release Year</option>
           <input type="text" id="searchInputBacklog" onkeyup="searchBox('backlogTable', 'searchInputBacklog', 'columnDropdownBacklog')" />
@@ -1419,5 +1420,13 @@
     <script src="/js/sortTable.min.js"></script>
     <script src="/js/colorDateTable.min.js"></script>
     <script src="/js/searchBox.min.js"></script>
+    <script src="/js/countRowsInTable.min.js"></script>
+    <script>
+      window.onload = function() {
+        countTableRows('finishTable', 'gfc');
+        countTableRows('droppedTable', 'gdc');
+        countTableRows('backlogTable', 'gbc');
+      };
+    </script>
   </body>
 </html>

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var releaseDates = document.getElementsByClassName("ry");
-  for (var i = 0; i < releaseDates.length; i++) {
-    var year = releaseDates[i].innerText;
+  const releaseDates = document.getElementsByClassName("ry");
+  for (let i = 0; i < releaseDates.length; i++) {
+    let year = releaseDates[i].innerText;
     switch (true) {
       case (year >= 1980 && year <= 1984):
         releaseDates[i].classList.add("r");
