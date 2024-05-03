@@ -32,6 +32,8 @@
         </section>
         <section>
           <h2>Finished games</h2>
+          <select id="columnDropdown"><option value="0">Title</option><option value="1">Date/Platform</option><option value="2">Rating</option><option value="3">Genre/Release Year</option></select>
+          <input type="text" id="searchInput" onkeyup="searchBox('finishTable', 'searchInput', 'columnDropdown')" />
 
           <table id="finishTable">
             <tr>
@@ -660,6 +662,9 @@
         <section>
           <h2>Paused/Dropped games</h2>
 
+          <select id="columnDropdownDropped"><option value="0">Title</option><option value="1">Date/Platform</option><option value="2">Try/Play Again</option><option value="3">Genre/Release Year</option></select>
+          <input type="text" id="searchInputDropped" onkeyup="searchBox('droppedTable', 'searchInputDropped', 'columnDropdownDropped')" />
+
           <table id="droppedTable">
             <tr>
               <th class="tbhdr" onclick="sortTable(0, 'droppedTable')">Title</th>
@@ -670,57 +675,57 @@
               <td>Blasphemous</td>
               <td>2022-05<span class="pf">PC</span></td>
               <td><span class="y">Maybe</span></td>
-              <td>Metroidvania<span class="release-date">2019</span></td>
+              <td>Metroidvania<span class="ry">2019</span></td>
             </tr><tr>
               <td>Bloodstained: Curse of the Moon 2</td>
               <td>2020-08<span class="pf">PC</span></td>
               <td><span class="y">Maybe</span></td>
-              <td>2D platformer<span class="release-date">2020</span></td>
+              <td>2D platformer<span class="ry">2020</span></td>
             </tr><tr>
               <td>Cadence of Hyrule</td>
               <td>2022-??<span class="pf">Switch (E)</span></td>
               <td><span class="y">Maybe</span></td>
-              <td>Rhythm, Roguelike<span class="release-date">2019</span></td>
+              <td>Rhythm, Roguelike<span class="ry">2019</span></td>
             </tr><tr>
               <td>Crash Bandicoot N.Sane Trilogy</td>
               <td>2020-08/2022-12<span class="pf">PC</span></td>
               <td><span class="y">Maybe</span></td>
-              <td>3D platformer<span class="release-date">2017</span></td>
+              <td>3D platformer<span class="ry">2017</span></td>
             </tr><tr>
               <td>Dandara [ToFE]</td>
               <td>2022-09<span class="pf">PC</span></td>
               <td><span class="r">No</span></td>
-              <td>Metroidvania<span class="release-date">2018</span></td>
+              <td>Metroidvania<span class="ry">2018</span></td>
             </tr><tr>
               <td>Dark Souls III</td>
               <td>2022-03<span class="pf">PC</span></td>
               <td><span class="y">Maybe</span></td>
-              <td>Action RPG<span class="release-date">2016</span></td>
+              <td>Action RPG<span class="ry">2016</span></td>
             </tr><tr>
               <td>Death's Door</td>
               <td>2022-07<span class="pf">PC</span></td>
               <td><span class="g">Yes</span></td>
-              <td>Action-adventure<span class="release-date">2021</span></td>
+              <td>Action-adventure<span class="ry">2021</span></td>
             </tr><tr>
               <td>Disco Elysium [TFC]</td>
               <td>2023-11<span class="pf">PC</span></td>
               <td><span class="g">Yes</span></td>
-              <td>Role-playing<span class="release-date">2019</span></td>
+              <td>Role-playing<span class="ry">2019</span></td>
             </tr><tr>
               <td>Donkey Kong Country</td>
               <td>2022-??<span class="pf">SNES (E)</span></td>
               <td><span class="y">Maybe</span></td>
-              <td>2D platformer<span class="release-date">1994</span></td>
+              <td>2D platformer<span class="ry">1994</span></td>
             </tr><tr>
               <td>Donkey Kong Country Returns 3D</td>
               <td>2022-??<span class="pf">3DS (O)</span></td>
               <td><span class="g">Yes</span></td>
-              <td>2D platformer<span class="release-date">2010</span></td>
+              <td>2D platformer<span class="ry">2010</span></td>
             </tr><tr>
               <td>Donkey Kong Country Tropical Freeze</td>
               <td>2023-??<span class="pf">Switch (O)</span></td>
               <td><span class="g">Yes</span></td>
-              <td>2D platformer<span class="release-date">2014</span></td>
+              <td>2D platformer<span class="ry">2014</span></td>
             </tr><tr>
               <td>Dont Starve Together</td>
               <td>2021-06<span class="pf">PC</span></td>
@@ -730,7 +735,7 @@
               <td>Dusk</td>
               <td>2023-11<span class="pf">PC</span></td>
               <td><span class="y">Maybe</span></td>
-              <td>First-person shooter<span class="release-date">2018</span></td>
+              <td>First-person shooter<span class="ry">2018</span></td>
             </tr><tr>
               <td>Fallout: New Vegas</td>
               <td>2023-01<span class="pf">PC</span></td>
@@ -750,72 +755,72 @@
               <td>Grand Theft Auto V</td>
               <td>2022-05<span class="pf">PC</span></td>
               <td><span class="y">Maybe</span></td>
-              <td>Action-adventure<span class="release-date">2015</span></td>
+              <td>Action-adventure<span class="ry">2015</span></td>
             </tr><tr>
               <td>Half-Life 2: Episode One</td>
               <td>2022-04?/2023-10<span class="pf">PC</span></td>
               <td><span class="r">No</span></td>
-              <td>First-person shooter<span class="release-date">2006</span></td>
+              <td>First-person shooter<span class="ry">2006</span></td>
             </tr><tr>
               <td>Halo: MCC</td>
               <td>2021-12<span class="pf">PC</span></td>
               <td><span class="y">Maybe</span></td>
-              <td>First-person shooter<span class="release-date">2019</span></td>
+              <td>First-person shooter<span class="ry">2019</span></td>
             </tr><tr>
               <td>Inscryption</td>
               <td>2022-10<span class="pf">PC</span></td>
               <td><span class="g">Yes</span></td>
-              <td>Card game, Roguelike<span class="release-date">2021</span></td>
+              <td>Card game, Roguelike<span class="ry">2021</span></td>
             </tr><tr>
               <td>La-Mulana 2</td>
               <td>2023-04<span class="pf">PC</span></td>
               <td><span class="r">No</span></td>
-              <td>Metroidvania<span class="release-date">2018</span></td>
+              <td>Metroidvania<span class="ry">2018</span></td>
             </tr><tr>
               <td>Legend of Zelda: Tears of the Kingdom</td>
               <td>2023<span class="pf">Switch (O)</span></td>
               <td><span class="r">No</span></td>
-              <td>Action-adventure<span class="release-date">2023</span></td>
+              <td>Action-adventure<span class="ry">2023</span></td>
             </tr><tr>
               <td>LEGO City Undercover</td>
               <td>2022-09<span class="pf">PC</span></td>
               <td><span class="g">Yes</span></td>
-              <td>Action-adventure<span class="release-date">2013</span></td>
+              <td>Action-adventure<span class="ry">2013</span></td>
             </tr><tr>
               <td>Metal Gear Solid 5: TPP</td>
               <td>2022-09<span class="pf">PC</span></td>
               <td><span class="g">Yes</span></td>
-              <td>Stealth, Action-adventure<span class="release-date">2015</span></td>
+              <td>Stealth, Action-adventure<span class="ry">2015</span></td>
             </tr><tr>
               <td>Momodora: Reverie Under the Moonlight</td>
               <td>2023-05<span class="pf">PC</span></td>
               <td><span class="y">Maybe</span></td>
-              <td>Metroidvania<span class="release-date">2016</span></td>
+              <td>Metroidvania<span class="ry">2016</span></td>
             </tr><tr>
               <td>New Super Mario Bros.</td>
               <td>2014/6-??<span class="pf">DS (O+E)</span></td>
               <td><span class="y">Maybe</span></td>
-              <td>2D platformer<span class="release-date">2006</span></td>
+              <td>2D platformer<span class="ry">2006</span></td>
             </tr><tr>
               <td>New Super Mario Bros. U Deluxe</td>
               <td>2014/6-??<span class="pf">Switch (E)</span></td>
               <td><span class="y">Maybe</span></td>
-              <td>2D platformer<span class="release-date">2019</span></td>
+              <td>2D platformer<span class="ry">2019</span></td>
             </tr><tr>
               <td>NieR Replicant ver1.22</td>
               <td>2021-09<span class="pf">PC</span></td>
               <td><span class="r">No</span></td>
-              <td>Action RPG<span class="release-date">2021</span></td>
+              <td>Action RPG<span class="ry">2021</span></td>
             </tr><tr>
               <td>Octopath Traveler</td>
               <td>2021-12<span class="pf">PC</span></td>
               <td><span class="r">No</span></td>
-              <td>Turn-based RPG<span class="release-date">2018</span></td>
+              <td>Turn-based RPG<span class="ry">2018</span></td>
             </tr><tr>
               <td>Okami HD</td>
               <td>2020-09<span class="pf">PC</span></td>
               <td><span class="g">Yes</span></td>
-              <td>Action-adventure<span class="release-date">2012</span></td>
+              <td>Action-adventure<span class="ry">2012</span></td>
             </tr><tr>
               <td>Ori and the Will of the Wisps</td>
               <td>2021-12<span class="pf">PC</span></td>
@@ -830,6 +835,7 @@
               <td>Psychonauts</td>
               <td>2022-10<span class="pf">PC</span></td>
               <td><span class="y">Maybe</span></td>
+              <td>3D platformer<span class="ry">2005</span></td>
             </tr><tr>
               <td>Reventure</td>
               <td>2020-12<span class="pf">PC</span></td>
@@ -864,62 +870,65 @@
               <td>Spyro: Reignited Trilogy</td>
               <td>2022-05<span class="pf">PC</span></td>
               <td><span class="g">Yes</span></td>
-              <td>3D platformer<span class="release-date">2018</span></td>
+              <td>3D platformer<span class="ry">2018</span></td>
             </tr><tr>
               <td>Starbound</td>
               <td>2020-09<span class="pf">PC</span></td>
               <td><span class="g">Yes</span></td>
-              <td>Survival, Sandbox<span class="release-date">2016</span></td>
+              <td>Survival, Sandbox<span class="ry">2016</span></td>
             </tr><tr>
               <td>Sundered [EE]</td>
               <td>2020-01<span class="pf">PC</span></td>
               <td><span class="g">Yes</span></td>
-              <td>Metroidvania, Roguelike<span class="release-date">2017</span></td>
+              <td>Metroidvania, Roguelike<span class="ry">2017</span></td>
             </tr><tr>
               <td>Super Mario World</td>
               <td>2020-??<span class="pf">SNES (E)</span></td>
               <td><span class="g">Yes</span></td>
-              <td>2D platformer<span class="release-date">1990</span></td>
+              <td>2D platformer<span class="ry">1990</span></td>
             </tr><tr>
               <td>Super Meat Boy</td>
               <td>2021-03<span class="pf">PC</span></td>
               <td><span class="y">Maybe</span></td>
-              <td>2D platformer, Speedrunner<span class="release-date">2010</span></td>
+              <td>2D platformer, Speedrunner<span class="ry">2010</span></td>
             </tr><tr>
               <td>Super Paper Mario</td>
               <td>2018?<span class="pf">Wii (O)</span></td>
               <td><span class="y">Maybe</span></td>
-              <td>Action RPG, 2D platformer<span class="release-date">2007</span></td>
+              <td>Action RPG, 2D platformer<span class="ry">2007</span></td>
             </tr><tr>
               <td>Tomb Raider (Remake)</td>
               <td>2020-06<span class="pf">PC</span></td>
               <td><span class="g">Yes</span></td>
-              <td>Action-adventure<span class="release-date">2013</span></td>
+              <td>Action-adventure<span class="ry">2013</span></td>
             </tr><tr>
               <td>VVVVVV</td>
               <td>2023-12<span class="pf">PC</span></td>
               <td><span class="r">No</span></td>
-              <td>2D platformer<span class="release-date">2010</span></td>
+              <td>2D platformer<span class="ry">2010</span></td>
             </tr><tr>
               <td>Witcher 3: Wild Hunt</td>
               <td>2020-08<span class="pf">PC</span></td>
               <td><span class="y">Maybe</span></td>
-              <td>Action RPG<span class="release-date">2015</span></td>
+              <td>Action RPG<span class="ry">2015</span></td>
             </tr><tr>
               <td>Yakuza Kiwami 2</td>
               <td>2022-01<span class="pf">PC</span></td>
               <td><span class="g">Yes</span></td>
-              <td>Action-adventure<span class="release-date">2017</span></td>
+              <td>Action-adventure<span class="ry">2017</span></td>
             </tr><tr>
               <td>Yoshi's Crafted World</td>
               <td>2021-??<span class="pf">Switch (O)</span></td>
               <td><span class="r">No</span></td>
-              <td>2D platformer<span class="release-date">2019</span></td>
+              <td>2D platformer<span class="ry">2019</span></td>
             </tr>
           </table>
         </section>
         <section>
           <h2>Backlog</h2>
+
+          <select id="columnDropdownBacklog"><option value="0">Title</option><option value="1">Platform</option><option value="2">Genre/Release Year</option>
+          <input type="text" id="searchInputBacklog" onkeyup="searchBox('backlogTable', 'searchInputBacklog', 'columnDropdownBacklog')" />
 
           <table id="backlogTable">
             <tr>
@@ -1409,5 +1418,6 @@
     </main>
     <script src="/js/sortTable.min.js"></script>
     <script src="/js/colorDateTable.min.js"></script>
+    <script src="/js/searchBox.min.js"></script>
   </body>
 </html>
