@@ -121,6 +121,41 @@ table {
   font-size: 0.9em;
   overflow: scroll;
 }
+.cbc {
+  white-space: nowrap;
+  text-align: left;
+  display: block;
+}
+@media only screen and (max-width: 768px) {
+  .tagFilterArea {
+    right:unset;
+    height: unset;
+    max-width: unset;
+    width: unset;
+    bottom: 0;
+    border-bottom-left-radius: unset;
+    border-top-right-radius: 1em;
+    border-left: unset;
+    border-bottom: unset;
+    overflow: unset;
+  }
+  .cbc {
+    white-space: unset;
+    display: unset;
+    text-align: unset;
+  }
+  table {
+    margin: auto;
+  }
+  #finishTableArea,
+  #droppedTableArea,
+  #backlogTableArea {
+    margin: auto;
+  }
+  article {
+    max-width: 100% !important;
+  }
+}
 .tagFilterArea input,
 .tagFilterArea label {
   display: inline-block;
@@ -130,11 +165,6 @@ table {
   border: 2px solid var(--shadow-color);
   background-color: var(--header-color);
   border-radius: 0.2em;
-}
-.cbc {
-  white-space: nowrap;
-  text-align: left;
-  display: block;
 }
 .tagFilterArea > button:hover {
   background-color: var(--page-color);
