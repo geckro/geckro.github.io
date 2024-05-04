@@ -28,7 +28,7 @@ table tr:nth-child(odd) {
 #finishTableArea,
 #droppedTableArea,
 #backlogTableArea {
-  max-width: fit-content;
+  width: 100;
   padding: 1em;
   border-top-right-radius: 1em;
   border-bottom-right-radius: 1em;
@@ -107,7 +107,8 @@ table {
 }
 .tagFilterArea {
   position: fixed;
-  max-width: 20%;
+  width: fit-content;
+  max-width: 25%;
   height: 95%;
   right: 0;
   background-color: var(--section-color);
@@ -118,11 +119,11 @@ table {
   border-bottom: 2px solid var(--shadow-color);
   text-align: center;
   font-size: 0.9em;
+  overflow: scroll;
 }
 .tagFilterArea input,
 .tagFilterArea label {
   display: inline-block;
-  font-size: 0.8rem;
 }
 .tagFilterArea > button {
   font-size: 1.2rem;
@@ -132,6 +133,8 @@ table {
 }
 .cbc {
   white-space: nowrap;
+  text-align: left;
+  display: block;
 }
 .tagFilterArea > button:hover {
   background-color: var(--page-color);
@@ -170,6 +173,9 @@ body {
   letter-spacing: 0.2px;
   line-height: 1.2em;
   margin: auto;
+}
+article {
+  max-width: 75%;
 }
 h2 {
   color: var(--section-text-color);

@@ -14,8 +14,8 @@ function getTagsFromTable(tableId) {
   }
   return Array.from(allTags).sort();
 }
-function taggingSystem(tagArray, divId) {
-  const div = getElement(divId);
+function taggingSystem(tagArray) {
+  const tag_area = getElement('filterTagArea');
   const year_area = getElement('filterYearArea');
   
   for (const tag of tagArray) {
@@ -31,7 +31,7 @@ function taggingSystem(tagArray, divId) {
 
     const label = document.createElement("label");
     label.textContent = tag;
-    label.setAttribute("for", `lb-${lowercaseNoSpaces}`);
+    label.setAttribute("for", `cb-${lowercaseNoSpaces}`);
 
     span.appendChild(checkbox);
     span.appendChild(label);
@@ -39,7 +39,7 @@ function taggingSystem(tagArray, divId) {
       label.classList.add("tagYear");
       year_area.appendChild(span);
     } else {
-      div.appendChild(span);
+      tag_area.appendChild(span);
     }
   }
 }
@@ -58,11 +58,16 @@ function filterTable(tableId, tagArea) {
     const content = cell.textContent.trim();
     const tags = content.split(/,(?=(?:[^"]*"[^"]*")*(?![^"]*"))/);
 
-    let showRow = true;
-    for (const tag of selectedTags) {
-      if (!tags.includes(tag)) {
-        showRow = false;
-        break;
+    let showRow = false;
+    if (selectedTags.length === 0) {
+      showRow = true; // Show all rows if no checkboxes are selected
+    } else {
+      // Check for OR condition if any checkboxes are selected
+      for (const tag of selectedTags) {
+        if (tags.includes(tag)) {
+          showRow = true;
+          break;
+        }
       }
     }
 
