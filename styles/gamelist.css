@@ -1,48 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+:root {
+  --page-color: #edf1f3;
+  --page2-color: #e4e8eb;
+  --section-color: #ebebf0;
+  --header-color: #e0e3eb;
+  --shadow-color: #acb0be;
+  --title-color: #5094e1;
+  --section-text-color: #de8d1c;
+  --text-color: #29303e;
+}
 table,
 tr,
 td,
 th {
   text-align: left;
-  border-bottom: 1px solid rgb(208, 208, 208);
+  border-bottom: 1px solid var(--shadow-color);
   border-collapse: collapse;
-  padding: 0.2em;
+  padding: 0.2rem;
+}
+table tr:nth-child(even) {
+  background-color: var(--page2-color);
+}
+table tr:nth-child(odd) {
+  background-color: var(--page-color);
+}
+#finishTableArea,
+#droppedTableArea,
+#backlogTableArea {
+  max-width: fit-content;
+  padding: 1em;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border: 2px solid var(--shadow-color);
+  background-color: var(--section-color);
 }
 th {
-  background-image: url(/img/sort.png);
-  background-repeat: no-repeat;
-  background-position: center right;
-  background-size: contain;
-  background-color: var(--section-color);
   font-size: 1.1em;
-  border: 2px solid rgb(208, 208, 208);
   padding: 4px;
 }
 td:nth-of-type(2) {
   font-family: monospace;
 }
-/* For some reason, this breaks the fancy review things */
-/* tr:nth-child(even) {
-  opacity: 0.8
-} */
+table {
+  border: 2px solid var(--shadow-color);
+}
 .pf {
   float: right;
   padding-right: 1em;
   padding-left: 3em;
   font-family: sans-serif;
   font-size: 0.85em;
-  opacity: 0.75;
-}
-.ry {
-  float: right;
-  font-family: monospace;
-  font-size: 0.85em;
-  opacity: 0.8;
 }
 .r {
   color: firebrick;
-}
-.o {
-  color: orangered;
 }
 .y {
   color: orange;
@@ -53,22 +64,9 @@ td:nth-of-type(2) {
 .b {
   color: royalblue;
 }
-.p {
-  color: darkviolet;
-}
-.pi {
-  color: orchid;
-}
-.lb {
-  color: deepskyblue;
-}
-.br {
-  color: burlywood;
-}
 .rt {
   position: relative;
   display: inline-block;
-
   cursor: default;
   margin-top: 3px;
   margin-bottom: 3px;
@@ -91,13 +89,153 @@ td:nth-of-type(2) {
   position: absolute;
   color: black;
   width: 25vw;
-  max-width:max-content;
+  max-width: max-content;
 }
 .rt:hover > .rtt {
-  visibility:visible;
+  visibility: visible;
   opacity: 1;
   transform: translateY(0);
 }
 .tbhdr {
   cursor: pointer;
+}
+.star::before {
+  content: '⭐';
+  left: 0%;
+  position: absolute;
+  text-shadow: 0 2px 2px var(--shadow-color);
+}
+.tagFilterArea {
+  position: fixed;
+  max-width: 20%;
+  height: 95%;
+  right: 0;
+  background-color: var(--section-color);
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+  border-left: 2px solid var(--shadow-color);
+  border-top: 2px solid var(--shadow-color);
+  border-bottom: 2px solid var(--shadow-color);
+  text-align: center;
+  font-size: 0.9em;
+}
+.tagFilterArea input,
+.tagFilterArea label {
+  display: inline-block;
+  font-size: 0.8rem;
+}
+.tagFilterArea > button {
+  font-size: 1.2rem;
+  border: 2px solid var(--shadow-color);
+  background-color: var(--header-color);
+  border-radius: 0.2em;
+}
+.cbc {
+  white-space: nowrap;
+}
+.tagFilterArea > button:hover {
+  background-color: var(--page-color);
+  order: 2px solid var(--section-color);
+}
+.tagFilterArea #filterYearArea {
+  padding: 0.5em;
+  border-bottom: 2px solid var(--shadow-color);
+}
+#finishTable td:nth-of-type(4),
+#finishTable th:nth-of-type(4) {
+  display: none;
+}
+#droppedTable td:nth-of-type(4),
+#droppedTable th:nth-of-type(4) {
+  display: none;
+}
+#backlogTable .pf {
+  float: left !important;
+  padding-right: initial;
+  padding-left: initial;
+  font-size: initial;
+}
+#backlogTable td:nth-of-type(3),
+#backlogTable th:nth-of-type(3) {
+  display: none;
+}
+/* Main redone */
+html {
+  background-color: var(--page-color);
+}
+body {
+  color: var(--text-color);
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.2px;
+  line-height: 1.2em;
+  margin: auto;
+}
+h2 {
+  color: var(--section-text-color);
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid var(--shadow-color);
+}
+h3 {
+  color: var(--mini-header-color);
+}
+a {
+  color: var(--link-color);
+}
+a:visited {
+  color: var(--link-visited-color);
+}
+a:hover {
+  color: var(--link-hover-color);
+  transition: color 0.2s;
+}
+a:visited:hover {
+  color: var(--link-visited-hover-color);
+  transition: color 0.2s;
+}
+header > h1 {
+  background-color: var(--header-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px var(--shadow-color);
+  color: var(--title-color);
+  font-size: 1.8rem;
+  max-width: fit-content;
+  padding: 0.7em;
+}
+nav ul,
+nav li {
+  margin: 0;
+  padding: 0;
+}
+nav {
+  display: flex;
+}
+nav > ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+#homepage-link > a,
+#date {
+  background-color: var(--header-color);
+  padding: 0.5em;
+  box-shadow: 0 1px 3px var(--shadow-color);
+}
+#homepage-link {
+  text-align: center;
+  padding-right: 2rem;
+}
+#homepage-link > a {
+  border-radius: 0.3rem;
+  text-decoration: none;
+}
+#date {
+  border-radius: 0.3rem;
+  font-weight: bold;
+}
+#date-last-updated {
+  font-weight: initial;
+}
+#date-last-updated::after {
+  content: attr(datetime);
 }
