@@ -6,10 +6,10 @@
     <div class="tagFilterArea">
       <div id="filterYearArea"><p>Year</p></div>
       <div id="filterTagArea"><p>Other tags</p></div>
-      <button onclick="filterTable('finishTable', '.tagFilterArea'
+      <button onclick="filterTable([['finishTable', 3], ['droppedTable', 3], ['backlogTable', 2]], '.tagFilterArea'
       )">Filter table</button>
       </div>
-    <header><h1>Game List</h1><nav><ul><li id="homepage-link"><a href="/index.html">Back to homepage...</a></li><li id="date">Last updated: <time id="date-last-updated" datetime="2024-05-04"></time></li></ul></nav></header>
+    <header><h1>Game List</h1><nav><ul><li id="homepage-link"><a href="/index.html">Back to homepage...</a></li><li id="date">Last updated: <time id="date-last-updated" datetime="2024-05-05"></time></li></ul></nav></header>
     <main>
       <article>
         
@@ -156,8 +156,7 @@
             </tr><tr><td>Yakuza 0</td><td>2021-03<span class="pf">PC</span></td><td><span class="b">Great</span></td><td>RPG (Action),2015,AAA</td>
             </tr><tr><td>Yakuza Kiwami</td><td>2021-12<span class="pf">PC</span></td><td><span class="g">Good</span></td><td>RPG (Action),2016,AAA</td>
             </tr><tr><td>Yooka-Laylee and the Impossible Lair</td><td>2023-04<span class="pf">PC</span></td><td><span class="g">Good</span></td><td>Platformer (2D),2019,Indie</td>
-            </tr><tr><td>Yooka-Laylee</td><td>2023-04<span class="pf">PC</span></td><td><span class="g">Good</span></td><td>Platformer (3D),2017,Indie</td>
-            </tr>
+            </tr><tr><td>Yooka-Laylee</td><td>2023-04<span class="pf">PC</span></td><td><span class="g">Good</span></td><td>Platformer (3D),2017,Indie</td></tr>
           </table></div>
         </section>
 
@@ -171,7 +170,7 @@
               <th class="tbhdr" onclick="sortTable(0, 'droppedTable')">Title</th>
               <th class="tbhdr" onclick="sortTable(1, 'droppedTable')">Date / Platform</th>
               <th class="tbhdr" onclick="sortTable(2, 'droppedTable')">Try / Play Again?</th>
-              <th class="tbhdr" onclick="sortTable(3, 'droppedTable')">Genre / Release Year</th>
+              <th class="tbhdr" onclick="sortTable(3, 'droppedTable')">Tags</th>
             </tr><tr><td>Bayonetta 2</td><td>2022-??<span class="pf">Switch (E)</span></td><td><span class="y">Maybe</span></td><td>Hack and slash, Action-adventure,2014,AAA</td>
             </tr><tr><td>Blasphemous</td><td>2022-05<span class="pf">PC</span></td><td><span class="y">Maybe</span></td><td>Metroidvania,2019</td>
             </tr><tr><td>Bloodstained: Curse of the Moon 2</td><td>2020-08<span class="pf">PC</span></td><td><span class="y">Maybe</span></td><td>Platformer (2D),2020</td>
@@ -240,7 +239,7 @@
             <tr>
               <th class="tbhdr" onclick="sortTable(0, 'backlogTable')">Title</th>
               <th class="tbhdr" onclick="sortTable(1, 'backlogTable')">Platform</th>
-              <th class="tbhdr" onclick="sortTable(2, 'backlogTable')">Genre / Release Year</th>
+              <th class="tbhdr" onclick="sortTable(2, 'backlogTable')">Tags</th>
             </tr><tr><td>9 Years of Shadows</td><td><span class="pf">PC</span></td><td>Metroidvania,2023</td>
             </tr><tr><td>13 Sentinels: Aegis Rim</td><td><span class="pf">Switch</span></td><td>Real-time strategy,2019</td>
             </tr><tr><td>Advance Wars 1+2: Re-Boot Camp</td><td><span class="pf">Switch</span></td><td>Turn-based Strategy,2023</td>
@@ -299,7 +298,7 @@
             </tr><tr><td>Gestalt: Steam & Cinder</td><td><span class="pf">PC [Upcoming]</span></td><td>Metroidvania,2024</td>
             </tr><tr><td>Gradius III</td><td><span class="pf">SNES (E)</span></td><td>Scrolling shooter,1990</td>
             </tr><tr><td>Grime</td><td><span class="pf">PC</span></td><td>Metroidvania,2021</td>
-            </tr><tr><td>Guacamelee 2</td><td><span class="pf">PC</span></td><td>Metroidvania/Beat em up,2018</span><</td>
+            </tr><tr><td>Guacamelee 2</td><td><span class="pf">PC</span></td><td>Metroidvania/Beat em up,2018</span></td>
             </tr><tr><td>Hades</td><td><span class="pf">PC</span></td><td>Roguelike,2020</td>
             </tr><tr><td>Haiku the Robot</td><td><span class="pf">PC</span></td><td>Metroidvania,2022</td>
             </tr><tr><td>Hi-Fi Rush</td><td>-01<span class="pf">Windows</span></td><td>Rhythm, Beat em up,2023</td>
@@ -416,7 +415,7 @@
         countTableRows('backlogTable', 'gbc');
       };
       window.onload = function() {
-        taggingSystem(getTagsFromTable('finishTable'));
+        taggingSystem(getTagsFromTable([['finishTable', 3], ['droppedTable', 3], ['backlogTable', 2]]));
       };
     </script>
   </body>

@@ -2,15 +2,20 @@
 function getElement(id) {
   return document.getElementById(id);
 }
-function getTagsFromTable(tableId) {
-  const table = getElement(tableId);
+function getTagsFromTable(tableIdsColNumbers) {
   const allTags = new Set();
-  for (let i = 1; i < table.rows.length; i++) {
-    const row = table.rows[i];
-    const cell = row.cells[3];
-    const content = cell.textContent.trim();
-    const tags = content.split(/\s*,\s*(?=[^"]*(?:[^"]*"[^"]*)*[^"]*$)/);
-    tags.forEach(tag => allTags.add(tag.trim()));
+  for (const tableIdColNumberList of tableIdsColNumbers) {
+    const tableId = tableIdColNumberList[0];
+    const columnNumber = tableIdColNumberList[1];
+    const table = getElement(tableId);
+    const rows = table.rows;
+    for (let i = 1; i < table.rows.length; i++) {
+      const row = rows[i];
+      const cell = row.cells[columnNumber];
+      const content = cell.textContent.trim();
+      const tags = content.split(/\s*,\s*(?=[^"]*(?:[^"]*"[^"]*)*[^"]*$)/);
+      tags.forEach(tag => allTags.add(tag.trim()));
+    }
   }
   return Array.from(allTags).sort();
 }
@@ -46,32 +51,35 @@ function taggingSystem(tagArray) {
 function isYear(tag) {
   return !isNaN(parseInt(tag));
 }
-function filterTable(tableId, tagArea) {
-  const table = getElement(tableId);
-  const rows = table.rows;
+function filterTable(tableIdsColNumbers, tagArea) {
+  for (const tableIdColNumber of tableIdsColNumbers) {
+    const tableId = tableIdColNumber[0];
+    const colNumber = tableIdColNumber[1];
+    const table = getElement(tableId);
+    const rows = table.rows;
 
-  const selectedTags = Array.from(document.querySelectorAll(`${tagArea} input[type='checkbox']:checked`)).map(checkbox => checkbox.value);
+    const selectedTags = Array.from(document.querySelectorAll(`${tagArea} input[type='checkbox']:checked`)).map(checkbox => checkbox.value);
 
-  for (let i = 1; i < rows.length; i++) {
-    const row = rows[i];
-    const cell = row.cells[3];
-    const content = cell.textContent.trim();
-    const tags = content.split(/,(?=(?:[^"]*"[^"]*")*(?![^"]*"))/);
+    for (let i = 1; i < rows.length; i++) {
+      const row = rows[i];
+      const cell = row.cells[colNumber];
+      const content = cell.textContent.trim();
+      const tags = content.split(/,(?=(?:[^"]*"[^"]*")*(?![^"]*"))/);
 
-    let showRow = false;
-    if (selectedTags.length === 0) {
-      showRow = true; // Show all rows if no checkboxes are selected
-    } else {
-      // Check for OR condition if any checkboxes are selected
-      for (const tag of selectedTags) {
-        if (tags.includes(tag)) {
-          showRow = true;
-          break;
+      let showRow = false;
+      if (selectedTags.length === 0) {
+        showRow = true;
+      } else {
+        for (const tag of selectedTags) {
+          if (tags.includes(tag)) {
+            showRow = true;
+            break;
+          }
         }
       }
-    }
 
-    row.style.display = showRow ? "" : "none";
+      row.style.display = showRow ? "" : "none";
+    }
   }
 }
 function sortTable(column, tableId) {
