@@ -3,12 +3,11 @@
   <head><link rel="author" content="geckronome"/><link rel="stylesheet" href="/styles/gamelist.min.css"/><link rel="icon" href="/img/icon.png" type="image/png"/><meta charset="utf-8"/><meta name="description" content="geck's list of played games"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta property="og:description" content="geck's of played games"/><meta property="og:title" content="geck's site"/><meta property="og:type" content="website"/><title>geck - game list</title></head>
 
   <body>
-    <div class="tagFilterArea">
+    <div class="tagFilterArea" onclick="filterTable([['finishTable', 3], ['droppedTable', 3], ['backlogTable', 2]], '.tagFilterArea'
+      )">
       <div id="filterYearArea"><p>Year</p></div>
       <div id="filterTagArea"><p>Other tags</p></div>
-      <button onclick="filterTable([['finishTable', 3], ['droppedTable', 3], ['backlogTable', 2]], '.tagFilterArea'
-      )">Filter table</button>
-      </div>
+    </div>
     <header><h1>Game List</h1><nav><ul><li id="homepage-link"><a href="/index.html">Back to homepage...</a></li><li id="date">Last updated: <time id="date-last-updated" datetime="2024-05-05"></time></li></ul></nav></header>
     <main>
       <article>

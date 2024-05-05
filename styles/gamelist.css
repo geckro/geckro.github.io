@@ -1,29 +1,88 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
-
 :root {
-  --page-color: #edf1f3;
-  --page2-color: #e4e8eb;
-  --section-color: #ebebf0;
-  --header-color: #e0e3eb;
-  --shadow-color: #acb0be;
-  --title-color: #5094e1;
-  --section-text-color: #de8d1c;
-  --text-color: #29303e;
+  --bgc: #eff1f5;
+  --bg2c: #e6e9f0;
+  --sc: #e6e9ef;
+  --sdc: #ccd0da;
+  --c: #29303e;
+}
+html {
+  background-color: var(--bgc);
+}
+body {
+  color: var(--c);
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.2px;
+  line-height: 1.2em;
+  margin: auto;
+}
+article {
+  max-width: 75%;
+}
+h2 {
+  color: #de8d1c;
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid var(--sdc);
+}
+header > h1 {
+  background-color: var(--sc);
+  border-top: 2px solid var(--sdc);
+  border-bottom: 2px solid var(--sdc);
+  color: #5094e1;
+  font-size: 2rem;
+  padding: 0.5em;
+}
+nav ul,
+nav li {
+  margin: 0;
+  padding: 0;
+}
+nav {
+  display: flex;
+}
+nav > ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+#homepage-link > a,
+#date {
+  background-color: var(--sc);
+  padding: 0.5em;
+  box-shadow: 0 1px 3px var(--sdc);
+}
+#homepage-link {
+  padding-right: 2rem;
+}
+#homepage-link > a {
+  border-radius: 0.3rem;
+  text-decoration: none;
+}
+#date {
+  border-radius: 0.3rem;
+  font-weight: bold;
+}
+#date-last-updated {
+  font-weight: initial;
+}
+#date-last-updated::after {
+  content: attr(datetime);
 }
 table,
 tr,
 td,
 th {
   text-align: left;
-  border-bottom: 1px solid var(--shadow-color);
+  border-bottom: 1px solid var(--sdc);
   border-collapse: collapse;
   padding: 0.2rem;
 }
 table tr:nth-child(even) {
-  background-color: var(--page2-color);
+  background-color: var(--bg2c);
 }
 table tr:nth-child(odd) {
-  background-color: var(--page-color);
+  background-color: var(--bgc);
 }
 #finishTableArea,
 #droppedTableArea,
@@ -32,8 +91,8 @@ table tr:nth-child(odd) {
   padding: 1em;
   border-top-right-radius: 1em;
   border-bottom-right-radius: 1em;
-  border: 2px solid var(--shadow-color);
-  background-color: var(--section-color);
+  border: 2px solid var(--sdc);
+  background-color: var(--sc);
 }
 th {
   font-size: 1.1em;
@@ -43,7 +102,7 @@ td:nth-of-type(2) {
   font-family: monospace;
 }
 table {
-  border: 2px solid var(--shadow-color);
+  border: 2px solid var(--sdc);
 }
 .pf {
   float: right;
@@ -70,7 +129,7 @@ table {
   cursor: default;
   margin-top: 3px;
   margin-bottom: 3px;
-  border: 2px solid var(--shadow-color);
+  border: 2px solid var(--sdc);
   border-radius: 8px;
 }
 .rt > .rtt {
@@ -80,8 +139,8 @@ table {
   transform: translateY(-15px);
   transition: opacity 0.2s, transform 1s;
   padding: 0.7em;
-  background-color: var(--section-color);
-  border: 2px solid var(--shadow-color);
+  background-color: var(--sc);
+  border: 2px solid var(--sdc);
   text-align: left;
   margin-left: 2em;
   margin-top: -1em;
@@ -102,7 +161,7 @@ table {
   content: '⭐';
   left: 0%;
   position: absolute;
-  text-shadow: 0 2px 2px var(--shadow-color);
+  text-shadow: 0 2px 2px var(--sdc);
 }
 .tagFilterArea {
   position: fixed;
@@ -110,12 +169,12 @@ table {
   max-width: 25%;
   height: 95%;
   right: 0;
-  background-color: var(--section-color);
+  background-color: var(--sc);
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
-  border-left: 2px solid var(--shadow-color);
-  border-top: 2px solid var(--shadow-color);
-  border-bottom: 2px solid var(--shadow-color);
+  border-left: 2px solid var(--sdc);
+  border-top: 2px solid var(--sdc);
+  border-bottom: 2px solid var(--sdc);
   text-align: center;
   font-size: 0.9em;
   overflow: scroll;
@@ -127,7 +186,7 @@ table {
 }
 @media only screen and (max-width: 768px) {
   .tagFilterArea {
-    right:unset;
+    right: unset;
     height: unset;
     max-width: unset;
     width: unset;
@@ -159,26 +218,16 @@ table {
 .tagFilterArea label {
   display: inline-block;
 }
-.tagFilterArea > button {
-  font-size: 1.2rem;
-  border: 2px solid var(--shadow-color);
-  background-color: var(--header-color);
-  border-radius: 0.2em;
-}
-.tagFilterArea > button:hover {
-  background-color: var(--page-color);
-  order: 2px solid var(--section-color);
-}
 .tagFilterArea #filterYearArea {
   padding: 0.5em;
-  border-bottom: 2px solid var(--shadow-color);
+  border-bottom: 2px solid var(--sdc);
 }
 #finishTable td:nth-of-type(4),
-#finishTable th:nth-of-type(4) {
-  display: none;
-}
+#finishTable th:nth-of-type(4),
 #droppedTable td:nth-of-type(4),
-#droppedTable th:nth-of-type(4) {
+#droppedTable th:nth-of-type(4),
+#backlogTable td:nth-of-type(3),
+#backlogTable th:nth-of-type(3) {
   display: none;
 }
 #backlogTable .pf {
@@ -186,91 +235,4 @@ table {
   padding-right: initial;
   padding-left: initial;
   font-size: initial;
-}
-#backlogTable td:nth-of-type(3),
-#backlogTable th:nth-of-type(3) {
-  display: none;
-}
-/* Main redone */
-html {
-  background-color: var(--page-color);
-}
-body {
-  color: var(--text-color);
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 1.1rem;
-  letter-spacing: 0.2px;
-  line-height: 1.2em;
-  margin: auto;
-}
-article {
-  max-width: 75%;
-}
-h2 {
-  color: var(--section-text-color);
-  padding-bottom: 0.2em;
-  border-bottom: 2px solid var(--shadow-color);
-}
-h3 {
-  color: var(--mini-header-color);
-}
-a {
-  color: var(--link-color);
-}
-a:visited {
-  color: var(--link-visited-color);
-}
-a:hover {
-  color: var(--link-hover-color);
-  transition: color 0.2s;
-}
-a:visited:hover {
-  color: var(--link-visited-hover-color);
-  transition: color 0.2s;
-}
-header > h1 {
-  background-color: var(--header-color);
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 3px var(--shadow-color);
-  color: var(--title-color);
-  font-size: 1.8rem;
-  max-width: fit-content;
-  padding: 0.7em;
-}
-nav ul,
-nav li {
-  margin: 0;
-  padding: 0;
-}
-nav {
-  display: flex;
-}
-nav > ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-}
-#homepage-link > a,
-#date {
-  background-color: var(--header-color);
-  padding: 0.5em;
-  box-shadow: 0 1px 3px var(--shadow-color);
-}
-#homepage-link {
-  text-align: center;
-  padding-right: 2rem;
-}
-#homepage-link > a {
-  border-radius: 0.3rem;
-  text-decoration: none;
-}
-#date {
-  border-radius: 0.3rem;
-  font-weight: bold;
-}
-#date-last-updated {
-  font-weight: initial;
-}
-#date-last-updated::after {
-  content: attr(datetime);
 }
