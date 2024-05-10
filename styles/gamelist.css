@@ -223,12 +223,13 @@ table {
   border-bottom: 2px solid var(--sdc);
 }
 #finishTable td:nth-of-type(4),
-#finishTable th:nth-of-type(4),
 #droppedTable td:nth-of-type(4),
-#droppedTable th:nth-of-type(4),
-#backlogTable td:nth-of-type(3),
-#backlogTable th:nth-of-type(3) {
-  display: none;
+#backlogTable td:nth-of-type(3) {
+  font-size: 0.75rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: 20vw;
+  scrollbar-color:var(--sdc);
 }
 #backlogTable .pf {
   float: left !important;
