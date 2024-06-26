@@ -9,6 +9,19 @@
   --link-hover-color: #6c9dff;
   --link-visited-hover-color: #c395ff;
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page-color: #18191a;
+    --text-color: #f6feff;
+    --section-color: #070708;
+    --shadow-color: #1e1e1e;
+    --link-color: #5b92ff;
+    --code-bg-color: #1e1d1d;
+    --link-visited-color: #9e53ff;
+    --link-hover-color: #a1bbee;
+    --link-visited-hover-color: #d0baed;
+  }
+}
 body {
   background-color: var(--page-color);
   color: var(--text-color);
