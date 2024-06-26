@@ -1,50 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
-
 :root {
-  --background-color: #d9dbe0;
-  --page-color: #edf1f3;
-  --section-color: #ebebf0;
-  --header-color: #e0e3eb;
-  --shadow-color: #acb0be;
-  --title-color: #5094e1;
-  --section-text-color: #de8d1c;
-  --mini-header-color: #239c3e;
-  --text-color: #29303e;
-  --code-bg-color: #e5e7eb;
-  --link-color: #1e66f5;
-  --link-visited-color: #8839ef;
-  --link-hover-color: #81a4e9;
-  --link-visited-hover-color: #c0a0eb;
-}
-html {
-  background-color: var(--background-color);
-  scrollbar-color: #de8f8f, #8db9cb;
+  --page-color: #fff;
+  --section-color: #ddd;
+  --shadow-color: #b8b8b8;
+  --section-text-color: #ff9500;
+  --mini-header-color: #00791a;
+  --text-color: #0a0a0a;
+  --code-bg-color: #eee;
+  --link-color: #0055ff;
+  --link-visited-color: #770fff;
+  --link-hover-color: #6c9dff;
+  --link-visited-hover-color: #c395ff;
 }
 body {
   background-color: var(--page-color);
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-  box-shadow: 0 2px 18px var(--shadow-color);
   color: var(--text-color);
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 1.1rem;
-  letter-spacing: 0.2px;
-  line-height: 1.2em;
+  font-family: 'Segoe UI', 'Cantarell', sans-serif;
   margin: auto;
   max-width: 80%;
   padding-right: 1em;
   padding-left: 1em;
   padding-bottom: 1em;
-  padding-top: 0.5em;
-}
-@media only screen and (max-width: 768px) {
-  body {
-    max-width: 95%;
-  }
 }
 h2 {
   color: var(--section-text-color);
-  padding-bottom: 0.2em;
+  padding-bottom: 0.1rem;
   border-bottom: 2px solid var(--shadow-color);
 }
 h3 {
@@ -58,32 +37,26 @@ a:visited {
 }
 a:hover {
   color: var(--link-hover-color);
-  transition: color 0.2s;
 }
 a:visited:hover {
   color: var(--link-visited-hover-color);
-  transition: color 0.2s;
 }
 pre,
 code {
   background-color: var(--code-bg-color);
-  padding-left: 6px;
-  padding-right: 6px;
-  border-radius: 1em;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 0.5em;
   overflow-x: scroll;
 }
 pre {
-  box-shadow: 0 2px 6px var(--shadow-color);
-  padding-top: 1em;
-  padding-bottom: 1em;
-}
-b {
-  font-weight: bold;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  padding-top: 1.2em;
+  padding-bottom: 1.2em;
 }
 pre > code {
   padding: initial;
 }
-
 ol > li {
   padding-bottom: 0.4em;
 }
@@ -96,29 +69,16 @@ img {
 footer {
   background-color: var(--background-color);
   font-size: 0.9rem;
-  border-radius: 1em;
   margin: auto;
   text-align: center;
   padding: 1em;
-  line-height: 0.15;
-  box-shadow: 0 4px 12px var(--shadow-color);
 }
 header > h1 {
-  background-color: var(--header-color);
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 3px var(--shadow-color);
-  color: var(--title-color);
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin: auto;
-  max-width: 85%;
-  padding-top: 0.7em;
-  padding-bottom: 0.7em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   text-align: center;
-}
-header > h1::before {
-  content: '<geck> ';
-  font-size: 1.5rem;
-  opacity: 0.75;
 }
 nav ul,
 nav li {
@@ -127,8 +87,6 @@ nav li {
 }
 nav {
   display: flex;
-  font-family: monospace;
-  padding-top: 1rem;
 }
 nav > ul {
   list-style: none;
@@ -138,25 +96,17 @@ nav > ul {
 }
 #homepage-link > a,
 #date {
-  background-color: var(--header-color);
   padding: 0.6em;
-  box-shadow: 0 1px 3px var(--shadow-color);
 }
 #homepage-link {
   text-align: center;
   padding-right: 2rem;
-}
-#homepage-link > a {
-  border-radius: 0.3rem;
-  text-decoration: none;
-  text-shadow: 0px 3px 6px #8da4ac;
 }
 #homepage-link > a:visited {
   color: var(--link-color);
 }
 #homepage-link > a:visited:hover {
   color: var(--link-hover-color);
-  transition: color 0.5s;
 }
 #date {
   border-radius: 0.3rem;
@@ -171,7 +121,5 @@ nav > ul {
 }
 #start-text {
   font-style: italic;
-  font-size: 0.9em;
   text-align: center;
-  padding: 0.6em;
 }
