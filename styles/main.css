@@ -2,8 +2,6 @@
   --page-color: #fff;
   --section-color: #ddd;
   --shadow-color: #b8b8b8;
-  --section-text-color: #ff9500;
-  --mini-header-color: #00791a;
   --text-color: #0a0a0a;
   --code-bg-color: #eee;
   --link-color: #0055ff;
@@ -17,17 +15,10 @@ body {
   font-family: 'Segoe UI', 'Cantarell', sans-serif;
   margin: auto;
   max-width: 80%;
-  padding-right: 1em;
-  padding-left: 1em;
-  padding-bottom: 1em;
 }
 h2 {
-  color: var(--section-text-color);
   padding-bottom: 0.1rem;
   border-bottom: 2px solid var(--shadow-color);
-}
-h3 {
-  color: var(--mini-header-color);
 }
 a {
   color: var(--link-color);
@@ -76,8 +67,6 @@ footer {
 header > h1 {
   font-size: 2rem;
   margin: auto;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
   text-align: center;
 }
 nav ul,
@@ -96,7 +85,7 @@ nav > ul {
 }
 #homepage-link > a,
 #date {
-  padding: 0.6em;
+  padding: 0.5em;
 }
 #homepage-link {
   text-align: center;
