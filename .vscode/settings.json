@@ -4,5 +4,5 @@
   "editor.tabSize": 2,
   "minify.minifyExistingOnSave": true,
   "fiveServer.highlight": true,
-  "fiveServer.openTerminal": false
+  "fiveServer.openTerminal": false,
 }
