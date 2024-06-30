@@ -1,8 +1,9 @@
 :root {
-  --page-color: #fff;
-  --section-color: #ddd;
-  --shadow-color: #b8b8b8;
+  --page-color: #f8fafb;
+  --section-color: #b0b9c3;
+  --shadow-color: #cbcbcb;
   --text-color: #0a0a0a;
+  --header-color: #3f5657;
   --code-bg-color: #eee;
   --link-color: #0055ff;
   --link-visited-color: #770fff;
@@ -13,13 +14,14 @@
   :root {
     --page-color: #18191a;
     --text-color: #f6feff;
+    --header-color: #d7e2e3;
     --section-color: #070708;
     --shadow-color: #1e1e1e;
     --link-color: #5b92ff;
     --code-bg-color: #1e1d1d;
     --link-visited-color: #9e53ff;
-    --link-hover-color: #a1bbee;
-    --link-visited-hover-color: #d0baed;
+    --link-hover-color: #7596d7;
+    --link-visited-hover-color: #9f76d4;
   }
 }
 body {
@@ -29,18 +31,28 @@ body {
   margin: auto;
   max-width: 80%;
 }
+header > h1 {
+  padding-top: 0.5rem;
+  font-size: 2rem;
+  margin: auto;
+  text-align: center;
+  font-family: monospace;
+}
 h2 {
   padding-bottom: 0.1rem;
-  border-bottom: 2px solid var(--shadow-color);
+  border-bottom: 2px solid var(--section-color);
+  color: var(--header-color);
 }
 a {
   color: var(--link-color);
+  text-decoration: none;
 }
 a:visited {
   color: var(--link-visited-color);
 }
 a:hover {
   color: var(--link-hover-color);
+  text-decoration: underline;
 }
 a:visited:hover {
   color: var(--link-visited-hover-color);
@@ -76,11 +88,6 @@ footer {
   margin: auto;
   text-align: center;
   padding: 1em;
-}
-header > h1 {
-  font-size: 2rem;
-  margin: auto;
-  text-align: center;
 }
 nav ul,
 nav li {
