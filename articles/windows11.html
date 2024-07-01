@@ -28,7 +28,7 @@
     </header>
     <main>
       <article>
-        <h2>Pre-requisites</h2>
+        <h2><a href="#pre-requisites">Pre-requisites</a></h2>
 
         <ul>
           <li>Just have a computer capable of TPM and Secure Boot and all of that stuff</li>
@@ -36,7 +36,7 @@
           <li>A working internet connection. No matter what, you will send information to Microsoft. You <i>shouldn't</i> need it for installing the OS, but it's best to have it anyway.</li>
         </ul>
 
-        <h2>Installation</h2>
+        <h2><a href="#installation">Installation</a></h2>
 
         <ol>
           <li>Set your <i>Language and Time</i> and <i>Currency</i> settings.</li>
@@ -56,7 +56,7 @@
           </li>
         </ol>
 
-        <h2>Disable telemetry and always-online features</h2>
+        <h2><a href="#disable-telemetry">Disable telemetry and always-online features</a></h2>
 
         <p>
           <i
@@ -216,7 +216,7 @@ reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\ClientTelemetry" /v "Verbose
 #reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsStore\WindowsUpdate" /v "AutoDownload" /t REG_DWORD /d 2 /f
 </code></pre>
 
-        <h2>Disable un-needed features (performance)</h2>
+        <h2><a href="#disable-features">Disable un-needed features (performance)</a></h2>
 
         <p>You will need to turn off all startup apps, but you should keep <i>Windows Security</i> enabled.</p>
         <pre><code class="powershell"># Disable typing insights
@@ -337,7 +337,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\FileSystem" /v "LongPathsEnabled"
 #reg add "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\TabPreloader" /v "AllowTabPreloading" /t REG_DWORD /d 0 /f
 </code></pre>
 
-        <h2>Enable nice features</h2>
+        <h2><a href="#enable-features">Enable nice features</a></h2>
 
         <p>You will need to manually turn on Night light, Enhanced search and the power mode.</p>
 
@@ -422,7 +422,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\{88
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\{885a186e-a440-4ada-812b-db871b942259}\TopViews\{00000000-0000-0000-0000-000000000000}" /v "SortByList" /t REG_SZ /d "System.ItemNameDisplay" /f
 </code></pre>
 
-        <h2>Uninstall default apps</h2>
+        <h2><a href="#uninstall-default-applications">Uninstall default apps</a></h2>
 
         <p>I keep Notepad, Paint, the MS Store, all video/image extensions, Photos, Camera, Calculator, Clock, Snipping Tool, Sticky Notes, Terminal and all the Xbox stuff.</p>
         <p>You will need to uninstall OneDrive seperately, or make it not auto-backup your folders.</p>
@@ -468,7 +468,7 @@ Get-AppxPackage "Microsoft.ZuneVideo" | Remove-AppxPackage # Films & TV
 Get-AppxPackage "MicrosoftCorporationII.QuickAssist" | Remove-AppxPackage
 </code></pre>
 
-        <h2>Powershell tweaks (Administrator)</h2>
+        <h2><a href="#other-pwsh-tweaks">Other Powershell tweaks</a></h2>
 
         <pre><code class="powershell"># Disable hibernation
 powercfg.exe /hibernate off
@@ -607,7 +607,7 @@ Remove-Item -Force -Confirm:$false "$env:WINDIR\Temp"
 Remove-Item -Force -Confirm:$false "$env:TEMP"
 </code></pre>
 
-        <h2>Advanced system tweaking (very much not safe to run unless you know what you're doing)</h2>
+        <h2><a href="#advanced-system-tweaking">Advanced system tweaking (very much not safe to run unless you know what you're doing)</a></h2>
 
         <p>If you want minimal breakage, don't run anything here.</p>
 
@@ -743,9 +743,9 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "Con
 
 </code></pre>
 
-        <h2>App installation</h2>
+        <h2><a href="#app-installation">App installation</a></h2>
 
-        <h3>winget</h3>
+        <h3><a href="#app-installation_winget">winget</a></h3>
         <pre><code class="powershell"># Manually add winget repository source, as it is bugged. thanks MS
 Add-AppxPackage -Path https://cdn.winget.microsoft.com/cache/source.msix
 winget upgrade --exact --accept-source-agreements --accept-package-agreements
@@ -754,7 +754,7 @@ winget upgrade --exact --accept-source-agreements --accept-package-agreements
 winget install --accept-source-agreements --accept-package-agreements Alex313031.Thorium.AVX2 Git.Git Microsoft.VisualStudioCode Discord.Discord Valve.Steam Vendicated.Vencord yt-dlp.yt-dlp Gyan.FFmpeg MusicBee.MusicBee voidtools.Everything GIMP.GIMP KDE.Krita Notion.Notion M2Team.NanaZip PrismLauncher.PrismLauncher BleachBit.BleachBit CPUID.CPU-Z CPUID.HWMonitor qBittorrent.qBittorrent Microsoft.DotNet.DesktopRuntime.8 EpicGames.EpicGamesLauncher GoLang.Go TechPowerUp.GPU-Z EclipseAdoptium.Temurin.21.JDK JetBrains.Toolbox rocksdanister.LivelyWallpaper mpv.net OBSProject.OBSStudio CalcProgrammer1.OpenRGB dotPDN.PaintDotNet Microsoft.PowerToys Python.Python.3.12 Rustlang.Rust.MSVC Microsoft.VCRedist.2015+.x64 Microsoft.VisualStudio.2022.Community AntibodySoftware.WizTree
 </code></pre>
 
-        <h3>Chocolatey</h3>
+        <h3><a href="#app-installation_choco">Chocolatey</a></h3>
         <p>
           <i><a href="https://community.chocolatey.org/">Chocolatey website link</a></i>
         </p>
@@ -764,7 +764,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force
 iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 </code></pre>
 
-        <h2>Testing</h2>
+        <h2><a href="#testing">Testing</a></h2>
 
         <p>On a fresh installation of Windows 11 Pro 23H2x64_v2 with VMWare & VMWare Tools, with a local account set-up for personal use and the PC restarted:</p>
 

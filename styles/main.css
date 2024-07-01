@@ -43,6 +43,16 @@ h2 {
   border-bottom: 2px solid var(--section-color);
   color: var(--header-color);
 }
+h2 > a,
+h2 > a:visited,
+h2 > a:hover,
+h2 > a:visited:hover,
+h3 > a,
+h3 > a:visited,
+h3 > a:hover,
+h3 > a:visited:hover {
+  color: inherit;
+}
 a {
   color: var(--link-color);
   text-decoration: none;
