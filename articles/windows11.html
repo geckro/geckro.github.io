@@ -21,10 +21,9 @@
       <nav>
         <ul>
           <li id="homepage-link"><a href="/index.html">Back to homepage...</a></li>
-          <li id="date">Last updated: <time id="date-last-updated" datetime="2024-04-11"></time></li>
+          <li id="date">Last updated: <time id="date-last-updated" datetime="2024-07-02"></time></li>
         </ul>
       </nav>
-      <p id="start-text">These are my personal notes for setting up a Windows 11 system.</p>
     </header>
     <main>
       <article>
@@ -58,6 +57,7 @@
 
         <h2><a href="#disable-telemetry">Disable telemetry and always-online features</a></h2>
 
+        <p>Update 2024-07-02: I'm going to be honest, Windows 11's updates have been very good in minimizing the amount of default overhead and this isn't extremely needed anymore. Still, if there's something here that seems interesting, use it.</p>
         <p>
           <i
             >Tweaks researched by myself, and some cherrypicked from <a href="https://github.com/ChrisTitusTech/winutil">winutil</a>, <a href="https://github.com/farag2/Sophia-Script-for-Windows">Sophia script</a> and
@@ -148,7 +148,7 @@ reg add "HKCU\Software\Policies\Microsoft\Windows\Explorer" /v "DisableSearchBox
 # Do not communicate with unpaired devices
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\bluetoothSync" /v "Value" /t REG_SZ /d "Deny" /f
 
-# Disable application access to...
+# Disable application access to... (will break UWP app functionality)
 # app diagnostics
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appDiagnostics" /v "Value" /t REG_SZ /d "Deny" /f
 reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appDiagnostics" /v "Value" /t REG_SZ /d "Deny" /f
@@ -180,10 +180,10 @@ reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\phoneCall" /v "Value" /t REG_SZ /d "Deny" /f
 reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\phoneCall" /v "Value" /t REG_SZ /d "Deny" /f
 
-# Disable auto-updating of maps
+# Disable auto-updating of maps (will harm Windows Maps)
 reg add "HKLM\SYSTEM\Maps" /v "AutoUpdateEnabled" /t REG_DWORD /d 0 /f
 
-# Disable recently used files, folders and files from Office.com
+# Disable recently used files, folders, and files from Office.com
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "ShowRecent" /t REG_DWORD /d 0 /f
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "ShowFrequent" /t REG_DWORD /d 0 /f
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "ShowCloudFilesInQuickAccess" /t REG_DWORD /d 0 /f
@@ -204,7 +204,7 @@ reg add "HKLM\SOFTWARE\Microsoft\PolicyManager\default\WiFi\AllowAutoConnectToWi
 # Disable people features
 reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" /v "PeopleBand" /t REG_DWORD /d 0 /f
 
-# Turn off MS office telemetry
+# Turn off MS office telemetry (May break some Office features)
 reg add "HKCU\SOFTWARE\Microsoft\Office\Common\ClientTelemetry" /v "DisableTelemetry" /t REG_DWORD /d 1 /f
 reg add "HKCU\SOFTWARE\Microsoft\Office\Common\ClientTelemetry" /v "VerboseLogging" /t REG_DWORD /d 0 /f
 reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\ClientTelemetry" /v "DisableTelemetry" /t REG_DWORD /d 1 /f
@@ -241,7 +241,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "S
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowTaskViewButton" /t REG_DWORD /d 0 /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "TaskbarDa" /t REG_DWORD /d 0 /f
 
-# Disable copilot and make current user ineligible to use it
+# Disable copilot and make current user ineligible to use it (could break things in the future)
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot" /v "TurnOffWindowsCopilot" /t REG_DWORD /d 1 /f
 reg add "HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot" /v "TurnOffWindowsCopilot" /t REG_DWORD /d 1 /f
 reg add "HKCU\Software\Microsoft\Windows\Shell\Copilot\BingChat" /v "IsUserEligible" /t REG_DWORD /d 0 /f
@@ -270,16 +270,14 @@ reg add "HKCU\Software\Microsoft\TabletTip\1.7" /v "EnableAutocorrection" /t REG
 # Disable game bar opening with controller
 reg add "HKCU\Software\Microsoft\GameBar" /v "UseNexusForGameBarEnabled" /t REG_DWORD /d 0 /f
 
-# Disable sticky keys
+# Disable sticky and filter keys
 reg add "HKCU\Control Panel\Accessibility\StickyKeys" /v "Flags" /t REG_SZ /d "506" /f
-
-# Disable filter keys
 reg add "HKCU\Control Panel\Accessibility\Keyboard Response" /v "Flags" /t REG_SZ /d "122" /f
 
 # Disable SafeSearch in search box
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /v "SafeSearchMode" /t REG_DWORD /d 0 /f
 
-# Disable delivery optimization
+# Disable delivery optimization (Useful if there is a lot of computers on your network, don't disable if that is the case)
 reg add "HKEY_USERS\S-1-5-20\Software\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Settings" /v "DownloadMode" /t REG_DWORD /d 0 /f # S-1-5-20 is NetworkService
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" /v "DODownloadMode" /t REG_DWORD /d 0 /f
 
@@ -393,7 +391,7 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "Ver
 # Enable BSOD messages
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v "DisplayParameters" /t REG_DWORD /d 1 /f
 
-# Turn on Network Discovery for your private network (Sophia script)
+# Turn on Network Discovery for your private network (From Sophia script)
 $FirewallRules = @(
   # File and printer sharing
   "@FirewallAPI.dll,-32752",
@@ -462,7 +460,7 @@ Get-AppxPackage "Microsoft.WindowsFeedbackHub" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.WindowsMaps" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.WindowsPhone" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.WindowsSoundRecorder" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.YourPhone" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.YourPhone" | Remove-AppxPackage # Phone Link
 Get-AppxPackage "Microsoft.ZuneMusic" | Remove-AppxPackage # Groove Music
 Get-AppxPackage "Microsoft.ZuneVideo" | Remove-AppxPackage # Films & TV
 Get-AppxPackage "MicrosoftCorporationII.QuickAssist" | Remove-AppxPackage
@@ -486,7 +484,7 @@ Set-Service -Name CDPSvc -StartupType Manual
 Stop-Service -Name diagnosticshub.standardcollector.service -Force
 Set-Service -Name diagnosticshub.standardcollector.service -StartupType Disabled
 
-# Leave enabled if you use Xbox app and Feedback Hub.
+# Leave enabled if you use Xbox app and Feedback Hub, some core Windows applications depend on this service.
 Stop-Service -Name DiagTrack -Force
 Set-Service -Name DiagTrack -StartupType Disabled
 # Defense in-depth
@@ -505,7 +503,7 @@ Set-Service -Name vm3dservice -StartupType Manual # for VMWare
 Set-Service -Name wisvc -StartupType Disabled # Disables Windows Insider
 Set-Service -Name WpnService -StartupType Manual
 
-## Disable un-needed scheduled tasks
+## Disable un-needed scheduled tasks (Will break some things)
 
 # Comment out if you use Microsoft Family Safety
 Get-ScheduledTask -TaskName "FamilySafetyMonitor" | Disable-ScheduledTask
@@ -568,7 +566,7 @@ Get-WindowsCapability -Online -Name 'Microsoft.Windows.PowerShell.ISE*' | Remove
 Get-WindowsCapability -Online -Name 'MathRecognizer*' | Remove-WindowsCapability -Online
 Get-WindowsCapability -Online -Name 'OpenSSH.Client*' | Remove-WindowsCapability -Online
 
-# Install WSL
+# Install WSL (Windows Subsystem for Linux, aka Linux in Windows)
 wsl --install
 
 # Update Defender signatures before running any scan
@@ -585,7 +583,7 @@ reg add "HKCU\Software\Microsoft\Windows Security Health\State" /v "AppAndBrowse
 # Disable MS store in "open with"
 reg add "HKCU\Software\Policies\Microsoft\Windows\Explorer" /v "NoUseStoreOpenWith" /t REG_DWORD /d 1 /f
 
-# Hide "share" in context menu (Sophia script)
+# Hide "share" in context menu (From Sophia script)
 Remove-Item -Path "Registry::HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\ModernSharing" -Recurse -Force -ErrorAction Ignore
 <!-- enable
 if (-not (Test-Path -Path "Registry::HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\ModernSharing"))
@@ -780,9 +778,9 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocola
 
         <img width="48%" src="/img/articles/windows11/windows11_cpu_everything.png" />
         <img width="48%" src="/img/articles/windows11/windows11_ram_everything.png" />
-      <script>
-        hljs.initHighlightingOnLoad();
-      </script>
+        <script>
+          hljs.initHighlightingOnLoad();
+        </script>
       </article>
     </main>
   </body>
