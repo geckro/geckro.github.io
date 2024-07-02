@@ -1,0 +1,19 @@
+li {
+  padding: 0.1em;
+  list-style-type: square;
+}
+ul > ul > li {
+  font-size: 14px;
+  list-style-type: circle;
+}
+ul > ul > li:last-child {
+  padding-bottom: 0.25em;
+}
+nav > ul > li {
+  list-style-type: none;
+}
+.list-header {
+  font-weight: bold;
+  margin: 0;
+  padding-top: 0.2rem;
+}
