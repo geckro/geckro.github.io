@@ -30,6 +30,7 @@ body {
   font-family: 'Segoe UI', 'Cantarell', sans-serif;
   margin: auto;
   max-width: 80%;
+  letter-spacing: 0.20px;
 }
 header > h1 {
   padding-top: 0.5rem;
