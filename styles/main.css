@@ -31,6 +31,7 @@ body {
   margin: auto;
   max-width: 80%;
   letter-spacing: 0.20px;
+  padding-bottom: 10em;  /* Have some space to scroll down */
 }
 header > h1 {
   padding-top: 0.5rem;
