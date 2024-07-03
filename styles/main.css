@@ -144,3 +144,14 @@ nav > ul {
   font-style: italic;
   text-align: center;
 }
+.inline-link,
+.inline-link:hover,
+.inline-link:visited,
+.inline-link:visited:hover {
+  color: inherit;
+  text-decoration: underline;
+}
+.inline-link:hover,
+.inline-link:visited:hover {
+  opacity: 0.7;
+}
