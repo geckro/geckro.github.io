@@ -261,10 +261,10 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\PushNotifications" /v "L
 # Turn off reminders and calls on the lock screen
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" /v "NOC_GLOBAL_SETTING_ALLOW_CRITICAL_TOASTS_ABOVE_LOCK" /t REG_DWORD /d 0 /f
 
-# Dont run any troubleshooters
+# Don't run any troubleshooters
 reg add "HKLM\SOFTWARE\Microsoft\WindowsMitigation" /v "UserPreference" /t REG_DWORD /d 1 /f
 
-# Disable autocorrection of mispelled words
+# Disable autocorrection of misspelled words
 reg add "HKCU\Software\Microsoft\TabletTip\1.7" /v "EnableAutocorrection" /t REG_DWORD /d 0 /f
 
 # Disable game bar opening with controller
@@ -388,7 +388,7 @@ reg add "HKEY_USERS\.DEFAULT\Control Panel\Keyboard" /v "InitialKeyboardIndicato
 # Enable verbose log-on messages
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "VerboseStatus" /t REG_DWORD /d 1 /f
 
-# Enable BSOD messages
+# Enable BSoD messages
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v "DisplayParameters" /t REG_DWORD /d 1 /f
 
 # Turn on Network Discovery for your private network (From Sophia script)
@@ -423,7 +423,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\{88
         <h2><a href="#uninstall-default-applications">Uninstall default apps</a></h2>
 
         <p>I keep Notepad, Paint, the MS Store, all video/image extensions, Photos, Camera, Calculator, Clock, Snipping Tool, Sticky Notes, Terminal and all the Xbox stuff.</p>
-        <p>You will need to uninstall OneDrive seperately, or make it not auto-backup your folders.</p>
+        <p>You will need to uninstall OneDrive separately, or make it not auto-backup your folders.</p>
 
         <pre><code class="powershell">Get-AppxPackage "Clipchamp.Clipchamp" | Remove-AppxPackage
 Get-AppxPackage "*Microsoft.Advertising.Xaml*" | Remove-AppxPackage
@@ -498,7 +498,7 @@ Set-Service -Name RemoteRegistry -StartupType Disabled # Disabled by default, ju
 Set-Service -Name StateRepository -StartupType Manual
 Set-Service -Name StorSvc -StartupType Manual
 Set-Service -Name TextInputManagementService -StartupType Manual
-Set-Service -Name UsoSvc -StartupType Manual # May cause issues with windows update, shouldnt though
+Set-Service -Name UsoSvc -StartupType Manual # May cause issues with windows update, shouldn't though
 Set-Service -Name vm3dservice -StartupType Manual # for VMWare
 Set-Service -Name wisvc -StartupType Disabled # Disables Windows Insider
 Set-Service -Name WpnService -StartupType Manual
@@ -707,38 +707,6 @@ winget uninstall --exact --purge --force Microsoft.DevHome
 
 # Disable UAC
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "ConsentPromptBehaviorAdmin" /t REG_DWORD /d 0 /f
-
-# Disable Defender
-# You will need to turn off Tamper protection manually in the GUI first
-# This is a stupid idea and you really shouldn't
-&#0065;dd-&#0077;pPreference -ExclusionPath "&#0067;&#0058;&#0092;"
-&#0065;dd-&#0077;pPreference -ExclusionProcess "&#0067;&#0058;&#0092;*"
-&#0083;et-&#0077;pPreference -&#0068;isableArchiveScanning 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableBehaviorMonitoring 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableIntrusionPreventionSystem 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableIOAVProtection 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableRemovableDriveScanning 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableBlockAtFirstSeen 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableScanningMappedNetworkDrivesForFullScan 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableScanningNetworkFiles 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableScriptScanning 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableRealtimeMonitoring 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableSmtpParsing 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableSshParsing 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableTlsParsing 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableQuicParsing 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableRdpParsing 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableHttpParsing 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableCoreServiceTelemetry 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableDnsOverTcpParsing 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableInboundConnectionFiltering 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableDnsParsing 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableNetworkProtectionPerfTelemetry 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -&#0068;isableFtpParsing 1 -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -LowThreat&#0068;efaultAction Allow -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -ModerateThreat&#0068;efaultAction Allow -ErrorAction SilentlyContinue
-&#0083;et-&#0077;pPreference -HighThreat&#0068;efaultAction Allow -ErrorAction SilentlyContinue
-
 </code></pre>
 
         <h2><a href="#app-installation">App installation</a></h2>
