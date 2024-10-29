@@ -95,7 +95,7 @@ img {
   max-width: 100%;
 }
 footer {
-  background-color: var(--background-color);
+  background-color: var(--page-color);
   font-size: 0.9rem;
   margin: auto;
   text-align: center;
