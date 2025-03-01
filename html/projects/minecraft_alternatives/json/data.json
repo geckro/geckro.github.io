@@ -1,0 +1,207 @@
+[
+  {
+    "id": "optifine",
+    "replacements": [
+      {
+        "id": "sodium",
+        "replacing": ["fps"]
+      },
+      {
+        "id": "embeddium",
+        "replacing": ["fps"]
+      },
+      {
+        "id": "iris",
+        "replacing": ["shaders"]
+      },
+      {
+        "id": "zoomify",
+        "replacing": ["zoom"]
+      }
+    ]
+  },
+  {
+    "id": "patcher",
+    "replacements": [
+      {
+        "id": "polypatcher",
+        "replacing": ["continuation"]
+      }
+    ]
+  },
+  {
+    "id": "jei",
+    "replacements": [
+      {
+        "id": "rei",
+        "replacing": ["alternative"]
+      },
+      {
+        "id": "emi",
+        "replacing": ["alternative"]
+      },
+      {
+        "id": "hei",
+        "replacing": ["continuation"]
+      }
+    ]
+  },
+  {
+    "id": "rei",
+    "replacements": [
+      {
+        "id": "jei",
+        "replacing": ["alternative"]
+      },
+      {
+        "id": "emi",
+        "replacing": ["alternative"]
+      }
+    ]
+  },
+  {
+    "id": "emi",
+    "replacements": [
+      {
+        "id": "rei",
+        "replacing": ["alternative"]
+      },
+      {
+        "id": "jei",
+        "replacing": ["alternative"]
+      }
+    ]
+  },
+  {
+    "id": "sodium",
+    "replacements": [
+      {
+        "id": "optifine",
+        "replacing": ["alternative"]
+      },
+      {
+        "id": "embeddium",
+        "replacing": ["port"]
+      }
+    ]
+  },
+  {
+    "id": "xaero-mm",
+    "replacements": [
+      {
+        "id": "journeymap",
+        "replacing": ["alternative"]
+      }
+    ]
+  },
+  {
+    "id": "journeymap",
+    "replacements": [
+      {
+        "id": "xaero-mm",
+        "replacing": ["alternative"]
+      }
+    ]
+  },
+  {
+    "id": "gregtech",
+    "replacements": [
+      {
+        "id": "gregtechceu",
+        "replacing": ["port"]
+      },
+      {
+        "id": "gregtechceu-modern",
+        "replacing": ["port"]
+      }
+    ]
+  },
+  {
+    "id": "gregtechce",
+    "replacements": [
+      {
+        "id": "gregtech",
+        "replacing": ["port"]
+      },
+      {
+        "id": "gregtechceu",
+        "replacing": ["continuation"]
+      },
+      {
+        "id": "gregtechceu-modern",
+        "replacing": ["port"]
+      }
+    ]
+  },
+  {
+    "id": "gregtechceu",
+    "replacements": [
+      {
+        "id": "gregtech",
+        "replacing": ["port"]
+      },
+      {
+        "id": "gregtechceu-modern",
+        "replacing": ["port"]
+      }
+    ]
+  },
+  {
+    "id": "gregtechceu-modern",
+    "replacements": [
+      {
+        "id": "gregtech",
+        "replacing": ["port"]
+      },
+      {
+        "id": "gregtechceu",
+        "replacing": ["port"]
+      }
+    ]
+  },
+  {
+    "id": "iris",
+    "replacements": [
+      {
+        "id": "oculus",
+        "replacing": ["port"]
+      }
+    ]
+  },
+  {
+    "id": "oculus",
+    "replacements": [
+      {
+        "id": "iris",
+        "replacing": ["port"]
+      }
+    ]
+  },
+  {
+    "id": "mekanism",
+    "replacements": [
+      {
+        "id": "mekanism-ce",
+        "replacing": ["continuation"]
+      }
+    ]
+  },
+  {
+    "id": "mekanism-generators",
+    "replacements": [
+      {
+        "id": "mekanism-ce-generators",
+        "replacing": ["continuation"]
+      }
+    ]
+  },
+  {
+    "id": "mekanism-tools",
+    "replacements": [
+      {
+        "id": "mekanism-ce-tools",
+        "replacing": ["continuation"]
+      }
+    ]
+  }
+]

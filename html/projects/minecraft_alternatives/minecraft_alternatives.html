@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <link rel="author" content="geckro" />
-    <link rel="stylesheet" href="/styles/main.min.css" />
     <link rel="icon" href="/img/icon.png" type="image/png" />
     <meta charset="utf-8" />
     <meta name="description" content="A list of mods and what to replace them with." />
@@ -11,402 +10,1041 @@
     <meta property="og:title" content="Minecraft Alternatives List" />
     <meta property="og:type" content="website" />
     <title>Minecraft Alternatives List</title>
-    <script src='/html/projects/minecraft_alternatives/script.js'></script>
   
     <style>
-        .mod-container {
-            background-color: white;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .mod-summary-container {
-            color: #333;
-            margin-bottom: 15px;
-        }
-        .mod-header-container {
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 5px;
-        }
-        .mod-header-url {
-            color: #000;
-        }
-        .mod-header-url:hover {
-            color: #5da3c9;
-        }
-        .mod-header-url:visited {
-            color: #000;
-        }
-        .mod-header-url:visited:hover {
-            color: #5da3c9;
-        }
-        .modloader {
-            font-size: 0.8em;
-        }
-        .modloader-nf {
-            color: #46ad2f;
-        }
-        .modloader-fb {
-            color: #219da3;
-        }
-        .modloader-sd {
-            color: #c638d9;
-        }
-        .modloader-fr {
-            color: #a32014;
-        }
-        .version-info {
-            font-size: 0.75em;
-            font-style: italic;
-            color: #666;
-            display: block;
-            margin-top: 10px;
-        }
-        .replacements-container {
-            margin-top: 15px;
-        }
-        .replacement {
-            margin-left: 20px;
-            padding: 15px;
-            background-color: #f9f9f9;
-            border-radius: 0 8px 8px 0;
-            margin-bottom: 10px;
-        }
-        .replacement-continuation {
-            border-left: 3px solid #5182cc;
-        }
-        .replacement-alt {
-            border-left: 3px solid #d48d22;
-        }
-        .replacement-normal {
-            border-left: 3px solid #4CAF50;
-        }
-        .replacement:last-child {
-            margin-bottom: 0;
-        }
-        .replacement-header {
-            display: flex;
-            align-items: center;
-            font-size: 1.2em;
-            gap: 10px;
-            margin-bottom: 8px;
-        }
-        .mod-icon {
-            width: 24px;
-            height: 24px;
-            border-radius: 4px;
-        }
-        .replacement-name {
-            color: #000;
-            font-weight: bold;
-            font-family: sans-serif;
-            text-decoration: none;
-        }
-        .replacement-name:hover {
-            text-decoration: underline;
-        }
-        .replacement-name:visited {
-            color: #000;
-        }
-        .replacing-info {
-            color: #666;
-            font-style: italic;
-            font-size: 0.9em;
-            line-height: 1.4;
-        }
-        .replacing-info div {
-            margin-bottom: 4px;
-        }
-        .replacing-info div:last-child {
-            margin-bottom: 0;
-        }
-        #search-box {
-            margin-top: 1em;
-            margin-bottom: 1em;
-        }
+      body {
+        background-color: #ebf0f0;
+        font-family: 'Segoe UI', 'Cantarell', sans-serif;
+        padding-bottom: 10em;
+        margin: auto;
+      }
+      .title-container {
+        background-color: white;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        margin-bottom: 20px;
+        max-width: 100%;
+        text-align: center;
+      }
+      .info-container {
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        position: sticky;
+        top: 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+      .info-container .search-container {
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 45%;
+        display: inline-block;
+      }
+      .search-container input[type=text] {
+        border-radius: 8px;
+        padding: 4px;
+        font-size: 16px;
+      }
+      .info-container .filter-container {
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        width: 45%;
+        display: inline-block;
+      }
+      .filter-container label {
+        font-size: 16px;
+      }
+      .mod-container {
+        max-width: 95%;
+        margin: auto;
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .mod-summary-container {
+        color: #333;
+        margin-bottom: 15px;
+      }
+      .mod-header-container {
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 5px;
+      }
+      summary {
+        cursor: pointer;
+      }
+      .mod-header-url {
+        color: #000;
+      }
+      .mod-header-url:hover {
+        color: #5da3c9;
+      }
+      .mod-header-url:visited {
+        color: #000;
+      }
+      .mod-header-url:visited:hover {
+        color: #5da3c9;
+      }
+      .modloader {
+        font-size: 0.8em;
+      }
+      .modloader-nf {
+        color: #46ad2f;
+      }
+      .modloader-fb {
+        color: #219da3;
+      }
+      .modloader-sd {
+        color: #c638d9;
+      }
+      .modloader-fr {
+        color: #a32014;
+      }
+      .version-info {
+        font-size: 0.75em;
+        font-style: italic;
+        color: #666;
+        display: block;
+        margin-top: 10px;
+      }
+      .replacements-container {
+        margin-top: 15px;
+      }
+      .replacement {
+        margin-left: 20px;
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-radius: 0 8px 8px 0;
+        margin-bottom: 10px;
+      }
+      .replacement-continuation {
+        border-left: 3px solid #5182cc;
+      }
+      .replacement-alt {
+        border-left: 3px solid #d48d22;
+      }
+      .replacement-port {
+        border-left: 3px solid #dd6bca;
+      }
+      .replacement-normal {
+        border-left: 3px solid #4CAF50;
+      }
+      .replacement:last-child {
+        margin-bottom: 0;
+      }
+      .replacement-header {
+        display: flex;
+        align-items: center;
+        font-size: 1.2em;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+      .mod-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
+      }
+      .replacement-name {
+        color: #000;
+        font-weight: bold;
+        font-family: sans-serif;
+        text-decoration: none;
+      }
+      .replacement-name:hover {
+        text-decoration: underline;
+      }
+      .replacement-name:visited {
+        color: #000;
+      }
+      .replacing-info {
+        color: #666;
+        font-style: italic;
+        font-size: 0.9em;
+        line-height: 1.4;
+      }
+      .replacing-info div {
+        margin-bottom: 4px;
+      }
+      .replacing-info div:last-child {
+        margin-bottom: 0;
+      }
+      #search-box {
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
     </style>
   </head>
 
   <body>
     <header>
-      <h1>Mod Replacements (Concept)</h1>
-      <nav>
-        <ul>
-          <li id="homepage-link"><a href="/index.html">Back to homepage...</a></li>
-          <li id="date">Last updated: <time id="date-last-updated" datetime="2024-12-26"></time></li>
-        </ul>
-      </nav>
+      <div class="title-container">
+        <h1>Mod Replacements & Alternatives List</h1>
+      </div>
     </header>
-    <main><input type="text" id="search-box" placeholder="Search..">
+    <main>
+    <div class="info-container">
+        <div class="search-container">
+            <input type="text" id="search-box" placeholder="Search..">
+        </div>
+        <div class="filter-container">
+            <input type="checkbox" id="test" name="test" />
+            <label for="test">test</label>
+        </div>
+    </div>
+    
       
-        <div class="mod-container" id="optifine-mod">
-            <div class="mod-summary-container">
-                <div class="mod-header-container">
-                    <img src="./img/optifine.webp" alt="OptiFine icon" class="mod-icon">
-                    <a class="mod-header-url" href="https://optifine.net/">OptiFine</a>
-                </div>
-            </div>
-            <div class="replacements-container">
-            
-                <div class="replacement replacement-normal">
-                    <div class="replacement-header">
-                        <img src="./img/sodium.webp" alt="Sodium icon" class="mod-icon">
-                        <a href="https://modrinth.com/mod/sodium" class="replacement-name" target="_blank">Sodium</a>
-                    </div>
-                    <div class="replacing-info">
-                        <div>FPS | 1.16.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.17.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.18.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.20.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span></div>
-                    </div>
-                </div>
-                
-                <div class="replacement replacement-normal">
-                    <div class="replacement-header">
-                        <img src="./img/embeddium.webp" alt="Embeddium icon" class="mod-icon">
-                        <a href="undefined" class="replacement-name" target="_blank">Embeddium</a>
-                    </div>
-                    <div class="replacing-info">
-                        <div>FPS | 1.16.5 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.19.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.3 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span>, 1.20.5 <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span></div>
-                    </div>
-                </div>
-                
-                <div class="replacement replacement-normal">
-                    <div class="replacement-header">
-                        <img src="./img/iris.webp" alt="Iris Shaders icon" class="mod-icon">
-                        <a href="undefined" class="replacement-name" target="_blank">Iris Shaders</a>
-                    </div>
-                    <div class="replacing-info">
-                        <div>Shaders | 1.16.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.17.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.18.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.20.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span></div>
-                    </div>
-                </div>
-                
-                <div class="replacement replacement-normal">
-                    <div class="replacement-header">
-                        <img src="./img/zoomify.webp" alt="Zoomify icon" class="mod-icon">
-                        <a href="https://modrinth.com/mod/zoomify" class="replacement-name" target="_blank">Zoomify</a>
-                    </div>
-                    <div class="replacing-info">
-                        <div>Zoom | 1.18.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.20.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span></div>
-                    </div>
-                </div>
-                
-            </div>
-            <span class="version-info">b1.4 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.5 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.6.6 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.7.2 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.7.3 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.8.1 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.9 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, 1.0 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, 1.1 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.2.5 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.3.2 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.4.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.5.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.6.2 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.6.4 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.7.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.8.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.9.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.10.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.11.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.12.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.13.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.14.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.15.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.16.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.17.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.18.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.20.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span></span>
+      <div class="mod-container" id="optifine-mod">
+        <div class="mod-summary-container">
+          <div class="mod-header-container">
+            <img src="./img/optifine.webp" 
+                 alt="OptiFine icon" 
+                 class="mod-icon">
+            <a class="mod-header-url" 
+               href="https://optifine.net/">OptiFine</a>
+          </div>
         </div>
-        
-        <div class="mod-container" id="patcher-mod">
-            <div class="mod-summary-container">
-                <div class="mod-header-container">
-                    <img src="./img/patcher.webp" alt="Patcher icon" class="mod-icon">
-                    <a class="mod-header-url" href="https://github.com/Sk1erLLC/Patcher">Patcher</a>
-                </div>
-            </div>
-            <div class="replacements-container">
-            
-                <div class="replacement replacement-continuation">
-                    <div class="replacement-header">
-                        <img src="./img/polypatcher.webp" alt="PolyPatcher icon" class="mod-icon">
-                        <a href="https://modrinth.com/mod/patcher" class="replacement-name" target="_blank">PolyPatcher</a>
-                    </div>
-                    <div class="replacing-info">
-                        <div>Continuation | 1.8.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span></div>
-                    </div>
-                </div>
-                
-            </div>
-            <span class="version-info">1.8.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span></span>
-        </div>
-        
-        <div class="mod-container" id="jei-mod">
-            <div class="mod-summary-container">
-                <div class="mod-header-container">
-                    <img src="./img/jei.webp" alt="Just Enough Items (JEI) icon" class="mod-icon">
-                    <a class="mod-header-url" href="https://modrinth.com/mod/jei">Just Enough Items (JEI)</a>
-                </div>
-            </div>
-            <div class="replacements-container">
-            
-                <div class="replacement replacement-alt">
-                    <div class="replacement-header">
-                        <img src="./img/rei.webp" alt="Roughly Enough Items (REI) icon" class="mod-icon">
-                        <a href="https://modrinth.com/mod/rei" class="replacement-name" target="_blank">Roughly Enough Items (REI)</a>
-                    </div>
-                    <div class="replacing-info">
-                        <div>Alternative | 1.13 <span class="modloader">(<span class="modloader-rf">Rift</span>)</span>, 1.13.2 <span class="modloader">(<span class="modloader-rf">Rift</span>)</span>, 1.14.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.15.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.17 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.17.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span></div>
-                    </div>
-                </div>
-                
-                <div class="replacement replacement-alt">
-                    <div class="replacement-header">
-                        <img src="./img/emi.webp" alt="EMI icon" class="mod-icon">
-                        <a href="https://modrinth.com/mod/emi" class="replacement-name" target="_blank">EMI</a>
-                    </div>
-                    <div class="replacing-info">
-                        <div>Alternative | 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span></div>
-                    </div>
-                </div>
-                
-                <div class="replacement replacement-alt">
-                    <div class="replacement-header">
-                        <img src="./img/hei.webp" alt="Had Enough Items (HEI) icon" class="mod-icon">
-                        <a href="https://modrinth.com/mod/had-enough-items" class="replacement-name" target="_blank">Had Enough Items (HEI)</a>
-                    </div>
-                    <div class="replacing-info">
-                        <div>Continuation | 1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span></div>
-                    </div>
-                </div>
-                
-            </div>
-            <span class="version-info">1.8 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.8.8 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.8.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.9.4 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.10.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.11.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.13.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.14.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.15.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.16.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.17.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span></span>
-        </div>
-        
-        <div class="mod-container" id="rei-mod">
-            <div class="mod-summary-container">
-                <div class="mod-header-container">
-                    <img src="./img/rei.webp" alt="Roughly Enough Items (REI) icon" class="mod-icon">
-                    <a class="mod-header-url" href="https://modrinth.com/mod/rei">Roughly Enough Items (REI)</a>
-                </div>
-            </div>
-            <div class="replacements-container">
-            
-                <div class="replacement replacement-alt">
-                    <div class="replacement-header">
-                        <img src="./img/jei.webp" alt="Just Enough Items (JEI) icon" class="mod-icon">
-                        <a href="https://modrinth.com/mod/jei" class="replacement-name" target="_blank">Just Enough Items (JEI)</a>
-                    </div>
-                    <div class="replacing-info">
-                        <div>Alternative | 1.8 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.8.8 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.8.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.9.4 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.10.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.11.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.13.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.14.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.15.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.16.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.17.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span></div>
-                    </div>
-                </div>
-                
-                <div class="replacement replacement-alt">
-                    <div class="replacement-header">
-                        <img src="./img/emi.webp" alt="EMI icon" class="mod-icon">
-                        <a href="https://modrinth.com/mod/emi" class="replacement-name" target="_blank">EMI</a>
-                    </div>
-                    <div class="replacing-info">
-                        <div>Alternative | 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span></div>
-                    </div>
-                </div>
-                
-            </div>
-            <span class="version-info">1.13 <span class="modloader">(<span class="modloader-rf">Rift</span>)</span>, 1.13.2 <span class="modloader">(<span class="modloader-rf">Rift</span>)</span>, 1.14.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.15.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.17 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.17.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span></span>
-        </div>
-        
-        <div class="mod-container" id="emi-mod">
-            <div class="mod-summary-container">
-                <div class="mod-header-container">
-                    <img src="./img/emi.webp" alt="EMI icon" class="mod-icon">
-                    <a class="mod-header-url" href="https://modrinth.com/mod/emi">EMI</a>
-                </div>
-            </div>
-            <div class="replacements-container">
-            
-                <div class="replacement replacement-alt">
-                    <div class="replacement-header">
-                        <img src="./img/rei.webp" alt="Roughly Enough Items (REI) icon" class="mod-icon">
-                        <a href="https://modrinth.com/mod/rei" class="replacement-name" target="_blank">Roughly Enough Items (REI)</a>
-                    </div>
-                    <div class="replacing-info">
-                        <div>Alternative | 1.13 <span class="modloader">(<span class="modloader-rf">Rift</span>)</span>, 1.13.2 <span class="modloader">(<span class="modloader-rf">Rift</span>)</span>, 1.14.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.15.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.17 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.17.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span></div>
-                    </div>
-                </div>
-                
-                <div class="replacement replacement-alt">
-                    <div class="replacement-header">
-                        <img src="./img/jei.webp" alt="Just Enough Items (JEI) icon" class="mod-icon">
-                        <a href="https://modrinth.com/mod/jei" class="replacement-name" target="_blank">Just Enough Items (JEI)</a>
-                    </div>
-                    <div class="replacing-info">
-                        <div>Alternative | 1.8 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.8.8 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.8.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.9.4 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.10.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.11.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.13.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.14.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.15.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.16.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.17.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span></div>
-                    </div>
-                </div>
-                
-            </div>
-            <span class="version-info">1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span></span>
-        </div>
-        
-        <div class="mod-container" id="sodium-mod">
-            <div class="mod-summary-container">
-                <div class="mod-header-container">
-                    <img src="./img/sodium.webp" alt="Sodium icon" class="mod-icon">
-                    <a class="mod-header-url" href="https://modrinth.com/mod/sodium">Sodium</a>
-                </div>
-            </div>
-            <div class="replacements-container">
-            
-                <div class="replacement replacement-alt">
-                    <div class="replacement-header">
-                        <img src="./img/optifine.webp" alt="OptiFine icon" class="mod-icon">
-                        <a href="https://optifine.net/" class="replacement-name" target="_blank">OptiFine</a>
-                    </div>
-                    <div class="replacing-info">
-                        <div>Alternative | b1.4 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.5 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.6.6 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.7.2 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.7.3 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.8.1 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.9 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, 1.0 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, 1.1 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.2.5 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.3.2 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.4.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.5.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.6.2 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.6.4 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.7.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.8.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.9.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.10.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.11.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.12.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.13.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.14.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.15.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.16.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.17.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.18.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.20.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span></div>
-                    </div>
-                </div>
-                
-                <div class="replacement replacement-alt">
-                    <div class="replacement-header">
-                        <img src="./img/embeddium.webp" alt="Embeddium icon" class="mod-icon">
-                        <a href="undefined" class="replacement-name" target="_blank">Embeddium</a>
-                    </div>
-                    <div class="replacing-info">
-                        <div>Continuation | 1.16.5 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.19.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.3 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span>, 1.20.5 <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span></div>
-                    </div>
-                </div>
-                
-            </div>
+        <div class="replacements-container">
+          
+    <div class="replacement replacement-normal" id="optifine_sodium-mod">
+      <div class="replacement-header">
+        <img src="./img/sodium.webp" 
+             alt="Sodium icon" 
+             class="mod-icon">
+        <a href="https://modrinth.com/mod/sodium" 
+           class="replacement-name" 
+           target="_blank">Sodium</a>
+      </div>
+      <div class="replacing-info">
+        <div>fps
+          <details>
+            <summary>Version information</summary>
             <span class="version-info">1.16.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.17.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.18.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.20.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span></span>
+          </details>
         </div>
-        
-        <div class="mod-container" id="xaero-mm-mod">
-            <div class="mod-summary-container">
-                <div class="mod-header-container">
-                    <img src="./img/xaero-mm.webp" alt="Xaero's Minimap icon" class="mod-icon">
-                    <a class="mod-header-url" href="undefined">Xaero's Minimap</a>
-                </div>
-            </div>
-            <div class="replacements-container">
-            
-                <div class="replacement replacement-alt">
-                    <div class="replacement-header">
-                        <img src="./img/journeymap.webp" alt="JourneyMap icon" class="mod-icon">
-                        <a href="undefined" class="replacement-name" target="_blank">JourneyMap</a>
-                    </div>
-                    <div class="replacing-info">
-                        <div>Alternative | 1.7.10 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.16.5 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.17.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span></div>
-                    </div>
-                </div>
-                
-            </div>
-            <span class="version-info">1.7.10 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.8.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.14.4 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.15.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.16.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.17.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span></span>
+      </div>
+    </div>
+    <div class="replacement replacement-normal" id="optifine_embeddium-mod">
+      <div class="replacement-header">
+        <img src="./img/embeddium.webp" 
+             alt="Embeddium icon" 
+             class="mod-icon">
+        <a href="https://modrinth.com/mod/embeddium" 
+           class="replacement-name" 
+           target="_blank">Embeddium</a>
+      </div>
+      <div class="replacing-info">
+        <div>fps
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.16.5 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.19.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.3 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span>, 1.20.5 <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span></span>
+          </details>
         </div>
-        
-        <div class="mod-container" id="journeymap-mod">
-            <div class="mod-summary-container">
-                <div class="mod-header-container">
-                    <img src="./img/journeymap.webp" alt="JourneyMap icon" class="mod-icon">
-                    <a class="mod-header-url" href="undefined">JourneyMap</a>
-                </div>
-            </div>
-            <div class="replacements-container">
-            
-                <div class="replacement replacement-alt">
-                    <div class="replacement-header">
-                        <img src="./img/xaero-mm.webp" alt="Xaero's Minimap icon" class="mod-icon">
-                        <a href="undefined" class="replacement-name" target="_blank">Xaero's Minimap</a>
-                    </div>
-                    <div class="replacing-info">
-                        <div>Alternative | 1.7.10 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.8.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.14.4 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.15.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.16.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.17.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span></div>
-                    </div>
-                </div>
-                
-            </div>
+      </div>
+    </div>
+    <div class="replacement replacement-normal" id="optifine_iris-mod">
+      <div class="replacement-header">
+        <img src="./img/iris.webp" 
+             alt="Iris Shaders icon" 
+             class="mod-icon">
+        <a href="https://modrinth.com/mod/iris" 
+           class="replacement-name" 
+           target="_blank">Iris Shaders</a>
+      </div>
+      <div class="replacing-info">
+        <div>shaders
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.16.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.17.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.18.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.20.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="replacement replacement-normal" id="optifine_zoomify-mod">
+      <div class="replacement-header">
+        <img src="./img/zoomify.webp" 
+             alt="Zoomify icon" 
+             class="mod-icon">
+        <a href="https://modrinth.com/mod/zoomify" 
+           class="replacement-name" 
+           target="_blank">Zoomify</a>
+      </div>
+      <div class="replacing-info">
+        <div>zoom
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.18.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.20.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+        </div>
+        <details>
+          <summary>Version information</summary>
+          <span class="version-info">b1.4 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.5 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.6.6 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.7.2 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.7.3 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.8.1 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.9 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, 1.0 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, 1.1 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.2.5 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.3.2 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.4.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.5.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.6.2 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.6.4 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.7.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.8.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.9.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.10.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.11.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.12.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.13.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.14.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.15.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.16.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.17.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.18.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.20.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span></span>
+        </details>
+      </div>
+      <div class="mod-container" id="patcher-mod">
+        <div class="mod-summary-container">
+          <div class="mod-header-container">
+            <img src="./img/patcher.webp" 
+                 alt="Patcher icon" 
+                 class="mod-icon">
+            <a class="mod-header-url" 
+               href="https://github.com/Sk1erLLC/Patcher">Patcher</a>
+          </div>
+        </div>
+        <div class="replacements-container">
+          
+    <div class="replacement replacement-continuation" id="patcher_polypatcher-mod">
+      <div class="replacement-header">
+        <img src="./img/polypatcher.webp" 
+             alt="PolyPatcher icon" 
+             class="mod-icon">
+        <a href="https://modrinth.com/mod/patcher" 
+           class="replacement-name" 
+           target="_blank">PolyPatcher</a>
+      </div>
+      <div class="replacing-info">
+        <div>continuation
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.8.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+        </div>
+        <details>
+          <summary>Version information</summary>
+          <span class="version-info">1.8.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span></span>
+        </details>
+      </div>
+      <div class="mod-container" id="jei-mod">
+        <div class="mod-summary-container">
+          <div class="mod-header-container">
+            <img src="./img/jei.webp" 
+                 alt="Just Enough Items (JEI) icon" 
+                 class="mod-icon">
+            <a class="mod-header-url" 
+               href="https://modrinth.com/mod/jei">Just Enough Items (JEI)</a>
+          </div>
+        </div>
+        <div class="replacements-container">
+          
+    <div class="replacement replacement-alt" id="jei_rei-mod">
+      <div class="replacement-header">
+        <img src="./img/rei.webp" 
+             alt="Roughly Enough Items (REI) icon" 
+             class="mod-icon">
+        <a href="https://modrinth.com/mod/rei" 
+           class="replacement-name" 
+           target="_blank">Roughly Enough Items (REI)</a>
+      </div>
+      <div class="replacing-info">
+        <div>alternative
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.13 <span class="modloader">(<span class="modloader-rf">Rift</span>)</span>, 1.13.2 <span class="modloader">(<span class="modloader-rf">Rift</span>)</span>, 1.14.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.15.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.17 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.17.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="replacement replacement-alt" id="jei_emi-mod">
+      <div class="replacement-header">
+        <img src="./img/emi.webp" 
+             alt="EMI icon" 
+             class="mod-icon">
+        <a href="https://modrinth.com/mod/emi" 
+           class="replacement-name" 
+           target="_blank">EMI</a>
+      </div>
+      <div class="replacing-info">
+        <div>alternative
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="replacement replacement-continuation" id="jei_hei-mod">
+      <div class="replacement-header">
+        <img src="./img/hei.webp" 
+             alt="Had Enough Items (HEI) icon" 
+             class="mod-icon">
+        <a href="https://modrinth.com/mod/had-enough-items" 
+           class="replacement-name" 
+           target="_blank">Had Enough Items (HEI)</a>
+      </div>
+      <div class="replacing-info">
+        <div>continuation
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+        </div>
+        <details>
+          <summary>Version information</summary>
+          <span class="version-info">1.8 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.8.8 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.8.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.9.4 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.10.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.11.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.13.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.14.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.15.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.16.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.17.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span></span>
+        </details>
+      </div>
+      <div class="mod-container" id="rei-mod">
+        <div class="mod-summary-container">
+          <div class="mod-header-container">
+            <img src="./img/rei.webp" 
+                 alt="Roughly Enough Items (REI) icon" 
+                 class="mod-icon">
+            <a class="mod-header-url" 
+               href="https://modrinth.com/mod/rei">Roughly Enough Items (REI)</a>
+          </div>
+        </div>
+        <div class="replacements-container">
+          
+    <div class="replacement replacement-alt" id="rei_jei-mod">
+      <div class="replacement-header">
+        <img src="./img/jei.webp" 
+             alt="Just Enough Items (JEI) icon" 
+             class="mod-icon">
+        <a href="https://modrinth.com/mod/jei" 
+           class="replacement-name" 
+           target="_blank">Just Enough Items (JEI)</a>
+      </div>
+      <div class="replacing-info">
+        <div>alternative
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.8 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.8.8 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.8.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.9.4 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.10.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.11.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.13.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.14.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.15.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.16.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.17.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="replacement replacement-alt" id="rei_emi-mod">
+      <div class="replacement-header">
+        <img src="./img/emi.webp" 
+             alt="EMI icon" 
+             class="mod-icon">
+        <a href="https://modrinth.com/mod/emi" 
+           class="replacement-name" 
+           target="_blank">EMI</a>
+      </div>
+      <div class="replacing-info">
+        <div>alternative
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+        </div>
+        <details>
+          <summary>Version information</summary>
+          <span class="version-info">1.13 <span class="modloader">(<span class="modloader-rf">Rift</span>)</span>, 1.13.2 <span class="modloader">(<span class="modloader-rf">Rift</span>)</span>, 1.14.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.15.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.17 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.17.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span></span>
+        </details>
+      </div>
+      <div class="mod-container" id="emi-mod">
+        <div class="mod-summary-container">
+          <div class="mod-header-container">
+            <img src="./img/emi.webp" 
+                 alt="EMI icon" 
+                 class="mod-icon">
+            <a class="mod-header-url" 
+               href="https://modrinth.com/mod/emi">EMI</a>
+          </div>
+        </div>
+        <div class="replacements-container">
+          
+    <div class="replacement replacement-alt" id="emi_rei-mod">
+      <div class="replacement-header">
+        <img src="./img/rei.webp" 
+             alt="Roughly Enough Items (REI) icon" 
+             class="mod-icon">
+        <a href="https://modrinth.com/mod/rei" 
+           class="replacement-name" 
+           target="_blank">Roughly Enough Items (REI)</a>
+      </div>
+      <div class="replacing-info">
+        <div>alternative
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.13 <span class="modloader">(<span class="modloader-rf">Rift</span>)</span>, 1.13.2 <span class="modloader">(<span class="modloader-rf">Rift</span>)</span>, 1.14.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.15.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.17 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.17.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="replacement replacement-alt" id="emi_jei-mod">
+      <div class="replacement-header">
+        <img src="./img/jei.webp" 
+             alt="Just Enough Items (JEI) icon" 
+             class="mod-icon">
+        <a href="https://modrinth.com/mod/jei" 
+           class="replacement-name" 
+           target="_blank">Just Enough Items (JEI)</a>
+      </div>
+      <div class="replacing-info">
+        <div>alternative
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.8 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.8.8 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.8.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.9.4 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.10.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.11.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.13.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.14.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.15.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.16.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.17.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+        </div>
+        <details>
+          <summary>Version information</summary>
+          <span class="version-info">1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span></span>
+        </details>
+      </div>
+      <div class="mod-container" id="sodium-mod">
+        <div class="mod-summary-container">
+          <div class="mod-header-container">
+            <img src="./img/sodium.webp" 
+                 alt="Sodium icon" 
+                 class="mod-icon">
+            <a class="mod-header-url" 
+               href="https://modrinth.com/mod/sodium">Sodium</a>
+          </div>
+        </div>
+        <div class="replacements-container">
+          
+    <div class="replacement replacement-alt" id="sodium_optifine-mod">
+      <div class="replacement-header">
+        <img src="./img/optifine.webp" 
+             alt="OptiFine icon" 
+             class="mod-icon">
+        <a href="https://optifine.net/" 
+           class="replacement-name" 
+           target="_blank">OptiFine</a>
+      </div>
+      <div class="replacing-info">
+        <div>alternative
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">b1.4 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.5 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.6.6 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.7.2 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.7.3 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.8.1 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, b1.9 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, 1.0 <span class="modloader">(<span class="modloader-sd">Standalone</span>)</span>, 1.1 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.2.5 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.3.2 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.4.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.5.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.6.2 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.6.4 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.7.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.8.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.9.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.10.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.11.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.12.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.13.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.14.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.15.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.16.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.17.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.18.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.20.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-sd">Standalone</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="replacement replacement-port" id="sodium_embeddium-mod">
+      <div class="replacement-header">
+        <img src="./img/embeddium.webp" 
+             alt="Embeddium icon" 
+             class="mod-icon">
+        <a href="https://modrinth.com/mod/embeddium" 
+           class="replacement-name" 
+           target="_blank">Embeddium</a>
+      </div>
+      <div class="replacing-info">
+        <div>port
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.16.5 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.19.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.3 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span>, 1.20.5 <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+        </div>
+        <details>
+          <summary>Version information</summary>
+          <span class="version-info">1.16.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.16.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.17.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.18.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.20.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-nf">NeoForge</span>)</span></span>
+        </details>
+      </div>
+      <div class="mod-container" id="xaero-mm-mod">
+        <div class="mod-summary-container">
+          <div class="mod-header-container">
+            <img src="./img/xaero-mm.webp" 
+                 alt="Xaero's Minimap icon" 
+                 class="mod-icon">
+            <a class="mod-header-url" 
+               href="https://modrinth.com/mod/xaeros-minimap">Xaero's Minimap</a>
+          </div>
+        </div>
+        <div class="replacements-container">
+          
+    <div class="replacement replacement-alt" id="xaero-mm_journeymap-mod">
+      <div class="replacement-header">
+        <img src="./img/journeymap.webp" 
+             alt="JourneyMap icon" 
+             class="mod-icon">
+        <a href="https://modrinth.com/mod/journeymap" 
+           class="replacement-name" 
+           target="_blank">JourneyMap</a>
+      </div>
+      <div class="replacing-info">
+        <div>alternative
+          <details>
+            <summary>Version information</summary>
             <span class="version-info">1.7.10 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.16.5 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.17.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span></span>
+          </details>
         </div>
-        
+      </div>
+    </div>
+        </div>
+        <details>
+          <summary>Version information</summary>
+          <span class="version-info">1.7.10 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.8.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.14.4 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.15.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.16.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.17.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span></span>
+        </details>
+      </div>
+      <div class="mod-container" id="journeymap-mod">
+        <div class="mod-summary-container">
+          <div class="mod-header-container">
+            <img src="./img/journeymap.webp" 
+                 alt="JourneyMap icon" 
+                 class="mod-icon">
+            <a class="mod-header-url" 
+               href="https://modrinth.com/mod/journeymap">JourneyMap</a>
+          </div>
+        </div>
+        <div class="replacements-container">
+          
+    <div class="replacement replacement-alt" id="journeymap_xaero-mm-mod">
+      <div class="replacement-header">
+        <img src="./img/xaero-mm.webp" 
+             alt="Xaero's Minimap icon" 
+             class="mod-icon">
+        <a href="https://modrinth.com/mod/xaeros-minimap" 
+           class="replacement-name" 
+           target="_blank">Xaero's Minimap</a>
+      </div>
+      <div class="replacing-info">
+        <div>alternative
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.7.10 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.8.9 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.14.4 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.15.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.16.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.17.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+        </div>
+        <details>
+          <summary>Version information</summary>
+          <span class="version-info">1.7.10 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.16.5 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.17.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span>, 1.20.2 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.3 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.20.6 <span class="modloader">(<span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>, <span class="modloader-nf">NeoForge</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>, <span class="modloader-fr">Forge</span>)</span></span>
+        </details>
+      </div>
+      <div class="mod-container" id="gregtech-mod">
+        <div class="mod-summary-container">
+          <div class="mod-header-container">
+            <img src="./img/gregtech.webp" 
+                 alt="GregTech icon" 
+                 class="mod-icon">
+            <a class="mod-header-url" 
+               href="https://gregtech.overminddl1.com/">GregTech</a>
+          </div>
+        </div>
+        <div class="replacements-container">
+          
+    <div class="replacement replacement-port" id="gregtech_gregtechceu-mod">
+      <div class="replacement-header">
+        <img src="./img/gregtechceu.webp" 
+             alt="GregTech Community Edition Unofficial icon" 
+             class="mod-icon">
+        <a href="https://www.curseforge.com/minecraft/mc-mods/gregtech-ce-unofficial" 
+           class="replacement-name" 
+           target="_blank">GregTech Community Edition Unofficial</a>
+      </div>
+      <div class="replacing-info">
+        <div>port
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="replacement replacement-port" id="gregtech_gregtechceu-modern-mod">
+      <div class="replacement-header">
+        <img src="./img/gregtechceu-modern.webp" 
+             alt="GregTech CEu Modern icon" 
+             class="mod-icon">
+        <a href="https://www.curseforge.com/minecraft/mc-mods/gregtechceu-modern" 
+           class="replacement-name" 
+           target="_blank">GregTech CEu Modern</a>
+      </div>
+      <div class="replacing-info">
+        <div>port
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.19.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+        </div>
+        <details>
+          <summary>Version information</summary>
+          <span class="version-info">1.2.5 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.3.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.4.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.4.5 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.4.6 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.5.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.5.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.6.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.7.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.7.10 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span></span>
+        </details>
+      </div>
+      <div class="mod-container" id="gregtechce-mod">
+        <div class="mod-summary-container">
+          <div class="mod-header-container">
+            <img src="./img/gregtechce.webp" 
+                 alt="GregTech Community Edition icon" 
+                 class="mod-icon">
+            <a class="mod-header-url" 
+               href="https://www.curseforge.com/minecraft/mc-mods/gregtechce">GregTech Community Edition</a>
+          </div>
+        </div>
+        <div class="replacements-container">
+          
+    <div class="replacement replacement-port" id="gregtechce_gregtech-mod">
+      <div class="replacement-header">
+        <img src="./img/gregtech.webp" 
+             alt="GregTech icon" 
+             class="mod-icon">
+        <a href="https://gregtech.overminddl1.com/" 
+           class="replacement-name" 
+           target="_blank">GregTech</a>
+      </div>
+      <div class="replacing-info">
+        <div>port
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.2.5 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.3.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.4.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.4.5 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.4.6 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.5.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.5.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.6.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.7.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.7.10 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="replacement replacement-continuation" id="gregtechce_gregtechceu-mod">
+      <div class="replacement-header">
+        <img src="./img/gregtechceu.webp" 
+             alt="GregTech Community Edition Unofficial icon" 
+             class="mod-icon">
+        <a href="https://www.curseforge.com/minecraft/mc-mods/gregtech-ce-unofficial" 
+           class="replacement-name" 
+           target="_blank">GregTech Community Edition Unofficial</a>
+      </div>
+      <div class="replacing-info">
+        <div>continuation
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="replacement replacement-port" id="gregtechce_gregtechceu-modern-mod">
+      <div class="replacement-header">
+        <img src="./img/gregtechceu-modern.webp" 
+             alt="GregTech CEu Modern icon" 
+             class="mod-icon">
+        <a href="https://www.curseforge.com/minecraft/mc-mods/gregtechceu-modern" 
+           class="replacement-name" 
+           target="_blank">GregTech CEu Modern</a>
+      </div>
+      <div class="replacing-info">
+        <div>port
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.19.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+        </div>
+        <details>
+          <summary>Version information</summary>
+          <span class="version-info">1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span></span>
+        </details>
+      </div>
+      <div class="mod-container" id="gregtechceu-mod">
+        <div class="mod-summary-container">
+          <div class="mod-header-container">
+            <img src="./img/gregtechceu.webp" 
+                 alt="GregTech Community Edition Unofficial icon" 
+                 class="mod-icon">
+            <a class="mod-header-url" 
+               href="https://www.curseforge.com/minecraft/mc-mods/gregtech-ce-unofficial">GregTech Community Edition Unofficial</a>
+          </div>
+        </div>
+        <div class="replacements-container">
+          
+    <div class="replacement replacement-port" id="gregtechceu_gregtech-mod">
+      <div class="replacement-header">
+        <img src="./img/gregtech.webp" 
+             alt="GregTech icon" 
+             class="mod-icon">
+        <a href="https://gregtech.overminddl1.com/" 
+           class="replacement-name" 
+           target="_blank">GregTech</a>
+      </div>
+      <div class="replacing-info">
+        <div>port
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.2.5 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.3.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.4.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.4.5 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.4.6 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.5.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.5.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.6.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.7.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.7.10 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="replacement replacement-port" id="gregtechceu_gregtechceu-modern-mod">
+      <div class="replacement-header">
+        <img src="./img/gregtechceu-modern.webp" 
+             alt="GregTech CEu Modern icon" 
+             class="mod-icon">
+        <a href="https://www.curseforge.com/minecraft/mc-mods/gregtechceu-modern" 
+           class="replacement-name" 
+           target="_blank">GregTech CEu Modern</a>
+      </div>
+      <div class="replacing-info">
+        <div>port
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.19.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+        </div>
+        <details>
+          <summary>Version information</summary>
+          <span class="version-info">1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span></span>
+        </details>
+      </div>
+      <div class="mod-container" id="gregtechceu-modern-mod">
+        <div class="mod-summary-container">
+          <div class="mod-header-container">
+            <img src="./img/gregtechceu-modern.webp" 
+                 alt="GregTech CEu Modern icon" 
+                 class="mod-icon">
+            <a class="mod-header-url" 
+               href="https://www.curseforge.com/minecraft/mc-mods/gregtechceu-modern">GregTech CEu Modern</a>
+          </div>
+        </div>
+        <div class="replacements-container">
+          
+    <div class="replacement replacement-port" id="gregtechceu-modern_gregtech-mod">
+      <div class="replacement-header">
+        <img src="./img/gregtech.webp" 
+             alt="GregTech icon" 
+             class="mod-icon">
+        <a href="https://gregtech.overminddl1.com/" 
+           class="replacement-name" 
+           target="_blank">GregTech</a>
+      </div>
+      <div class="replacing-info">
+        <div>port
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.2.5 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.3.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.4.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.4.5 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.4.6 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.5.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.5.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.6.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.7.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.7.10 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="replacement replacement-port" id="gregtechceu-modern_gregtechceu-mod">
+      <div class="replacement-header">
+        <img src="./img/gregtechceu.webp" 
+             alt="GregTech Community Edition Unofficial icon" 
+             class="mod-icon">
+        <a href="https://www.curseforge.com/minecraft/mc-mods/gregtech-ce-unofficial" 
+           class="replacement-name" 
+           target="_blank">GregTech Community Edition Unofficial</a>
+      </div>
+      <div class="replacing-info">
+        <div>port
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+        </div>
+        <details>
+          <summary>Version information</summary>
+          <span class="version-info">1.19.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.21 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span>, 1.21.1 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span></span>
+        </details>
+      </div>
+      <div class="mod-container" id="iris-mod">
+        <div class="mod-summary-container">
+          <div class="mod-header-container">
+            <img src="./img/iris.webp" 
+                 alt="Iris Shaders icon" 
+                 class="mod-icon">
+            <a class="mod-header-url" 
+               href="https://modrinth.com/mod/iris">Iris Shaders</a>
+          </div>
+        </div>
+        <div class="replacements-container">
+          
+    <div class="replacement replacement-port" id="iris_oculus-mod">
+      <div class="replacement-header">
+        <img src="./img/oculus.webp" 
+             alt="Oculus icon" 
+             class="mod-icon">
+        <a href="https://modrinth.com/mod/oculus" 
+           class="replacement-name" 
+           target="_blank">Oculus</a>
+      </div>
+      <div class="replacing-info">
+        <div>port
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.16.5 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+        </div>
+        <details>
+          <summary>Version information</summary>
+          <span class="version-info">1.16.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.17.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.18.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.20.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span></span>
+        </details>
+      </div>
+      <div class="mod-container" id="oculus-mod">
+        <div class="mod-summary-container">
+          <div class="mod-header-container">
+            <img src="./img/oculus.webp" 
+                 alt="Oculus icon" 
+                 class="mod-icon">
+            <a class="mod-header-url" 
+               href="https://modrinth.com/mod/oculus">Oculus</a>
+          </div>
+        </div>
+        <div class="replacements-container">
+          
+    <div class="replacement replacement-port" id="oculus_iris-mod">
+      <div class="replacement-header">
+        <img src="./img/iris.webp" 
+             alt="Iris Shaders icon" 
+             class="mod-icon">
+        <a href="https://modrinth.com/mod/iris" 
+           class="replacement-name" 
+           target="_blank">Iris Shaders</a>
+      </div>
+      <div class="replacing-info">
+        <div>port
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.16.5 <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.17.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.18.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.20.X <span class="modloader">(<span class="modloader-fb">Fabric</span>)</span>, 1.21.X <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fb">Fabric</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+        </div>
+        <details>
+          <summary>Version information</summary>
+          <span class="version-info">1.16.5 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-nf">NeoForge</span>, <span class="modloader-fr">Forge</span>)</span></span>
+        </details>
+      </div>
+      <div class="mod-container" id="mekanism-mod">
+        <div class="mod-summary-container">
+          <div class="mod-header-container">
+            <img src="./img/mekanism.webp" 
+                 alt="Mekanism icon" 
+                 class="mod-icon">
+            <a class="mod-header-url" 
+               href="https://www.curseforge.com/minecraft/mc-mods/mekanism">Mekanism</a>
+          </div>
+        </div>
+        <div class="replacements-container">
+          
+    <div class="replacement replacement-continuation" id="mekanism_mekanism-ce-mod">
+      <div class="replacement-header">
+        <img src="./img/mekanism-ce.webp" 
+             alt="Mekanism Community Edition icon" 
+             class="mod-icon">
+        <a href="https://www.curseforge.com/minecraft/mc-mods/mekanism-ce" 
+           class="replacement-name" 
+           target="_blank">Mekanism Community Edition</a>
+      </div>
+      <div class="replacing-info">
+        <div>continuation
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.7.10 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+        </div>
+        <details>
+          <summary>Version information</summary>
+          <span class="version-info">1.7.10 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.10.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.11.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.15.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.16.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span></span>
+        </details>
+      </div>
+      <div class="mod-container" id="mekanism-generators-mod">
+        <div class="mod-summary-container">
+          <div class="mod-header-container">
+            <img src="./img/mekanism-generators.webp" 
+                 alt="Mekanism Generators icon" 
+                 class="mod-icon">
+            <a class="mod-header-url" 
+               href="https://www.curseforge.com/minecraft/mc-mods/mekanism-generators">Mekanism Generators</a>
+          </div>
+        </div>
+        <div class="replacements-container">
+          
+    <div class="replacement replacement-continuation" id="mekanism-generators_mekanism-ce-generators-mod">
+      <div class="replacement-header">
+        <img src="./img/mekanism-ce-generators.webp" 
+             alt="Mekanism Community Edition: GENERATORS icon" 
+             class="mod-icon">
+        <a href="https://www.curseforge.com/minecraft/mc-mods/mekanism-ce-generators" 
+           class="replacement-name" 
+           target="_blank">Mekanism Community Edition: GENERATORS</a>
+      </div>
+      <div class="replacing-info">
+        <div>continuation
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.7.10 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+        </div>
+        <details>
+          <summary>Version information</summary>
+          <span class="version-info">1.7.10 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.10.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.11.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.15.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.16.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span></span>
+        </details>
+      </div>
+      <div class="mod-container" id="mekanism-tools-mod">
+        <div class="mod-summary-container">
+          <div class="mod-header-container">
+            <img src="./img/mekanism-tools.webp" 
+                 alt="Mekanism Tools icon" 
+                 class="mod-icon">
+            <a class="mod-header-url" 
+               href="https://www.curseforge.com/minecraft/mc-mods/mekanism-tools">Mekanism Tools</a>
+          </div>
+        </div>
+        <div class="replacements-container">
+          
+    <div class="replacement replacement-continuation" id="mekanism-tools_mekanism-ce-tools-mod">
+      <div class="replacement-header">
+        <img src="./img/mekanism-ce-tools.webp" 
+             alt="Mekanism Community Edition: TOOLS icon" 
+             class="mod-icon">
+        <a href="https://www.curseforge.com/minecraft/mc-mods/mekanism-ce-tools" 
+           class="replacement-name" 
+           target="_blank">Mekanism Community Edition: TOOLS</a>
+      </div>
+      <div class="replacing-info">
+        <div>continuation
+          <details>
+            <summary>Version information</summary>
+            <span class="version-info">1.7.10 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span></span>
+          </details>
+        </div>
+      </div>
+    </div>
+        </div>
+        <details>
+          <summary>Version information</summary>
+          <span class="version-info">1.7.10 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.10.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.11.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.12.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.15.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.16.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.18.2 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.19.X <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20.1 <span class="modloader">(<span class="modloader-fr">Forge</span>)</span>, 1.20.4 <span class="modloader">(<span class="modloader-nf">NeoForge</span>)</span></span>
+        </details>
+      </div>
     </main>
+    <script src="./js/search.js"></script>
   </body>
 </html>
