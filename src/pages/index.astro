@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="geckronome's site"
+  description="wow, what a cool description! you should click me!"
+>
+  <header>
+    <h1>geckronome's site</h1>
+  </header>
+  <main>
+    <h2 id="information"><a href="#information">Information</a></h2>
+
+    <nav>
+      <ul>
+        <li><a href="/aboutme">About Me</a></li>
+      </ul>
+    </nav>
+
+    <h2 id="lists"><a href="#lists">Lists</a></h2>
+
+    <nav>
+      <ul>
+        <li><a href="/lists/links">Website Recommendations</a></li>
+        <li><a href="/lists/software">Software Recommendations</a></li>
+        <li><a href="/lists/anime">Anime List</a></li>
+        <li><a href="/lists/game">Game List</a></li>
+        <li><a href="/lists/vgm">Video Game Music</a></li>
+      </ul>
+    </nav>
+
+    <h2 id="articles"><a href="#articles">Articles</a></h2>
+
+    <nav>
+      <ul>
+        <li><a href="/articles/fan_games">Talking about Fan Games</a></li>
+        <li><a href="/articles/windows11">Windows 11 Setup Guide</a></li>
+        <li><a href="/articles/windows_maintenance">Windows 10/11 Maintenance</a></li>
+      </ul>
+    </nav>
+  </main>
+  <footer>
+    <p>Website hosted under <a href="https://github.com/geckro/geckro.github.io">GitHub Pages</a>.</p>
+    <p>Website code is under <i>GPLv3</i>. Website content is under <i>CC BY-NC-SA 4.0</i>.</p>
+  </footer>
+</BaseLayout>
+
+<style lang="scss">
+  footer {
+    font-size: 0.9rem;
+    margin: auto;
+    text-align: center;
+    padding: 1em;
+  }
+</style>

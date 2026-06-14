@@ -1,0 +1,14 @@
+---
+import SubpageLayout from './SubpageLayout.astro';
+
+interface Props {
+  description: string;
+  heading: string;
+  lastUpdated?: string;
+}
+---
+
+<SubpageLayout {...Astro.props} ogType="article">
+  <slot name="head" slot="head" />
+  <slot />
+</SubpageLayout>

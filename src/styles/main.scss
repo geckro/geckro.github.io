@@ -1,0 +1,162 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --page-color: #ffffff;
+  --section-color: #b0b9c3;
+  --shadow-color: #cbcbcb;
+  --text-color: #000000;
+  --header-color: #000000;
+  --code-bg-color: #eee;
+  --link-color: #0055ff;
+  --link-visited-color: #770fff;
+  --link-hover-color: #6c9dff;
+  --link-visited-hover-color: #c395ff;
+}
+
+body {
+  background-color: var(--page-color);
+  color: var(--text-color);
+  font-family: 'Segoe UI', 'Cantarell', sans-serif;
+  margin: auto;
+  max-width: 80%;
+  padding-bottom: 10em;
+}
+
+header > h1 {
+  padding-top: 0.5rem;
+  font-weight: normal;
+  margin: auto;
+  text-align: center;
+}
+
+h2 {
+  padding-bottom: 0.1rem;
+  border-bottom: 2px solid var(--section-color);
+  color: var(--header-color);
+  font-weight: normal;
+
+  > a {
+    color: inherit;
+
+    &:visited,
+    &:hover,
+    &:visited:hover {
+      color: inherit;
+    }
+  }
+}
+
+h3 > a {
+  color: inherit;
+
+  &:visited,
+  &:hover,
+  &:visited:hover {
+    color: inherit;
+  }
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+
+  &:visited {
+    color: var(--link-visited-color);
+  }
+
+  &:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+  }
+
+  &:visited:hover {
+    color: var(--link-visited-hover-color);
+  }
+}
+
+pre,
+code {
+  background-color: var(--code-bg-color);
+  padding-inline: 5px;
+  border-radius: 0.5em;
+  overflow-x: auto;
+}
+
+pre {
+  box-shadow: 0 2px 5px var(--shadow-color);
+  padding-block: 1.2em;
+
+  > code {
+    padding: initial;
+  }
+}
+
+ol > li {
+  padding-bottom: 0.4em;
+}
+
+img {
+  border-radius: 1em;
+  box-shadow: 0 2px 6px var(--shadow-color);
+  max-width: 100%;
+}
+
+// Scoped to header nav so homepage navs remain unstyled
+header nav {
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+header > nav {
+  display: flex;
+
+  > ul {
+    list-style: none;
+    display: flex;
+    margin: auto;
+    align-items: center;
+  }
+}
+
+#homepage-link {
+  text-align: center;
+  padding-right: 2rem;
+
+  > a {
+    padding: 0.5em;
+
+    &:visited {
+      color: var(--link-color);
+    }
+
+    &:visited:hover {
+      color: var(--link-hover-color);
+    }
+  }
+}
+
+// Lists
+li {
+  padding: 0.1em;
+  list-style-type: square;
+}
+
+ul > ul > li {
+  font-size: 14px;
+  list-style-type: circle;
+
+  &:last-child {
+    padding-bottom: 0.25em;
+  }
+}
+
+nav > ul > li {
+  list-style-type: none;
+}

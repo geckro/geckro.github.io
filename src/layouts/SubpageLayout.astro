@@ -1,0 +1,53 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  description: string;
+  ogType?: string;
+  heading: string;
+  lastUpdated?: string;
+}
+
+const { description, ogType = 'website', heading, lastUpdated } = Astro.props;
+const title = `geckronome - ${heading}`;
+const dateFormatted = lastUpdated
+  ? new Date(lastUpdated + 'T12:00:00').toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
+  : undefined;
+---
+
+<BaseLayout {title} {description} {ogType}>
+  <slot name="head" slot="head" />
+  <header>
+    <h1>{heading}</h1>
+    <nav>
+      <ul>
+        <li id="homepage-link"><a href="/">Back to homepage...</a></li>
+        {dateFormatted && (
+          <li id="date">Last updated: <time id="date-last-updated" datetime={lastUpdated}>{dateFormatted}</time></li>
+        )}
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+      <slot />
+    </article>
+  </main>
+</BaseLayout>
+
+<style lang="scss">
+  #date {
+    border-radius: 0.3rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.5em;
+  }
+
+  #date-last-updated {
+    font-weight: normal;
+  }
+</style>
