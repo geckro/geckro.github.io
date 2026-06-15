@@ -3,9 +3,9 @@ import SubpageLayout from '../../layouts/SubpageLayout.astro';
 ---
 
 <SubpageLayout
-  description="geckronome's list of recommended software"
+  description="list of recommended software"
   heading="Software List"
-  lastUpdated="2026-06-12"
+  lastUpdated="2026-06-15"
 >
   <h2><a href="#essentials">Essentials</a></h2>
 
@@ -20,9 +20,7 @@ import SubpageLayout from '../../layouts/SubpageLayout.astro';
   <ul>
     <li><a href="https://ublockorigin.com/">uBlock Origin</a> - This is the only ad/content blocker you should use. If you're not sure on what extensions to use, use this one.</li>
     <li><a href="https://sponsor.ajay.app/">SponsorBlock</a> - Allows you to skip sponsored segments of videos, and more (filler segments, non music sections)</li>
-    <li><a href="https://dearrow.ajay.app/">DeArrow</a> - It replaces titles/thumbnails on YouTube with crowdsourced literal, non-clickbait titles/thumbnails.</li>
     <li><a href="https://violentmonkey.github.io/">Violentmonkey</a> - Userscript manager, open source version of Tampermonkey and updated version of Greasemonkey.</li>
-    <li><a href="https://add0n.com/stylus.html">Stylus</a> - Custom CSS on websites. Useful to make dark-mode websites light-mode.</li>
     <li><a href="https://unhook.app/">Unhook</a> - Remove various annoying features of YouTube.</li>
     <li><a href="https://github.com/amitbl/blocktube">BlockTube</a> - Block YouTube channels from appearing on YouTube.</li>
     <li><a href="https://github.com/iorate/ublacklist">uBlacklist</a> - Blocks sites from appearing in Google search results.</li>
@@ -57,8 +55,7 @@ import SubpageLayout from '../../layouts/SubpageLayout.astro';
   <h3><a href="#other_text-editors-ides">Text editors &amp; IDEs</a></h3>
 
   <p>
-    For text editors, I recommend <a href="https://code.visualstudio.com/">VSCode</a>. For Python and .NET I use JetBrains <a href="https://www.jetbrains.com/pycharm/">PyCharm</a> and <a href="https://www.jetbrains.com/rider/">Rider</a> respectively. Also consider
-    <a href="https://visualstudio.microsoft.com/">Visual Studio</a> (but it is Windows only).
+    For text editors, I recommend <a href="https://code.visualstudio.com/">VSCode</a>. For Python and .NET I use JetBrains <a href="https://www.jetbrains.com/pycharm/">PyCharm</a> and <a href="https://www.jetbrains.com/rider/">Rider</a> respectively.
   </p>
 
   <h3><a href="#other_password-manager">Password manager</a></h3>
@@ -93,7 +90,7 @@ import SubpageLayout from '../../layouts/SubpageLayout.astro';
 
   <ul>
     <li><b>32X</b>: <a href="https://www.retroarch.com/">RetroArch</a> (PicoDrive)</li>
-    <li><b>3DS</b>: <a href="https://github.com/PabloMK7/citra">Citra (fork)</a></li>
+    <li><b>3DS</b>: <a href="https://azahar-emu.org/">Azahar Emulator</a> - A contuination of the now shut-down Citra emulator.</li>
     <li><b>Dreamcast</b>: <a href="https://github.com/flyinghead/flycast">Flycast</a></li>
     <li><b>DS</b>/<b>i</b>: <a href="https://www.retroarch.com/">RetroArch</a> (melonDS) or <a href="http://melonds.kuribo64.net/">melonDS</a> (Standalone)</li>
     <li><b>GameCube</b> / <b>Wii</b>: <a href="https://dolphin-emu.org/">Dolphin</a></li>
@@ -102,16 +99,19 @@ import SubpageLayout from '../../layouts/SubpageLayout.astro';
     <li><b>Genesis/Master System/Game Gear/Sega CD</b>: <a href="https://www.retroarch.com/">RetroArch</a> (GenesisPlusGX)</li>
     <li><b>N64</b>: <a href="https://www.retroarch.com/">RetroArch</a> (Mupen64), or <a href="https://github.com/Rosalie241/RMG">Rosalie's Mupen GUI</a>, or <a href="https://parallel-launcher.ca/">Parallel Launcher</a> for ROM hacks</li>
     <li><b>NES</b>: <a href="https://www.retroarch.com/">RetroArch</a> (Mesen)</li>
-    <li>
-      <b>PS1</b>: <a href="https://www.duckstation.org/">DuckStation</a>, <b>PS2</b>: <a href="https://www.pcsx2.net/">PCSX2</a>, PS3: <a href="https://www.rpcs3.net/">RPCS3</a>, <b>PSP</b>: <a href="https://www.ppsspp.org/">PPSSPP</a>, <b>PSVita</b>: <a href="https://vita3k.org/">Vita3K</a>
-    </li>
+    <li><b>PS1</b>: <a href="https://www.duckstation.org/">DuckStation</a></li>
+    <li><b>PS2</b>: <a href="https://www.pcsx2.net/">PCSX2</a></li>
+    <li><b>PS3</b>: <a href="https://www.rpcs3.net/">RPCS3</a></li>
+    <li><b>PSP</b>: <a href="https://www.ppsspp.org/">PPSSPP</a></li>
+    <li><b>PSVita</b>: <a href="https://vita3k.org/">Vita3K</a></li>
     <li><b>Saturn</b>: <a href="https://www.retroarch.com/">RetroArch</a> (Beetle Saturn)</li>
     <li><b>SNES</b>: <a href="https://www.retroarch.com/">RetroArch</a> (Snes9x)</li>
-    <li><b>Switch</b>: <a href="https://ryujinx.org/">Ryujinx</a></li>
+    <li><b>Switch</b>: <a href="https://git.ryujinx.app/ryubing/ryujinx">Ryubing</a> - Contuination of Ryujinx. There is also <a href="https://git.eden-emu.dev/eden-emu/eden">Eden</a> for a continuation of Yuzu. Use Ryubing first, then use Eden if there are any issues.</li>
     <li><b>Wii U</b>: <a href="https://cemu.info/">Cemu</a></li>
     <li>
-      <b>Xbox</b>: <a href="https://xemu.app/">Xemu</a>, Xbox 360: <a href="http://xenia.jp/">Xenia</a> or
-      <a href="https://github.com/xenia-canary/xenia-canary">Xenia Canary</a>
+      <b>Xbox</b>: <a href="https://xemu.app/">Xemu</a>
     </li>
+    <li><b>Xbox 360</b>: <a href="http://xenia.jp/">Xenia</a> or
+      <a href="https://github.com/xenia-canary/xenia-canary">Xenia Canary</a>. Use Xenia first as it should support what you need.</li>
   </ul>
 </SubpageLayout>
