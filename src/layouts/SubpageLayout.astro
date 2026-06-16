@@ -26,9 +26,16 @@ const dateFormatted = lastUpdated
     <nav>
       <ul>
         <li id="homepage-link"><a href="/">Back to homepage...</a></li>
-        {dateFormatted && (
-          <li id="date">Last updated: <time id="date-last-updated" datetime={lastUpdated}>{dateFormatted}</time></li>
-        )}
+        {
+          dateFormatted && (
+            <li id="date">
+              Last updated:{' '}
+              <time id="date-last-updated" datetime={lastUpdated}>
+                {dateFormatted}
+              </time>
+            </li>
+          )
+        }
       </ul>
     </nav>
   </header>
@@ -40,11 +47,43 @@ const dateFormatted = lastUpdated
 </BaseLayout>
 
 <style lang="scss">
+  header {
+    background: linear-gradient(to right, #e5e5e5, #ffffff 10%, #ffffff 90%, #e5e5e5);
+    padding: 0.5rem 1.5rem 0.85rem;
+    border-bottom: 1px solid var(--section-color);
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 2px 4px var(--shadow-color);
+  }
+
+  header h1 {
+    margin: 0.5rem auto 0.85rem;
+    letter-spacing: 0.8px;
+  }
+
+  nav ul {
+    margin: 0;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  #homepage-link {
+    padding-right: 0;
+
+    > a {
+      font-size: 0.9em;
+
+      &::before {
+        content: '← ';
+      }
+    }
+  }
+
   #date {
-    border-radius: 0.3rem;
-    font-weight: bold;
-    text-align: center;
-    padding: 0.5em;
+    font-weight: 500;
+    font-size: 0.85em;
+    padding: 0.2em 0.65em;
   }
 
   #date-last-updated {

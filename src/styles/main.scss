@@ -17,13 +17,42 @@
   --link-visited-hover-color: #c395ff;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+      display: block;
+}
+
 body {
   background-color: var(--page-color);
   color: var(--text-color);
   font-family: 'Segoe UI', 'Cantarell', sans-serif;
-  margin: auto;
-  max-width: 80%;
   padding-bottom: 10em;
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.page-container {
+  width: 67vw;
+  height: auto;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  padding: 12px;
+  padding-top: 0px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+footer {
+  gap: 12px;
 }
 
 header > h1 {

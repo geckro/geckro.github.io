@@ -25,6 +25,8 @@ const { title, description, ogType = 'website' } = Astro.props;
     <slot name="head" />
   </head>
   <body>
-    <slot />
+    <div class="page-container">
+      <slot />
+    </div>
   </body>
 </html>
