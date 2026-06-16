@@ -6,43 +6,49 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   .game-area {
     border: 1px dashed var(--shadow-color);
     border-radius: 0.5em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    margin-top: 0.5em;
+    padding: 0.75em;
+    margin: 0.75em 0;
+    overflow: hidden;
+  }
+  .game-area img {
+    float: right;
+    width: 22%;
+    margin-left: 1em;
     margin-bottom: 0.5em;
   }
-  .top-row-area {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    max-height: 18px;
-    margin-top: 0.5em;
+  @media only screen and (max-width: 1300px) {
+    .game-area img {
+      width: 32%;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .game-area img {
+      float: none;
+      width: 100%;
+      margin-left: 0;
+    }
   }
   .game-title {
     font-weight: bold;
     padding: 0;
-    margin: 0;
+    margin: 0 0 0.4em 0;
     font-size: 18px;
   }
-  .game-area img {
-    width: 20%;
-  }
-  @media only screen and (max-width: 1300px) {
-    .game-area img {
-      width: 30%;
-    }
-  }
   .game-text {
-    margin-top: 0.5em;
-    max-width: 55%;
+    margin: 0.4em 0 0 0;
   }
   .other-game-category {
     padding: 0;
-    margin: 0;
+    margin: 0.75em 0 0 0;
     font-weight: bold;
   }
   .other-game-list {
-    margin: 0;
+    margin: 0.25em 0 0 0;
+    list-style-type: none;
+    padding-left: 0;
+  }
+  .other-game-list li {
+    padding: 0.2em 0;
     list-style-type: none;
   }
   .inline-link,
@@ -77,10 +83,8 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
   <p>A <i>translation hack</i> is when you take a ROM and translate the game into another language. This has made many Japanese-only games playable in English. Some examples are:</p>
   <div class="game-area">
-    <div class="top-row-area">
-      <p class="game-title">Mother 3</p>
-      <img src="/img/articles/fangames/mother3.png" />
-    </div>
+    <img src="/img/articles/fangames/mother3.png" />
+    <p class="game-title">Mother 3</p>
     <p class="game-text">
       The sequel to <a href="https://en.wikipedia.org/wiki/EarthBound" target="_blank" rel="noopener">EarthBound</a>, <i>Mother 3</i> was originally a Japanese-only game released on the Game Boy Advance. It was originally meant to release to other countries but due to numerous legal and IP
       issues, it was not possible. This game is the most popular example of a translation hack, and has it's own website <a href="https://mother3.fobby.net/" target="_blank" rel="noopener">here</a>. Without this translation hack, no one would know or care about the Mother series, and would
@@ -90,10 +94,8 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   </div>
 
   <div class="game-area">
-    <div class="top-row-area">
-      <p class="game-title">Captain Rainbow</p>
-      <img src="/img/articles/fangames/captainrainbow.png" />
-    </div>
+    <img src="/img/articles/fangames/captainrainbow.png" />
+    <p class="game-title">Captain Rainbow</p>
     <p class="game-text">
       A one-off game by the Chibi-Robo developers, <i>Captain Rainbow</i> is a Wii game that released only in Japan. There is an in-progress translation hack <a href="https://www.romhacking.net/forum/index.php?topic=36068.0" target="_blank" rel="noopener">here</a> (these things take time!)
     </p>
@@ -101,10 +103,8 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   </div>
 
   <div class="game-area">
-    <div class="top-row-area">
-      <p class="game-title">Trials of Mana (Seiken Densetsu 3)</p>
-      <img src="/img/articles/fangames/trialsofmana.png" />
-    </div>
+    <img src="/img/articles/fangames/trialsofmana.png" />
+    <p class="game-title">Trials of Mana (Seiken Densetsu 3)</p>
     <p class="game-text">
       An indirect sequel to <a href="https://en.wikipedia.org/wiki/Secret_of_Mana" target="_blank" rel="noopener">Secret of Mana</a>, <i>Trials of Mana</i> was a Japanese-only game released on the Super Nintendo, and is considered one of the greatest games of all time. It was not localized for
       the longest time until fans made a translation hack <a href="https://www.romhacking.net/translations/440/">here</a>.
@@ -119,10 +119,8 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   <p>A <i>content hack</i> is ROM hacks, using the original game as a base to make whatever the creator wants.</p>
 
   <div class="game-area">
-    <div class="top-row-area">
-      <p class="game-title">Super Mario Star Road</p>
-      <img src="/img/articles/fangames/supermariostarroad.png" />
-    </div>
+    <img src="/img/articles/fangames/supermariostarroad.png" />
+    <p class="game-title">Super Mario Star Road</p>
     <p class="game-text">
       A ROM Hack to <a href="https://en.wikipedia.org/wiki/Super_Mario_64" target="_blank" rel="noopener" class="inline-link">Super Mario 64</a>, and it is most probably the most recognizable Super Mario 64 ROM hack out there. It released in 2011 by Skelux and has all new levels, new music, new hub and new everything and 130 new stars to collect. You can view it
       <a href="https://romhacking.com/hack/super-mario-star-road" target="_blank" rel="noopener">here</a>.
@@ -131,10 +129,8 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   </div>
 
   <div class="game-area">
-    <div class="top-row-area">
-      <p class="game-title">Relics of the Past</p>
-      <img src="/img/articles/fangames/relicsofthepast.png" />
-    </div>
+    <img src="/img/articles/fangames/relicsofthepast.png" />
+    <p class="game-title">Relics of the Past</p>
     <p class="game-text">
       A ROM Hack to <a href="https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Breath_of_the_Wild" target="_blank" rel="noopener" class="inline-link">Breath of the Wild</a>, it tries to make the game much harder, almost kaizo like. It boasts itself on not just buffing enemies like a lot of hacks, and actually makes modifications to the world (but it still uses the original world, a custom world would be an insane amount of
       work). You can look at the website <a href="https://relicsofthepast.dev/home" target="_blank" rel="noopener">here</a>.
@@ -143,10 +139,8 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   </div>
 
   <div class="game-area">
-    <div class="top-row-area">
-      <p class="game-title">Pokemon Unbound</p>
-      <img src="/img/articles/fangames/pokemonunbound.png" />
-    </div>
+    <img src="/img/articles/fangames/pokemonunbound.png" />
+    <p class="game-title">Pokemon Unbound</p>
     <p class="game-text">
       A ROM Hack to <a href="https://en.wikipedia.org/wiki/Pok%C3%A9mon_FireRed_and_LeafGreen" target="_blank" rel="noopener" class="inline-link">Pokemon FireRed/LeafGreen</a>. This is considered to be one of the best Pokemon ROM hacks (there are many out there) and some say that it is better than actual official games. Just because it is based on a GBA game, it does not mean it is crude, as it is filled to the brim with
       custom code and content. Forum post <a href="https://www.pokecommunity.com/threads/pok%C3%A9mon-unbound-completed.382178/">here</a>.
@@ -197,19 +191,15 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   <p>In fan games, an <i>original game</i> is using the intellectual property of of a franchise to create a new concept, where it can have new characters, story and new gameplay.</p>
 
   <div class="game-area">
-    <div class="top-row-area">
-      <p class="game-title">Psycho Waluigi</p>
-      <img src="/img/articles/fangames/psychowaluigi.png" />
-    </div>
+    <img src="/img/articles/fangames/psychowaluigi.png" />
+    <p class="game-title">Psycho Waluigi</p>
     <p class="game-text">A completely original fan game released in 2011 by Thunder Dragon, based around the idea that if Mario, Luigi and Wario all have unique games, Waluigi can have his own 2D platformer!</p>
     <p class="game-text">With elements from Yoshi's Island, Wario Land and other platformers, it tries to make Waluigi it's own fleshed out character. Instead of jumping or throwing enemies, you use psychic powers to control the enemies.</p>
   </div>
 
   <div class="game-area">
-    <div class="top-row-area">
-      <p class="game-title">Pokemon Infinite Fusion</p>
-      <img src="/img/articles/fangames/pokemoninfinitefusion.png" />
-    </div>
+    <img src="/img/articles/fangames/pokemoninfinitefusion.png" />
+    <p class="game-title">Pokemon Infinite Fusion</p>
     <p class="game-text">A Pokemon fan game based around the idea that you should be able to fuse any 2 Pokemon together. Every single Pokemon, together. This means that there are over 200,000 unique "fusions" in this game, and over 100,000 custom Pokemon sprites!</p>
     <p class="game-text">Granted, it isn't a new world. It's a modification of the Kanto area and a remixed Johto area. But still, it is a marvel that this even exists.</p>
   </div>
@@ -233,10 +223,8 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   <p>In fan games, a <i>remake</i> is taking an original official game and having a fan or a group of fan remake (or remaster) and re-imagine it for a new age.</p>
 
   <div class="game-area">
-    <div class="top-row-area">
-      <p class="game-title">Another Metroid 2 Remake</p>
-      <img src="/img/articles/fangames/am2r.png" />
-    </div>
+    <img src="/img/articles/fangames/am2r.png" />
+    <p class="game-title">Another Metroid 2 Remake</p>
     <p class="game-text">
       A remake of the original Metroid II on the game boy created by Milton Guasti / DoctorM64 and is considered one of the best Metroid fan games and is in the running of best 2D Metroid games with official Nintendo games. New content was added while staying true to the original game.
     </p>
@@ -247,10 +235,8 @@ import ArticleLayout from '../../layouts/ArticleLayout.astro';
   </div>
 
   <div class="game-area">
-    <div class="top-row-area">
-      <p class="game-title">Sonic - Project 06</p>
-      <img src="/img/articles/fangames/project06.png" />
-    </div>
+    <img src="/img/articles/fangames/project06.png" />
+    <p class="game-title">Sonic - Project 06</p>
     <p class="game-text">A remake of Sonic 06 by ChaosX, which tries to address the issue of the original game being considered one of the worst games of all time. Project 06 tries to fix all of the issues with the original game as well as restore scrapped content.</p>
     <p class="game-text">The game is not done yet and has only a few demos, but Sonic, Shadow and Silver's levels are all complete and playable.</p>
   </div>
