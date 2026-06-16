@@ -1,13 +1,15 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import '../styles/main.scss';
 
 interface Props {
   title: string;
   description: string;
   ogType?: string;
+  canonicalURL?: string;
 }
 
-const { title, description, ogType = 'website' } = Astro.props;
+const { title, description, ogType = 'website', canonicalURL = new URL(Astro.url.pathname, Astro.site).href } = Astro.props;
 ---
 
 <!doctype html>
@@ -16,12 +18,18 @@ const { title, description, ogType = 'website' } = Astro.props;
     <meta charset="utf-8" />
     <meta name="author" content="Geckronome" />
     <link rel="icon" href="/icon.png" sizes="any" />
+    <link rel="canonical" href={canonicalURL} />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
     <meta property="og:description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:type" content={ogType} />
+     <meta property="og:url" content={canonicalURL} />
     <title>{title}</title>
+
+    <ClientRouter />
+
     <slot name="head" />
   </head>
   <body>
