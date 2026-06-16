@@ -2,340 +2,141 @@
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import { Code } from 'astro:components';
 
-const code1 = String.raw`# Do not let apps show me personalized ads by using my advertising ID
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo" /v "Enabled" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CPSS\Store\AdvertisingInfo" /v "Value" /t REG_DWORD /d 0 /f
-
-# Do not let websites show me locally relevant content
-reg add "HKCU\Control Panel\International\User Profile" /v "HttpAcceptLanguageOptOut" /t REG_DWORD /d 1 /f
-
-# Do not let Windows improve Start and search results
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Start_TrackProgs" /t REG_DWORD /d 0 /f
-
-# Don't show recommendations for new apps
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Start_IrisRecommendations" /t REG_DWORD /d 0 /f
-
-# Do not let Windows show your browsing history in Search
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Start_RecoPersonalizedSites" /t REG_DWORD /d 0 /f
-
-# Do not show suggested content in the Settings app
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "ContentDeliveryAllowed" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "FeatureManagementEnabled" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "OemPreInstalledAppsEnabled" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "PreInstalledAppsEnabled" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "PreInstalledAppsEverEnabled" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SilentInstalledAppsEnabled" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-310093Enabled" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-314559Enabled" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-338387Enabled" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-338388Enabled" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-338389Enabled" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-338393Enabled" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-353694Enabled" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-353696Enabled" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContentEnabled" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SystemPaneSuggestionsEnabled" /t REG_DWORD /d 0 /f
-
-# Do not show notifications in the Settings app
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\SystemSettings\AccountNotifications" /v "EnableAccountNotifications" /t REG_DWORD /d 0 /f
-
-# Do not ask me ways to get the most out of Windows
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement" /v "ScoobeSystemSettingEnabled" /t REG_DWORD /d 0 /f
-
-# Disable online speech recognition
-reg add "HKCU\Software\Microsoft\Speech_OneCore\Settings\OnlineSpeechPrivacy" /v "HasAccepted" /t REG_DWORD /d 0 /f
-
-# Do not send inking and typing personalization
-reg add "HKCU\Software\Microsoft\InputPersonalization" /v "RestrictImplicitTextCollection" /t REG_DWORD /d 1 /f
-reg add "HKCU\Software\Microsoft\InputPersonalization" /v "RestrictImplicitInkCollection" /t REG_DWORD /d 1 /f
-reg add "HKCU\Software\Microsoft\InputPersonalization\TrainedDataStore" /v "HarvestContacts" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Personalization\Settings" /v "AcceptedPrivacyPolicy" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\InputPersonalization\TrainedDataStore" /v "HarvestContacts" /t REG_DWORD /d 0 /f
-
-# Do not send optional diagnostic data
-# \/ You can set this *ONE* setting to 0 if you use *Enterprise* or *Education* editions of Windows. If not, leave it as 1
-reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" /v "AllowTelemetry" /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" /v "MaxTelemetryAllowed" /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v "AllowTelemetry" /t REG_DWORD /d 0 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v "DoNotShowFeedbackNotifications" /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\Store\AllowTelemetry" /v "Value" /t REG_DWORD /d 1 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Diagnostics\DiagTrack" /v "ShowedToastAtLevel" /t REG_DWORD /d 1 /f
-
-# Do not let MS use your diagnostic data for personalized tips/ads
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Privacy" /v "TailoredExperiencesWithDiagnosticDataEnabled" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CPSS\Store\TailoredExperiencesWithDiagnosticDataEnabled" /v "Value" /t REG_DWORD /d 0 /f
-
-# Do not ask for feedback
-reg add "HKCU\Software\Microsoft\Siuf\Rules" /v "NumberOfSIUFInPeriod" /t REG_DWORD /d 0 /f
-
-# Do not use cloud content search
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /v "IsMSACloudSearchEnabled" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /v "IsAADCloudSearchEnabled" /t REG_DWORD /d 0 /f
-
-# Disable search history
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /v "IsDeviceSearchHistoryEnabled" /t REG_DWORD /d 0 /f
-
-# Disable search highlights and suggestions
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /v "IsDynamicSearchBoxEnabled" /t REG_DWORD /d 0 /f
-reg add "HKCU\Software\Policies\Microsoft\Windows\Explorer" /v "DisableSearchBoxSuggestions" /t REG_DWORD /d 1 /f
-
-# Do not communicate with unpaired devices
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\bluetoothSync" /v "Value" /t REG_SZ /d "Deny" /f
-
-# Disable application access to... (will break UWP app functionality)
-# app diagnostics
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appDiagnostics" /v "Value" /t REG_SZ /d "Deny" /f
-reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appDiagnostics" /v "Value" /t REG_SZ /d "Deny" /f
-# call history
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\phoneCallHistory" /v "Value" /t REG_SZ /d "Deny" /f
-reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\phoneCallHistory" /v "Value" /t REG_SZ /d "Deny" /f
-# contacts
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\contacts" /v "Value" /t REG_SZ /d "Deny" /f
-reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\contacts" /v "Value" /t REG_SZ /d "Deny" /f
-# radios
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\radios" /v "Value" /t REG_SZ /d "Deny" /f
-reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\radios" /v "Value" /t REG_SZ /d "Deny" /f
-# messaging
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\chat" /v "Value" /t REG_SZ /d "Deny" /f
-reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\chat" /v "Value" /t REG_SZ /d "Deny" /f
-# tasks
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userDataTasks" /v "Value" /t REG_SZ /d "Deny" /f
-reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userDataTasks" /v "Value" /t REG_SZ /d "Deny" /f
-# account info
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userAccountInformation" /v "Value" /t REG_SZ /d "Deny" /f
-reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userAccountInformation" /v "Value" /t REG_SZ /d "Deny" /f
-# camera
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\webcam" /v "Value" /t REG_SZ /d "Deny" /f
-reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\webcam" /v "Value" /t REG_SZ /d "Deny" /f
-# calendar
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appointments" /v "Value" /t REG_SZ /d "Deny" /f
-reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appointments" /v "Value" /t REG_SZ /d "Deny" /f
-# phone calls
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\phoneCall" /v "Value" /t REG_SZ /d "Deny" /f
-reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\phoneCall" /v "Value" /t REG_SZ /d "Deny" /f
-
-# Disable auto-updating of maps (will harm Windows Maps)
-reg add "HKLM\SYSTEM\Maps" /v "AutoUpdateEnabled" /t REG_DWORD /d 0 /f
-
-# Disable recently used files, folders, and files from Office.com
-reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "ShowRecent" /t REG_DWORD /d 0 /f
-reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "ShowFrequent" /t REG_DWORD /d 0 /f
-reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v "ShowCloudFilesInQuickAccess" /t REG_DWORD /d 0 /f
-
-# Disable cloud content
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v "DisableWindowsConsumerFeatures" /t REG_DWORD /d 1 /f
-reg add "HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /v "DisableWindowsConsumerFeatures" /t REG_DWORD /d 1 /f
-
-# Disable windows error reporting
-reg add "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v "Disabled" /t REG_DWORD /d 1 /f
-## Defense-in-depth
-#Set-Service -Name WerSvc -StartupType Disabled
-
-# Disable Wi-Fi Sense
-reg add "HKLM\SOFTWARE\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting" /v "Value" /t REG_DWORD /d 0 /f
-reg add "HKLM\SOFTWARE\Microsoft\PolicyManager\default\WiFi\AllowAutoConnectToWiFiSenseHotspots" /v "Value" /t REG_DWORD /d 0 /f
-
-# Disable people features
-reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" /v "PeopleBand" /t REG_DWORD /d 0 /f
-
-# Turn off MS office telemetry (May break some Office features)
-reg add "HKCU\SOFTWARE\Microsoft\Office\Common\ClientTelemetry" /v "DisableTelemetry" /t REG_DWORD /d 1 /f
-reg add "HKCU\SOFTWARE\Microsoft\Office\Common\ClientTelemetry" /v "VerboseLogging" /t REG_DWORD /d 0 /f
-reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\ClientTelemetry" /v "DisableTelemetry" /t REG_DWORD /d 1 /f
-reg add "HKCU\SOFTWARE\Microsoft\Office\16.0\Common\ClientTelemetry" /v "VerboseLogging" /t REG_DWORD /d 0 /f
-
-# Some other ones to consider (but not recommended)
-
-## Turn off automatic app updating in the MS Store
-#reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsStore\WindowsUpdate" /v "AutoDownload" /t REG_DWORD /d 2 /f`;
-
-const code2 = String.raw`# Disable typing insights
+const codeUI = String.raw`# Disable typing insights
 reg add "HKCU\Software\Microsoft\input\Settings" /v "InsightsEnabled" /t REG_DWORD /d 0 /f
 
 # Disable storage sense
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v "01" /t REG_DWORD /d 0 /f
-## Disable storage sense automatically cleaning temporary files
-#reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v "04" /t REG_DWORD /d 0 /f
 
-# Don't show Edge tabs with Alt+Tab
+# Don't show Edge tabs in Alt+Tab
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "MultiTaskingAltTabFilter" /t REG_DWORD /d 3 /f
 
-# Don't show snapped groups windows in Alt+tab
+# Don't show snapped groups in Alt+Tab
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "EnableTaskGroups" /t REG_DWORD /d 0 /f
 
-# Don't show snap layouts at the top of the screen
+# Don't show snap layouts hover menu
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "EnableSnapBar" /t REG_DWORD /d 0 /f
 
-# Remove copilot, task view and widgets from taskbar
+# Remove Copilot, Task View and Widgets from the taskbar
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowCopilotButton" /t REG_DWORD /d 0 /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowTaskViewButton" /t REG_DWORD /d 0 /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "TaskbarDa" /t REG_DWORD /d 0 /f
 
-# Disable copilot and make current user ineligible to use it (could break things in the future)
+# Disable Copilot system-wide
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot" /v "TurnOffWindowsCopilot" /t REG_DWORD /d 1 /f
 reg add "HKCU\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot" /v "TurnOffWindowsCopilot" /t REG_DWORD /d 1 /f
-reg add "HKCU\Software\Microsoft\Windows\Shell\Copilot\BingChat" /v "IsUserEligible" /t REG_DWORD /d 0 /f
 
-# Turn off auto installation of Microsoft Teams in the taskbar
+# Turn off auto-installation of Microsoft Teams
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Communications" /v "ConfigureChatAutoInstall" /t REG_DWORD /d 0 /f
 
-# Turn off search box (0 = hidden, 1 = icon, 2 = Box, 3 = Icon with label)
+# Hide the search box in the taskbar (0 = hidden, 1 = icon, 2 = box, 3 = icon with label)
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /v "SearchboxTaskbarMode" /t REG_DWORD /d 0 /f
-
-## Set taskbar to left (i don't use this, but here is the registry entry)
-#reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "TaskbarAl" /t REG_DWORD /d 0 /f
 
 # Turn off lock screen notifications
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\PushNotifications" /v "LockScreenToastEnabled" /t REG_DWORD /d 0 /f
-
-# Turn off reminders and calls on the lock screen
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" /v "NOC_GLOBAL_SETTING_ALLOW_CRITICAL_TOASTS_ABOVE_LOCK" /t REG_DWORD /d 0 /f
 
-# Don't run any troubleshooters
-reg add "HKLM\SOFTWARE\Microsoft\WindowsMitigation" /v "UserPreference" /t REG_DWORD /d 1 /f
-
-# Disable autocorrection of misspelled words
+# Disable autocorrect
 reg add "HKCU\Software\Microsoft\TabletTip\1.7" /v "EnableAutocorrection" /t REG_DWORD /d 0 /f
 
-# Disable game bar opening with controller
+# Disable Game Bar opening with a controller
 reg add "HKCU\Software\Microsoft\GameBar" /v "UseNexusForGameBarEnabled" /t REG_DWORD /d 0 /f
 
-# Disable sticky and filter keys
+# Disable Sticky Keys and Filter Keys prompts
 reg add "HKCU\Control Panel\Accessibility\StickyKeys" /v "Flags" /t REG_SZ /d "506" /f
 reg add "HKCU\Control Panel\Accessibility\Keyboard Response" /v "Flags" /t REG_SZ /d "122" /f
 
-# Disable SafeSearch in search box
+# Disable SafeSearch
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /v "SafeSearchMode" /t REG_DWORD /d 0 /f
 
-# Disable delivery optimization (Useful if there is a lot of computers on your network, don't disable if that is the case)
-reg add "HKEY_USERS\S-1-5-20\Software\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Settings" /v "DownloadMode" /t REG_DWORD /d 0 /f # S-1-5-20 is NetworkService
+# Disable delivery optimization (only disable if you don't have multiple PCs sharing the same network)
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" /v "DODownloadMode" /t REG_DWORD /d 0 /f
-
 Delete-DeliveryOptimizationCache -Force
 
 # Disable Remote Assistance
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Remote Assistance" /v "fAllowToGetHelp" /t REG_DWORD /d 0 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Remote Assistance" /v "fAllowFullControl" /t REG_DWORD /d 0 /f
 
-# Disable any remote file access (will break remote software)
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\LanmanSever\Parameters" /v "AutoShareWks" /t REG_DWORD /d 0 /f
-
-# Disable windows managing the default printer
+# Stop Windows managing your default printer
 reg add "HKCU\Software\Microsoft\Windows NT\CurrentVersion\Windows" /v "LegacyDefaultPrinterMode" /t REG_DWORD /d 1 /f
 
-# Disable bing search results entirely in Search
+# Disable Bing results in the Search box
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /v "BingSearchEnabled" /t REG_DWORD /d 0 /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /v "CortanaConsent" /t REG_DWORD /d 0 /f
 reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Search" /v "BingSearchEnabled" /t REG_DWORD /d 0 /f
-reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Search" /v "CortanaConsent" /t REG_DWORD /d 0 /f
 
-# Turn off sign-in info to automatically finish setting up device (From Sophia script)
+# Turn off sign-in info used to automatically finish setting up after an update
 $SID = (Get-CimInstance -ClassName Win32_UserAccount | Where-Object -FilterScript {$_.Name -eq $env:USERNAME}).SID
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\UserARSO\$SID" /v "OptOut" /t REG_DWORD /d 1 /f
 
-# Disable feeds (w10 only)
-reg add "HKCU\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds" /v "EnableFeeds" /t REG_DWORD /d 0 /f
-reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Feeds" /v "ShellFeedsTaskbarViewMode" /t REG_DWORD /d 2 /f
+# Disable the 260-character path limit
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\FileSystem" /v "LongPathsEnabled" /t REG_DWORD /d 1 /f`;
 
-# Disable meet now (w10 only)
-reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "HideSCAMeetNow" /t REG_DWORD /d 1 /f
-
-# Disable 260 character Path limit
-reg add "HKLM\SYSTEM\CurrentControlSet\Control\FileSystem" /v "LongPathsEnabled" /t REG_DWORD /d 1 /f
-
-# Some other ones to consider (but not recommended)
-
-# Turn off and lock various parts of the Edge browser
-# Note: You CANNOT remove Edge without Windows shitting itself
-## Disable prelaunch on system startup
-#reg add "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main" /v "AllowPreLaunch" /t REG_DWORD /d 0 /f
-## Third-party cookies are the only ones allowed
-#reg add "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main" /v "Cookies" /t REG_DWORD /d 1 /f
-## Prevent Edge from gathering live tile information
-#reg add "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main" /v "PreventLiveTileDataCollection" /t REG_DWORD /d 1 /f
-## Disable MS sync
-#reg add "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main" /v "SyncDisabled" /t REG_DWORD /d 1 /f
-## Disable credit card autofill
-#reg add "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main" /v "AutofillCreditCardEnabled" /t REG_DWORD /d 1 /f
-## Disable flash player support
-#reg add "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Addons" /v "FlashPlayerEnabled" /t REG_DWORD /d 0 /f
-## Don't allow web content on start screen
-#reg add "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\ServiceUI" /v "AllowWebContent" /t REG_DWORD /d 0 /f
-## Don't preload tabs
-#reg add "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\TabPreloader" /v "AllowTabPreloading" /t REG_DWORD /d 0 /f`;
-
-const code3 = String.raw`# Turn on Developer mode
+const codeEnableFeatures = String.raw`# Enable Developer Mode
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" /v "AllowDevelopmentWithoutDevLicense" /t REG_DWORD /d 1 /f
 
-# Turn on End task in taskbar
+# Enable End Task in taskbar right-click menu
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings" /v "TaskbarEndTask" /t REG_DWORD /d 1 /f
 
-# Turn ON clipboard history (Win+V)
+# Enable clipboard history (Win+V)
 reg add "HKCU\Software\Microsoft\Clipboard" /v "EnableClipboardHistory" /t REG_DWORD /d 1 /f
 
-# Receive updates for other MS products in Windows Update
+# Receive updates for other Microsoft products via Windows Update
 reg add "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "AllowMUUpdateService" /t REG_DWORD /d 1 /f
 
-## Receive non-security updates as soon as possible
-#reg add "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v "IsContinuousInnovationOptedIn" /t REG_DWORD /d 1 /f
-
-# Display full path in Explorer title bar
+# Show full path in Explorer title bar
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\CabinetState" /v "FullPath" /t REG_DWORD /d 1 /f
 
-# Show hidden files/folders/drives in Explorer
+# Show hidden files and folders
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Hidden" /t REG_DWORD /d 1 /f
 
-# Do not hide empty drives
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideDrivesWithNoMedia" /t REG_DWORD /d 0 /f
 # Show file extensions
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t REG_DWORD /d 0 /f
+
 # Show merge conflicts
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideMergeConflicts" /t REG_DWORD /d 0 /f
-# Show encrypted/compressed NTFS in color
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowEncryptCompressedColor" /t REG_DWORD /d 1 /f
-# Open to This PC instead (Quick Access is LaunchTo = 2)
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "LaunchTo" /t REG_DWORD /d 1 /f
-# Disable Sync provider notifications (OneDrive ads)
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowSyncProviderNotifications" /t REG_DWORD /d 0 /f
-# Disable check boxes (seems to be a default now)
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "AutoCheckSelect" /t REG_DWORD /d 0 /f
-# Set explorer operation/status to detailed
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager" /v "EnthusiastMode" /t REG_DWORD /d 1 /f
-## Compact mode
-#reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "UseCompactMode" /t REG_DWORD /d 1 /f
 
-# Disable F1 help on some MS apps
+# Show encrypted/compressed NTFS files in color
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowEncryptCompressedColor" /t REG_DWORD /d 1 /f
+
+# Open File Explorer to This PC instead of Quick Access
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "LaunchTo" /t REG_DWORD /d 1 /f
+
+# Disable OneDrive sync provider notifications (the ads)
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowSyncProviderNotifications" /t REG_DWORD /d 0 /f
+
+# Show detailed transfer info in Explorer
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager" /v "EnthusiastMode" /t REG_DWORD /d 1 /f
+
+# Disable F1 help key in some Microsoft apps
 reg add "HKCU\Software\Classes\Typelib\{8cec5860-07a1-11d9-b15e-000d56bfe6ee}\1.0\0\win64" /v "(default)" /t REG_SZ /d "" /f
 
-# Enable NUM lock at start-up
+# Enable Num Lock at startup
 reg add "HKEY_USERS\.DEFAULT\Control Panel\Keyboard" /v "InitialKeyboardIndicators" /t REG_SZ /d 2147483650 /f
 
-# Enable verbose log-on messages
+# Enable verbose logon messages
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "VerboseStatus" /t REG_DWORD /d 1 /f
 
-# Enable BSoD messages
+# Show full BSOD info instead of the sad face
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v "DisplayParameters" /t REG_DWORD /d 1 /f
 
-# Turn on Network Discovery for your private network (From Sophia script)
+# Enable Network Discovery and file sharing on private networks
 $FirewallRules = @(
-  # File and printer sharing
   "@FirewallAPI.dll,-32752",
-
-  # Network discovery
   "@FirewallAPI.dll,-28502"
 )
 Set-NetFirewallRule -Group $FirewallRules -Profile Private -Enabled True
 Set-NetFirewallRule -Profile Public, Private -Name FPS-SMB-In-TCP -Enabled True
 Set-NetConnectionProfile -NetworkCategory Private
 
-# Set Control Panel from Category view to Large icons view
+# Set Control Panel to Large Icons view
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel" /v "AllItemsIconView" /t REG_DWORD /d 0 /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel" /v "StartupPage" /t REG_DWORD /d 1 /f
 
-# Fix JPEG wallpapers
+# Fix JPEG wallpaper quality
 reg add "HKCU\Control Panel\Desktop" /v "JPEGImportQuality" /t REG_DWORD /d 100 /f
 
-# Fix the download folder grouping to stop already (From Sophia script)
+# Fix Downloads folder grouping by date (finally)
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\{885a186e-a440-4ada-812b-db871b942259}\TopViews\{00000000-0000-0000-0000-000000000000}" /v "ColumnList" /t REG_SZ /d "System.Null" /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\{885a186e-a440-4ada-812b-db871b942259}\TopViews\{00000000-0000-0000-0000-000000000000}" /v "GroupBy" /t REG_SZ /d "System.Null" /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\{885a186e-a440-4ada-812b-db871b942259}\TopViews\{00000000-0000-0000-0000-000000000000}" /v "LogicalViewMode" /t REG_DWORD /d 1 /f
@@ -344,23 +145,333 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\{88
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\{885a186e-a440-4ada-812b-db871b942259}\TopViews\{00000000-0000-0000-0000-000000000000}" /v "PrimaryProperty" /t REG_SZ /d "System.ItemNameDisplay" /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\{885a186e-a440-4ada-812b-db871b942259}\TopViews\{00000000-0000-0000-0000-000000000000}" /v "SortByList" /t REG_SZ /d "System.ItemNameDisplay" /f`;
 
-const code4 = String.raw`Get-AppxPackage "Clipchamp.Clipchamp" | Remove-AppxPackage
+const codeOtherTweaks = String.raw`# Disable hibernation
+powercfg.exe /hibernate off
+
+# Turn various services to manual or disabled
+Stop-Service -Name AJRouter -Force
+Set-Service -Name AJRouter -StartupType Disabled
+Stop-Service -Name AssignedAccessManagerSvc -Force
+Set-Service -Name AssignedAccessManagerSvc -StartupType Disabled # Kiosk mode
+Set-Service -Name CDPSvc -StartupType Manual
+Stop-Service -Name diagnosticshub.standardcollector.service -Force
+Set-Service -Name diagnosticshub.standardcollector.service -StartupType Disabled
+Stop-Service -Name DiagTrack -Force
+Set-Service -Name DiagTrack -StartupType Disabled
+# Set-Service -Name MapsBroker -StartupType Manual # Will break Windows Maps
+# Set-Service -Name PcaSvc -StartupType Manual # Program Compatibility Assistant
+Stop-Service -Name RemoteRegistry -Force
+Set-Service -Name RemoteRegistry -StartupType Disabled
+# Set-Service -Name UsoSvc -StartupType Manual # Shouldn't break Windows Update
+# Set-Service -Name wisvc -StartupType Disabled # Disables Windows Insider
+
+# Disable unneeded scheduled tasks
+Get-ScheduledTask -TaskName "FamilySafetyMonitor" | Disable-ScheduledTask # Comment out if you use Family Safety
+Get-ScheduledTask -TaskName "FamilySafetyRefreshTask" | Disable-ScheduledTask
+# Get-ScheduledTask -TaskName "MapsToastTask" | Disable-ScheduledTask # Remove comment left and below if you do not use Windows Maps and will not use Windows Maps
+# Get-ScheduledTask -TaskName "MapsUpdateTask" | Disable-ScheduledTask
+# Get-ScheduledTask -TaskName "XblGameSaveTask" | Disable-ScheduledTask # Remove comment if you do not use Xbox and will not use Xbox
+Get-ScheduledTask -TaskName "AitAgent" | Disable-ScheduledTask
+Get-ScheduledTask -TaskName "Consolidator" | Disable-ScheduledTask
+Get-ScheduledTask -TaskName "DmClient" | Disable-ScheduledTask
+Get-ScheduledTask -TaskName "DmClientOnScenarioDownload" | Disable-ScheduledTask
+Get-ScheduledTask -TaskName "KernelCeipTask" | Disable-ScheduledTask
+Get-ScheduledTask -TaskName "Microsoft Compatibility Appraiser" | Disable-ScheduledTask
+Get-ScheduledTask -TaskName "ProgramDataUpdater" | Disable-ScheduledTask
+Get-ScheduledTask -TaskName "QueueReporting" | Disable-ScheduledTask
+Get-ScheduledTask -TaskName "StartupAppTask" | Disable-ScheduledTask
+Get-ScheduledTask -TaskName "UsbCeip" | Disable-ScheduledTask
+Get-ScheduledTask -TaskName "Microsoft-Windows-DiskDiagnosticDataCollector" | Disable-ScheduledTask
+
+# Disable SMBv1 (security)
+Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName SMB1Protocol
+
+# Disable XPS Document Writer
+Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName Printing-XPSServices-Features
+
+# Disable Work Folders (do not turn off if connected to Active Directory)
+# Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName WorkFolders-Client
+
+# Disable PowerShell 2.0 (security)
+# dism /online /Disable-Feature /FeatureName:"MicrosoftWindowsPowerShellV2Root" /NoRestart
+# dism /online /Disable-Feature /FeatureName:"MicrosoftWindowsPowerShellV2" /NoRestart
+
+# Remove Windows Media Player
+Get-WindowsCapability -Online -Name 'Media.WindowsMediaPlayer*' | Remove-WindowsCapability -Online
+
+# Remove Internet Explorer (and IE mode in Edge)
+# Get-WindowsCapability -Online -Name 'Browser.InternetExplorer*' | Remove-WindowsCapability -Online
+# dism /Online /Disable-Feature /FeatureName:"Internet-Explorer-Optional-x64" /NoRestart
+
+# Remove Telnet client
+dism /Online /Disable-Feature /FeatureName:"TelnetClient" /NoRestart
+
+# Remove some optional apps
+Get-WindowsCapability -Online -Name 'App.StepsRecorder*' | Remove-WindowsCapability -Online
+Get-WindowsCapability -Online -Name 'Microsoft.Windows.PowerShell.ISE*' | Remove-WindowsCapability -Online
+Get-WindowsCapability -Online -Name 'MathRecognizer*' | Remove-WindowsCapability -Online
+
+# Install WSL (Linux in Windows)
+# wsl --install
+
+# Improve Defender behavior
+# Set-MpPreference -CheckForSignaturesBeforeRunningScan 1
+# Set-MpPreference -EnableNetworkProtection Enabled
+# Set-MpPreference -PUAProtection Enabled
+
+# Stop Defender nagging about not having a Microsoft account
+reg add "HKCU\Software\Microsoft\Windows Security Health\State" /v "AccountProtection_MicrosoftAccount_Disconnected" /t REG_DWORD /d 1 /f
+
+# Stop Defender nagging about Edge SmartScreen
+# reg add "HKCU\Software\Microsoft\Windows Security Health\State" /v "AppAndBrowser_EdgeSmartScreenOff" /t REG_DWORD /d 0 /f
+
+# Hide "Share" from the right-click context menu
+# Remove-Item -Path "Registry::HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\ModernSharing" -Recurse -Force -ErrorAction Ignore
+
+# Disable MS Store in "Open with" suggestions
+reg add "HKCU\Software\Policies\Microsoft\Windows\Explorer" /v "NoUseStoreOpenWith" /t REG_DWORD /d 1 /f
+
+# Clean up Explorer cache and temp files
+Clear-RecycleBin -Force -ErrorAction SilentlyContinue
+# Remove-Item -Force -Confirm:$false -Recurse $env:LocalAppData\Microsoft\Windows\Explorer\*.db
+# Remove-Item -Force -Confirm:$false $env:localappdata\Temp\*`;
+
+const codeWinget = String.raw`# Update winget source if it is not working
+# Add-AppxPackage -Path https://cdn.winget.microsoft.com/cache/source.msix
+
+winget upgrade --exact --accept-source-agreements --accept-package-agreements
+
+# Install apps — remove whatever you don't need
+winget install --accept-source-agreements --accept-package-agreements Microsoft.PowerShell HeidiSQL.HeidiSQL Git.Git Microsoft.VisualStudioCode Discord.Discord Valve.Steam yt-dlp.yt-dlp Gyan.FFmpeg voidtools.Everything GIMP.GIMP KDE.Krita M2Team.NanaZip PrismLauncher.PrismLauncher qBittorrent.qBittorrent GoLang.Go EclipseAdoptium.Temurin.21.JDK JetBrains.Toolbox OBSProject.OBSStudio dotPDN.PaintDotNet Microsoft.PowerToys Microsoft.VCRedist.2015+.x64 OpenJS.NodeJS.22 Libretro.RetroArch Microsoft.DotNet.SDK.8`;
+
+const codeChoco = String.raw`# Check the Chocolately website first for any updates. Run as Administrator.
+Set-ExecutionPolicy Bypass -Scope Process -Force
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
+iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))`;
+
+const codeCTT = String.raw`# Run as Administrator in PowerShell
+iwr -useb https://christitus.com/win | iex`;
+---
+
+<style>
+  .checklist {
+    list-style: none;
+    padding-left: 0;
+  }
+  .checklist li {
+    list-style-type: none;
+    padding: 0.15em 0;
+  }
+  .checklist li label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5em;
+    cursor: pointer;
+  }
+  .checklist input[type="checkbox"] {
+    margin-top: 0.2em;
+    flex-shrink: 0;
+    cursor: pointer;
+    accent-color: var(--link-color);
+  }
+  .checklist-group {
+    margin-top: 0.75em;
+    margin-bottom: 0.25em;
+    font-weight: bold;
+    font-size: 0.9em;
+    opacity: 0.75;
+  }
+  .ctt-box {
+    border: 1px solid var(--shadow-color);
+    border-radius: 0.5em;
+    padding: 0.75em 1em;
+    margin: 1em 0;
+    background-color: var(--code-bg-color);
+  }
+</style>
+
+<ArticleLayout
+  description="A Windows 11 setup guide"
+  heading="Windows 11 Setup"
+  lastUpdated="2026-06-16"
+>
+  <p><b>Note: This guide is for personal setups, not enterprise. Look over what you copy and paste. I am not responsible for anything that goes wrong.</b></p>
+
+  <h2><a href="#pre-requisites">Pre-requisites</a></h2>
+
+  <ul>
+    <li>A PC with TPM 2.0 and Secure Boot support</li>
+    <li>
+      A <a href="https://www.microsoft.com/software-download/windows11" target="_blank" rel="noopener">Windows 11 ISO</a> — latest as of writing is <code>25H2 (26200.8655)</code>
+    </li>
+    <li>
+      I recommend using <a href="https://rufus.ie" target="_blank" rel="noopener">Rufus</a> to write the ISO to a USB drive. It has an option to bypass the Microsoft account requirement during setup, which saves you a step.
+    </li>
+  </ul>
+
+  <h2><a href="#installation">Installation</a></h2>
+
+  <ol>
+    <li>Set your <i>Language</i>, <i>Time</i> and <i>Currency</i> settings.</li>
+    <li>
+      Install <b>Windows 11 Pro</b>.
+    </li>
+    <li>Follow through the prompts as normal.</li>
+    <li>
+      At the Microsoft sign-in screen, you have a few options to get a local account:
+      <ul>
+        <li><b>Easiest:</b> If you used Rufus with the account bypass option, you'll see a local account option directly.</li>
+        <li><b>Otherwise:</b> Enter <code>a@b.com</code> as the email and any random password. It will fail to connect, and Windows will then let you create a local account.</li>
+        <li><b>No internet:</b> Disconnect your ethernet or disable Wi-Fi before this screen — the <i>I don't have internet</i> button will appear.</li>
+      </ul>
+      <i>Note: <code>OOBE\BYPASSNRO</code> was removed in Windows 11 24H2 and no longer works.</i>
+    </li>
+    <li>
+      Once you reach the desktop, go straight to <b>Windows Update</b> and update everything, including optional updates under <i>Advanced options &rarr; Optional updates</i>.
+    </li>
+  </ol>
+
+  <h2><a href="#ctt">Recommended: Chris Titus Tech Winutil</a></h2>
+
+  <p>
+    Before diving into manual tweaks, consider running the <a href="https://github.com/ChrisTitusTech/winutil" target="_blank" rel="noopener">Chris Titus Tech Windows Utility</a>. It's a GUI tool that covers debloating, tweaks, and app installation all in one place — and it's actively maintained. Run the following as Administrator in PowerShell:
+  </p>
+
+  <Code code={codeCTT} lang="powershell" theme="github-light" />
+
+  <p>The sections below cover everything manually for those who want more control over what gets changed.</p>
+
+  <h2><a href="#privacy">Privacy &amp; Online Features</a></h2>
+
+  <p>Go through these in the <b>Settings</b> app. These replace a wall of registry commands — the GUI is the right place for these.</p>
+
+  <p class="checklist-group">Settings &rarr; Privacy &amp; security &rarr; General</p>
+  <ul class="checklist">
+    <li><label><input type="checkbox"> Let apps show me personalized ads using my advertising ID &rarr; <b>Off</b></label></li>
+    <li><label><input type="checkbox"> Let websites show me locally relevant content by accessing my language list &rarr; <b>Off</b></label></li>
+    <li><label><input type="checkbox"> Let Windows improve Start and search results by tracking app launches &rarr; <b>Off</b></label></li>
+    <li><label><input type="checkbox"> Show me suggested content in the Settings app &rarr; <b>Off</b></label></li>
+    <li><label><input type="checkbox"> Show me notifications in the Settings app &rarr; <b>Off</b></label></li>
+  </ul>
+
+  <p class="checklist-group">Settings &rarr; Privacy &amp; security &rarr; Speech</p>
+  <ul class="checklist">
+    <li><label><input type="checkbox"> Online speech recognition &rarr; <b>Off</b></label></li>
+  </ul>
+
+  <p class="checklist-group">Settings &rarr; Privacy &amp; security &rarr; Inking &amp; typing personalization</p>
+  <ul class="checklist">
+    <li><label><input type="checkbox"> Inking &amp; typing personalization &rarr; <b>Off</b></label></li>
+  </ul>
+
+  <p class="checklist-group">Settings &rarr; Privacy &amp; security &rarr; Diagnostics &amp; feedback</p>
+  <ul class="checklist">
+    <li><label><input type="checkbox"> Diagnostic data &rarr; <b>Send required diagnostic data</b></label></li>
+    <li><label><input type="checkbox"> Improve inking and typing &rarr; <b>Off</b></label></li>
+    <li><label><input type="checkbox"> Tailored experiences &rarr; <b>Off</b></label></li>
+    <li><label><input type="checkbox"> Feedback frequency &rarr; <b>Never</b></label></li>
+  </ul>
+
+  <p class="checklist-group">Settings &rarr; Privacy &amp; security &rarr; Activity history</p>
+  <ul class="checklist">
+    <li><label><input type="checkbox"> Store my activity history on this device &rarr; <b>Off</b></label></li>
+  </ul>
+
+  <p class="checklist-group">Settings &rarr; Privacy &amp; security &rarr; Search permissions</p>
+  <ul class="checklist">
+    <li><label><input type="checkbox"> SafeSearch &rarr; <b>Off</b></label></li>
+    <li><label><input type="checkbox"> Cloud content search (Microsoft account) &rarr; <b>Off</b></label></li>
+    <li><label><input type="checkbox"> Cloud content search (Work or School account) &rarr; <b>Off</b></label></li>
+    <li><label><input type="checkbox"> Search history on this device &rarr; <b>Off</b></label></li>
+    <li><label><input type="checkbox"> Show search highlights &rarr; <b>Off</b></label></li>
+  </ul>
+
+  <p class="checklist-group">Settings &rarr; Personalization &rarr; Start</p>
+  <ul class="checklist">
+    <li><label><input type="checkbox"> Show recently opened items in Start, Jump Lists, and File Explorer &rarr; <b>Off</b></label></li>
+    <li><label><input type="checkbox"> Show recommendations for tips, shortcuts, new apps, and more &rarr; <b>Off</b></label></li>
+  </ul>
+
+  <p class="checklist-group">Settings &rarr; Personalization &rarr; Taskbar</p>
+  <ul class="checklist">
+    <li><label><input type="checkbox"> Copilot &rarr; <b>Off</b></label></li>
+    <li><label><input type="checkbox"> Task View &rarr; <b>Off</b></label></li>
+    <li><label><input type="checkbox"> Widgets &rarr; <b>Off</b></label></li>
+    <li><label><input type="checkbox"> Search &rarr; <b>Hide</b></label></li>
+  </ul>
+
+  <h2><a href="#disable-features">UI &amp; Taskbar Tweaks</a></h2>
+
+  <p>First, open <b>Task Manager &rarr; Startup apps</b> and disable everything except <i>Windows Security</i>.</p>
+
+  <Code code={codeUI} lang="powershell" theme="github-light" />
+
+  <h2><a href="#enable-features">Enable Useful Features</a></h2>
+
+  <p>A few things worth enabling manually first:</p>
+
+  <ul class="checklist">
+    <li><label><input type="checkbox"> <b>Night light</b> — Settings &rarr; System &rarr; Display &rarr; Night light</label></li>
+    <li><label><input type="checkbox"> <b>Power mode</b> — Settings &rarr; System &rarr; Power &rarr; Power mode (set to Balanced or Best performance)</label></li>
+    <li><label><input type="checkbox"> <b>Enhanced search</b> — Settings &rarr; Privacy &amp; security &rarr; Searching Windows &rarr; Enhanced</label></li>
+  </ul>
+
+  <Code code={codeEnableFeatures} lang="powershell" theme="github-light" />
+
+  <h2><a href="#uninstall-default-applications">Uninstall Default Apps</a></h2>
+
+  <p>
+    I keep Notepad, Paint, the MS Store, all image/video codec extensions, Photos, Camera, Calculator, Clock, Snipping Tool, Sticky Notes, Terminal, and the Xbox apps.
+    You will need to uninstall <b>OneDrive</b> separately, or at minimum stop it from auto-backing up your folders.
+  </p>
+
+  <p>Check off what you want removed, then run the script below:</p>
+
+  <ul class="checklist">
+    <li><label><input type="checkbox"> Clipchamp (video editor)</label></li>
+    <li><label><input type="checkbox"> Cortana</label></li>
+    <li><label><input type="checkbox"> Disney+</label></li>
+    <li><label><input type="checkbox"> Feedback Hub</label></li>
+    <li><label><input type="checkbox"> Mail and Calendar</label></li>
+    <li><label><input type="checkbox"> Microsoft Advertising</label></li>
+    <li><label><input type="checkbox"> Microsoft Bing News</label></li>
+    <li><label><input type="checkbox"> Microsoft Bing Weather</label></li>
+    <li><label><input type="checkbox"> Microsoft Get Help</label></li>
+    <li><label><input type="checkbox"> Microsoft Maps</label></li>
+    <li><label><input type="checkbox"> Microsoft Office Hub</label></li>
+    <li><label><input type="checkbox"> Microsoft Outlook (new)</label></li>
+    <li><label><input type="checkbox"> Microsoft Solitaire Collection</label></li>
+    <li><label><input type="checkbox"> Microsoft Tips</label></li>
+    <li><label><input type="checkbox"> Microsoft To Do</label></li>
+    <li><label><input type="checkbox"> Microsoft Wallet</label></li>
+    <li><label><input type="checkbox"> Mixed Reality Portal</label></li>
+    <li><label><input type="checkbox"> Movies &amp; TV (Films &amp; TV)</label></li>
+    <li><label><input type="checkbox"> Groove Music</label></li>
+    <li><label><input type="checkbox"> OneNote (Store version)</label></li>
+    <li><label><input type="checkbox"> Parental Controls</label></li>
+    <li><label><input type="checkbox"> People</label></li>
+    <li><label><input type="checkbox"> Phone Link</label></li>
+    <li><label><input type="checkbox"> Power Automate Desktop</label></li>
+    <li><label><input type="checkbox"> Print 3D</label></li>
+    <li><label><input type="checkbox"> Quick Assist</label></li>
+    <li><label><input type="checkbox"> Skype</label></li>
+    <li><label><input type="checkbox"> Spotify</label></li>
+    <li><label><input type="checkbox"> Microsoft Teams</label></li>
+    <li><label><input type="checkbox"> Voice Recorder</label></li>
+    <li><label><input type="checkbox"> Windows AI Copilot Provider</label></li>
+  </ul>
+
+  <Code code={`Get-AppxPackage "Clipchamp.Clipchamp" | Remove-AppxPackage
 Get-AppxPackage "*Microsoft.Advertising.Xaml*" | Remove-AppxPackage
 Get-AppxPackage "*Spotify*" | Remove-AppxPackage
 Get-AppxPackage "*MicrosoftTeams*" | Remove-AppxPackage
 Get-AppxPackage "*Disney*" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.549981C3F5F10" | Remove-AppxPackage # Cortana
-Get-AppxPackage "Microsoft.BingFinance" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.BingFoodAndDrink" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.BingHealthAndFitness" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.BingNews" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.BingSports" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.BingTranslator" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.BingTravel" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.BingWeather" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.GetHelp" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.Getstarted" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.MicrosoftOfficeHub" | Remove-AppxPackage # You can install actual 365 anyway
+Get-AppxPackage "Microsoft.MicrosoftOfficeHub" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.MicrosoftSolitaireCollection" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.MixedReality.Portal" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.News" | Remove-AppxPackage
@@ -374,263 +485,46 @@ Get-AppxPackage "Microsoft.Todos" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.Wallet" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.Windows.Ai.Copilot.Provider" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.Windows.ParentalControls" | Remove-AppxPackage
-Get-AppxPackage "microsoft.windowscommunicationsapps" | Remove-AppxPackage # Calendar and Mail
+Get-AppxPackage "microsoft.windowscommunicationsapps" | Remove-AppxPackage # Mail and Calendar
 Get-AppxPackage "Microsoft.WindowsFeedbackHub" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.WindowsMaps" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.WindowsPhone" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.WindowsSoundRecorder" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.YourPhone" | Remove-AppxPackage # Phone Link
 Get-AppxPackage "Microsoft.ZuneMusic" | Remove-AppxPackage # Groove Music
-Get-AppxPackage "Microsoft.ZuneVideo" | Remove-AppxPackage # Films & TV
-Get-AppxPackage "MicrosoftCorporationII.QuickAssist" | Remove-AppxPackage`;
+Get-AppxPackage "Microsoft.ZuneVideo" | Remove-AppxPackage # Movies & TV
+Get-AppxPackage "MicrosoftCorporationII.QuickAssist" | Remove-AppxPackage`} lang="powershell" theme="github-light" />
 
-const code5 = String.raw`# Disable hibernation
-powercfg.exe /hibernate off
+  <h2><a href="#other-pwsh-tweaks">Other PowerShell Tweaks</a></h2>
 
-# Disable homegroup (Shouldn't be here on Windows 11 but still good to check)
-Set-Service -Name HomeGroupListener -StartupType Manual
-Set-Service -Name HomeGroupProvider -StartupType Manual
+  <Code code={codeOtherTweaks} lang="powershell" theme="github-light" />
 
-# Turn various services to manual, and also disable some services
-Stop-Service -Name AJRouter -Force
-Set-Service -Name AJRouter -StartupType Disabled
-Stop-Service -Name AssignedAccessManagerSvc -Force
-Set-Service -Name AssignedAccessManagerSvc -StartupType Disabled # Kiosk mode
-Set-Service -Name CDPSvc -StartupType Manual
-Stop-Service -Name diagnosticshub.standardcollector.service -Force
-Set-Service -Name diagnosticshub.standardcollector.service -StartupType Disabled
-
-# Leave enabled if you use Xbox app and Feedback Hub, some core Windows applications depend on this service.
-Stop-Service -Name DiagTrack -Force
-Set-Service -Name DiagTrack -StartupType Disabled
-# Defense in-depth
-##Set-NetFirewallRule -Group DiagTrack -Enabled True -Action Block
-
-Set-Service -Name EdgeUpdate -StartupType Manual
-Set-Service -Name MapsBroker -StartupType Manual # Will break maps
-Set-Service -Name PcaSvc -StartupType Manual # Program Compatibility Assistant
-Stop-Service -Name RemoteRegistry -Force
-Set-Service -Name RemoteRegistry -StartupType Disabled # Disabled by default, just in case
-Set-Service -Name StateRepository -StartupType Manual
-Set-Service -Name StorSvc -StartupType Manual
-Set-Service -Name TextInputManagementService -StartupType Manual
-Set-Service -Name UsoSvc -StartupType Manual # May cause issues with windows update, shouldn't though
-Set-Service -Name vm3dservice -StartupType Manual # for VMWare
-Set-Service -Name wisvc -StartupType Disabled # Disables Windows Insider
-Set-Service -Name WpnService -StartupType Manual
-
-## Disable un-needed scheduled tasks (Will break some things)
-
-# Comment out if you use Microsoft Family Safety
-Get-ScheduledTask -TaskName "FamilySafetyMonitor" | Disable-ScheduledTask
-Get-ScheduledTask -TaskName "FamilySafetyRefreshTask" | Disable-ScheduledTask
-# Comment out if you use Microsoft Maps
-Get-ScheduledTask -TaskName "MapsToastTask" | Disable-ScheduledTask
-Get-ScheduledTask -TaskName "MapsUpdateTask" | Disable-ScheduledTask
-# Comment out if you use Xbox
-Get-ScheduledTask -TaskName "XblGameSaveTask" | Disable-ScheduledTask
-
-Get-ScheduledTask -TaskName "AitAgent" | Disable-ScheduledTask
-Get-ScheduledTask -TaskName "Consolidator" | Disable-ScheduledTask # Telemetry
-Get-ScheduledTask -TaskName "Device User" | Disable-ScheduledTask
-Get-ScheduledTask -TaskName "Device" | Disable-ScheduledTask
-Get-ScheduledTask -TaskName "DmClient" | Disable-ScheduledTask
-Get-ScheduledTask -TaskName "DmClientOnScenarioDownload " | Disable-ScheduledTask
-Get-ScheduledTask -TaskName "KernelCeipTask" | Disable-ScheduledTask
-Get-ScheduledTask -TaskName "MareBackup" | Disable-ScheduledTask # Telemetry
-Get-ScheduledTask -TaskName "Microsoft Compatibility Appraiser" | Disable-ScheduledTask # Telemetry
-Get-ScheduledTask -TaskName "OfficeTelemetryAgentFallBack2016" | Disable-ScheduledTask
-Get-ScheduledTask -TaskName "OfficeTelemetryAgentLogOn2016" | Disable-ScheduledTask
-Get-ScheduledTask -TaskName "ProgramDataUpdater" | Disable-ScheduledTask
-Get-ScheduledTask -TaskName "Proxy" | Disable-ScheduledTask # Telemetry
-Get-ScheduledTask -TaskName "QueueReporting" | Disable-ScheduledTask # Error reporting
-Get-ScheduledTask -TaskName "StartupAppTask" | Disable-ScheduledTask # Checks what startup apps you have on log-in and recommends to disable
-Get-ScheduledTask -TaskName "UsbCeip" | Disable-ScheduledTask # Telemetry about your USB devices
-Get-ScheduledTask -TaskName "Microsoft-Windows-DiskDiagnosticDataCollector" | Disable-ScheduledTask # Telemetry
-
-# Disable SMBv1
-Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName SMB1Protocol
-dism /Online /Disable-Feature /FeatureName:"SMB1Protocol-Client" /NoRestart
-dism /Online /Disable-Feature /FeatureName:"SMB1Protocol-Server" /NoRestart
-
-# Disable XPS Document Writer
-Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName Printing-XPSServices-Features
-
-# Disable Work folders for Windows Server (Do not turn this off if you are connected to AD)
-Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName WorkFolders-Client
-
-# Disable PowerShell 2.0
-dism /online /Disable-Feature /FeatureName:"MicrosoftWindowsPowerShellV2Root" /NoRestart
-dism /online /Disable-Feature /FeatureName:"MicrosoftWindowsPowerShellV2" /NoRestart
-
-# Disable Windows Media Player
-Get-WindowsCapability -Online -Name 'Media.WindowsMediaPlayer*' | Remove-WindowsCapability -Online
-
-# Disable IE / IE mode
-Get-WindowsCapability -Online -Name 'Browser.InternetExplorer*' | Remove-WindowsCapability -Online
-dism /Online /Disable-Feature /FeatureName:"Internet-Explorer-Optional-x64" /NoRestart
-dism /Online /Disable-Feature /FeatureName:"Internet-Explorer-Optional-x84" /NoRestart
-dism /Online /Disable-Feature /FeatureName:"Internet-Explorer-Optional-amd64" /NoRestart
-
-# Disable the telnet client
-dism /Online /Disable-Feature /FeatureName:"TelnetClient" /NoRestart
-
-# Uninstall some "optional apps"
-Get-WindowsCapability -Online -Name 'App.Support.QuickAssist*' | Remove-WindowsCapability -Online
-Get-WindowsCapability -Online -Name 'App.StepsRecorder*' | Remove-WindowsCapability -Online
-Get-WindowsCapability -Online -Name 'Microsoft.Windows.PowerShell.ISE*' | Remove-WindowsCapability -Online
-Get-WindowsCapability -Online -Name 'MathRecognizer*' | Remove-WindowsCapability -Online
-Get-WindowsCapability -Online -Name 'OpenSSH.Client*' | Remove-WindowsCapability -Online
-
-# Install WSL (Windows Subsystem for Linux, aka Linux in Windows)
-wsl --install
-
-# Update Defender signatures before running any scan
-Set-MpPreference -CheckForSignaturesBeforeRunningScan 1
-Set-MpPreference -EnableNetworkProtection Enabled
-Set-MpPreference -PUAProtection Enabled
-
-# Disable Defender saying to sign into a MS account (lol!)
-reg add "HKCU\Software\Microsoft\Windows Security Health\State" /v "AccountProtection_MicrosoftAccount_Disconnected" /t REG_DWORD /d 1 /f
-
-# Disable Defender saying to turn on Edge smartscreen filter
-reg add "HKCU\Software\Microsoft\Windows Security Health\State" /v "AppAndBrowser_EdgeSmartScreenOff" /t REG_DWORD /d 0 /f
-
-# Disable MS store in "open with"
-reg add "HKCU\Software\Policies\Microsoft\Windows\Explorer" /v "NoUseStoreOpenWith" /t REG_DWORD /d 1 /f
-
-# Hide "share" in context menu (From Sophia script)
-Remove-Item -Path "Registry::HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\ModernSharing" -Recurse -Force -ErrorAction Ignore
-<!-- enable
-if (-not (Test-Path -Path "Registry::HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\ModernSharing"))
-{
-New-Item -Path "Registry::HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\ModernSharing" -Force
-}
-New-ItemProperty -Path "Registry::HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\ModernSharing" -Name "(default)" -PropertyType String -Value "{e2bf9676-5f8f-435c-97eb-11607a5bedf7}" -Force
--->
-
-## Disable IPv6 (Only disable if you do not have it / ISP does not support it, IPv6 is good!)
-#Disable-NetAdapterBinding -Name * -ComponentID ms_tcpip6
-
-# Clean-up system
-Clear-RecycleBin -Force -ErrorAction SilentlyContinue
-Clear-BCCache -Force -ErrorAction SilentlyContinue
-Remove-Item -Force -Confirm:$false -Recurse $env:LocalAppData\Microsoft\Windows\Explorer\*.db
-Remove-Item -Force -Confirm:$false $env:localappdata\Temp\*
-Remove-Item -Force -Confirm:$false "$env:WINDIR\Temp"
-Remove-Item -Force -Confirm:$false "$env:TEMP"`;
-
-const code6 = String.raw`# Manually add winget repository source, as it is bugged. thanks MS
-Add-AppxPackage -Path https://cdn.winget.microsoft.com/cache/source.msix
-winget upgrade --exact --accept-source-agreements --accept-package-agreements
-
-# The apps i like to install, don't have to do all of them (and you really shouldn't)
-winget install --accept-source-agreements --accept-package-agreements Alex313031.Thorium.AVX2 Git.Git Microsoft.VisualStudioCode Discord.Discord Valve.Steam Vendicated.Vencord yt-dlp.yt-dlp Gyan.FFmpeg MusicBee.MusicBee voidtools.Everything GIMP.GIMP KDE.Krita Notion.Notion M2Team.NanaZip PrismLauncher.PrismLauncher BleachBit.BleachBit CPUID.CPU-Z CPUID.HWMonitor qBittorrent.qBittorrent Microsoft.DotNet.DesktopRuntime.8 EpicGames.EpicGamesLauncher GoLang.Go TechPowerUp.GPU-Z EclipseAdoptium.Temurin.21.JDK JetBrains.Toolbox rocksdanister.LivelyWallpaper mpv.net OBSProject.OBSStudio CalcProgrammer1.OpenRGB dotPDN.PaintDotNet Microsoft.PowerToys Python.Python.3.12 Rustlang.Rust.MSVC Microsoft.VCRedist.2015+.x64 Microsoft.VisualStudio.2022.Community AntibodySoftware.WizTree`;
-
-const code7 = String.raw`# Run this command as an administrator
-Set-ExecutionPolicy Bypass -Scope Process -Force
-[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
-iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))`;
----
-
-<ArticleLayout
-  description="this is a windows 11 setup guide"
-  heading="Windows 11 Setup"
-  lastUpdated="2026-06-12"
->
-  <p><b>Update 2026-06-12: Do not follow this guide without knowing what you are doing.</b></p>
-
-  <h2><a href="#pre-requisites">Pre-requisites</a></h2>
-
-  <ul>
-    <li>Just have a computer capable of TPM and Secure Boot and all of that stuff</li>
-    <li>An en_US <a href="https://www.microsoft.com/software-download/windows11">Windows 11 ISO</a> (Latest as of writing is <code>23H2x64_v2</code>)</li>
-    <li>A working internet connection. No matter what, you will send information to Microsoft. You <i>shouldn't</i> need it for installing the OS, but it's best to have it anyway.</li>
-  </ul>
-
-  <h2><a href="#installation">Installation</a></h2>
-
-  <ol>
-    <li>Set your <i>Language and Time</i> and <i>Currency</i> settings.</li>
-    <li>Install the <b>Windows 11 Pro</b> version.</li>
-    <ul>
-      <li>If you have a Intel Xeon or AMD Epyc processor, then use <i>Pro for Workstations</i>.</li>
-    </ul>
-    <li>Follow through all the prompts as you need.</li>
-    <li>When getting to the Microsoft sign-in prompt, enter <code>fake@fake.com</code> in the email section and type a random password to unlock local accounts.</li>
-    <ul>
-      <li>Sometimes you will need to enter the email/password, and then restart the PC and enter it again for local accounts to show up.</li>
-      <li>If you do not have internet, press <code>Shift+F10</code> to open cmd and paste <code>OOBE\BYPASSNRO</code>, then the <b>I don't have internet</b> should become visible.</li>
-    </ul>
-    <li>
-      At this point you should see the Windows background. Go straight to Windows Update and
-      <b>update your system</b>. This includes all optional updates in advanced settings&gt;optional settings.
-    </li>
-  </ol>
-
-  <h2><a href="#disable-telemetry">Disable telemetry and always-online features</a></h2>
-
-  <p><b>Update 2025-03-01: Use with caution.</b></p>
-  <p>Update 2024-07-02: I'm going to be honest, Windows 11's updates have been very good in minimizing the amount of default overhead and this isn't extremely needed anymore. Still, if there's something here that seems interesting, use it.</p>
-  <p>
-    <i>Tweaks researched by myself, and some cherrypicked from <a href="https://github.com/ChrisTitusTech/winutil">winutil</a>, <a href="https://github.com/farag2/Sophia-Script-for-Windows">Sophia script</a> and
-    <a href="https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat/tree/master">simeononsecurity</a>.</i>
-  </p>
-
-  <p>Take the following code and dump it into a <code>.ps1</code> file and then run it as Administrator, and it should work! <b>I am not responsible for anything that goes wrong</b>, please look over what you copy and paste.</p>
-  <p><i>Note: you will still need to manually turn off Activity history.</i></p>
-
-  <Code code={code1} lang="powershell" theme="github-light" />
-
-  <h2><a href="#disable-features">Disable un-needed features (performance)</a></h2>
-
-  <p>You will need to turn off all startup apps, but you should keep <i>Windows Security</i> enabled.</p>
-
-  <Code code={code2} lang="powershell" theme="github-light" />
-
-  <h2><a href="#enable-features">Enable nice features</a></h2>
-
-  <p>You will need to manually turn on Night light, Enhanced search and the power mode.</p>
-
-  <Code code={code3} lang="powershell" theme="github-light" />
-
-  <h2><a href="#uninstall-default-applications">Uninstall default apps</a></h2>
-
-  <p>I keep Notepad, Paint, the MS Store, all video/image extensions, Photos, Camera, Calculator, Clock, Snipping Tool, Sticky Notes, Terminal and all the Xbox stuff.</p>
-  <p>You will need to uninstall OneDrive separately, or make it not auto-backup your folders.</p>
-
-  <Code code={code4} lang="powershell" theme="github-light" />
-
-  <h2><a href="#other-pwsh-tweaks">Other Powershell tweaks</a></h2>
-
-  <Code code={code5} lang="powershell" theme="github-light" />
-
-  <h2><a href="#app-installation">App installation</a></h2>
+  <h2><a href="#app-installation">App Installation</a></h2>
 
   <h3><a href="#app-installation_winget">winget</a></h3>
 
-  <Code code={code6} lang="powershell" theme="github-light" />
+  <Code code={codeWinget} lang="powershell" theme="github-light" />
 
   <h3><a href="#app-installation_choco">Chocolatey</a></h3>
-  <p>
-    <i><a href="https://community.chocolatey.org/">Chocolatey website link</a></i>
-  </p>
+  <p><a href="https://community.chocolatey.org/" target="_blank" rel="noopener">Chocolatey website</a></p>
 
-  <Code code={code7} lang="powershell" theme="github-light" />
+  <Code code={codeChoco} lang="powershell" theme="github-light" />
 
   <h2><a href="#testing">Testing</a></h2>
 
-  <p>On a fresh installation of Windows 11 Pro 23H2x64_v2 with VMWare &amp; VMWare Tools, with a local account set-up for personal use and the PC restarted:</p>
+  <p><i>Results below were recorded on Windows 11 Pro 23H2 in VMware with a local account. Results on 25H2 may vary.</i></p>
+
+  <p>Fresh installation, no tweaks applied:</p>
 
   <img width="48%" src="/img/articles/windows11/windows11_cpu_initial.png" />
   <img width="48%" src="/img/articles/windows11/windows11_ram_initial.png" />
 
-  <p>With most of the tweaks (WSL/winget/choco not included) and a restart without an internet connection:</p>
+  <p>With most tweaks applied (WSL/winget/choco excluded), after a restart with no internet:</p>
 
   <img width="48%" src="/img/articles/windows11/windows11_cpu_tweaked.png" />
   <img width="48%" src="/img/articles/windows11/windows11_ram_tweaked.png" />
 
-  <p>With EVERYTHING applied, Microsoft Edge disabled on startup and a Windows Update [2024-04 CU W11 23H2 x64(KB5036893)], it goes to:</p>
+  <p>With everything applied, Edge disabled on startup, and a Windows Update installed:</p>
 
   <img width="48%" src="/img/articles/windows11/windows11_cpu_everything.png" />
   <img width="48%" src="/img/articles/windows11/windows11_ram_everything.png" />
